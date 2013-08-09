@@ -189,14 +189,37 @@
         <version>${slf4j.version}</version>
       </dependency>
 
-      <!-- SLF4J implementation for use in testing -->
+      <!-- Trezorj consumers are expected to provide their own SLF4J adapters
+           such as logback, slf4j-log4j12, slf4j-jcl and so on
+           The SLF4J Simple is just for console logging for the tests and examples
+           see http://www.slf4j.org/faq.html -->
       <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <version>1.0.9</version>
-        <!-- Test scope prevents this implementation bleeding out to consuming
-          applications -->
-        <scope>test</scope>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>${slf4j.version}</version>
+        <scope>runtime</scope>
+        <optional>true</optional>
+      </dependency>
+
+      <!-- Google Guava for code utilities -->
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>13.0.1</version>
+      </dependency>
+
+      <!-- Findbugs annotations -->
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>jsr305</artifactId>
+        <version>1.3.9</version>
+      </dependency>
+
+      <!-- Java HID API for USB -->
+      <dependency>
+        <groupId>com.codeminders</groupId>
+        <artifactId>hidapi</artifactId>
+        <version>1.1</version>
       </dependency>
 
     </dependencies>
@@ -211,31 +234,32 @@
       <artifactId>slf4j-api</artifactId>
       <version>${slf4j.version}</version>
     </dependency>
-    <!-- Trezorj consumers are expected to provide their own SLF4J adapters
-         such as logback, slf4j-log4j12, slf4j-jcl and so on
-         The SLF4J Simple is just for console logging for the tests and examples
-         see http://www.slf4j.org/faq.html -->
+
+    <!-- Provide a simple implementation for use with tests and examples -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>${slf4j.version}</version>
-      <scope>runtime</scope>
-      <optional>true</optional>
     </dependency>
 
     <!-- Google Guava for code utilities -->
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>13.0.1</version>
     </dependency>
 
     <!-- Findbugs annotations -->
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
-      <version>1.3.9</version>
     </dependency>
+
+    <!-- Java HID API for USB -->
+    <dependency>
+      <groupId>com.codeminders</groupId>
+      <artifactId>hidapi</artifactId>
+    </dependency>
+
+    <!-- Testing -->
 
     <!-- JUnit for testing -->
     <dependency>
