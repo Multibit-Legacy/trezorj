@@ -33,14 +33,14 @@
                 <configuration>
                   <tasks>
                     <path id="proto.path">
-                      <fileset dir="src">
+                      <fileset dir="src/main/protobuf">
                         <include name="**/*.proto"/>
                       </fileset>
                     </path>
                     <pathconvert pathsep=" " property="proto.files" refid="proto.path"/>
-                    <exec executable="protoc" failonerror="true">
+                    <exec executable="/usr/local/bin/protoc" failonerror="true">
+                      <arg value="-I=${project.basedir}/src/main/protobuf"/>
                       <arg value="--java_out=${project.basedir}/src/main/java"/>
-                      <arg value="-I${project.basedir}/src"/>
                       <arg line="${proto.files}"/>
                     </exec>
                   </tasks>
@@ -60,11 +60,11 @@
   <!-- Parent provides default configuration for dependencies -->
   <dependencies>
 
-    <!-- Google Protocol Buffers compiler -->
+    <!-- Google Protocol Buffers support -->
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
-      <version>2.4.1</version>
+      <version>2.5.0</version>
     </dependency>
 
     <dependency>

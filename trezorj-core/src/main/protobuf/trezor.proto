@@ -1,3 +1,6 @@
+option java_package = "uk.co.bsol.trezorj.core.protobuf";
+option java_outer_classname = "Trezor";
+
 /*
 	This file describes Protocol buffers messages for bitcoin hardware wallet devices.
 
@@ -261,4 +264,12 @@ message TxOutput {
     required uint64 amount = 4;			// Amount to send in satoshis
     required ScriptType script_type = 5;// Select output script type
     repeated bytes script_args = 6;		// Provide additional parameters for the script (its script-depended)
+}
+
+message Wallet {
+    required Algorithm algo = 1;
+    required bytes secexp = 2;
+    optional bool has_otp = 3;
+    optional bool has_spv = 4;
+    optional bytes pin = 5;
 }
