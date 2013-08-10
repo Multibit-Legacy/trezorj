@@ -1,5 +1,4 @@
-Status: [![Build Status](https://travis-ci.org/bitcoin-solutions/trezorj.png?branch=master)]
-(https://travis-ci.org/bitcoin-solutions/trezorj)
+Status: [![Build Status](https://travis-ci.org/bitcoin-solutions/trezorj.png?branch=master)](https://travis-ci.org/bitcoin-solutions/trezorj)
 
 ### Trezorj
 
