@@ -12,10 +12,8 @@ it.
 
 ### Getting started
 
-
-### Useful articles from the Wiki
-
-[How to get the Trezor Python library working on a bare Raspberry Pi]()
+Have a read of [the wiki pages](https://github.com/bitcoin-solutions/trezorj/wiki/_pages) which gives comprehensive instructions
+for a variety of environments - particularly a Raspberry Pi with Shield.
 
 
 
