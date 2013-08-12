@@ -77,7 +77,6 @@
 
   <modules>
     <module>trezorj-core</module>
-    <module>trezorj-rpi</module>
     <module>trezorj-examples</module>
   </modules>
 
