@@ -30,6 +30,13 @@
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
 
+    <!-- Use Logback for logging the examples -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.0.9</version>
+    </dependency>
+
   </dependencies>
 
 </project>

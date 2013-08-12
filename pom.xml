@@ -178,13 +178,14 @@
 
       <!-- Trezorj consumers are expected to provide their own SLF4J adapters
            such as logback, slf4j-log4j12, slf4j-jcl and so on
-           The SLF4J Simple is just for console logging for the tests and examples
-           see http://www.slf4j.org/faq.html -->
+           The SLF4J Simple is just for console logging for the tests
+           Logback is used specifically in the /examples modules since they are external
+           See http://www.slf4j.org/faq.html -->
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>
         <version>${slf4j.version}</version>
-        <scope>runtime</scope>
+        <scope>test</scope>
         <optional>true</optional>
       </dependency>
 
@@ -209,6 +210,31 @@
         <version>1.1</version>
       </dependency>
 
+      <!-- Testing -->
+
+      <!-- JUnit for testing -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.11</version>
+        <scope>test</scope>
+      </dependency>
+
+      <!-- FEST for fluent test assertions -->
+      <dependency>
+        <groupId>org.easytesting</groupId>
+        <artifactId>fest-assert-core</artifactId>
+        <version>2.0M10</version>
+        <scope>test</scope>
+      </dependency>
+
+      <!-- Mockito for mocking -->
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>1.8.5</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 
@@ -219,13 +245,6 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>${slf4j.version}</version>
-    </dependency>
-
-    <!-- Provide a simple implementation for use with tests and examples -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
     </dependency>
 
     <!-- Google Guava for code utilities -->
@@ -252,16 +271,18 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
     </dependency>
 
     <!-- FEST for fluent test assertions -->
     <dependency>
       <groupId>org.easytesting</groupId>
       <artifactId>fest-assert-core</artifactId>
-      <version>2.0M10</version>
-      <scope>test</scope>
+    </dependency>
+
+    <!-- Mockito for mocking -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
     </dependency>
 
   </dependencies>

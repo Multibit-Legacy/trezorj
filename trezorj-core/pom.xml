@@ -57,7 +57,7 @@
     </profile>
   </profiles>
 
-  <!-- Parent provides default configuration for dependencies -->
+  <!-- Parent provides default configuration for most dependencies -->
   <dependencies>
 
     <!-- Google Protocol Buffers support -->
@@ -65,11 +65,6 @@
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
       <version>2.5.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
     </dependency>
 
   </dependencies>

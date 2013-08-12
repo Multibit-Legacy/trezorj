@@ -1,5 +1,5 @@
 option java_package = "uk.co.bsol.trezorj.core.protobuf";
-option java_outer_classname = "Trezor";
+option java_outer_classname = "TrezorMessage";
 
 /*
 	This file describes Protocol buffers messages for bitcoin hardware wallet devices.
