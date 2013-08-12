@@ -23,12 +23,6 @@
       <artifactId>trezorj-core</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
-    <!-- Trezorj Raspberry Pi support -->
-    <dependency>
-      <groupId>uk.co.bitcoin-solutions</groupId>
-      <artifactId>trezorj-rpi</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-    </dependency>
 
     <!-- Use Logback for logging the examples -->
     <dependency>
