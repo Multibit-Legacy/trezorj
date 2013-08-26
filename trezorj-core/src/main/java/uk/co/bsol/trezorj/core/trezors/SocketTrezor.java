@@ -2,6 +2,8 @@ package uk.co.bsol.trezorj.core.trezors;
 
 import com.google.common.base.Preconditions;
 import com.google.protobuf.AbstractMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
 
 import java.io.*;
@@ -18,9 +20,10 @@ import java.net.Socket;
  */
 public class SocketTrezor extends AbstractTrezor implements Trezor {
 
+  private static final Logger log = LoggerFactory.getLogger(SocketTrezor.class);
+
   private Socket socket = null;
   private DataOutputStream out = null;
-  private DataInputStream in = null;
 
   private final String host;
   private final int port;
@@ -53,7 +56,7 @@ public class SocketTrezor extends AbstractTrezor implements Trezor {
 
       // Add buffered data streams for easy data manipulation
       out = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream(), 1024));
-      in = new DataInputStream(new BufferedInputStream(socket.getInputStream(), 1024));
+      DataInputStream in = new DataInputStream(new BufferedInputStream(socket.getInputStream(), 1024));
 
       // Monitor the input stream
       monitorDataInputStream(in);
@@ -64,13 +67,14 @@ public class SocketTrezor extends AbstractTrezor implements Trezor {
   }
 
   @Override
-  public synchronized void close() {
+  public synchronized void internalClose() {
 
     Preconditions.checkNotNull(socket, "Socket is not connected");
 
     // Attempt to close the socket (also closes the in/out streams)
     try {
       socket.close();
+      log.info("Disconnected from Trezor");
     } catch (IOException e) {
       throw new IllegalArgumentException(e);
     }

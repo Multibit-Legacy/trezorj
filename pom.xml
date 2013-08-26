@@ -54,6 +54,15 @@
     <url>https://github.com/bitcoin-solutions/trezorj/issues</url>
   </issueManagement>
 
+  <repositories>
+    <repository>
+      <id>bitcoinj-releases</id>
+      <name>Bitcoinj Releases</name>
+      <url>http://distribution.bitcoinj.googlecode.com/git/releases</url>
+      <releases />
+    </repository>
+  </repositories>
+
   <distributionManagement>
     <snapshotRepository>
       <id>sonatype-nexus-snapshots</id>
@@ -209,6 +218,13 @@
         <version>1.1</version>
       </dependency>
 
+      <!-- Bitcoinj for Bitcoin operations -->
+      <dependency>
+        <groupId>com.google</groupId>
+        <artifactId>bitcoinj</artifactId>
+        <version>0.10</version>
+      </dependency>
+
       <!-- Testing -->
 
       <!-- JUnit for testing -->
@@ -262,6 +278,12 @@
     <dependency>
       <groupId>com.codeminders</groupId>
       <artifactId>hidapi</artifactId>
+    </dependency>
+
+    <!-- Bitcoinj for Bitcoin operations -->
+    <dependency>
+      <groupId>com.google</groupId>
+      <artifactId>bitcoinj</artifactId>
     </dependency>
 
     <!-- Testing -->

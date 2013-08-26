@@ -266,6 +266,9 @@ message TxOutput {
     repeated bytes script_args = 6;		// Provide additional parameters for the script (its script-depended)
 }
 
+// Send to the device
+//
+// Response: Success, Failure
 message Wallet {
     required Algorithm algo = 1;
     required bytes secexp = 2;

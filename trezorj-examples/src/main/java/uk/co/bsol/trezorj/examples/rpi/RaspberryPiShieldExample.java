@@ -1,18 +1,17 @@
 package uk.co.bsol.trezorj.examples.rpi;
 
+import com.google.bitcoin.core.Address;
+import com.google.bitcoin.core.AddressFormatException;
+import com.google.bitcoin.core.Transaction;
 import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.bsol.trezorj.core.Trezor;
-import uk.co.bsol.trezorj.core.TrezorEvent;
-import uk.co.bsol.trezorj.core.TrezorFactory;
-import uk.co.bsol.trezorj.core.TrezorListener;
+import uk.co.bsol.trezorj.core.BlockingTrezorClient;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
+import uk.co.bsol.trezorj.core.utils.FakeTransactions;
 
 import java.io.IOException;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.math.BigInteger;
 
 /**
  * <p>Example of communicating with a Raspberry Pi Shield Trezor:</p>
@@ -30,11 +29,9 @@ import java.util.concurrent.Executors;
  * @since 0.0.1
  *         
  */
-public class RaspberryPiShieldExample implements TrezorListener {
+public class RaspberryPiShieldExample {
 
   private static final Logger log = LoggerFactory.getLogger(RaspberryPiShieldExample.class);
-
-  private BlockingQueue<TrezorEvent> trezorEventQueue;
 
   /**
    * <p>Main entry point to the example</p>
@@ -60,61 +57,68 @@ public class RaspberryPiShieldExample implements TrezorListener {
    *
    * @throws IOException If something goes wrong
    */
-  public void executeExample(String host, int port) throws IOException {
+  public void executeExample(String host, int port) throws IOException, InterruptedException, AddressFormatException {
 
-    // Create a socket Trezor
-    Trezor trezor = TrezorFactory.INSTANCE.newSocketTrezor(host, port);
+    // Create a socket based Trezor client with blocking methods (quite limited)
+    BlockingTrezorClient client = BlockingTrezorClient.newSocketInstance(host, port, BlockingTrezorClient.newSessionId());
 
-    // Add this as the listener (sets the event queue)
-    trezor.addListener(this);
+    // Connect the client
+    client.connect();
 
-    // Set up an executor service to monitor Trezor events
-    createTrezorEventExecutorService();
+    // Initialize
+    client.initialize();
 
-    // Connect
-    trezor.connect();
+    // Send a ping
+    client.ping();
 
-    // Send a message
-    trezor.sendMessage(TrezorMessage.Ping.getDefaultInstance());
+    // Get the device UUID (optional)
+    // client.getUUID();
 
-    // The event thread will report any response
+    // Get some entropy (optional)
+    // client.getEntropy();
+
+    // Load device (words must be on the internal list - this seed is hard coded to some Electrum addresses))
+    char[] seed = "beyond neighbor scratch swirl embarrass doll cause also stick softly physical nice".toCharArray();
+    client.loadDevice(
+      TrezorMessage.Algorithm.ELECTRUM,
+      seed,
+      false,
+      "1234".getBytes(),
+      false
+    );
+
+    // Reset device (optional)
+    // byte[] entropy = client.newEntropy(256);
+    // client.resetDevice(entropy);
+
+    // Get the master public key (optional)
+    //client.getMasterPublicKey();
+
+    // Sign a transaction
+    Address ourReceivingAddress = FakeTransactions.getElectrumAddressN(new int[] {0,0});
+    Address ourChangeAddress = FakeTransactions.getElectrumAddressN(new int[] {0,1});
+    Address random2Address = FakeTransactions.asMainNetAddress("1MKw8vWxvBnaBcrL2yXvZceqyRMoeG2kRn");
+
+    Transaction tx = FakeTransactions.newMainNetFakeTx(
+      ourReceivingAddress,
+      ourChangeAddress,
+      random2Address,
+      BigInteger.TEN,
+      BigInteger.ONE
+    );
+
+    client.signTx(tx);
+
+    log.info(tx.toString());
+
+    log.info("Closing connections");
+
+    // Close the connection
+    client.close();
+
+    log.info("Exiting");
 
   }
 
-  /**
-   * The Trezor event monitoring executor service
-   */
-  private void createTrezorEventExecutorService() {
 
-    ExecutorService trezorEventExecutorService = Executors.newSingleThreadExecutor();
-    trezorEventExecutorService.submit(new Runnable() {
-      @Override
-      public void run() {
-
-        BlockingQueue<TrezorEvent> queue = getTrezorEventQueue();
-
-        while (true) {
-          try {
-            TrezorEvent event = queue.take();
-
-            log.info("Received event: {}",event.originatingMessage().get().getClass().getName());
-
-          } catch (InterruptedException e) {
-            break;
-          }
-        }
-
-      }
-    });
-  }
-
-  @Override
-  public BlockingQueue<TrezorEvent> getTrezorEventQueue() {
-    return trezorEventQueue;
-  }
-
-  @Override
-  public void setTrezorEventQueue(BlockingQueue<TrezorEvent> trezorEventQueue) {
-    this.trezorEventQueue = trezorEventQueue;
-  }
 }

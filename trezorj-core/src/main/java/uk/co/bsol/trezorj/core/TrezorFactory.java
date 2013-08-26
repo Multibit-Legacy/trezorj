@@ -9,9 +9,9 @@ import uk.co.bsol.trezorj.core.trezors.SocketTrezor;
  * </ul>
  * <p>Example:</p>
  * <pre>
- *   Trezor trezor = TrezorFactory.INSTANCE.newSocketTrezor("192.168.0.1",3000)
+ *   SocketTrezor trezor = TrezorFactory.INSTANCE.newSocketTrezor("192.168.0.1",3000)
  * </pre>
- * <p>See the /examples module for more comprehensive examples</p>
+ * <p>See the trezorj-examples module for more comprehensive examples</p>
  *
  * @since 0.0.1
  *         
@@ -23,10 +23,15 @@ public enum TrezorFactory {
   // End of enum
   ;
 
-  public Trezor newSocketTrezor(String host, int port) {
+  /**
+   *
+   * @param host The host  (e.g. "localhost", "192.168.0.1" etc)
+   * @param port The port (e.g. 3000)
+   * @return A socket based Trezor
+   */
+  public SocketTrezor newSocketTrezor(String host, int port) {
 
     return new SocketTrezor(host, port);
-
 
   }
 

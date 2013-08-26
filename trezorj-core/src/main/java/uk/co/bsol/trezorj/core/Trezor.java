@@ -16,18 +16,18 @@ import java.io.IOException;
 public interface Trezor {
 
   /**
-   * <p>Called to attempt a connection to the device</p>
+   * <p>Attempt a connection to the device</p>
    */
   void connect();
 
   /**
-   * <p>Called to break the connection to the device</p>
+   * <p>Break the connection to the device</p>
    */
   void close();
 
   /**
    * <p>Send a message to the device using the generated protocol buffer classes</p>
-   * <p>Any response will be provided through the listener interface</p>
+   * <p>Any response will be provided through the listener interface (Callback mode)</p>
    *
    * @param message A generated protocol buffer message (e.g. Message.Initialize)
    *
