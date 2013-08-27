@@ -16,20 +16,22 @@ import uk.co.bsol.trezorj.core.trezors.SocketTrezor;
  * @since 0.0.1
  *         
  */
-public enum TrezorFactory {
-
-  INSTANCE
-
-  // End of enum
-  ;
+public class TrezorFactory {
 
   /**
+   * Utilities do not require a public constructor
+   */
+  private TrezorFactory() {
+  }
+
+  /**
+   * <p>Create a new instance of a socket based Trezor device</p>
    *
    * @param host The host  (e.g. "localhost", "192.168.0.1" etc)
    * @param port The port (e.g. 3000)
    * @return A socket based Trezor
    */
-  public SocketTrezor newSocketTrezor(String host, int port) {
+  public static SocketTrezor newSocketTrezor(String host, int port) {
 
     return new SocketTrezor(host, port);
 

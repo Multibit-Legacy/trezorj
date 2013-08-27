@@ -102,6 +102,7 @@ public class FakeTransactions {
    * <li>output[1]: us giving us change</li>
    * </ul>
    * <p>See {@link uk.co.bsol.trezorj.core.utils.FakeTransactions#newMainNetAddress()} for new Addresses</p>
+   * <p>Note that in Bitcoinj a satoshi is a "nanocoin"</p>
    *
    * @param ourReceivingAddress       Our receiving address (present on the input from random1)
    * @param ourChangeAddress Our change address
@@ -129,7 +130,7 @@ public class FakeTransactions {
     TransactionOutput random1Output = new TransactionOutput(
       params,
       random1Tx,
-      inputSatoshis.multiply(BigInteger.TEN), // Convert to nanocoins for Bitcoinj
+      inputSatoshis,
       ourReceivingAddress
     );
     random1Tx.addOutput(random1Output);
@@ -144,7 +145,7 @@ public class FakeTransactions {
     TransactionOutput random2Output = new TransactionOutput(
       params,
       ourTx,
-      outputSatoshis.multiply(BigInteger.TEN),
+      outputSatoshis,
       random2Address
     );
     ourTx.addOutput(random2Output);
@@ -153,7 +154,7 @@ public class FakeTransactions {
     TransactionOutput ourChangeOutput = new TransactionOutput(
       params,
       ourTx,
-      inputSatoshis.subtract(outputSatoshis).multiply(BigInteger.TEN),
+      inputSatoshis.subtract(outputSatoshis),
       ourChangeAddress
     );
     ourTx.addOutput(ourChangeOutput);

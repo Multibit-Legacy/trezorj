@@ -84,7 +84,7 @@ public class BlockingTrezorClient implements TrezorListener {
   public static BlockingTrezorClient newSocketInstance(String host, int port, ByteString sessionId) {
 
     // Create a socket Trezor
-    Trezor trezor = TrezorFactory.INSTANCE.newSocketTrezor(host, port);
+    Trezor trezor = TrezorFactory.newSocketTrezor(host, port);
 
     BlockingTrezorClient trezorClient = new BlockingTrezorClient(trezor, sessionId);
 

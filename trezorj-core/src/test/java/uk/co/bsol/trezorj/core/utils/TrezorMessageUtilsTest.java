@@ -29,7 +29,7 @@ public class TrezorMessageUtilsTest {
       BigInteger.ONE
     );
 
-    byte[] expectedPrevHash = new byte[] {95, 107, -44, 58, 92, 38, -71, -24, -48, 55, -60, 5, -5, -41, 5, -49, 75, -105, -60, 54, 82, -123, -115, 88, 36, -99, 19, -43, 39, -23, -7, 102};
+    byte[] expectedPrevHash = new byte[] {-37, 34, -99, 85, -58, 79, 11, -8, 14, 64, 35, -18, 54, 14, -46, -43, -91, -66, 98, -68, 117, 99, 67, 49, -63, 86, -77, -75, -115, -122, 69, -43};
     byte[] expectedScriptSig = new byte[] {};
 
     // Act
