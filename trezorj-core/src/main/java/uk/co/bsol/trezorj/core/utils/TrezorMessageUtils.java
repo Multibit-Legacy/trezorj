@@ -9,8 +9,6 @@ import com.google.common.base.Preconditions;
 import com.google.protobuf.ByteString;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 
-import java.math.BigInteger;
-
 /**
  * <p>Utility class to provide the following to applications:</p>
  * <ul>
@@ -50,9 +48,8 @@ public final class TrezorMessageUtils {
     long prevIndex = txInput.getOutpoint().getIndex();
     byte[] prevHash = txInput.getOutpoint().getHash().getBytes();
 
-    // TODO (JB) Verify that this is the correct way to get the input tx value
-    // Convert from nanocoins
-    long satoshiAmount = txInput.getConnectedOutput().getValue().divide(BigInteger.TEN).longValue();
+    // In Bitcoinj "nanocoins" are Satoshis
+    long satoshiAmount = txInput.getConnectedOutput().getValue().longValue();
     builder.setAmount(satoshiAmount);
 
     try {
@@ -91,9 +88,8 @@ public final class TrezorMessageUtils {
     TrezorMessage.TxOutput.Builder builder = TrezorMessage.TxOutput.newBuilder();
     builder.setIndex(index);
 
-    // TODO (JB) Verify that this is the correct way to get the input tx value
-    // Convert from nanocoins
-    long satoshiAmount = txOutput.getValue().divide(BigInteger.TEN).longValue();
+    // In Bitcoinj "nanocoins" are Satoshis
+    long satoshiAmount = txOutput.getValue().longValue();
     builder.setAmount(satoshiAmount);
 
     // Extract the receiving address from the output
@@ -104,7 +100,7 @@ public final class TrezorMessageUtils {
     }
     //builder.setAddressBytes(ByteString.copyFrom("".getBytes()));
 
-    // TODO (JB) How can I find the script type P2SH etc?
+    // Bitcoinj only support Pay to Address
     builder.setScriptType(TrezorMessage.ScriptType.PAYTOADDRESS);
 
     // TODO (GR) Verify what ScriptArgs is doing (array of script arguments?)
