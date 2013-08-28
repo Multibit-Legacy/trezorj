@@ -27,13 +27,19 @@ public class ListAllAttachedDevices {
   public static void main(String[] args) throws Exception {
 
     // Initialise the HID library
-    ClassPathLibraryLoader.loadNativeHIDLibrary();
+    if (!ClassPathLibraryLoader.loadNativeHIDLibrary()) {
+      throw new IllegalStateException("Unable to load native USB library (Win, Mac or Linux)");
+    }
 
     // Get the HID manager
     HIDManager hidManager = HIDManager.getInstance();
 
-    // List the attached devices
+    // Attempt to list the attached devices
     HIDDeviceInfo[] infos = hidManager.listDevices();
+    if (infos == null) {
+      throw new IllegalStateException("Unable to access connected device list. Check security policy.");
+    }
+
     for (HIDDeviceInfo info : infos) {
       log.info("Attached device info: " + info.toString());
     }
