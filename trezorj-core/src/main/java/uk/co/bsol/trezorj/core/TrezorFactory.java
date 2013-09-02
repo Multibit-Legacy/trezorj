@@ -1,6 +1,8 @@
 package uk.co.bsol.trezorj.core;
 
+import com.google.common.base.Optional;
 import uk.co.bsol.trezorj.core.trezors.SocketTrezor;
+import uk.co.bsol.trezorj.core.trezors.UsbTrezor;
 
 /**
  * <p>Factory to provide the following to applications:</p>
@@ -25,16 +27,27 @@ public class TrezorFactory {
   }
 
   /**
-   * <p>Create a new instance of a socket based Trezor device</p>
+   * <p>Create a new isntance of a USB-based Trezor device (standard)</p>
+   * @param vendorIdOptional The vendor ID (default is 0x10c4)
+   * @param productIdOptional The product ID (default is 0xea80)
+   * @param serialNumberOptional The device serial number (default is to accept any)
+   * @return A USB-based Trezor
+   */
+  public static UsbTrezor newUsbTrezor(Optional<Integer> vendorIdOptional, Optional<Integer> productIdOptional, Optional<String> serialNumberOptional) {
+
+    return new UsbTrezor(vendorIdOptional, productIdOptional, serialNumberOptional);
+  }
+
+  /**
+   * <p>Create a new instance of a socket-based Trezor device (development)</p>
    *
    * @param host The host  (e.g. "localhost", "192.168.0.1" etc)
    * @param port The port (e.g. 3000)
-   * @return A socket based Trezor
+   * @return A socket-based Trezor
    */
   public static SocketTrezor newSocketTrezor(String host, int port) {
 
     return new SocketTrezor(host, port);
 
   }
-
 }

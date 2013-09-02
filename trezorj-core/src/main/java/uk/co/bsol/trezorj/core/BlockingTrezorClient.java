@@ -97,6 +97,60 @@ public class BlockingTrezorClient implements TrezorListener {
   }
 
   /**
+   * <p>Convenience method to wrap a standard USB Trezor (the normal mode of operation)</p>
+   *
+   * @param sessionId The session ID (typically from {@link BlockingTrezorClient#newSessionId()})
+   *
+   * @return A blocking Trezor client instance with a unique session ID
+   */
+  public static BlockingTrezorClient newDefaultUsbInstance(ByteString sessionId) {
+
+    // Create a USB Trezor
+    Trezor trezor = TrezorFactory.newUsbTrezor(
+      Optional.<Integer>absent(),
+      Optional.<Integer>absent(),
+      Optional.<String>absent()
+    );
+
+    BlockingTrezorClient trezorClient = new BlockingTrezorClient(trezor, sessionId);
+
+    // Add this as the listener (sets the event queue)
+    trezor.addListener(trezorClient);
+
+    // Return the new client
+    return trezorClient;
+  }
+
+  /**
+   * <p>Convenience method to wrap a standard USB Trezor (the normal mode of operation)</p>
+   *
+   * @param vendorIdOptional The vendor ID (uses default if absent)
+   * @param productIdOptional The product ID (uses default if absent)
+   * @param serialNumberOptional The device serial number (accepts any if absent)
+   * @param sessionId The session ID (typically from {@link BlockingTrezorClient#newSessionId()})
+   *
+   * @return A blocking Trezor client instance with a unique session ID
+   */
+  public static BlockingTrezorClient newUsbInstance(
+    Optional<Integer> vendorIdOptional,
+    Optional<Integer> productIdOptional,
+    Optional<String> serialNumberOptional,
+    ByteString sessionId
+  ) {
+
+    // Create a USB Trezor
+    Trezor trezor = TrezorFactory.newUsbTrezor(vendorIdOptional, productIdOptional, serialNumberOptional);
+
+    BlockingTrezorClient trezorClient = new BlockingTrezorClient(trezor, sessionId);
+
+    // Add this as the listener (sets the event queue)
+    trezor.addListener(trezorClient);
+
+    // Return the new client
+    return trezorClient;
+  }
+
+  /**
    * <p>Private constructor since applications should use the static builder methods</p>
    *
    * @param trezor    The Trezor device
