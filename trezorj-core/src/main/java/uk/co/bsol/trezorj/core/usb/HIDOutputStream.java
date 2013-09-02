@@ -26,16 +26,6 @@ public class HIDOutputStream extends OutputStream {
   private final HIDDevice device;
 
   /**
-   * The frame buffer is a single HID frame
-   */
-  private byte[] frameBuffer;
-
-  /**
-   * The frame index is the location within the frame buffer for the next read
-   */
-  private int frameIndex = 0;
-
-  /**
    * @param device The HID device providing the low-level communications
    * @throws java.io.IOException If something goes wrong
    */

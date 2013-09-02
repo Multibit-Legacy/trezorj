@@ -6,7 +6,6 @@ import com.google.bitcoin.core.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.BlockingTrezorClient;
-import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 import uk.co.bsol.trezorj.core.utils.FakeTransactions;
 
 import java.io.IOException;
@@ -75,6 +74,7 @@ public class RaspberryPiShieldUsbExample {
 
     // Load device (words must be on the internal list - this seed is hard coded to some Electrum addresses))
     char[] seed = "beyond neighbor scratch swirl embarrass doll cause also stick softly physical nice".toCharArray();
+/*
     client.loadDevice(
       TrezorMessage.Algorithm.ELECTRUM,
       seed,
@@ -82,7 +82,7 @@ public class RaspberryPiShieldUsbExample {
       "1234".getBytes(),
       false
     );
-
+*/
     // Reset device (optional)
     // byte[] entropy = client.newEntropy(256);
     // client.resetDevice(entropy);
@@ -103,7 +103,7 @@ public class RaspberryPiShieldUsbExample {
       BigInteger.ONE
     );
 
-    client.signTx(tx);
+    //client.signTx(tx);
 
     log.info(tx.toString());
 

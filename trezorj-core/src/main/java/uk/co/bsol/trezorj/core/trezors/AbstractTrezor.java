@@ -82,6 +82,7 @@ public abstract class AbstractTrezor implements Trezor {
           } catch (InterruptedException e) {
             break;
           } catch (IOException e) {
+            log.error(e.getMessage(), e);
             throw new IllegalStateException(e);
           }
         }

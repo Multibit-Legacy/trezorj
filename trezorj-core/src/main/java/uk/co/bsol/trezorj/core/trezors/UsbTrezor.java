@@ -10,9 +10,11 @@ import com.google.protobuf.AbstractMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
-import uk.co.bsol.trezorj.core.usb.CP210xUart;
+import uk.co.bsol.trezorj.core.usb.CP211xBridge;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 
 /**
  * <p>Trezor implementation to provide the following to applications:</p>
@@ -39,7 +41,7 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
   private HIDDevice device = null;
 
   /**
-   * <p>Create a new isntance of a USB-based Trezor device (standard)</p>
+   * <p>Create a new instance of a USB-based Trezor device (standard)</p>
    *
    * @param vendorIdOptional     The vendor ID (default is 0x10c4)
    * @param productIdOptional    The product ID (default is 0xea80)
@@ -51,7 +53,8 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
 
     // Initialise the HID library
     if (!ClassPathLibraryLoader.loadNativeHIDLibrary()) {
-      throw new IllegalStateException("Unable to load native USB library. Check classloader permissions/JAR integrity.");
+      throw new IllegalStateException(
+        "Unable to load native USB library. Check class loader permissions/JAR integrity.");
     }
 
     this.vendorIdOptional = vendorIdOptional;
@@ -86,22 +89,27 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
         hidDeviceInfo.getSerial_number()
       );
 
+      Preconditions.checkNotNull(device,"Unable to open device");
+
       log.debug("Selected: {}, {}, {}", new String[]{
         device.getManufacturerString(),
         device.getProductString(),
         device.getSerialNumberString()
       });
 
-      // Create and configure the UART
-      final CP210xUart uart = new CP210xUart(device);
+      // Create and configure the USB to UART bridge
+      final CP211xBridge uart = new CP211xBridge(device);
+
+      uart.enable(true);
+      uart.purge(3);
 
       // Add unbuffered data streams for easy data manipulation
-      ByteArrayOutputStream baos = new ByteArrayOutputStream(64);
-      out = new DataOutputStream(baos);
-      DataInputStream in = new DataInputStream(new BufferedInputStream(uart.getInputStream(), 1024));
+      out = new DataOutputStream(uart.getOutputStream());
+      DataInputStream in = new DataInputStream(uart.getInputStream());
 
       // Monitor the input stream
       monitorDataInputStream(in);
+
 
     } catch (IOException e) {
       throw new IllegalArgumentException(e);
