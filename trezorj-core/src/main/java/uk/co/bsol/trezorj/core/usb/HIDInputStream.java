@@ -60,7 +60,7 @@ public class HIDInputStream extends InputStream {
       byte[] hidBuffer = new byte[64];
 
       // Attempt to read the next 64-byte message (blocking)
-      int bytesRead = device.read(hidBuffer);
+      int bytesRead = readFromDevice(hidBuffer);
 
       if (bytesRead > 0) {
 
@@ -81,16 +81,27 @@ public class HIDInputStream extends InputStream {
 
     }
 
+    if (frameIndex >= 63) {
+      frameIndex = 0;
+    }
+
     int frameByte = frameBuffer[frameIndex];
 
     frameIndex++;
 
-    if (frameIndex > 63) {
-      frameIndex = 0;
-    }
-
     return frameByte;
 
+  }
+
+  /**
+   * <p>Wrap the device read method to allow for easier unit testing (Mockito cannot handle native methods)</p>
+   *
+   * @param hidBuffer The buffer contents to accept bytes from the device
+   * @return The number of bytes read
+   * @throws IOException If something goes wrong
+   */
+  /* package */ int readFromDevice(byte[] hidBuffer) throws IOException {
+    return device.read(hidBuffer);
   }
 
   @Override
