@@ -5,6 +5,7 @@ import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -25,6 +26,8 @@ public class HIDOutputStream extends OutputStream {
 
   private final HIDDevice device;
 
+  private ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
   /**
    * @param device The HID device providing the low-level communications
    * @throws java.io.IOException If something goes wrong
@@ -40,6 +43,10 @@ public class HIDOutputStream extends OutputStream {
   /**
    * <p>Write the byte[] to the device, spanning several USB frames if required</p>
    * <p>The message does not need to include HID information like message length etc</p>
+   * <p>Bytes will be sent to the device immediately (no flush required) in frames of 63 bytes or less depending on
+   * the size of the message.</p>
+   * <p>This method is intended for fully-formed messages. To build up a message use a combination of {@link
+   * #write(int)} and {@link #flush()} as would be the case with a <code>DataOutputStream</code> wrapper.</p>
    *
    * @param b   The bytes to send to the receiving device
    * @param off An initial offset (usually zero in this implementation)
@@ -82,15 +89,22 @@ public class HIDOutputStream extends OutputStream {
   }
 
   /**
-   * <p>This is an inefficient mechanism for sending bytes to the device - use {@link HIDOutputStream#write(byte[],
-   * int, int)} instead</p>
+   * <p>Use this to build up a buffered message byte by byte (e.g. from a <code>DataOutputStream</code>).</p>
+   * <p>If you have a complete message ready to go for direct write to the device then use
+   * {@link HIDOutputStream#write(byte[], int, int)} instead </p>
    *
    * @param b The byte to send (downcast from int)
    * @throws IOException
    */
   @Override
   public void write(int b) throws IOException {
-    this.write(new byte[]{(byte) b}, 0, 1);
+    baos.write(b);
+  }
+
+  @Override
+  public void flush() throws IOException {
+    write(baos.toByteArray(), 0, baos.size());
+    baos.reset();
   }
 
   @Override
