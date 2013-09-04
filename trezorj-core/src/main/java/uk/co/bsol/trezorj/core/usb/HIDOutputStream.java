@@ -73,17 +73,22 @@ public class HIDOutputStream extends OutputStream {
       // Copy the relevant part of the overall message into a 64 byte (or less) chunk
       System.arraycopy(b, frameOffset, hidBuffer, 1, hidBufferLength);
 
-      // Keep track of the overall number of bytes sent
-      bytesSent += device.write(hidBuffer);
+      int frameBytesSent = writeToDevice(hidBuffer);
+      if (frameBytesSent != hidBuffer.length) {
+        throw new IOException("Unable to send bytes to device. Expected: " + hidBuffer.length + " Actual: " + frameBytesSent);
+      }
 
-      log.info("> {} '{}' ", bytesSent, hidBuffer);
+      // Keep track of the overall number of bytes sent
+      bytesSent += frameBytesSent;
+
 
       // Keep track of how many bytes are left to send
-      leftToSend -= bytesSent;
+      leftToSend -= (frameBytesSent - 1);
 
       // Offset only applies to the first frame
       frameOffset = 0;
 
+      log.info("> {} '{}' ", bytesSent, hidBuffer);
     }
 
   }
@@ -113,5 +118,16 @@ public class HIDOutputStream extends OutputStream {
 
     device.close();
 
+  }
+
+  /**
+   * <p>Wrap the device write method to allow for easier unit testing (Mockito cannot handle native methods)</p>
+   *
+   * @param hidBuffer The buffer contents to write to the device
+   * @return The number of bytes written
+   * @throws IOException
+   */
+  /* package */ int writeToDevice(byte[] hidBuffer) throws IOException {
+    return device.write(hidBuffer);
   }
 }
