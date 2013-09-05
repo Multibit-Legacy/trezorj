@@ -22,6 +22,8 @@ public class HIDOutputStreamTest {
 
     testObject.write(new byte[]{2}, 0, 1);
 
+    testObject.close();
+
   }
 
   @Test
@@ -38,6 +40,8 @@ public class HIDOutputStreamTest {
 
     // This should perform the write with the length byte calculated
     testObject.flush();
+
+    testObject.close();
 
   }
 
@@ -57,6 +61,8 @@ public class HIDOutputStreamTest {
     System.arraycopy(HIDStreams.newHIDPayload(3), 0, payload, 63, 3);
 
     testObject.write(payload, 0, payload.length);
+
+    testObject.close();
 
   }
 
@@ -80,6 +86,8 @@ public class HIDOutputStreamTest {
     }
 
     testObject.flush();
+
+    testObject.close();
 
   }
 

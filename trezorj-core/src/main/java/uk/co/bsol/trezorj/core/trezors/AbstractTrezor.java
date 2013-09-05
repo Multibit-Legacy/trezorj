@@ -16,6 +16,7 @@ import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
@@ -79,6 +80,8 @@ public abstract class AbstractTrezor implements Trezor {
               listener.getTrezorEventQueue().put(trezorEvent);
             }
 
+            Thread.sleep(100);
+
           } catch (InterruptedException e) {
             break;
           } catch (IOException e) {
@@ -95,40 +98,40 @@ public abstract class AbstractTrezor implements Trezor {
    * <p>Blocking method to read from the data input stream</p>
    *
    * @param in The data input stream (must be open)
-   *
    * @return The expected protocol buffer message for the detail
-   *
    * @throws IOException If something goes wrong
    */
   private TrezorEvent readMessage(DataInputStream in) throws IOException {
 
-    // Read and throw away the magic header markers
-    in.readByte();
-    in.readByte();
-
-    // Read the header code and select a suitable parser
-    final Short headerCode = in.readShort();
-    final MessageType messageType = MessageType.getMessageTypeByHeaderCode(headerCode);
-    final Parser parser = MessageType.getParserByHeaderCode(headerCode);
-
-    // Read the detail length
-    final int detailLength = in.readInt();
-
-    // Read the remaining bytes
-    final byte[] detail = new byte[detailLength];
-    final int actualLength = in.read(detail, 0, detailLength);
-
-    // Verify the read
-    Preconditions.checkState(actualLength == detailLength,"Detail not read fully. Expected="+detailLength+" Actual="+actualLength);
-
-    // Parse the detail into a message
+    // Very broad try-catch because a lot of things can go wrong here and need to be reported
     try {
+
+      // Read and throw away the magic header markers
+      in.readByte();
+      in.readByte();
+
+      // Read the header code and select a suitable parser
+      final Short headerCode = in.readShort();
+      final MessageType messageType = MessageType.getMessageTypeByHeaderCode(headerCode);
+      final Parser parser = MessageType.getParserByHeaderCode(headerCode);
+
+      // Read the detail length
+      final int detailLength = in.readInt();
+
+      // Read the remaining bytes
+      final byte[] detail = new byte[detailLength];
+      final int actualLength = in.read(detail, 0, detailLength);
+
+      // Verify the read
+      Preconditions.checkState(actualLength == detailLength, "Detail not read fully. Expected=" + detailLength + " Actual=" + actualLength);
+
+      // Parse the detail into a message
 
       final AbstractMessage message = (AbstractMessage) parser.parseFrom(detail);
       log.debug("< {}", message.getClass().getName());
 
       if (MessageType.FAILURE.equals(messageType)) {
-        log.error("FAILED: {}",((TrezorMessage.Failure) message).getMessage());
+        log.error("FAILED: {}", ((TrezorMessage.Failure) message).getMessage());
       }
 
       // Build the event from the given information
@@ -143,18 +146,30 @@ public abstract class AbstractTrezor implements Trezor {
           return messageType;
         }
       };
+    } catch (EOFException e) {
+      log.warn("EOF detected. Device connection is likely closed.");
     } catch (Throwable e) {
-      log.error("", e);
+      log.error(e.getMessage(), e);
     }
 
-    return null;
+    // Provide a generic failure event
+    return new TrezorEvent() {
+      @Override
+      public Optional<AbstractMessage> trezorMessage() {
+        return Optional.absent();
+      }
+
+      @Override
+      public MessageType messageType() {
+        return MessageType.FAILURE;
+      }
+    };
 
   }
 
   /**
    * @param message The protocol buffer message to read
    * @param out     The data output stream (must be open)
-   *
    * @throws IOException If something goes wrong
    */
   protected void writeMessage(AbstractMessage message, DataOutputStream out) throws IOException {
@@ -188,7 +203,7 @@ public abstract class AbstractTrezor implements Trezor {
   }
 
   @Override
-  public void close() {
+  public synchronized void close() {
 
     internalClose();
     trezorEventExecutorService.shutdownNow();

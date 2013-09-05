@@ -1,7 +1,6 @@
 package uk.co.bsol.trezorj.core.usb;
 
 import com.codeminders.hidapi.HIDDevice;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -28,6 +27,8 @@ public class HIDInputStreamTest {
     assertThat(testObject.read(actual)).isEqualTo(expected.length);
     assertThat(actual).isEqualTo(expected);
 
+    testObject.close();
+
   }
 
     @Test
@@ -48,9 +49,10 @@ public class HIDInputStreamTest {
 
       assertThat(actual).isEqualTo(expected);
 
+      testObject.close();
+
     }
 
-  @Ignore
     @Test
     public void verifyMultiFrameUnbuffered() throws IOException {
 
@@ -72,9 +74,10 @@ public class HIDInputStreamTest {
 
       assertThat(actual).isEqualTo(expected);
 
+      testObject.close();
+
     }
 
-  @Ignore
     @Test
     public void verifyMultiFrameBuffered() throws IOException {
 
@@ -98,6 +101,8 @@ public class HIDInputStreamTest {
       }
 
       assertThat(actual).isEqualTo(expected);
+
+      testObject.close();
 
     }
 

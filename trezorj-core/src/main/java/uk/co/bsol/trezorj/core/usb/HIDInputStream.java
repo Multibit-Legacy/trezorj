@@ -1,6 +1,7 @@
 package uk.co.bsol.trezorj.core.usb;
 
 import com.codeminders.hidapi.HIDDevice;
+import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +44,6 @@ public class HIDInputStream extends InputStream {
 
   /**
    * @param device The HID device providing the low-level communications
-   *
    * @throws IOException If something goes wrong
    */
   public HIDInputStream(HIDDevice device) throws IOException {
@@ -95,7 +95,14 @@ public class HIDInputStream extends InputStream {
       byte[] hidBuffer = new byte[64];
 
       // Attempt to read the next 64-byte message (timeout on fail)
-      int bytesRead = readFromDevice(hidBuffer);
+      int bytesRead;
+      if (messageBufferFrameIndex==0) {
+        // First read is blocking (we want to hold here)
+        bytesRead = readFromDevice(hidBuffer, Optional.<Integer>absent());
+      } else {
+        // Subsequent reads are to cover multiple frames building to an overall message
+        bytesRead = readFromDevice(hidBuffer, Optional.of(500));
+      }
 
       if (bytesRead > 0) {
 
@@ -108,17 +115,17 @@ public class HIDInputStream extends InputStream {
           throw new IOException("Frame length cannot be > 63: " + frameLength);
         }
 
+        // Check for a message buffer resize
+        if (messageBufferFrameIndex + frameLength > messageBuffer.length) {
+          messageBuffer = fitToLength(messageBuffer, messageBufferFrameIndex + frameLength + 64);
+        }
+
         // Copy from the HID buffer into the overall message buffer
         // ignoring the first byte since it is for HID only
         System.arraycopy(hidBuffer, 1, messageBuffer, messageBufferFrameIndex, frameLength);
 
         // Keep track of the next insertion position
         messageBufferFrameIndex += frameLength;
-
-        if (messageBufferFrameIndex > messageBuffer.length) {
-          // Expand the message buffer
-          messageBuffer = fitToLength(messageBuffer, messageBufferFrameIndex + 64);
-        }
 
       } else {
         log.debug("HID timeout - all data received.");
@@ -133,15 +140,20 @@ public class HIDInputStream extends InputStream {
 
   /**
    * <p>Wrap the device read method to allow for easier unit testing (Mockito cannot handle native methods)</p>
+   * <p>An optional timeout is provided to allow multi-frame messages to be detected. Usually this should be about
+   * 50ms after an initial blocking call triggered by an absent timeout.</p>
    *
-   * @param hidBuffer The buffer contents to accept bytes from the device
-   *
-   * @return The number of bytes read
-   *
+   * @param hidBuffer    The buffer contents to accept bytes from the device
+   * @param durationMillis The milliseconds to wait before giving up (absent means blocking)
+   * @return The number of bytes read (zero on a timeout)
    * @throws IOException If something goes wrong
    */
-  /* package */ int readFromDevice(byte[] hidBuffer) throws IOException {
-    return device.readTimeout(hidBuffer, 500);
+  /* package */ int readFromDevice(byte[] hidBuffer, Optional<Integer> durationMillis) throws IOException {
+    if (durationMillis.isPresent()) {
+      return device.readTimeout(hidBuffer, durationMillis.get());
+    } else {
+      return device.read(hidBuffer);
+    }
   }
 
   @Override

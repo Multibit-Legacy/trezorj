@@ -1,6 +1,7 @@
 package uk.co.bsol.trezorj.core.usb;
 
 import com.codeminders.hidapi.HIDDevice;
+import com.google.common.base.Optional;
 
 import java.io.IOException;
 
@@ -107,7 +108,7 @@ public class HIDStreams {
 
       // Wrap the native device method and perform an array copy
       @Override
-      int readFromDevice(byte[] hidBuffer) throws IOException {
+      int readFromDevice(byte[] hidBuffer, Optional<Integer> durationMillis) throws IOException {
 
         if (callCount > 0) {
           return 0;
@@ -137,7 +138,7 @@ public class HIDStreams {
 
       // Wrap the native device method and perform an array copy
       @Override
-      int readFromDevice(byte[] hidBuffer) throws IOException {
+      int readFromDevice(byte[] hidBuffer, Optional<Integer> durationMillis) throws IOException {
 
         if (callCount >= hidFrames.length) {
           return 0;

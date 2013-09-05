@@ -288,6 +288,13 @@
 
     <!-- Testing -->
 
+    <!-- SLF4J simple for logging test output -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <scope>test</scope>
+    </dependency>
+
     <!-- JUnit for testing -->
     <dependency>
       <groupId>junit</groupId>
