@@ -103,9 +103,17 @@ public class HIDStreams {
 
     return new HIDInputStream(device) {
 
+      int callCount = 0;
+
       // Wrap the native device method and perform an array copy
       @Override
       int readFromDevice(byte[] hidBuffer) throws IOException {
+
+        if (callCount > 0) {
+          return 0;
+        }
+
+        callCount++;
 
         System.arraycopy(hidFrame, 0, hidBuffer, 0, hidFrame.length);
 
@@ -130,6 +138,10 @@ public class HIDStreams {
       // Wrap the native device method and perform an array copy
       @Override
       int readFromDevice(byte[] hidBuffer) throws IOException {
+
+        if (callCount >= hidFrames.length) {
+          return 0;
+        }
 
         System.arraycopy(hidFrames[callCount], 0, hidBuffer, 0, hidFrames[callCount].length);
 

@@ -1,6 +1,7 @@
 package uk.co.bsol.trezorj.core.usb;
 
 import com.codeminders.hidapi.HIDDevice;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -49,6 +50,7 @@ public class HIDInputStreamTest {
 
     }
 
+  @Ignore
     @Test
     public void verifyMultiFrameUnbuffered() throws IOException {
 
@@ -72,6 +74,7 @@ public class HIDInputStreamTest {
 
     }
 
+  @Ignore
     @Test
     public void verifyMultiFrameBuffered() throws IOException {
 

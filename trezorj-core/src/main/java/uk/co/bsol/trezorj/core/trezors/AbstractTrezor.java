@@ -166,8 +166,8 @@ public abstract class AbstractTrezor implements Trezor {
     MessageType messageType = MessageType.getMessageTypeByHeaderCode(headerCode);
     log.debug("> {}", messageType.name());
 
-    // Write magic alignment string
-    out.write("##".getBytes());
+    // Write magic alignment string (avoiding immediate flush)
+    out.writeBytes("##");
 
     // Write header following Python's ">HL" syntax
     // > = Big endian, std size and alignment

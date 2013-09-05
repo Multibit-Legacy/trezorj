@@ -124,10 +124,10 @@ public class BlockingTrezorClient implements TrezorListener {
   /**
    * <p>Convenience method to wrap a standard USB Trezor (the normal mode of operation)</p>
    *
-   * @param vendorIdOptional The vendor ID (uses default if absent)
-   * @param productIdOptional The product ID (uses default if absent)
+   * @param vendorIdOptional     The vendor ID (uses default if absent)
+   * @param productIdOptional    The product ID (uses default if absent)
    * @param serialNumberOptional The device serial number (accepts any if absent)
-   * @param sessionId The session ID (typically from {@link BlockingTrezorClient#newSessionId()})
+   * @param sessionId            The session ID (typically from {@link BlockingTrezorClient#newSessionId()})
    *
    * @return A blocking Trezor client instance with a unique session ID
    */
@@ -198,13 +198,14 @@ public class BlockingTrezorClient implements TrezorListener {
    * <li>Features containing the available feature set</li>
    * </ul>
    *
-   * @return The response from the device
+   * @return The response from the device (may take up to 2s to perform this operation)
    */
   public TrezorEvent initialize() {
-    return sendDefaultBlockingMessage(TrezorMessage.Initialize
+    return sendBlockingMessage(TrezorMessage.Initialize
       .newBuilder()
       .setSessionId(sessionId)
-      .build()
+      .build(),
+      2, TimeUnit.SECONDS
     );
   }
 
