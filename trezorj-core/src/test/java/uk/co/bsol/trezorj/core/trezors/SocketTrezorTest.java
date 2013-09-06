@@ -73,8 +73,8 @@ public class SocketTrezorTest {
       // Verify that the data was read in correctly
       TrezorEvent event1 = listener.getTrezorEventQueue().poll(1, TimeUnit.SECONDS);
       assertThat(event1).isNotNull();
-      assertThat(event1.messageType()).isNotNull();
-      assertThat(event1.messageType()).isEqualTo(MessageType.SUCCESS);
+      assertThat(event1.protocolMessageType().isPresent()).isTrue();
+      assertThat(event1.protocolMessageType().get()).isEqualTo(MessageType.SUCCESS);
 
       testObject.close();
 

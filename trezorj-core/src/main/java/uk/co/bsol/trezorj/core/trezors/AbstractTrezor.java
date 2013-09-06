@@ -1,6 +1,5 @@
 package uk.co.bsol.trezorj.core.trezors;
 
-import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Queues;
 import com.google.common.collect.Sets;
@@ -10,7 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
 import uk.co.bsol.trezorj.core.TrezorEvent;
+import uk.co.bsol.trezorj.core.TrezorEventType;
 import uk.co.bsol.trezorj.core.TrezorListener;
+import uk.co.bsol.trezorj.core.events.TrezorEvents;
 import uk.co.bsol.trezorj.core.protobuf.MessageType;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 
@@ -75,13 +76,15 @@ public abstract class AbstractTrezor implements Trezor {
             // Read a message (blocking)
             final TrezorEvent trezorEvent = readMessage(in);
 
-            log.debug("Firing event");
+            log.debug("Firing event: {} ", trezorEvent.eventType().name());
             for (TrezorListener listener : listeners) {
               listener.getTrezorEventQueue().put(trezorEvent);
             }
 
             Thread.sleep(100);
 
+          } catch (EOFException e) {
+            // Do nothing
           } catch (InterruptedException e) {
             break;
           } catch (IOException e) {
@@ -101,7 +104,7 @@ public abstract class AbstractTrezor implements Trezor {
    * @return The expected protocol buffer message for the detail
    * @throws IOException If something goes wrong
    */
-  private TrezorEvent readMessage(DataInputStream in) throws IOException {
+  private synchronized TrezorEvent readMessage(DataInputStream in) throws IOException {
 
     // Very broad try-catch because a lot of things can go wrong here and need to be reported
     try {
@@ -135,35 +138,14 @@ public abstract class AbstractTrezor implements Trezor {
       }
 
       // Build the event from the given information
-      return new TrezorEvent() {
-        @Override
-        public Optional<AbstractMessage> trezorMessage() {
-          return Optional.of(message);
-        }
+      return TrezorEvents.newProtocolEvent(messageType, message);
 
-        @Override
-        public MessageType messageType() {
-          return messageType;
-        }
-      };
     } catch (EOFException e) {
-      log.warn("EOF detected. Device connection is likely closed.");
+      return TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_EOF);
     } catch (Throwable e) {
-      log.error(e.getMessage(), e);
+      log.error(e.getMessage(),e);
+      return TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_FAILURE);
     }
-
-    // Provide a generic failure event
-    return new TrezorEvent() {
-      @Override
-      public Optional<AbstractMessage> trezorMessage() {
-        return Optional.absent();
-      }
-
-      @Override
-      public MessageType messageType() {
-        return MessageType.FAILURE;
-      }
-    };
 
   }
 

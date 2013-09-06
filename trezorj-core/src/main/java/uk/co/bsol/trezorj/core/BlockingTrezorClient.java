@@ -11,6 +11,7 @@ import com.google.protobuf.AbstractMessage;
 import com.google.protobuf.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.bsol.trezorj.core.events.TrezorEvents;
 import uk.co.bsol.trezorj.core.protobuf.MessageType;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 import uk.co.bsol.trezorj.core.utils.TrezorMessageUtils;
@@ -437,7 +438,7 @@ public class BlockingTrezorClient implements TrezorListener {
       .setPin(ByteString.copyFrom(pin))
       .setSpv(useSpv)
       .build(),
-      10, TimeUnit.SECONDS);
+      15, TimeUnit.SECONDS);
 
     secureErase(seed);
 
@@ -494,9 +495,9 @@ public class BlockingTrezorClient implements TrezorListener {
    *
    * @param tx The Bitcoinj transaction providing all the necessary information (will be modified)
    *
-   * @return The signed transaction from the device
+   * @return The signed transaction from the device (if present)
    */
-  public Transaction signTx(Transaction tx) {
+  public Optional<Transaction> signTx(Transaction tx) {
 
     byte[] entropy = new byte[MIN_ENTROPY];
 
@@ -530,10 +531,10 @@ public class BlockingTrezorClient implements TrezorListener {
     while (!finished) {
 
       // Check the response is a transaction request
-      if (MessageType.TX_REQUEST.equals(event.messageType())) {
+      if (MessageType.TX_REQUEST.equals(event.protocolMessageType().get())) {
 
         // Examine the response (it may contain signature information in response to a TxOutput etc)
-        TrezorMessage.TxRequest txRequest = (TrezorMessage.TxRequest) event.trezorMessage().get();
+        TrezorMessage.TxRequest txRequest = (TrezorMessage.TxRequest) event.protocolMessage().get();
 
         // Check for a serialized transaction
         if (txRequest.getSerializedTx() != null) {
@@ -571,16 +572,19 @@ public class BlockingTrezorClient implements TrezorListener {
               // Allow plenty of time for the signing operation
               event = sendBlockingMessage(txInput, 30, TimeUnit.SECONDS);
 
-              // Check for a TxRequest which can be processed as part of the overall loop
-              // in order to extract signature information etc
-              if (MessageType.TX_REQUEST.equals(event.messageType())) {
-                continue;
+              if (event.eventType().equals(TrezorEventType.PROTOCOL_MESSAGE)) {
+
+                // Check for a TxRequest which can be processed as part of the overall loop
+                // in order to extract signature information etc
+                if (MessageType.TX_REQUEST.equals(event.protocolMessageType().get())) {
+                  continue;
+                }
+
               }
 
-              throw new IllegalStateException(
-                "Transaction signing failed on input index " +
-                  inputIndex +
-                  " with event: " + event.messageType().name());
+              log.warn("Transaction signing failed on input index {} with event type '{}'", inputIndex, event.eventType().name());
+
+              return Optional.absent();
 
             case TXOUTPUT:
               // Provide the requested output
@@ -589,16 +593,18 @@ public class BlockingTrezorClient implements TrezorListener {
               // Allow plenty of time for the signing operation
               event = sendBlockingMessage(txOutput, 30, TimeUnit.SECONDS);
 
-              // Check for a TxRequest which can be processed as part of the overall loop
-              // in order to extract signature information etc
-              if (MessageType.TX_REQUEST.equals(event.messageType())) {
-                continue;
+              if (event.eventType().equals(TrezorEventType.PROTOCOL_MESSAGE)) {
+
+                // Check for a TxRequest which can be processed as part of the overall loop
+                // in order to extract signature information etc
+                if (MessageType.TX_REQUEST.equals(event.protocolMessageType().get())) {
+                  continue;
+                }
               }
 
-              throw new IllegalStateException(
-                "Transaction signing failed on output index " +
-                  outputIndex +
-                  " with event: " + event.messageType().name());
+              log.warn("Transaction signing failed on output index {} with event type '{}'", outputIndex, event.eventType().name());
+
+              return Optional.absent();
 
             default:
               throw new IllegalStateException("Unknown request type " + txRequest.getRequestType().name());
@@ -626,7 +632,7 @@ public class BlockingTrezorClient implements TrezorListener {
     }
 
     // TODO (GR) This is currently unmodified
-    return tx;
+    return Optional.of(tx);
 
   }
 
@@ -712,33 +718,29 @@ public class BlockingTrezorClient implements TrezorListener {
       TrezorEvent event = getTrezorEventQueue().poll(duration, timeUnit);
 
       if (event == null) {
-        // Build a generic failure message
-        return new TrezorEvent() {
-          @Override
-          public Optional<AbstractMessage> trezorMessage() {
-            return Optional.absent();
-          }
 
-          @Override
-          public MessageType messageType() {
-            return MessageType.FAILURE;
-          }
-        };
+        // Build a generic failure message
+        return TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_EOF);
       }
 
       // Decode into a message type for use with a switch
-      MessageType messageType = event.messageType();
+      Optional<MessageType> messageType = event.protocolMessageType();
+      if (event.protocolMessage().isPresent()) {
 
-      log.debug("Received event: {}", event.trezorMessage().get().getClass().getName());
-      log.debug("{}", event.trezorMessage().get().toString());
-      log.debug("Message type: {}", messageType.name());
+        // Protocol message
 
-      if (MessageType.FAILURE.equals(messageType)) {
-        log.error("Failure: {}", ((TrezorMessage.Failure) event.trezorMessage().get()).getMessage());
-      }
+        log.debug("Received event: {}", event.protocolMessage().get().getClass().getName());
+        log.debug("{}", event.protocolMessage().get().toString());
+        log.debug("Message type: {}", messageType.get().name());
 
-      if (MessageType.BUTTON_REQUEST.equals(messageType)) {
-        sendBlockingMessage(TrezorMessage.ButtonAck.getDefaultInstance(), 10, TimeUnit.SECONDS);
+        if (MessageType.FAILURE.equals(messageType.get())) {
+          log.error("Failure: {}", ((TrezorMessage.Failure) event.protocolMessage().get()).getMessage());
+        }
+
+        if (MessageType.BUTTON_REQUEST.equals(messageType.get())) {
+          sendBlockingMessage(TrezorMessage.ButtonAck.getDefaultInstance(), 10, TimeUnit.SECONDS);
+        }
+
       }
 
       return event;

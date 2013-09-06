@@ -1,0 +1,42 @@
+package uk.co.bsol.trezorj.core;
+
+/**
+ * <p>Enum to provide the following to Trezor events:</p>
+ * <ul>
+ * <li>Provision of event types to allow easy triage in consuming applications</li>
+ * </ul>
+ *
+ * @since 0.0.1
+ *         
+ */
+public enum TrezorEventType {
+
+  /**
+   * Indicates that this is a protocol message
+   */
+  PROTOCOL_MESSAGE,
+
+  /**
+   * Device encountered an I/O problem
+   */
+  DEVICE_FAILURE,
+
+  /**
+   * Received EOF from device (no data in receive buffer after timeout)
+   */
+  DEVICE_EOF,
+
+  /**
+   * Received on a device connect (communications established at the wire level)
+   */
+  DEVICE_CONNECTED,
+
+  /**
+   * Received on a device disconnect (no longer able to communicate)
+   */
+  DEVICE_DISCONNECTED,
+
+  // End of enum
+  ;
+
+}

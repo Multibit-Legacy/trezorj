@@ -76,7 +76,7 @@ public enum MessageType {
 
   /**
    * @param abstractMessage The protocol buffer message class
-   * @param headerCode   The header code
+   * @param headerCode      The header code
    */
   MessageType(AbstractMessage abstractMessage, short headerCode) {
 

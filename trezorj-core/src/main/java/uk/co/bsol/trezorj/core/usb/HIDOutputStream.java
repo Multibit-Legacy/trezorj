@@ -55,38 +55,33 @@ public class HIDOutputStream extends OutputStream {
   @Override
   public void flush() throws IOException {
 
-    byte[] message = baos.toByteArray();
+    byte[] messageBuffer = baos.toByteArray();
     baos.reset();
 
-    int leftToSend = message.length;
+    log.debug("> Message buffer: {} '{}'", messageBuffer.length, messageBuffer);
 
-    int bytesSent = 0;
+    int messageBufferFrameIndex = 0;
 
-    while (leftToSend > 0) {
+    while (messageBufferFrameIndex < messageBuffer.length) {
 
       // A frame has a maximum 63 bytes for payload
-      int hidBufferLength = leftToSend > 63 ? 63 : leftToSend;
+      int hidBufferLength = messageBuffer.length - messageBufferFrameIndex > 63 ? 63 : messageBuffer.length - messageBufferFrameIndex;
 
       // Allow an extra byte for the HID message content length
       byte[] hidBuffer = new byte[hidBufferLength + 1];
       hidBuffer[0] = (byte) hidBufferLength;
 
       // Copy the relevant part of the overall message into a 64 byte (or less) chunk
-      System.arraycopy(message, 0, hidBuffer, 1, hidBufferLength);
+      System.arraycopy(messageBuffer, messageBufferFrameIndex, hidBuffer, 1, hidBufferLength);
 
       int hidBytesSent = writeToDevice(hidBuffer);
       if (hidBytesSent != hidBuffer.length) {
         throw new IOException("Unable to send bytes to device. Expected: " + hidBuffer.length + " Actual: " + hidBytesSent);
       }
 
-      // Keep track of the overall number of bytes sent
-      bytesSent += hidBytesSent;
+      // Adjust the frame index by the number of bytes sent (less 1 for the length)
+      messageBufferFrameIndex += (hidBytesSent - 1);
 
-
-      // Keep track of how many bytes are left to send
-      leftToSend -= (hidBytesSent - 1);
-
-      log.info("> {} '{}' ", bytesSent, hidBuffer);
     }
 
 
@@ -108,6 +103,9 @@ public class HIDOutputStream extends OutputStream {
    * @throws IOException
    */
   /* package */ int writeToDevice(byte[] hidBuffer) throws IOException {
+
+    log.debug("> {} '{}' ", hidBuffer.length, hidBuffer);
     return device.write(hidBuffer);
+
   }
 }

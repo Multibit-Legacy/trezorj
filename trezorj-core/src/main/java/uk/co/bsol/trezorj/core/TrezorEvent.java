@@ -19,10 +19,16 @@ public interface TrezorEvent {
   /**
    * @return The protocol buffer message that backs this event (if present)
    */
-  Optional<AbstractMessage> trezorMessage();
+  Optional<AbstractMessage> protocolMessage();
 
   /**
-   * @return The message type
+   * @return The protocol message type (e.g. TX_INPUT etc) extracted from the header (if present)
    */
-  MessageType messageType();
+  Optional<MessageType> protocolMessageType();
+
+  /**
+   * @return The overall type (e.g. TX_INPUT etc) extracted from the header (never null)
+   */
+  TrezorEventType eventType();
+
 }

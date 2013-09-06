@@ -6,7 +6,6 @@ import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -25,17 +24,15 @@ public class HIDInputStream extends InputStream {
    */
   private static final Logger log = LoggerFactory.getLogger(HIDInputStream.class);
 
+  /**
+   * The HID device
+   */
   private final HIDDevice device;
 
   /**
    * The message buffer is a stacked set of HID payloads
    */
   private byte[] messageBuffer = new byte[64];
-
-  /**
-   * The message buffer is a stacked set of HID payloads
-   */
-  private final ByteArrayInputStream bais = null;
 
   /**
    * The frame index is the location within the frame buffer for the next read
@@ -54,27 +51,64 @@ public class HIDInputStream extends InputStream {
   }
 
   @Override
-  public int read() throws IOException {
+  public synchronized int read() throws IOException {
 
-    // Check if a read is required
+    // Check if a HID read is required
     if (messageIndex == 0) {
 
       bufferAllFrames();
 
     }
 
-    int frameByte = messageBuffer[messageIndex];
+    log.trace("Reading {} of {}",messageIndex, messageBuffer.length-1);
+
+    if (messageBuffer.length==0) {
+      log.debug("No data so return EOF");
+      return -1;
+    }
+
+    // Must have data to be here
+
+    // Convert from byte to unsigned int
+    int frameByte = messageBuffer[messageIndex] & 0xFF;
 
     messageIndex++;
 
     if (messageIndex >= messageBuffer.length) {
-      log.debug("Message buffer reset");
+      log.trace("Message buffer reset");
       messageIndex = 0;
-      messageBuffer = new byte[1024];
+      messageBuffer = new byte[64];
     }
 
+    log.trace("Frame byte is {}",frameByte);
     return frameByte;
 
+  }
+
+  @Override
+  public void close() throws IOException {
+    super.close();
+
+    device.close();
+
+  }
+
+  /**
+   * <p>Wrap the device read method to allow for easier unit testing (Mockito cannot handle native methods)</p>
+   * <p>An optional timeout is provided to allow multi-frame messages to be detected. Usually this should be about
+   * 50ms after an initial blocking call triggered by an absent timeout.</p>
+   *
+   * @param hidBuffer    The buffer contents to accept bytes from the device
+   * @param durationMillis The milliseconds to wait before giving up (absent means blocking)
+   * @return The number of bytes read (zero on a timeout)
+   * @throws IOException If something goes wrong
+   */
+  /* package */ int readFromDevice(byte[] hidBuffer, Optional<Integer> durationMillis) throws IOException {
+    if (durationMillis.isPresent()) {
+      return device.readTimeout(hidBuffer, durationMillis.get());
+    } else {
+      return device.read(hidBuffer);
+    }
   }
 
   /**
@@ -85,6 +119,8 @@ public class HIDInputStream extends InputStream {
    * @throws IOException If something goes wrong
    */
   private void bufferAllFrames() throws IOException {
+
+    log.debug("Buffering all HID frames");
 
     // The insert position for any new HID payload
     int messageBufferFrameIndex = 0;
@@ -138,39 +174,13 @@ public class HIDInputStream extends InputStream {
 
   }
 
-  /**
-   * <p>Wrap the device read method to allow for easier unit testing (Mockito cannot handle native methods)</p>
-   * <p>An optional timeout is provided to allow multi-frame messages to be detected. Usually this should be about
-   * 50ms after an initial blocking call triggered by an absent timeout.</p>
-   *
-   * @param hidBuffer    The buffer contents to accept bytes from the device
-   * @param durationMillis The milliseconds to wait before giving up (absent means blocking)
-   * @return The number of bytes read (zero on a timeout)
-   * @throws IOException If something goes wrong
-   */
-  /* package */ int readFromDevice(byte[] hidBuffer, Optional<Integer> durationMillis) throws IOException {
-    if (durationMillis.isPresent()) {
-      return device.readTimeout(hidBuffer, durationMillis.get());
-    } else {
-      return device.read(hidBuffer);
-    }
-  }
-
-  @Override
-  public void close() throws IOException {
-    super.close();
-
-    device.close();
-
-  }
-
   private byte[] fitToLength(byte[] oldBuffer, int newLength) {
 
     byte[] newBuffer = new byte[newLength];
 
     System.arraycopy(oldBuffer, 0, newBuffer, 0, newLength > oldBuffer.length ? oldBuffer.length : newLength);
 
-    log.debug("Resized message buffer: {} '{}'", newBuffer.length, newBuffer);
+    log.debug("Re-sized message buffer: {} '{}'", newBuffer.length, newBuffer);
 
     return newBuffer;
 

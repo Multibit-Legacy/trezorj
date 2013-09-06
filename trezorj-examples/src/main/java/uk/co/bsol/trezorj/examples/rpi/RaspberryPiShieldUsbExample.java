@@ -64,8 +64,12 @@ public class RaspberryPiShieldUsbExample {
     // Initialize
     client.initialize();
 
+    Thread.sleep(5000);
+
     // Send a ping
     client.ping();
+
+    Thread.sleep(2000);
 
     // Load device (words must be on the internal list - this seed is hard coded to some Electrum addresses))
     char[] seed = "beyond neighbor scratch swirl embarrass doll cause also stick softly physical nice".toCharArray();
