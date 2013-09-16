@@ -39,7 +39,7 @@ public abstract class AbstractTrezor implements Trezor {
 
   private static final int MAX_QUEUE_SIZE = 32;
 
-  private final Set<TrezorListener> listeners = Sets.newLinkedHashSet();
+  protected final Set<TrezorListener> listeners = Sets.newLinkedHashSet();
 
   private final ExecutorService trezorEventExecutorService = Executors.newSingleThreadExecutor();
 
