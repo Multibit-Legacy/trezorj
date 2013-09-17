@@ -2,7 +2,7 @@ package uk.co.bsol.trezorj.core.events;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
-import com.google.protobuf.AbstractMessage;
+import com.google.protobuf.Message;
 import uk.co.bsol.trezorj.core.TrezorEvent;
 import uk.co.bsol.trezorj.core.TrezorEventType;
 import uk.co.bsol.trezorj.core.protobuf.MessageType;
@@ -32,12 +32,12 @@ public class TrezorEvents {
    *
    * @return A new immutable event instance
    */
-  public static TrezorEvent newProtocolEvent(final MessageType messageType, final AbstractMessage message) {
+  public static TrezorEvent newProtocolEvent(final MessageType messageType, final Message message) {
 
     return new TrezorEvent() {
 
       @Override
-      public Optional<AbstractMessage> protocolMessage() {
+      public Optional<Message> protocolMessage() {
         return Optional.fromNullable(message);
       }
 
@@ -67,7 +67,7 @@ public class TrezorEvents {
     return new TrezorEvent() {
 
       @Override
-      public Optional<AbstractMessage> protocolMessage() {
+      public Optional<Message> protocolMessage() {
         return Optional.absent();
       }
 

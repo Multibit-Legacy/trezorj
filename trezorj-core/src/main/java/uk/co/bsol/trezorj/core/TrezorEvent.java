@@ -1,7 +1,7 @@
 package uk.co.bsol.trezorj.core;
 
 import com.google.common.base.Optional;
-import com.google.protobuf.AbstractMessage;
+import com.google.protobuf.Message;
 import uk.co.bsol.trezorj.core.protobuf.MessageType;
 
 /**
@@ -19,7 +19,7 @@ public interface TrezorEvent {
   /**
    * @return The protocol buffer message that backs this event (if present)
    */
-  Optional<AbstractMessage> protocolMessage();
+  Optional<Message> protocolMessage();
 
   /**
    * @return The protocol message type (e.g. TX_INPUT etc) extracted from the header (if present)

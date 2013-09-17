@@ -1,7 +1,8 @@
 package uk.co.bsol.trezorj.core.protobuf;
 
 import com.google.protobuf.AbstractMessage;
-import com.google.protobuf.Parser;
+import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.Message;
 
 /**
  * <p>Enum to provide the following to application:</p>
@@ -140,10 +141,10 @@ public enum MessageType {
 
   }
 
-  public static Parser getParserByHeaderCode(Short headerCode) {
+  public static Message parse(Short headerCode, byte[] bytes) throws InvalidProtocolBufferException {
 
     MessageType messageType = getMessageTypeByHeaderCode(headerCode);
-    return messageType.getDefaultInstance().getParserForType();
+    return messageType.getDefaultInstance().newBuilderForType().mergeFrom(bytes).build();
 
   }
 }

@@ -13,6 +13,7 @@
   <name>Trezorj Core</name>
   <description>Core functionality used by all other modules.</description>
 
+  <!-- To active this build as 'mvn -DupdateProtobuf=true clean compile' -->
   <profiles>
     <profile>
       <id>update-protobuf</id>
@@ -142,11 +143,14 @@
   <!-- Parent provides default configuration for most dependencies -->
   <dependencies>
 
-    <!-- Google Protocol Buffers support -->
+    <!-- Google Protocol Buffers support
+         This must match Bitcoinj to allow wider compatibility in higher level
+         consumers such as MultiBit
+    -->
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
-      <version>2.5.0</version>
+      <version>2.4.1</version>
     </dependency>
 
   </dependencies>

@@ -4,7 +4,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Queues;
 import com.google.common.collect.Sets;
 import com.google.protobuf.AbstractMessage;
-import com.google.protobuf.Parser;
+import com.google.protobuf.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
@@ -116,7 +116,6 @@ public abstract class AbstractTrezor implements Trezor {
       // Read the header code and select a suitable parser
       final Short headerCode = in.readShort();
       final MessageType messageType = MessageType.getMessageTypeByHeaderCode(headerCode);
-      final Parser parser = MessageType.getParserByHeaderCode(headerCode);
 
       // Read the detail length
       final int detailLength = in.readInt();
@@ -129,8 +128,7 @@ public abstract class AbstractTrezor implements Trezor {
       Preconditions.checkState(actualLength == detailLength, "Detail not read fully. Expected=" + detailLength + " Actual=" + actualLength);
 
       // Parse the detail into a message
-
-      final AbstractMessage message = (AbstractMessage) parser.parseFrom(detail);
+      final Message message = MessageType.parse(headerCode, detail);
       log.debug("< {}", message.getClass().getName());
 
       if (MessageType.FAILURE.equals(messageType)) {

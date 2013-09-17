@@ -91,11 +91,11 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
 
       Preconditions.checkNotNull(device,"Unable to open device");
 
-      log.debug("Selected: {}, {}, {}", new String[]{
+      log.debug("Selected: {}, {}, {}",
         device.getManufacturerString(),
         device.getProductString(),
         device.getSerialNumberString()
-      });
+      );
 
       // Create and configure the USB to UART bridge
       final CP211xBridge uart = new CP211xBridge(device);
