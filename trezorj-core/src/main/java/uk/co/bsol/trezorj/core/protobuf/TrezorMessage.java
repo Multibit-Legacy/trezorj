@@ -8,37 +8,18 @@ public final class TrezorMessage {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  /**
-   * Protobuf enum {@code Algorithm}
-   *
-   * <pre>
-   * Specifies algorithm used for generating private/public keys from the seed.
-   * </pre>
-   */
   public enum Algorithm
       implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>BIP32 = 0;</code>
-     */
     BIP32(0, 0),
-    /**
-     * <code>ELECTRUM = 1;</code>
-     */
     ELECTRUM(1, 1),
     ;
-
-    /**
-     * <code>BIP32 = 0;</code>
-     */
+    
     public static final int BIP32_VALUE = 0;
-    /**
-     * <code>ELECTRUM = 1;</code>
-     */
     public static final int ELECTRUM_VALUE = 1;
-
-
+    
+    
     public final int getNumber() { return value; }
-
+    
     public static Algorithm valueOf(int value) {
       switch (value) {
         case 0: return BIP32;
@@ -46,7 +27,7 @@ public final class TrezorMessage {
         default: return null;
       }
     }
-
+    
     public static com.google.protobuf.Internal.EnumLiteMap<Algorithm>
         internalGetValueMap() {
       return internalValueMap;
@@ -58,7 +39,7 @@ public final class TrezorMessage {
               return Algorithm.valueOf(number);
             }
           };
-
+    
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
       return getDescriptor().getValues().get(index);
@@ -69,11 +50,13 @@ public final class TrezorMessage {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return TrezorMessage.getDescriptor().getEnumTypes().get(0);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.getDescriptor().getEnumTypes().get(0);
     }
-
-    private static final Algorithm[] VALUES = values();
-
+    
+    private static final Algorithm[] VALUES = {
+      BIP32, ELECTRUM, 
+    };
+    
     public static Algorithm valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
@@ -82,49 +65,30 @@ public final class TrezorMessage {
       }
       return VALUES[desc.getIndex()];
     }
-
+    
     private final int index;
     private final int value;
-
+    
     private Algorithm(int index, int value) {
       this.index = index;
       this.value = value;
     }
-
+    
     // @@protoc_insertion_point(enum_scope:Algorithm)
   }
-
-  /**
-   * Protobuf enum {@code ScriptType}
-   *
-   * <pre>
-   * Specifies which script will be used for given transaction output.
-   * </pre>
-   */
+  
   public enum ScriptType
       implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>PAYTOADDRESS = 0;</code>
-     */
     PAYTOADDRESS(0, 0),
-    /**
-     * <code>PAYTOSCRIPTHASH = 1;</code>
-     */
     PAYTOSCRIPTHASH(1, 1),
     ;
-
-    /**
-     * <code>PAYTOADDRESS = 0;</code>
-     */
+    
     public static final int PAYTOADDRESS_VALUE = 0;
-    /**
-     * <code>PAYTOSCRIPTHASH = 1;</code>
-     */
     public static final int PAYTOSCRIPTHASH_VALUE = 1;
-
-
+    
+    
     public final int getNumber() { return value; }
-
+    
     public static ScriptType valueOf(int value) {
       switch (value) {
         case 0: return PAYTOADDRESS;
@@ -132,7 +96,7 @@ public final class TrezorMessage {
         default: return null;
       }
     }
-
+    
     public static com.google.protobuf.Internal.EnumLiteMap<ScriptType>
         internalGetValueMap() {
       return internalValueMap;
@@ -144,7 +108,7 @@ public final class TrezorMessage {
               return ScriptType.valueOf(number);
             }
           };
-
+    
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
       return getDescriptor().getValues().get(index);
@@ -155,11 +119,13 @@ public final class TrezorMessage {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return TrezorMessage.getDescriptor().getEnumTypes().get(1);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.getDescriptor().getEnumTypes().get(1);
     }
-
-    private static final ScriptType[] VALUES = values();
-
+    
+    private static final ScriptType[] VALUES = {
+      PAYTOADDRESS, PAYTOSCRIPTHASH, 
+    };
+    
     public static ScriptType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
@@ -168,49 +134,30 @@ public final class TrezorMessage {
       }
       return VALUES[desc.getIndex()];
     }
-
+    
     private final int index;
     private final int value;
-
+    
     private ScriptType(int index, int value) {
       this.index = index;
       this.value = value;
     }
-
+    
     // @@protoc_insertion_point(enum_scope:ScriptType)
   }
-
-  /**
-   * Protobuf enum {@code RequestType}
-   *
-   * <pre>
-   * Specifies which kind of information is required by transaction signing process
-   * </pre>
-   */
+  
   public enum RequestType
       implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>TXINPUT = 0;</code>
-     */
     TXINPUT(0, 0),
-    /**
-     * <code>TXOUTPUT = 1;</code>
-     */
     TXOUTPUT(1, 1),
     ;
-
-    /**
-     * <code>TXINPUT = 0;</code>
-     */
+    
     public static final int TXINPUT_VALUE = 0;
-    /**
-     * <code>TXOUTPUT = 1;</code>
-     */
     public static final int TXOUTPUT_VALUE = 1;
-
-
+    
+    
     public final int getNumber() { return value; }
-
+    
     public static RequestType valueOf(int value) {
       switch (value) {
         case 0: return TXINPUT;
@@ -218,7 +165,7 @@ public final class TrezorMessage {
         default: return null;
       }
     }
-
+    
     public static com.google.protobuf.Internal.EnumLiteMap<RequestType>
         internalGetValueMap() {
       return internalValueMap;
@@ -230,7 +177,7 @@ public final class TrezorMessage {
               return RequestType.valueOf(number);
             }
           };
-
+    
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
       return getDescriptor().getValues().get(index);
@@ -241,11 +188,13 @@ public final class TrezorMessage {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return TrezorMessage.getDescriptor().getEnumTypes().get(2);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.getDescriptor().getEnumTypes().get(2);
     }
-
-    private static final RequestType[] VALUES = values();
-
+    
+    private static final RequestType[] VALUES = {
+      TXINPUT, TXOUTPUT, 
+    };
+    
     public static RequestType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
@@ -254,165 +203,64 @@ public final class TrezorMessage {
       }
       return VALUES[desc.getIndex()];
     }
-
+    
     private final int index;
     private final int value;
-
+    
     private RequestType(int index, int value) {
       this.index = index;
       this.value = value;
     }
-
+    
     // @@protoc_insertion_point(enum_scope:RequestType)
   }
-
+  
   public interface InitializeOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required bytes session_id = 1;
-    /**
-     * <code>required bytes session_id = 1;</code>
-     *
-     * <pre>
-     * Any value identifying current connection, will be echoed back in Features message
-     * </pre>
-     */
     boolean hasSessionId();
-    /**
-     * <code>required bytes session_id = 1;</code>
-     *
-     * <pre>
-     * Any value identifying current connection, will be echoed back in Features message
-     * </pre>
-     */
     com.google.protobuf.ByteString getSessionId();
   }
-  /**
-   * Protobuf type {@code Initialize}
-   *
-   * <pre>
-   * Reset device's internal state
-   *
-   * Response: Features
-   * </pre>
-   */
   public static final class Initialize extends
       com.google.protobuf.GeneratedMessage
       implements InitializeOrBuilder {
     // Use Initialize.newBuilder() to construct.
-    private Initialize(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Initialize(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Initialize(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private Initialize(boolean noInit) {}
+    
     private static final Initialize defaultInstance;
     public static Initialize getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public Initialize getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Initialize(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              sessionId_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_Initialize_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Initialize_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_Initialize_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.Initialize.class, TrezorMessage.Initialize.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Initialize_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<Initialize> PARSER =
-        new com.google.protobuf.AbstractParser<Initialize>() {
-      public Initialize parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Initialize(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Initialize> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required bytes session_id = 1;
     public static final int SESSION_ID_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString sessionId_;
-    /**
-     * <code>required bytes session_id = 1;</code>
-     *
-     * <pre>
-     * Any value identifying current connection, will be echoed back in Features message
-     * </pre>
-     */
     public boolean hasSessionId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required bytes session_id = 1;</code>
-     *
-     * <pre>
-     * Any value identifying current connection, will be echoed back in Features message
-     * </pre>
-     */
     public com.google.protobuf.ByteString getSessionId() {
       return sessionId_;
     }
-
+    
     private void initFields() {
       sessionId_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -420,7 +268,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasSessionId()) {
         memoizedIsInitialized = 0;
         return false;
@@ -428,7 +276,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -437,12 +285,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -452,111 +300,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.Initialize parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Initialize parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Initialize parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Initialize parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Initialize parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Initialize parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Initialize parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Initialize parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Initialize parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Initialize parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.Initialize prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code Initialize}
-     *
-     * <pre>
-     * Reset device's internal state
-     *
-     * Response: Features
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.InitializeOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.InitializeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_Initialize_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Initialize_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_Initialize_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.Initialize.class, TrezorMessage.Initialize.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Initialize_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.Initialize.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -567,37 +417,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         sessionId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_Initialize_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize.getDescriptor();
       }
-
-      public TrezorMessage.Initialize getDefaultInstanceForType() {
-        return TrezorMessage.Initialize.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize.getDefaultInstance();
       }
-
-      public TrezorMessage.Initialize build() {
-        TrezorMessage.Initialize result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.Initialize buildPartial() {
-        TrezorMessage.Initialize result = new TrezorMessage.Initialize(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -608,25 +468,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.Initialize) {
-          return mergeFrom((TrezorMessage.Initialize)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.Initialize other) {
-        if (other == TrezorMessage.Initialize.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize.getDefaultInstance()) return this;
         if (other.hasSessionId()) {
           setSessionId(other.getSessionId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasSessionId()) {
           
@@ -634,55 +494,49 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.Initialize parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.Initialize) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              sessionId_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required bytes session_id = 1;
       private com.google.protobuf.ByteString sessionId_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>required bytes session_id = 1;</code>
-       *
-       * <pre>
-       * Any value identifying current connection, will be echoed back in Features message
-       * </pre>
-       */
       public boolean hasSessionId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required bytes session_id = 1;</code>
-       *
-       * <pre>
-       * Any value identifying current connection, will be echoed back in Features message
-       * </pre>
-       */
       public com.google.protobuf.ByteString getSessionId() {
         return sessionId_;
       }
-      /**
-       * <code>required bytes session_id = 1;</code>
-       *
-       * <pre>
-       * Any value identifying current connection, will be echoed back in Features message
-       * </pre>
-       */
       public Builder setSessionId(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -692,694 +546,222 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required bytes session_id = 1;</code>
-       *
-       * <pre>
-       * Any value identifying current connection, will be echoed back in Features message
-       * </pre>
-       */
       public Builder clearSessionId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         sessionId_ = getDefaultInstance().getSessionId();
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:Initialize)
     }
-
+    
     static {
       defaultInstance = new Initialize(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:Initialize)
   }
-
+  
   public interface FeaturesOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional bytes session_id = 1;
-    /**
-     * <code>optional bytes session_id = 1;</code>
-     *
-     * <pre>
-     * Echoed back from Initialize message
-     * </pre>
-     */
     boolean hasSessionId();
-    /**
-     * <code>optional bytes session_id = 1;</code>
-     *
-     * <pre>
-     * Echoed back from Initialize message
-     * </pre>
-     */
     com.google.protobuf.ByteString getSessionId();
-
+    
     // optional string vendor = 2;
-    /**
-     * <code>optional string vendor = 2;</code>
-     *
-     * <pre>
-     * Name of the manufacturer, e.g. "trezor"
-     * </pre>
-     */
     boolean hasVendor();
-    /**
-     * <code>optional string vendor = 2;</code>
-     *
-     * <pre>
-     * Name of the manufacturer, e.g. "trezor"
-     * </pre>
-     */
-    java.lang.String getVendor();
-    /**
-     * <code>optional string vendor = 2;</code>
-     *
-     * <pre>
-     * Name of the manufacturer, e.g. "trezor"
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getVendorBytes();
-
+    String getVendor();
+    
     // optional uint32 major_version = 3;
-    /**
-     * <code>optional uint32 major_version = 3;</code>
-     *
-     * <pre>
-     * Major version of the device, e.g. 1
-     * </pre>
-     */
     boolean hasMajorVersion();
-    /**
-     * <code>optional uint32 major_version = 3;</code>
-     *
-     * <pre>
-     * Major version of the device, e.g. 1
-     * </pre>
-     */
     int getMajorVersion();
-
+    
     // optional uint32 minor_version = 4;
-    /**
-     * <code>optional uint32 minor_version = 4;</code>
-     *
-     * <pre>
-     * Minor version of the device, e.g. 0
-     * </pre>
-     */
     boolean hasMinorVersion();
-    /**
-     * <code>optional uint32 minor_version = 4;</code>
-     *
-     * <pre>
-     * Minor version of the device, e.g. 0
-     * </pre>
-     */
     int getMinorVersion();
-
+    
     // optional bool has_otp = 5;
-    /**
-     * <code>optional bool has_otp = 5;</code>
-     *
-     * <pre>
-     * True when device will send OtpRequest on important action
-     * </pre>
-     */
     boolean hasHasOtp();
-    /**
-     * <code>optional bool has_otp = 5;</code>
-     *
-     * <pre>
-     * True when device will send OtpRequest on important action
-     * </pre>
-     */
     boolean getHasOtp();
-
+    
     // optional bool has_spv = 6;
-    /**
-     * <code>optional bool has_spv = 6;</code>
-     *
-     * <pre>
-     * True when device requires SPV verification of transaction inputs
-     * </pre>
-     */
     boolean hasHasSpv();
-    /**
-     * <code>optional bool has_spv = 6;</code>
-     *
-     * <pre>
-     * True when device requires SPV verification of transaction inputs
-     * </pre>
-     */
     boolean getHasSpv();
-
+    
     // optional bool pin = 7;
-    /**
-     * <code>optional bool pin = 7;</code>
-     *
-     * <pre>
-     * True when device will send PinRequest on important action
-     * </pre>
-     */
     boolean hasPin();
-    /**
-     * <code>optional bool pin = 7;</code>
-     *
-     * <pre>
-     * True when device will send PinRequest on important action
-     * </pre>
-     */
     boolean getPin();
-
+    
     // optional .Algorithm algo = 8;
-    /**
-     * <code>optional .Algorithm algo = 8;</code>
-     *
-     * <pre>
-     * Choosen generation algorithm
-     * </pre>
-     */
     boolean hasAlgo();
-    /**
-     * <code>optional .Algorithm algo = 8;</code>
-     *
-     * <pre>
-     * Choosen generation algorithm
-     * </pre>
-     */
-    TrezorMessage.Algorithm getAlgo();
-
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgo();
+    
     // repeated .Algorithm algo_available = 9;
-    /**
-     * <code>repeated .Algorithm algo_available = 9;</code>
-     *
-     * <pre>
-     * List of key generation algorithms supported by the device
-     * </pre>
-     */
-    java.util.List<TrezorMessage.Algorithm> getAlgoAvailableList();
-    /**
-     * <code>repeated .Algorithm algo_available = 9;</code>
-     *
-     * <pre>
-     * List of key generation algorithms supported by the device
-     * </pre>
-     */
+    java.util.List<uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm> getAlgoAvailableList();
     int getAlgoAvailableCount();
-    /**
-     * <code>repeated .Algorithm algo_available = 9;</code>
-     *
-     * <pre>
-     * List of key generation algorithms supported by the device
-     * </pre>
-     */
-    TrezorMessage.Algorithm getAlgoAvailable(int index);
-
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgoAvailable(int index);
+    
     // optional uint64 maxfee_kb = 10;
-    /**
-     * <code>optional uint64 maxfee_kb = 10;</code>
-     *
-     * <pre>
-     * Maximum accepted fee per kilobyte of signed transaction
-     * </pre>
-     */
     boolean hasMaxfeeKb();
-    /**
-     * <code>optional uint64 maxfee_kb = 10;</code>
-     *
-     * <pre>
-     * Maximum accepted fee per kilobyte of signed transaction
-     * </pre>
-     */
     long getMaxfeeKb();
   }
-  /**
-   * Protobuf type {@code Features}
-   *
-   * <pre>
-   * Response object for Initialize. Contains list of available features on the device.
-   * </pre>
-   */
   public static final class Features extends
       com.google.protobuf.GeneratedMessage
       implements FeaturesOrBuilder {
     // Use Features.newBuilder() to construct.
-    private Features(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Features(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Features(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private Features(boolean noInit) {}
+    
     private static final Features defaultInstance;
     public static Features getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public Features getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Features(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              sessionId_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              vendor_ = input.readBytes();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              majorVersion_ = input.readUInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              minorVersion_ = input.readUInt32();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              hasOtp_ = input.readBool();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              hasSpv_ = input.readBool();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000040;
-              pin_ = input.readBool();
-              break;
-            }
-            case 64: {
-              int rawValue = input.readEnum();
-              TrezorMessage.Algorithm value = TrezorMessage.Algorithm.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(8, rawValue);
-              } else {
-                bitField0_ |= 0x00000080;
-                algo_ = value;
-              }
-              break;
-            }
-            case 72: {
-              int rawValue = input.readEnum();
-              TrezorMessage.Algorithm value = TrezorMessage.Algorithm.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(9, rawValue);
-              } else {
-                if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                  algoAvailable_ = new java.util.ArrayList<TrezorMessage.Algorithm>();
-                  mutable_bitField0_ |= 0x00000100;
-                }
-                algoAvailable_.add(value);
-              }
-              break;
-            }
-            case 74: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                TrezorMessage.Algorithm value = TrezorMessage.Algorithm.valueOf(rawValue);
-                if (value == null) {
-                  unknownFields.mergeVarintField(9, rawValue);
-                } else {
-                  if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                    algoAvailable_ = new java.util.ArrayList<TrezorMessage.Algorithm>();
-                    mutable_bitField0_ |= 0x00000100;
-                  }
-                  algoAvailable_.add(value);
-                }
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 80: {
-              bitField0_ |= 0x00000100;
-              maxfeeKb_ = input.readUInt64();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-          algoAvailable_ = java.util.Collections.unmodifiableList(algoAvailable_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_Features_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Features_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_Features_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.Features.class, TrezorMessage.Features.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Features_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<Features> PARSER =
-        new com.google.protobuf.AbstractParser<Features>() {
-      public Features parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Features(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Features> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // optional bytes session_id = 1;
     public static final int SESSION_ID_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString sessionId_;
-    /**
-     * <code>optional bytes session_id = 1;</code>
-     *
-     * <pre>
-     * Echoed back from Initialize message
-     * </pre>
-     */
     public boolean hasSessionId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional bytes session_id = 1;</code>
-     *
-     * <pre>
-     * Echoed back from Initialize message
-     * </pre>
-     */
     public com.google.protobuf.ByteString getSessionId() {
       return sessionId_;
     }
-
+    
     // optional string vendor = 2;
     public static final int VENDOR_FIELD_NUMBER = 2;
     private java.lang.Object vendor_;
-    /**
-     * <code>optional string vendor = 2;</code>
-     *
-     * <pre>
-     * Name of the manufacturer, e.g. "trezor"
-     * </pre>
-     */
     public boolean hasVendor() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    /**
-     * <code>optional string vendor = 2;</code>
-     *
-     * <pre>
-     * Name of the manufacturer, e.g. "trezor"
-     * </pre>
-     */
-    public java.lang.String getVendor() {
+    public String getVendor() {
       java.lang.Object ref = vendor_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           vendor_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>optional string vendor = 2;</code>
-     *
-     * <pre>
-     * Name of the manufacturer, e.g. "trezor"
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getVendorBytes() {
+    private com.google.protobuf.ByteString getVendorBytes() {
       java.lang.Object ref = vendor_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         vendor_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     // optional uint32 major_version = 3;
     public static final int MAJOR_VERSION_FIELD_NUMBER = 3;
     private int majorVersion_;
-    /**
-     * <code>optional uint32 major_version = 3;</code>
-     *
-     * <pre>
-     * Major version of the device, e.g. 1
-     * </pre>
-     */
     public boolean hasMajorVersion() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    /**
-     * <code>optional uint32 major_version = 3;</code>
-     *
-     * <pre>
-     * Major version of the device, e.g. 1
-     * </pre>
-     */
     public int getMajorVersion() {
       return majorVersion_;
     }
-
+    
     // optional uint32 minor_version = 4;
     public static final int MINOR_VERSION_FIELD_NUMBER = 4;
     private int minorVersion_;
-    /**
-     * <code>optional uint32 minor_version = 4;</code>
-     *
-     * <pre>
-     * Minor version of the device, e.g. 0
-     * </pre>
-     */
     public boolean hasMinorVersion() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    /**
-     * <code>optional uint32 minor_version = 4;</code>
-     *
-     * <pre>
-     * Minor version of the device, e.g. 0
-     * </pre>
-     */
     public int getMinorVersion() {
       return minorVersion_;
     }
-
+    
     // optional bool has_otp = 5;
     public static final int HAS_OTP_FIELD_NUMBER = 5;
     private boolean hasOtp_;
-    /**
-     * <code>optional bool has_otp = 5;</code>
-     *
-     * <pre>
-     * True when device will send OtpRequest on important action
-     * </pre>
-     */
     public boolean hasHasOtp() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
-    /**
-     * <code>optional bool has_otp = 5;</code>
-     *
-     * <pre>
-     * True when device will send OtpRequest on important action
-     * </pre>
-     */
     public boolean getHasOtp() {
       return hasOtp_;
     }
-
+    
     // optional bool has_spv = 6;
     public static final int HAS_SPV_FIELD_NUMBER = 6;
     private boolean hasSpv_;
-    /**
-     * <code>optional bool has_spv = 6;</code>
-     *
-     * <pre>
-     * True when device requires SPV verification of transaction inputs
-     * </pre>
-     */
     public boolean hasHasSpv() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
-    /**
-     * <code>optional bool has_spv = 6;</code>
-     *
-     * <pre>
-     * True when device requires SPV verification of transaction inputs
-     * </pre>
-     */
     public boolean getHasSpv() {
       return hasSpv_;
     }
-
+    
     // optional bool pin = 7;
     public static final int PIN_FIELD_NUMBER = 7;
     private boolean pin_;
-    /**
-     * <code>optional bool pin = 7;</code>
-     *
-     * <pre>
-     * True when device will send PinRequest on important action
-     * </pre>
-     */
     public boolean hasPin() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
-    /**
-     * <code>optional bool pin = 7;</code>
-     *
-     * <pre>
-     * True when device will send PinRequest on important action
-     * </pre>
-     */
     public boolean getPin() {
       return pin_;
     }
-
+    
     // optional .Algorithm algo = 8;
     public static final int ALGO_FIELD_NUMBER = 8;
-    private TrezorMessage.Algorithm algo_;
-    /**
-     * <code>optional .Algorithm algo = 8;</code>
-     *
-     * <pre>
-     * Choosen generation algorithm
-     * </pre>
-     */
+    private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm algo_;
     public boolean hasAlgo() {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
-    /**
-     * <code>optional .Algorithm algo = 8;</code>
-     *
-     * <pre>
-     * Choosen generation algorithm
-     * </pre>
-     */
-    public TrezorMessage.Algorithm getAlgo() {
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgo() {
       return algo_;
     }
-
+    
     // repeated .Algorithm algo_available = 9;
     public static final int ALGO_AVAILABLE_FIELD_NUMBER = 9;
-    private java.util.List<TrezorMessage.Algorithm> algoAvailable_;
-    /**
-     * <code>repeated .Algorithm algo_available = 9;</code>
-     *
-     * <pre>
-     * List of key generation algorithms supported by the device
-     * </pre>
-     */
-    public java.util.List<TrezorMessage.Algorithm> getAlgoAvailableList() {
+    private java.util.List<uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm> algoAvailable_;
+    public java.util.List<uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm> getAlgoAvailableList() {
       return algoAvailable_;
     }
-    /**
-     * <code>repeated .Algorithm algo_available = 9;</code>
-     *
-     * <pre>
-     * List of key generation algorithms supported by the device
-     * </pre>
-     */
     public int getAlgoAvailableCount() {
       return algoAvailable_.size();
     }
-    /**
-     * <code>repeated .Algorithm algo_available = 9;</code>
-     *
-     * <pre>
-     * List of key generation algorithms supported by the device
-     * </pre>
-     */
-    public TrezorMessage.Algorithm getAlgoAvailable(int index) {
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgoAvailable(int index) {
       return algoAvailable_.get(index);
     }
-
+    
     // optional uint64 maxfee_kb = 10;
     public static final int MAXFEE_KB_FIELD_NUMBER = 10;
     private long maxfeeKb_;
-    /**
-     * <code>optional uint64 maxfee_kb = 10;</code>
-     *
-     * <pre>
-     * Maximum accepted fee per kilobyte of signed transaction
-     * </pre>
-     */
     public boolean hasMaxfeeKb() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
-    /**
-     * <code>optional uint64 maxfee_kb = 10;</code>
-     *
-     * <pre>
-     * Maximum accepted fee per kilobyte of signed transaction
-     * </pre>
-     */
     public long getMaxfeeKb() {
       return maxfeeKb_;
     }
-
+    
     private void initFields() {
       sessionId_ = com.google.protobuf.ByteString.EMPTY;
       vendor_ = "";
@@ -1388,7 +770,7 @@ public final class TrezorMessage {
       hasOtp_ = false;
       hasSpv_ = false;
       pin_ = false;
-      algo_ = TrezorMessage.Algorithm.BIP32;
+      algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
       algoAvailable_ = java.util.Collections.emptyList();
       maxfeeKb_ = 0L;
     }
@@ -1396,11 +778,11 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -1436,12 +818,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1492,109 +874,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.Features parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Features parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Features parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Features parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Features parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Features parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Features parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Features parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Features parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Features parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.Features prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code Features}
-     *
-     * <pre>
-     * Response object for Initialize. Contains list of available features on the device.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.FeaturesOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.FeaturesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_Features_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Features_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_Features_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.Features.class, TrezorMessage.Features.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Features_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.Features.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1605,7 +991,7 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         sessionId_ = com.google.protobuf.ByteString.EMPTY;
@@ -1622,7 +1008,7 @@ public final class TrezorMessage {
         bitField0_ = (bitField0_ & ~0x00000020);
         pin_ = false;
         bitField0_ = (bitField0_ & ~0x00000040);
-        algo_ = TrezorMessage.Algorithm.BIP32;
+        algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
         bitField0_ = (bitField0_ & ~0x00000080);
         algoAvailable_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000100);
@@ -1630,30 +1016,40 @@ public final class TrezorMessage {
         bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_Features_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features.getDescriptor();
       }
-
-      public TrezorMessage.Features getDefaultInstanceForType() {
-        return TrezorMessage.Features.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features.getDefaultInstance();
       }
-
-      public TrezorMessage.Features build() {
-        TrezorMessage.Features result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.Features buildPartial() {
-        TrezorMessage.Features result = new TrezorMessage.Features(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1701,25 +1097,23 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.Features) {
-          return mergeFrom((TrezorMessage.Features)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.Features other) {
-        if (other == TrezorMessage.Features.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features.getDefaultInstance()) return this;
         if (other.hasSessionId()) {
           setSessionId(other.getSessionId());
         }
         if (other.hasVendor()) {
-          bitField0_ |= 0x00000002;
-          vendor_ = other.vendor_;
-          onChanged();
+          setVendor(other.getVendor());
         }
         if (other.hasMajorVersion()) {
           setMajorVersion(other.getMajorVersion());
@@ -1755,59 +1149,124 @@ public final class TrezorMessage {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.Features parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.Features) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              sessionId_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              vendor_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              majorVersion_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              minorVersion_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              hasOtp_ = input.readBool();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              hasSpv_ = input.readBool();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              pin_ = input.readBool();
+              break;
+            }
+            case 64: {
+              int rawValue = input.readEnum();
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(8, rawValue);
+              } else {
+                bitField0_ |= 0x00000080;
+                algo_ = value;
+              }
+              break;
+            }
+            case 72: {
+              int rawValue = input.readEnum();
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(9, rawValue);
+              } else {
+                addAlgoAvailable(value);
+              }
+              break;
+            }
+            case 74: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.valueOf(rawValue);
+                if (value == null) {
+                  unknownFields.mergeVarintField(9, rawValue);
+                } else {
+                  addAlgoAvailable(value);
+                }
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000200;
+              maxfeeKb_ = input.readUInt64();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // optional bytes session_id = 1;
       private com.google.protobuf.ByteString sessionId_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes session_id = 1;</code>
-       *
-       * <pre>
-       * Echoed back from Initialize message
-       * </pre>
-       */
       public boolean hasSessionId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional bytes session_id = 1;</code>
-       *
-       * <pre>
-       * Echoed back from Initialize message
-       * </pre>
-       */
       public com.google.protobuf.ByteString getSessionId() {
         return sessionId_;
       }
-      /**
-       * <code>optional bytes session_id = 1;</code>
-       *
-       * <pre>
-       * Echoed back from Initialize message
-       * </pre>
-       */
       public Builder setSessionId(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -1817,79 +1276,29 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bytes session_id = 1;</code>
-       *
-       * <pre>
-       * Echoed back from Initialize message
-       * </pre>
-       */
       public Builder clearSessionId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         sessionId_ = getDefaultInstance().getSessionId();
         onChanged();
         return this;
       }
-
+      
       // optional string vendor = 2;
       private java.lang.Object vendor_ = "";
-      /**
-       * <code>optional string vendor = 2;</code>
-       *
-       * <pre>
-       * Name of the manufacturer, e.g. "trezor"
-       * </pre>
-       */
       public boolean hasVendor() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /**
-       * <code>optional string vendor = 2;</code>
-       *
-       * <pre>
-       * Name of the manufacturer, e.g. "trezor"
-       * </pre>
-       */
-      public java.lang.String getVendor() {
+      public String getVendor() {
         java.lang.Object ref = vendor_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           vendor_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>optional string vendor = 2;</code>
-       *
-       * <pre>
-       * Name of the manufacturer, e.g. "trezor"
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getVendorBytes() {
-        java.lang.Object ref = vendor_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          vendor_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string vendor = 2;</code>
-       *
-       * <pre>
-       * Name of the manufacturer, e.g. "trezor"
-       * </pre>
-       */
-      public Builder setVendor(
-          java.lang.String value) {
+      public Builder setVendor(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1898,312 +1307,132 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string vendor = 2;</code>
-       *
-       * <pre>
-       * Name of the manufacturer, e.g. "trezor"
-       * </pre>
-       */
       public Builder clearVendor() {
         bitField0_ = (bitField0_ & ~0x00000002);
         vendor_ = getDefaultInstance().getVendor();
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string vendor = 2;</code>
-       *
-       * <pre>
-       * Name of the manufacturer, e.g. "trezor"
-       * </pre>
-       */
-      public Builder setVendorBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      void setVendor(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
         vendor_ = value;
         onChanged();
-        return this;
       }
-
+      
       // optional uint32 major_version = 3;
       private int majorVersion_ ;
-      /**
-       * <code>optional uint32 major_version = 3;</code>
-       *
-       * <pre>
-       * Major version of the device, e.g. 1
-       * </pre>
-       */
       public boolean hasMajorVersion() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      /**
-       * <code>optional uint32 major_version = 3;</code>
-       *
-       * <pre>
-       * Major version of the device, e.g. 1
-       * </pre>
-       */
       public int getMajorVersion() {
         return majorVersion_;
       }
-      /**
-       * <code>optional uint32 major_version = 3;</code>
-       *
-       * <pre>
-       * Major version of the device, e.g. 1
-       * </pre>
-       */
       public Builder setMajorVersion(int value) {
         bitField0_ |= 0x00000004;
         majorVersion_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional uint32 major_version = 3;</code>
-       *
-       * <pre>
-       * Major version of the device, e.g. 1
-       * </pre>
-       */
       public Builder clearMajorVersion() {
         bitField0_ = (bitField0_ & ~0x00000004);
         majorVersion_ = 0;
         onChanged();
         return this;
       }
-
+      
       // optional uint32 minor_version = 4;
       private int minorVersion_ ;
-      /**
-       * <code>optional uint32 minor_version = 4;</code>
-       *
-       * <pre>
-       * Minor version of the device, e.g. 0
-       * </pre>
-       */
       public boolean hasMinorVersion() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      /**
-       * <code>optional uint32 minor_version = 4;</code>
-       *
-       * <pre>
-       * Minor version of the device, e.g. 0
-       * </pre>
-       */
       public int getMinorVersion() {
         return minorVersion_;
       }
-      /**
-       * <code>optional uint32 minor_version = 4;</code>
-       *
-       * <pre>
-       * Minor version of the device, e.g. 0
-       * </pre>
-       */
       public Builder setMinorVersion(int value) {
         bitField0_ |= 0x00000008;
         minorVersion_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional uint32 minor_version = 4;</code>
-       *
-       * <pre>
-       * Minor version of the device, e.g. 0
-       * </pre>
-       */
       public Builder clearMinorVersion() {
         bitField0_ = (bitField0_ & ~0x00000008);
         minorVersion_ = 0;
         onChanged();
         return this;
       }
-
+      
       // optional bool has_otp = 5;
       private boolean hasOtp_ ;
-      /**
-       * <code>optional bool has_otp = 5;</code>
-       *
-       * <pre>
-       * True when device will send OtpRequest on important action
-       * </pre>
-       */
       public boolean hasHasOtp() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
-      /**
-       * <code>optional bool has_otp = 5;</code>
-       *
-       * <pre>
-       * True when device will send OtpRequest on important action
-       * </pre>
-       */
       public boolean getHasOtp() {
         return hasOtp_;
       }
-      /**
-       * <code>optional bool has_otp = 5;</code>
-       *
-       * <pre>
-       * True when device will send OtpRequest on important action
-       * </pre>
-       */
       public Builder setHasOtp(boolean value) {
         bitField0_ |= 0x00000010;
         hasOtp_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool has_otp = 5;</code>
-       *
-       * <pre>
-       * True when device will send OtpRequest on important action
-       * </pre>
-       */
       public Builder clearHasOtp() {
         bitField0_ = (bitField0_ & ~0x00000010);
         hasOtp_ = false;
         onChanged();
         return this;
       }
-
+      
       // optional bool has_spv = 6;
       private boolean hasSpv_ ;
-      /**
-       * <code>optional bool has_spv = 6;</code>
-       *
-       * <pre>
-       * True when device requires SPV verification of transaction inputs
-       * </pre>
-       */
       public boolean hasHasSpv() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
-      /**
-       * <code>optional bool has_spv = 6;</code>
-       *
-       * <pre>
-       * True when device requires SPV verification of transaction inputs
-       * </pre>
-       */
       public boolean getHasSpv() {
         return hasSpv_;
       }
-      /**
-       * <code>optional bool has_spv = 6;</code>
-       *
-       * <pre>
-       * True when device requires SPV verification of transaction inputs
-       * </pre>
-       */
       public Builder setHasSpv(boolean value) {
         bitField0_ |= 0x00000020;
         hasSpv_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool has_spv = 6;</code>
-       *
-       * <pre>
-       * True when device requires SPV verification of transaction inputs
-       * </pre>
-       */
       public Builder clearHasSpv() {
         bitField0_ = (bitField0_ & ~0x00000020);
         hasSpv_ = false;
         onChanged();
         return this;
       }
-
+      
       // optional bool pin = 7;
       private boolean pin_ ;
-      /**
-       * <code>optional bool pin = 7;</code>
-       *
-       * <pre>
-       * True when device will send PinRequest on important action
-       * </pre>
-       */
       public boolean hasPin() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
-      /**
-       * <code>optional bool pin = 7;</code>
-       *
-       * <pre>
-       * True when device will send PinRequest on important action
-       * </pre>
-       */
       public boolean getPin() {
         return pin_;
       }
-      /**
-       * <code>optional bool pin = 7;</code>
-       *
-       * <pre>
-       * True when device will send PinRequest on important action
-       * </pre>
-       */
       public Builder setPin(boolean value) {
         bitField0_ |= 0x00000040;
         pin_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool pin = 7;</code>
-       *
-       * <pre>
-       * True when device will send PinRequest on important action
-       * </pre>
-       */
       public Builder clearPin() {
         bitField0_ = (bitField0_ & ~0x00000040);
         pin_ = false;
         onChanged();
         return this;
       }
-
+      
       // optional .Algorithm algo = 8;
-      private TrezorMessage.Algorithm algo_ = TrezorMessage.Algorithm.BIP32;
-      /**
-       * <code>optional .Algorithm algo = 8;</code>
-       *
-       * <pre>
-       * Choosen generation algorithm
-       * </pre>
-       */
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
       public boolean hasAlgo() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
-      /**
-       * <code>optional .Algorithm algo = 8;</code>
-       *
-       * <pre>
-       * Choosen generation algorithm
-       * </pre>
-       */
-      public TrezorMessage.Algorithm getAlgo() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgo() {
         return algo_;
       }
-      /**
-       * <code>optional .Algorithm algo = 8;</code>
-       *
-       * <pre>
-       * Choosen generation algorithm
-       * </pre>
-       */
-      public Builder setAlgo(TrezorMessage.Algorithm value) {
+      public Builder setAlgo(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2212,68 +1441,33 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .Algorithm algo = 8;</code>
-       *
-       * <pre>
-       * Choosen generation algorithm
-       * </pre>
-       */
       public Builder clearAlgo() {
         bitField0_ = (bitField0_ & ~0x00000080);
-        algo_ = TrezorMessage.Algorithm.BIP32;
+        algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
         onChanged();
         return this;
       }
-
+      
       // repeated .Algorithm algo_available = 9;
-      private java.util.List<TrezorMessage.Algorithm> algoAvailable_ =
+      private java.util.List<uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm> algoAvailable_ =
         java.util.Collections.emptyList();
       private void ensureAlgoAvailableIsMutable() {
         if (!((bitField0_ & 0x00000100) == 0x00000100)) {
-          algoAvailable_ = new java.util.ArrayList<TrezorMessage.Algorithm>(algoAvailable_);
+          algoAvailable_ = new java.util.ArrayList<uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm>(algoAvailable_);
           bitField0_ |= 0x00000100;
         }
       }
-      /**
-       * <code>repeated .Algorithm algo_available = 9;</code>
-       *
-       * <pre>
-       * List of key generation algorithms supported by the device
-       * </pre>
-       */
-      public java.util.List<TrezorMessage.Algorithm> getAlgoAvailableList() {
+      public java.util.List<uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm> getAlgoAvailableList() {
         return java.util.Collections.unmodifiableList(algoAvailable_);
       }
-      /**
-       * <code>repeated .Algorithm algo_available = 9;</code>
-       *
-       * <pre>
-       * List of key generation algorithms supported by the device
-       * </pre>
-       */
       public int getAlgoAvailableCount() {
         return algoAvailable_.size();
       }
-      /**
-       * <code>repeated .Algorithm algo_available = 9;</code>
-       *
-       * <pre>
-       * List of key generation algorithms supported by the device
-       * </pre>
-       */
-      public TrezorMessage.Algorithm getAlgoAvailable(int index) {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgoAvailable(int index) {
         return algoAvailable_.get(index);
       }
-      /**
-       * <code>repeated .Algorithm algo_available = 9;</code>
-       *
-       * <pre>
-       * List of key generation algorithms supported by the device
-       * </pre>
-       */
       public Builder setAlgoAvailable(
-          int index, TrezorMessage.Algorithm value) {
+          int index, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2282,14 +1476,7 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated .Algorithm algo_available = 9;</code>
-       *
-       * <pre>
-       * List of key generation algorithms supported by the device
-       * </pre>
-       */
-      public Builder addAlgoAvailable(TrezorMessage.Algorithm value) {
+      public Builder addAlgoAvailable(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2298,281 +1485,120 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated .Algorithm algo_available = 9;</code>
-       *
-       * <pre>
-       * List of key generation algorithms supported by the device
-       * </pre>
-       */
       public Builder addAllAlgoAvailable(
-          java.lang.Iterable<? extends TrezorMessage.Algorithm> values) {
+          java.lang.Iterable<? extends uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm> values) {
         ensureAlgoAvailableIsMutable();
         super.addAll(values, algoAvailable_);
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated .Algorithm algo_available = 9;</code>
-       *
-       * <pre>
-       * List of key generation algorithms supported by the device
-       * </pre>
-       */
       public Builder clearAlgoAvailable() {
         algoAvailable_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
         return this;
       }
-
+      
       // optional uint64 maxfee_kb = 10;
       private long maxfeeKb_ ;
-      /**
-       * <code>optional uint64 maxfee_kb = 10;</code>
-       *
-       * <pre>
-       * Maximum accepted fee per kilobyte of signed transaction
-       * </pre>
-       */
       public boolean hasMaxfeeKb() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
-      /**
-       * <code>optional uint64 maxfee_kb = 10;</code>
-       *
-       * <pre>
-       * Maximum accepted fee per kilobyte of signed transaction
-       * </pre>
-       */
       public long getMaxfeeKb() {
         return maxfeeKb_;
       }
-      /**
-       * <code>optional uint64 maxfee_kb = 10;</code>
-       *
-       * <pre>
-       * Maximum accepted fee per kilobyte of signed transaction
-       * </pre>
-       */
       public Builder setMaxfeeKb(long value) {
         bitField0_ |= 0x00000200;
         maxfeeKb_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional uint64 maxfee_kb = 10;</code>
-       *
-       * <pre>
-       * Maximum accepted fee per kilobyte of signed transaction
-       * </pre>
-       */
       public Builder clearMaxfeeKb() {
         bitField0_ = (bitField0_ & ~0x00000200);
         maxfeeKb_ = 0L;
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:Features)
     }
-
+    
     static {
       defaultInstance = new Features(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:Features)
   }
-
+  
   public interface PingOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional string message = 1;
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Message will be sent back in Success message
-     * </pre>
-     */
     boolean hasMessage();
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Message will be sent back in Success message
-     * </pre>
-     */
-    java.lang.String getMessage();
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Message will be sent back in Success message
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getMessageBytes();
+    String getMessage();
   }
-  /**
-   * Protobuf type {@code Ping}
-   *
-   * <pre>
-   * Test if device is live, device will send back the message on success
-   *
-   * Response: None or Success
-   * </pre>
-   */
   public static final class Ping extends
       com.google.protobuf.GeneratedMessage
       implements PingOrBuilder {
     // Use Ping.newBuilder() to construct.
-    private Ping(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Ping(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Ping(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private Ping(boolean noInit) {}
+    
     private static final Ping defaultInstance;
     public static Ping getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public Ping getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Ping(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              message_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_Ping_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Ping_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_Ping_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.Ping.class, TrezorMessage.Ping.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Ping_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<Ping> PARSER =
-        new com.google.protobuf.AbstractParser<Ping>() {
-      public Ping parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Ping(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Ping> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // optional string message = 1;
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private java.lang.Object message_;
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Message will be sent back in Success message
-     * </pre>
-     */
     public boolean hasMessage() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Message will be sent back in Success message
-     * </pre>
-     */
-    public java.lang.String getMessage() {
+    public String getMessage() {
       java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           message_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Message will be sent back in Success message
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
+    private com.google.protobuf.ByteString getMessageBytes() {
       java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         message_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     private void initFields() {
       message_ = "";
     }
@@ -2580,11 +1606,11 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -2593,12 +1619,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -2608,111 +1634,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.Ping parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Ping parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Ping parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Ping parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Ping parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Ping parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Ping parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Ping parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Ping parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Ping parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.Ping prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code Ping}
-     *
-     * <pre>
-     * Test if device is live, device will send back the message on success
-     *
-     * Response: None or Success
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.PingOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PingOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_Ping_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Ping_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_Ping_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.Ping.class, TrezorMessage.Ping.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Ping_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.Ping.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2723,37 +1751,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         message_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_Ping_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping.getDescriptor();
       }
-
-      public TrezorMessage.Ping getDefaultInstanceForType() {
-        return TrezorMessage.Ping.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping.getDefaultInstance();
       }
-
-      public TrezorMessage.Ping build() {
-        TrezorMessage.Ping result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.Ping buildPartial() {
-        TrezorMessage.Ping result = new TrezorMessage.Ping(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2764,109 +1802,79 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.Ping) {
-          return mergeFrom((TrezorMessage.Ping)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.Ping other) {
-        if (other == TrezorMessage.Ping.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping.getDefaultInstance()) return this;
         if (other.hasMessage()) {
-          bitField0_ |= 0x00000001;
-          message_ = other.message_;
-          onChanged();
+          setMessage(other.getMessage());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.Ping parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.Ping) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              message_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // optional string message = 1;
       private java.lang.Object message_ = "";
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Message will be sent back in Success message
-       * </pre>
-       */
       public boolean hasMessage() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Message will be sent back in Success message
-       * </pre>
-       */
-      public java.lang.String getMessage() {
+      public String getMessage() {
         java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Message will be sent back in Success message
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Message will be sent back in Success message
-       * </pre>
-       */
-      public Builder setMessage(
-          java.lang.String value) {
+      public Builder setMessage(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2875,196 +1883,75 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Message will be sent back in Success message
-       * </pre>
-       */
       public Builder clearMessage() {
         bitField0_ = (bitField0_ & ~0x00000001);
         message_ = getDefaultInstance().getMessage();
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Message will be sent back in Success message
-       * </pre>
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      void setMessage(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
         message_ = value;
         onChanged();
-        return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:Ping)
     }
-
+    
     static {
       defaultInstance = new Ping(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:Ping)
   }
-
+  
   public interface DebugLinkDecisionOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required bool yes_no = 1;
-    /**
-     * <code>required bool yes_no = 1;</code>
-     *
-     * <pre>
-     * True for "confirm", False for "cancel"
-     * </pre>
-     */
     boolean hasYesNo();
-    /**
-     * <code>required bool yes_no = 1;</code>
-     *
-     * <pre>
-     * True for "confirm", False for "cancel"
-     * </pre>
-     */
     boolean getYesNo();
   }
-  /**
-   * Protobuf type {@code DebugLinkDecision}
-   *
-   * <pre>
-   * Virtually "press" the button on the device.
-   * Message is available only on debugging connection and device must support "debug_link" feature.
-   *
-   * Response: Success
-   * </pre>
-   */
   public static final class DebugLinkDecision extends
       com.google.protobuf.GeneratedMessage
       implements DebugLinkDecisionOrBuilder {
     // Use DebugLinkDecision.newBuilder() to construct.
-    private DebugLinkDecision(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DebugLinkDecision(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private DebugLinkDecision(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private DebugLinkDecision(boolean noInit) {}
+    
     private static final DebugLinkDecision defaultInstance;
     public static DebugLinkDecision getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public DebugLinkDecision getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DebugLinkDecision(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              yesNo_ = input.readBool();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_DebugLinkDecision_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkDecision_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_DebugLinkDecision_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.DebugLinkDecision.class, TrezorMessage.DebugLinkDecision.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkDecision_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<DebugLinkDecision> PARSER =
-        new com.google.protobuf.AbstractParser<DebugLinkDecision>() {
-      public DebugLinkDecision parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DebugLinkDecision(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DebugLinkDecision> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required bool yes_no = 1;
     public static final int YES_NO_FIELD_NUMBER = 1;
     private boolean yesNo_;
-    /**
-     * <code>required bool yes_no = 1;</code>
-     *
-     * <pre>
-     * True for "confirm", False for "cancel"
-     * </pre>
-     */
     public boolean hasYesNo() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required bool yes_no = 1;</code>
-     *
-     * <pre>
-     * True for "confirm", False for "cancel"
-     * </pre>
-     */
     public boolean getYesNo() {
       return yesNo_;
     }
-
+    
     private void initFields() {
       yesNo_ = false;
     }
@@ -3072,7 +1959,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasYesNo()) {
         memoizedIsInitialized = 0;
         return false;
@@ -3080,7 +1967,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -3089,12 +1976,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -3104,112 +1991,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.DebugLinkDecision parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.DebugLinkDecision parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.DebugLinkDecision parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.DebugLinkDecision parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.DebugLinkDecision parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.DebugLinkDecision parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.DebugLinkDecision parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.DebugLinkDecision parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.DebugLinkDecision parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.DebugLinkDecision parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.DebugLinkDecision prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code DebugLinkDecision}
-     *
-     * <pre>
-     * Virtually "press" the button on the device.
-     * Message is available only on debugging connection and device must support "debug_link" feature.
-     *
-     * Response: Success
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.DebugLinkDecisionOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecisionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_DebugLinkDecision_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkDecision_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_DebugLinkDecision_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.DebugLinkDecision.class, TrezorMessage.DebugLinkDecision.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkDecision_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.DebugLinkDecision.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3220,37 +2108,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         yesNo_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_DebugLinkDecision_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision.getDescriptor();
       }
-
-      public TrezorMessage.DebugLinkDecision getDefaultInstanceForType() {
-        return TrezorMessage.DebugLinkDecision.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision.getDefaultInstance();
       }
-
-      public TrezorMessage.DebugLinkDecision build() {
-        TrezorMessage.DebugLinkDecision result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.DebugLinkDecision buildPartial() {
-        TrezorMessage.DebugLinkDecision result = new TrezorMessage.DebugLinkDecision(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3261,25 +2159,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.DebugLinkDecision) {
-          return mergeFrom((TrezorMessage.DebugLinkDecision)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.DebugLinkDecision other) {
-        if (other == TrezorMessage.DebugLinkDecision.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision.getDefaultInstance()) return this;
         if (other.hasYesNo()) {
           setYesNo(other.getYesNo());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasYesNo()) {
           
@@ -3287,215 +2185,458 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.DebugLinkDecision parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.DebugLinkDecision) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              yesNo_ = input.readBool();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required bool yes_no = 1;
       private boolean yesNo_ ;
-      /**
-       * <code>required bool yes_no = 1;</code>
-       *
-       * <pre>
-       * True for "confirm", False for "cancel"
-       * </pre>
-       */
       public boolean hasYesNo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required bool yes_no = 1;</code>
-       *
-       * <pre>
-       * True for "confirm", False for "cancel"
-       * </pre>
-       */
       public boolean getYesNo() {
         return yesNo_;
       }
-      /**
-       * <code>required bool yes_no = 1;</code>
-       *
-       * <pre>
-       * True for "confirm", False for "cancel"
-       * </pre>
-       */
       public Builder setYesNo(boolean value) {
         bitField0_ |= 0x00000001;
         yesNo_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required bool yes_no = 1;</code>
-       *
-       * <pre>
-       * True for "confirm", False for "cancel"
-       * </pre>
-       */
       public Builder clearYesNo() {
         bitField0_ = (bitField0_ & ~0x00000001);
         yesNo_ = false;
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:DebugLinkDecision)
     }
-
+    
     static {
       defaultInstance = new DebugLinkDecision(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:DebugLinkDecision)
   }
-
+  
   public interface DebugLinkGetStateOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional bool layout = 1;
-    /**
-     * <code>optional bool layout = 1;</code>
-     *
-     * <pre>
-     * Request raw buffer of display
-     * </pre>
-     */
     boolean hasLayout();
-    /**
-     * <code>optional bool layout = 1;</code>
-     *
-     * <pre>
-     * Request raw buffer of display
-     * </pre>
-     */
     boolean getLayout();
-
+    
     // optional bool otp = 2;
-    /**
-     * <code>optional bool otp = 2;</code>
-     *
-     * <pre>
-     * Request current OTP
-     * </pre>
-     */
     boolean hasOtp();
-    /**
-     * <code>optional bool otp = 2;</code>
-     *
-     * <pre>
-     * Request current OTP
-     * </pre>
-     */
     boolean getOtp();
-
+    
     // optional bool pin = 3;
-    /**
-     * <code>optional bool pin = 3;</code>
-     *
-     * <pre>
-     * Request current PIN
-     * </pre>
-     */
     boolean hasPin();
-    /**
-     * <code>optional bool pin = 3;</code>
-     *
-     * <pre>
-     * Request current PIN
-     * </pre>
-     */
     boolean getPin();
-
+    
     // optional bool seed = 4;
-    /**
-     * <code>optional bool seed = 4;</code>
-     *
-     * <pre>
-     * Request current seed
-     * </pre>
-     */
     boolean hasSeed();
-    /**
-     * <code>optional bool seed = 4;</code>
-     *
-     * <pre>
-     * Request current seed
-     * </pre>
-     */
     boolean getSeed();
   }
-  /**
-   * Protobuf type {@code DebugLinkGetState}
-   *
-   * <pre>
-   * When sent over debug link connection, computer asks for some internal information of the device.
-   *
-   * Response: DebugLinkState
-   * </pre>
-   */
   public static final class DebugLinkGetState extends
       com.google.protobuf.GeneratedMessage
       implements DebugLinkGetStateOrBuilder {
     // Use DebugLinkGetState.newBuilder() to construct.
-    private DebugLinkGetState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DebugLinkGetState(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private DebugLinkGetState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private DebugLinkGetState(boolean noInit) {}
+    
     private static final DebugLinkGetState defaultInstance;
     public static DebugLinkGetState getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public DebugLinkGetState getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkGetState_descriptor;
     }
-    private DebugLinkGetState(
-        com.google.protobuf.CodedInputStream input,
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkGetState_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // optional bool layout = 1;
+    public static final int LAYOUT_FIELD_NUMBER = 1;
+    private boolean layout_;
+    public boolean hasLayout() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public boolean getLayout() {
+      return layout_;
+    }
+    
+    // optional bool otp = 2;
+    public static final int OTP_FIELD_NUMBER = 2;
+    private boolean otp_;
+    public boolean hasOtp() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public boolean getOtp() {
+      return otp_;
+    }
+    
+    // optional bool pin = 3;
+    public static final int PIN_FIELD_NUMBER = 3;
+    private boolean pin_;
+    public boolean hasPin() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public boolean getPin() {
+      return pin_;
+    }
+    
+    // optional bool seed = 4;
+    public static final int SEED_FIELD_NUMBER = 4;
+    private boolean seed_;
+    public boolean hasSeed() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    public boolean getSeed() {
+      return seed_;
+    }
+    
+    private void initFields() {
+      layout_ = false;
+      otp_ = false;
+      pin_ = false;
+      seed_ = false;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, layout_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, otp_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, pin_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBool(4, seed_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, layout_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, otp_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, pin_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, seed_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseFrom(
+        com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetStateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkGetState_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkGetState_fieldAccessorTable;
+      }
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        layout_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        otp_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        pin_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        seed_ = false;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState.getDescriptor();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState.getDefaultInstance();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.layout_ = layout_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.otp_ = otp_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.pin_ = pin_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.seed_ = seed_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState.getDefaultInstance()) return this;
+        if (other.hasLayout()) {
+          setLayout(other.getLayout());
+        }
+        if (other.hasOtp()) {
+          setOtp(other.getOtp());
+        }
+        if (other.hasPin()) {
+          setPin(other.getPin());
+        }
+        if (other.hasSeed()) {
+          setSeed(other.getSeed());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
-              done = true;
-              break;
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
             default: {
               if (!parseUnknownField(input, unknownFields,
                                      extensionRegistry, tag)) {
-                done = true;
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
               }
               break;
             }
@@ -3521,1020 +2662,234 @@ public final class TrezorMessage {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
       }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return TrezorMessage.internal_static_DebugLinkGetState_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_DebugLinkGetState_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.DebugLinkGetState.class, TrezorMessage.DebugLinkGetState.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<DebugLinkGetState> PARSER =
-        new com.google.protobuf.AbstractParser<DebugLinkGetState>() {
-      public DebugLinkGetState parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DebugLinkGetState(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DebugLinkGetState> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // optional bool layout = 1;
-    public static final int LAYOUT_FIELD_NUMBER = 1;
-    private boolean layout_;
-    /**
-     * <code>optional bool layout = 1;</code>
-     *
-     * <pre>
-     * Request raw buffer of display
-     * </pre>
-     */
-    public boolean hasLayout() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional bool layout = 1;</code>
-     *
-     * <pre>
-     * Request raw buffer of display
-     * </pre>
-     */
-    public boolean getLayout() {
-      return layout_;
-    }
-
-    // optional bool otp = 2;
-    public static final int OTP_FIELD_NUMBER = 2;
-    private boolean otp_;
-    /**
-     * <code>optional bool otp = 2;</code>
-     *
-     * <pre>
-     * Request current OTP
-     * </pre>
-     */
-    public boolean hasOtp() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional bool otp = 2;</code>
-     *
-     * <pre>
-     * Request current OTP
-     * </pre>
-     */
-    public boolean getOtp() {
-      return otp_;
-    }
-
-    // optional bool pin = 3;
-    public static final int PIN_FIELD_NUMBER = 3;
-    private boolean pin_;
-    /**
-     * <code>optional bool pin = 3;</code>
-     *
-     * <pre>
-     * Request current PIN
-     * </pre>
-     */
-    public boolean hasPin() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional bool pin = 3;</code>
-     *
-     * <pre>
-     * Request current PIN
-     * </pre>
-     */
-    public boolean getPin() {
-      return pin_;
-    }
-
-    // optional bool seed = 4;
-    public static final int SEED_FIELD_NUMBER = 4;
-    private boolean seed_;
-    /**
-     * <code>optional bool seed = 4;</code>
-     *
-     * <pre>
-     * Request current seed
-     * </pre>
-     */
-    public boolean hasSeed() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>optional bool seed = 4;</code>
-     *
-     * <pre>
-     * Request current seed
-     * </pre>
-     */
-    public boolean getSeed() {
-      return seed_;
-    }
-
-    private void initFields() {
-      layout_ = false;
-      otp_ = false;
-      pin_ = false;
-      seed_ = false;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBool(1, layout_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBool(2, otp_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBool(3, pin_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBool(4, seed_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, layout_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, otp_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, pin_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, seed_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static TrezorMessage.DebugLinkGetState parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.DebugLinkGetState parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.DebugLinkGetState parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.DebugLinkGetState parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.DebugLinkGetState parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.DebugLinkGetState parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.DebugLinkGetState parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static TrezorMessage.DebugLinkGetState parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.DebugLinkGetState parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.DebugLinkGetState parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.DebugLinkGetState prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code DebugLinkGetState}
-     *
-     * <pre>
-     * When sent over debug link connection, computer asks for some internal information of the device.
-     *
-     * Response: DebugLinkState
-     * </pre>
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.DebugLinkGetStateOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return TrezorMessage.internal_static_DebugLinkGetState_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_DebugLinkGetState_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.DebugLinkGetState.class, TrezorMessage.DebugLinkGetState.Builder.class);
-      }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.DebugLinkGetState.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        layout_ = false;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        otp_ = false;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        pin_ = false;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        seed_ = false;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return TrezorMessage.internal_static_DebugLinkGetState_descriptor;
-      }
-
-      public TrezorMessage.DebugLinkGetState getDefaultInstanceForType() {
-        return TrezorMessage.DebugLinkGetState.getDefaultInstance();
-      }
-
-      public TrezorMessage.DebugLinkGetState build() {
-        TrezorMessage.DebugLinkGetState result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public TrezorMessage.DebugLinkGetState buildPartial() {
-        TrezorMessage.DebugLinkGetState result = new TrezorMessage.DebugLinkGetState(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.layout_ = layout_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.otp_ = otp_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.pin_ = pin_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.seed_ = seed_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.DebugLinkGetState) {
-          return mergeFrom((TrezorMessage.DebugLinkGetState)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(TrezorMessage.DebugLinkGetState other) {
-        if (other == TrezorMessage.DebugLinkGetState.getDefaultInstance()) return this;
-        if (other.hasLayout()) {
-          setLayout(other.getLayout());
-        }
-        if (other.hasOtp()) {
-          setOtp(other.getOtp());
-        }
-        if (other.hasPin()) {
-          setPin(other.getPin());
-        }
-        if (other.hasSeed()) {
-          setSeed(other.getSeed());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        TrezorMessage.DebugLinkGetState parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.DebugLinkGetState) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
+      
       private int bitField0_;
-
+      
       // optional bool layout = 1;
       private boolean layout_ ;
-      /**
-       * <code>optional bool layout = 1;</code>
-       *
-       * <pre>
-       * Request raw buffer of display
-       * </pre>
-       */
       public boolean hasLayout() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional bool layout = 1;</code>
-       *
-       * <pre>
-       * Request raw buffer of display
-       * </pre>
-       */
       public boolean getLayout() {
         return layout_;
       }
-      /**
-       * <code>optional bool layout = 1;</code>
-       *
-       * <pre>
-       * Request raw buffer of display
-       * </pre>
-       */
       public Builder setLayout(boolean value) {
         bitField0_ |= 0x00000001;
         layout_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool layout = 1;</code>
-       *
-       * <pre>
-       * Request raw buffer of display
-       * </pre>
-       */
       public Builder clearLayout() {
         bitField0_ = (bitField0_ & ~0x00000001);
         layout_ = false;
         onChanged();
         return this;
       }
-
+      
       // optional bool otp = 2;
       private boolean otp_ ;
-      /**
-       * <code>optional bool otp = 2;</code>
-       *
-       * <pre>
-       * Request current OTP
-       * </pre>
-       */
       public boolean hasOtp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /**
-       * <code>optional bool otp = 2;</code>
-       *
-       * <pre>
-       * Request current OTP
-       * </pre>
-       */
       public boolean getOtp() {
         return otp_;
       }
-      /**
-       * <code>optional bool otp = 2;</code>
-       *
-       * <pre>
-       * Request current OTP
-       * </pre>
-       */
       public Builder setOtp(boolean value) {
         bitField0_ |= 0x00000002;
         otp_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool otp = 2;</code>
-       *
-       * <pre>
-       * Request current OTP
-       * </pre>
-       */
       public Builder clearOtp() {
         bitField0_ = (bitField0_ & ~0x00000002);
         otp_ = false;
         onChanged();
         return this;
       }
-
+      
       // optional bool pin = 3;
       private boolean pin_ ;
-      /**
-       * <code>optional bool pin = 3;</code>
-       *
-       * <pre>
-       * Request current PIN
-       * </pre>
-       */
       public boolean hasPin() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      /**
-       * <code>optional bool pin = 3;</code>
-       *
-       * <pre>
-       * Request current PIN
-       * </pre>
-       */
       public boolean getPin() {
         return pin_;
       }
-      /**
-       * <code>optional bool pin = 3;</code>
-       *
-       * <pre>
-       * Request current PIN
-       * </pre>
-       */
       public Builder setPin(boolean value) {
         bitField0_ |= 0x00000004;
         pin_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool pin = 3;</code>
-       *
-       * <pre>
-       * Request current PIN
-       * </pre>
-       */
       public Builder clearPin() {
         bitField0_ = (bitField0_ & ~0x00000004);
         pin_ = false;
         onChanged();
         return this;
       }
-
+      
       // optional bool seed = 4;
       private boolean seed_ ;
-      /**
-       * <code>optional bool seed = 4;</code>
-       *
-       * <pre>
-       * Request current seed
-       * </pre>
-       */
       public boolean hasSeed() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      /**
-       * <code>optional bool seed = 4;</code>
-       *
-       * <pre>
-       * Request current seed
-       * </pre>
-       */
       public boolean getSeed() {
         return seed_;
       }
-      /**
-       * <code>optional bool seed = 4;</code>
-       *
-       * <pre>
-       * Request current seed
-       * </pre>
-       */
       public Builder setSeed(boolean value) {
         bitField0_ |= 0x00000008;
         seed_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool seed = 4;</code>
-       *
-       * <pre>
-       * Request current seed
-       * </pre>
-       */
       public Builder clearSeed() {
         bitField0_ = (bitField0_ & ~0x00000008);
         seed_ = false;
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:DebugLinkGetState)
     }
-
+    
     static {
       defaultInstance = new DebugLinkGetState(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:DebugLinkGetState)
   }
-
+  
   public interface DebugLinkStateOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional bytes layout = 1;
-    /**
-     * <code>optional bytes layout = 1;</code>
-     *
-     * <pre>
-     * Raw buffer of display
-     * </pre>
-     */
     boolean hasLayout();
-    /**
-     * <code>optional bytes layout = 1;</code>
-     *
-     * <pre>
-     * Raw buffer of display
-     * </pre>
-     */
     com.google.protobuf.ByteString getLayout();
-
+    
     // optional .OtpAck otp = 2;
-    /**
-     * <code>optional .OtpAck otp = 2;</code>
-     *
-     * <pre>
-     * Current OTP, blank if device is not waiting to OTP
-     * </pre>
-     */
     boolean hasOtp();
-    /**
-     * <code>optional .OtpAck otp = 2;</code>
-     *
-     * <pre>
-     * Current OTP, blank if device is not waiting to OTP
-     * </pre>
-     */
-    TrezorMessage.OtpAck getOtp();
-    /**
-     * <code>optional .OtpAck otp = 2;</code>
-     *
-     * <pre>
-     * Current OTP, blank if device is not waiting to OTP
-     * </pre>
-     */
-    TrezorMessage.OtpAckOrBuilder getOtpOrBuilder();
-
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck getOtp();
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAckOrBuilder getOtpOrBuilder();
+    
     // optional .PinAck pin = 3;
-    /**
-     * <code>optional .PinAck pin = 3;</code>
-     *
-     * <pre>
-     * Current PIN, blank if PIN is not set/enabled
-     * </pre>
-     */
     boolean hasPin();
-    /**
-     * <code>optional .PinAck pin = 3;</code>
-     *
-     * <pre>
-     * Current PIN, blank if PIN is not set/enabled
-     * </pre>
-     */
-    TrezorMessage.PinAck getPin();
-    /**
-     * <code>optional .PinAck pin = 3;</code>
-     *
-     * <pre>
-     * Current PIN, blank if PIN is not set/enabled
-     * </pre>
-     */
-    TrezorMessage.PinAckOrBuilder getPinOrBuilder();
-
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck getPin();
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAckOrBuilder getPinOrBuilder();
+    
     // optional string seed = 4;
-    /**
-     * <code>optional string seed = 4;</code>
-     *
-     * <pre>
-     * Current seed (in mnemonic format)
-     * </pre>
-     */
     boolean hasSeed();
-    /**
-     * <code>optional string seed = 4;</code>
-     *
-     * <pre>
-     * Current seed (in mnemonic format)
-     * </pre>
-     */
-    java.lang.String getSeed();
-    /**
-     * <code>optional string seed = 4;</code>
-     *
-     * <pre>
-     * Current seed (in mnemonic format)
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getSeedBytes();
+    String getSeed();
   }
-  /**
-   * Protobuf type {@code DebugLinkState}
-   *
-   * <pre>
-   * Response object reflecting device's current state. It can be received only over debug link connection.
-   * </pre>
-   */
   public static final class DebugLinkState extends
       com.google.protobuf.GeneratedMessage
       implements DebugLinkStateOrBuilder {
     // Use DebugLinkState.newBuilder() to construct.
-    private DebugLinkState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DebugLinkState(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private DebugLinkState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private DebugLinkState(boolean noInit) {}
+    
     private static final DebugLinkState defaultInstance;
     public static DebugLinkState getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public DebugLinkState getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DebugLinkState(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              layout_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              TrezorMessage.OtpAck.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = otp_.toBuilder();
-              }
-              otp_ = input.readMessage(TrezorMessage.OtpAck.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(otp_);
-                otp_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            case 26: {
-              TrezorMessage.PinAck.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = pin_.toBuilder();
-              }
-              pin_ = input.readMessage(TrezorMessage.PinAck.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(pin_);
-                pin_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000008;
-              seed_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_DebugLinkState_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkState_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_DebugLinkState_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.DebugLinkState.class, TrezorMessage.DebugLinkState.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkState_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<DebugLinkState> PARSER =
-        new com.google.protobuf.AbstractParser<DebugLinkState>() {
-      public DebugLinkState parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DebugLinkState(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DebugLinkState> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // optional bytes layout = 1;
     public static final int LAYOUT_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString layout_;
-    /**
-     * <code>optional bytes layout = 1;</code>
-     *
-     * <pre>
-     * Raw buffer of display
-     * </pre>
-     */
     public boolean hasLayout() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional bytes layout = 1;</code>
-     *
-     * <pre>
-     * Raw buffer of display
-     * </pre>
-     */
     public com.google.protobuf.ByteString getLayout() {
       return layout_;
     }
-
+    
     // optional .OtpAck otp = 2;
     public static final int OTP_FIELD_NUMBER = 2;
-    private TrezorMessage.OtpAck otp_;
-    /**
-     * <code>optional .OtpAck otp = 2;</code>
-     *
-     * <pre>
-     * Current OTP, blank if device is not waiting to OTP
-     * </pre>
-     */
+    private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck otp_;
     public boolean hasOtp() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    /**
-     * <code>optional .OtpAck otp = 2;</code>
-     *
-     * <pre>
-     * Current OTP, blank if device is not waiting to OTP
-     * </pre>
-     */
-    public TrezorMessage.OtpAck getOtp() {
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck getOtp() {
       return otp_;
     }
-    /**
-     * <code>optional .OtpAck otp = 2;</code>
-     *
-     * <pre>
-     * Current OTP, blank if device is not waiting to OTP
-     * </pre>
-     */
-    public TrezorMessage.OtpAckOrBuilder getOtpOrBuilder() {
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAckOrBuilder getOtpOrBuilder() {
       return otp_;
     }
-
+    
     // optional .PinAck pin = 3;
     public static final int PIN_FIELD_NUMBER = 3;
-    private TrezorMessage.PinAck pin_;
-    /**
-     * <code>optional .PinAck pin = 3;</code>
-     *
-     * <pre>
-     * Current PIN, blank if PIN is not set/enabled
-     * </pre>
-     */
+    private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck pin_;
     public boolean hasPin() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    /**
-     * <code>optional .PinAck pin = 3;</code>
-     *
-     * <pre>
-     * Current PIN, blank if PIN is not set/enabled
-     * </pre>
-     */
-    public TrezorMessage.PinAck getPin() {
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck getPin() {
       return pin_;
     }
-    /**
-     * <code>optional .PinAck pin = 3;</code>
-     *
-     * <pre>
-     * Current PIN, blank if PIN is not set/enabled
-     * </pre>
-     */
-    public TrezorMessage.PinAckOrBuilder getPinOrBuilder() {
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAckOrBuilder getPinOrBuilder() {
       return pin_;
     }
-
+    
     // optional string seed = 4;
     public static final int SEED_FIELD_NUMBER = 4;
     private java.lang.Object seed_;
-    /**
-     * <code>optional string seed = 4;</code>
-     *
-     * <pre>
-     * Current seed (in mnemonic format)
-     * </pre>
-     */
     public boolean hasSeed() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    /**
-     * <code>optional string seed = 4;</code>
-     *
-     * <pre>
-     * Current seed (in mnemonic format)
-     * </pre>
-     */
-    public java.lang.String getSeed() {
+    public String getSeed() {
       java.lang.Object ref = seed_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           seed_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>optional string seed = 4;</code>
-     *
-     * <pre>
-     * Current seed (in mnemonic format)
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getSeedBytes() {
+    private com.google.protobuf.ByteString getSeedBytes() {
       java.lang.Object ref = seed_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         seed_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     private void initFields() {
       layout_ = com.google.protobuf.ByteString.EMPTY;
-      otp_ = TrezorMessage.OtpAck.getDefaultInstance();
-      pin_ = TrezorMessage.PinAck.getDefaultInstance();
+      otp_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.getDefaultInstance();
+      pin_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.getDefaultInstance();
       seed_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (hasOtp()) {
         if (!getOtp().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -4550,7 +2905,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -4568,12 +2923,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4595,109 +2950,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.DebugLinkState parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.DebugLinkState parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.DebugLinkState parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.DebugLinkState parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.DebugLinkState parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.DebugLinkState parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.DebugLinkState parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.DebugLinkState parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.DebugLinkState parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.DebugLinkState parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.DebugLinkState prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code DebugLinkState}
-     *
-     * <pre>
-     * Response object reflecting device's current state. It can be received only over debug link connection.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.DebugLinkStateOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_DebugLinkState_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkState_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_DebugLinkState_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.DebugLinkState.class, TrezorMessage.DebugLinkState.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkState_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.DebugLinkState.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4710,19 +3069,19 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         layout_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (otpBuilder_ == null) {
-          otp_ = TrezorMessage.OtpAck.getDefaultInstance();
+          otp_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.getDefaultInstance();
         } else {
           otpBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         if (pinBuilder_ == null) {
-          pin_ = TrezorMessage.PinAck.getDefaultInstance();
+          pin_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.getDefaultInstance();
         } else {
           pinBuilder_.clear();
         }
@@ -4731,30 +3090,40 @@ public final class TrezorMessage {
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_DebugLinkState_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState.getDescriptor();
       }
-
-      public TrezorMessage.DebugLinkState getDefaultInstanceForType() {
-        return TrezorMessage.DebugLinkState.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState.getDefaultInstance();
       }
-
-      public TrezorMessage.DebugLinkState build() {
-        TrezorMessage.DebugLinkState result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.DebugLinkState buildPartial() {
-        TrezorMessage.DebugLinkState result = new TrezorMessage.DebugLinkState(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4785,18 +3154,18 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.DebugLinkState) {
-          return mergeFrom((TrezorMessage.DebugLinkState)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.DebugLinkState other) {
-        if (other == TrezorMessage.DebugLinkState.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState.getDefaultInstance()) return this;
         if (other.hasLayout()) {
           setLayout(other.getLayout());
         }
@@ -4807,14 +3176,12 @@ public final class TrezorMessage {
           mergePin(other.getPin());
         }
         if (other.hasSeed()) {
-          bitField0_ |= 0x00000008;
-          seed_ = other.seed_;
-          onChanged();
+          setSeed(other.getSeed());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (hasOtp()) {
           if (!getOtp().isInitialized()) {
@@ -4830,55 +3197,72 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.DebugLinkState parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.DebugLinkState) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              layout_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.Builder subBuilder = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.newBuilder();
+              if (hasOtp()) {
+                subBuilder.mergeFrom(getOtp());
+              }
+              input.readMessage(subBuilder, extensionRegistry);
+              setOtp(subBuilder.buildPartial());
+              break;
+            }
+            case 26: {
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.Builder subBuilder = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.newBuilder();
+              if (hasPin()) {
+                subBuilder.mergeFrom(getPin());
+              }
+              input.readMessage(subBuilder, extensionRegistry);
+              setPin(subBuilder.buildPartial());
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              seed_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // optional bytes layout = 1;
       private com.google.protobuf.ByteString layout_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes layout = 1;</code>
-       *
-       * <pre>
-       * Raw buffer of display
-       * </pre>
-       */
       public boolean hasLayout() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional bytes layout = 1;</code>
-       *
-       * <pre>
-       * Raw buffer of display
-       * </pre>
-       */
       public com.google.protobuf.ByteString getLayout() {
         return layout_;
       }
-      /**
-       * <code>optional bytes layout = 1;</code>
-       *
-       * <pre>
-       * Raw buffer of display
-       * </pre>
-       */
       public Builder setLayout(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -4888,56 +3272,28 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bytes layout = 1;</code>
-       *
-       * <pre>
-       * Raw buffer of display
-       * </pre>
-       */
       public Builder clearLayout() {
         bitField0_ = (bitField0_ & ~0x00000001);
         layout_ = getDefaultInstance().getLayout();
         onChanged();
         return this;
       }
-
+      
       // optional .OtpAck otp = 2;
-      private TrezorMessage.OtpAck otp_ = TrezorMessage.OtpAck.getDefaultInstance();
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck otp_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          TrezorMessage.OtpAck, TrezorMessage.OtpAck.Builder, TrezorMessage.OtpAckOrBuilder> otpBuilder_;
-      /**
-       * <code>optional .OtpAck otp = 2;</code>
-       *
-       * <pre>
-       * Current OTP, blank if device is not waiting to OTP
-       * </pre>
-       */
+          uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.Builder, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAckOrBuilder> otpBuilder_;
       public boolean hasOtp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /**
-       * <code>optional .OtpAck otp = 2;</code>
-       *
-       * <pre>
-       * Current OTP, blank if device is not waiting to OTP
-       * </pre>
-       */
-      public TrezorMessage.OtpAck getOtp() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck getOtp() {
         if (otpBuilder_ == null) {
           return otp_;
         } else {
           return otpBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .OtpAck otp = 2;</code>
-       *
-       * <pre>
-       * Current OTP, blank if device is not waiting to OTP
-       * </pre>
-       */
-      public Builder setOtp(TrezorMessage.OtpAck value) {
+      public Builder setOtp(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck value) {
         if (otpBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4950,15 +3306,8 @@ public final class TrezorMessage {
         bitField0_ |= 0x00000002;
         return this;
       }
-      /**
-       * <code>optional .OtpAck otp = 2;</code>
-       *
-       * <pre>
-       * Current OTP, blank if device is not waiting to OTP
-       * </pre>
-       */
       public Builder setOtp(
-          TrezorMessage.OtpAck.Builder builderForValue) {
+          uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.Builder builderForValue) {
         if (otpBuilder_ == null) {
           otp_ = builderForValue.build();
           onChanged();
@@ -4968,19 +3317,12 @@ public final class TrezorMessage {
         bitField0_ |= 0x00000002;
         return this;
       }
-      /**
-       * <code>optional .OtpAck otp = 2;</code>
-       *
-       * <pre>
-       * Current OTP, blank if device is not waiting to OTP
-       * </pre>
-       */
-      public Builder mergeOtp(TrezorMessage.OtpAck value) {
+      public Builder mergeOtp(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck value) {
         if (otpBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              otp_ != TrezorMessage.OtpAck.getDefaultInstance()) {
+              otp_ != uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.getDefaultInstance()) {
             otp_ =
-              TrezorMessage.OtpAck.newBuilder(otp_).mergeFrom(value).buildPartial();
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.newBuilder(otp_).mergeFrom(value).buildPartial();
           } else {
             otp_ = value;
           }
@@ -4991,16 +3333,9 @@ public final class TrezorMessage {
         bitField0_ |= 0x00000002;
         return this;
       }
-      /**
-       * <code>optional .OtpAck otp = 2;</code>
-       *
-       * <pre>
-       * Current OTP, blank if device is not waiting to OTP
-       * </pre>
-       */
       public Builder clearOtp() {
         if (otpBuilder_ == null) {
-          otp_ = TrezorMessage.OtpAck.getDefaultInstance();
+          otp_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.getDefaultInstance();
           onChanged();
         } else {
           otpBuilder_.clear();
@@ -5008,45 +3343,24 @@ public final class TrezorMessage {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      /**
-       * <code>optional .OtpAck otp = 2;</code>
-       *
-       * <pre>
-       * Current OTP, blank if device is not waiting to OTP
-       * </pre>
-       */
-      public TrezorMessage.OtpAck.Builder getOtpBuilder() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.Builder getOtpBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getOtpFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .OtpAck otp = 2;</code>
-       *
-       * <pre>
-       * Current OTP, blank if device is not waiting to OTP
-       * </pre>
-       */
-      public TrezorMessage.OtpAckOrBuilder getOtpOrBuilder() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAckOrBuilder getOtpOrBuilder() {
         if (otpBuilder_ != null) {
           return otpBuilder_.getMessageOrBuilder();
         } else {
           return otp_;
         }
       }
-      /**
-       * <code>optional .OtpAck otp = 2;</code>
-       *
-       * <pre>
-       * Current OTP, blank if device is not waiting to OTP
-       * </pre>
-       */
       private com.google.protobuf.SingleFieldBuilder<
-          TrezorMessage.OtpAck, TrezorMessage.OtpAck.Builder, TrezorMessage.OtpAckOrBuilder>
+          uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.Builder, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAckOrBuilder> 
           getOtpFieldBuilder() {
         if (otpBuilder_ == null) {
           otpBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              TrezorMessage.OtpAck, TrezorMessage.OtpAck.Builder, TrezorMessage.OtpAckOrBuilder>(
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.Builder, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAckOrBuilder>(
                   otp_,
                   getParentForChildren(),
                   isClean());
@@ -5054,43 +3368,22 @@ public final class TrezorMessage {
         }
         return otpBuilder_;
       }
-
+      
       // optional .PinAck pin = 3;
-      private TrezorMessage.PinAck pin_ = TrezorMessage.PinAck.getDefaultInstance();
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck pin_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          TrezorMessage.PinAck, TrezorMessage.PinAck.Builder, TrezorMessage.PinAckOrBuilder> pinBuilder_;
-      /**
-       * <code>optional .PinAck pin = 3;</code>
-       *
-       * <pre>
-       * Current PIN, blank if PIN is not set/enabled
-       * </pre>
-       */
+          uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.Builder, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAckOrBuilder> pinBuilder_;
       public boolean hasPin() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      /**
-       * <code>optional .PinAck pin = 3;</code>
-       *
-       * <pre>
-       * Current PIN, blank if PIN is not set/enabled
-       * </pre>
-       */
-      public TrezorMessage.PinAck getPin() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck getPin() {
         if (pinBuilder_ == null) {
           return pin_;
         } else {
           return pinBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .PinAck pin = 3;</code>
-       *
-       * <pre>
-       * Current PIN, blank if PIN is not set/enabled
-       * </pre>
-       */
-      public Builder setPin(TrezorMessage.PinAck value) {
+      public Builder setPin(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck value) {
         if (pinBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5103,15 +3396,8 @@ public final class TrezorMessage {
         bitField0_ |= 0x00000004;
         return this;
       }
-      /**
-       * <code>optional .PinAck pin = 3;</code>
-       *
-       * <pre>
-       * Current PIN, blank if PIN is not set/enabled
-       * </pre>
-       */
       public Builder setPin(
-          TrezorMessage.PinAck.Builder builderForValue) {
+          uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.Builder builderForValue) {
         if (pinBuilder_ == null) {
           pin_ = builderForValue.build();
           onChanged();
@@ -5121,19 +3407,12 @@ public final class TrezorMessage {
         bitField0_ |= 0x00000004;
         return this;
       }
-      /**
-       * <code>optional .PinAck pin = 3;</code>
-       *
-       * <pre>
-       * Current PIN, blank if PIN is not set/enabled
-       * </pre>
-       */
-      public Builder mergePin(TrezorMessage.PinAck value) {
+      public Builder mergePin(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck value) {
         if (pinBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              pin_ != TrezorMessage.PinAck.getDefaultInstance()) {
+              pin_ != uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.getDefaultInstance()) {
             pin_ =
-              TrezorMessage.PinAck.newBuilder(pin_).mergeFrom(value).buildPartial();
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.newBuilder(pin_).mergeFrom(value).buildPartial();
           } else {
             pin_ = value;
           }
@@ -5144,16 +3423,9 @@ public final class TrezorMessage {
         bitField0_ |= 0x00000004;
         return this;
       }
-      /**
-       * <code>optional .PinAck pin = 3;</code>
-       *
-       * <pre>
-       * Current PIN, blank if PIN is not set/enabled
-       * </pre>
-       */
       public Builder clearPin() {
         if (pinBuilder_ == null) {
-          pin_ = TrezorMessage.PinAck.getDefaultInstance();
+          pin_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.getDefaultInstance();
           onChanged();
         } else {
           pinBuilder_.clear();
@@ -5161,45 +3433,24 @@ public final class TrezorMessage {
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
-      /**
-       * <code>optional .PinAck pin = 3;</code>
-       *
-       * <pre>
-       * Current PIN, blank if PIN is not set/enabled
-       * </pre>
-       */
-      public TrezorMessage.PinAck.Builder getPinBuilder() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.Builder getPinBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getPinFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .PinAck pin = 3;</code>
-       *
-       * <pre>
-       * Current PIN, blank if PIN is not set/enabled
-       * </pre>
-       */
-      public TrezorMessage.PinAckOrBuilder getPinOrBuilder() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAckOrBuilder getPinOrBuilder() {
         if (pinBuilder_ != null) {
           return pinBuilder_.getMessageOrBuilder();
         } else {
           return pin_;
         }
       }
-      /**
-       * <code>optional .PinAck pin = 3;</code>
-       *
-       * <pre>
-       * Current PIN, blank if PIN is not set/enabled
-       * </pre>
-       */
       private com.google.protobuf.SingleFieldBuilder<
-          TrezorMessage.PinAck, TrezorMessage.PinAck.Builder, TrezorMessage.PinAckOrBuilder>
+          uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.Builder, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAckOrBuilder> 
           getPinFieldBuilder() {
         if (pinBuilder_ == null) {
           pinBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              TrezorMessage.PinAck, TrezorMessage.PinAck.Builder, TrezorMessage.PinAckOrBuilder>(
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.Builder, uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAckOrBuilder>(
                   pin_,
                   getParentForChildren(),
                   isClean());
@@ -5207,66 +3458,23 @@ public final class TrezorMessage {
         }
         return pinBuilder_;
       }
-
+      
       // optional string seed = 4;
       private java.lang.Object seed_ = "";
-      /**
-       * <code>optional string seed = 4;</code>
-       *
-       * <pre>
-       * Current seed (in mnemonic format)
-       * </pre>
-       */
       public boolean hasSeed() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      /**
-       * <code>optional string seed = 4;</code>
-       *
-       * <pre>
-       * Current seed (in mnemonic format)
-       * </pre>
-       */
-      public java.lang.String getSeed() {
+      public String getSeed() {
         java.lang.Object ref = seed_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           seed_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>optional string seed = 4;</code>
-       *
-       * <pre>
-       * Current seed (in mnemonic format)
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getSeedBytes() {
-        java.lang.Object ref = seed_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          seed_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string seed = 4;</code>
-       *
-       * <pre>
-       * Current seed (in mnemonic format)
-       * </pre>
-       */
-      public Builder setSeed(
-          java.lang.String value) {
+      public Builder setSeed(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -5275,274 +3483,194 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string seed = 4;</code>
-       *
-       * <pre>
-       * Current seed (in mnemonic format)
-       * </pre>
-       */
       public Builder clearSeed() {
         bitField0_ = (bitField0_ & ~0x00000008);
         seed_ = getDefaultInstance().getSeed();
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string seed = 4;</code>
-       *
-       * <pre>
-       * Current seed (in mnemonic format)
-       * </pre>
-       */
-      public Builder setSeedBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      void setSeed(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000008;
         seed_ = value;
         onChanged();
-        return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:DebugLinkState)
     }
-
+    
     static {
       defaultInstance = new DebugLinkState(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:DebugLinkState)
   }
-
+  
   public interface DebugLinkStopOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
-  /**
-   * Protobuf type {@code DebugLinkStop}
-   *
-   * <pre>
-   * Ask device to shutdown/restart
-   * </pre>
-   */
   public static final class DebugLinkStop extends
       com.google.protobuf.GeneratedMessage
       implements DebugLinkStopOrBuilder {
     // Use DebugLinkStop.newBuilder() to construct.
-    private DebugLinkStop(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private DebugLinkStop(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private DebugLinkStop(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private DebugLinkStop(boolean noInit) {}
+    
     private static final DebugLinkStop defaultInstance;
     public static DebugLinkStop getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public DebugLinkStop getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DebugLinkStop(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_DebugLinkStop_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkStop_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_DebugLinkStop_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.DebugLinkStop.class, TrezorMessage.DebugLinkStop.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkStop_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<DebugLinkStop> PARSER =
-        new com.google.protobuf.AbstractParser<DebugLinkStop>() {
-      public DebugLinkStop parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DebugLinkStop(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DebugLinkStop> getParserForType() {
-      return PARSER;
-    }
-
+    
     private void initFields() {
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.DebugLinkStop parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.DebugLinkStop parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.DebugLinkStop parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.DebugLinkStop parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.DebugLinkStop parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.DebugLinkStop parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.DebugLinkStop parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.DebugLinkStop parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.DebugLinkStop parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.DebugLinkStop parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.DebugLinkStop prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code DebugLinkStop}
-     *
-     * <pre>
-     * Ask device to shutdown/restart
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.DebugLinkStopOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStopOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_DebugLinkStop_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkStop_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_DebugLinkStop_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.DebugLinkStop.class, TrezorMessage.DebugLinkStop.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_DebugLinkStop_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.DebugLinkStop.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -5553,272 +3681,175 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_DebugLinkStop_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop.getDescriptor();
       }
-
-      public TrezorMessage.DebugLinkStop getDefaultInstanceForType() {
-        return TrezorMessage.DebugLinkStop.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop.getDefaultInstance();
       }
-
-      public TrezorMessage.DebugLinkStop build() {
-        TrezorMessage.DebugLinkStop result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.DebugLinkStop buildPartial() {
-        TrezorMessage.DebugLinkStop result = new TrezorMessage.DebugLinkStop(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop(this);
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.DebugLinkStop) {
-          return mergeFrom((TrezorMessage.DebugLinkStop)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.DebugLinkStop other) {
-        if (other == TrezorMessage.DebugLinkStop.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.DebugLinkStop parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.DebugLinkStop) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
           }
         }
-        return this;
       }
-
+      
+      
       // @@protoc_insertion_point(builder_scope:DebugLinkStop)
     }
-
+    
     static {
       defaultInstance = new DebugLinkStop(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:DebugLinkStop)
   }
-
+  
   public interface SuccessOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional string message = 1;
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     *	May contain human readable description of the action or request-specific payload
-     * </pre>
-     */
     boolean hasMessage();
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     *	May contain human readable description of the action or request-specific payload
-     * </pre>
-     */
-    java.lang.String getMessage();
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     *	May contain human readable description of the action or request-specific payload
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getMessageBytes();
+    String getMessage();
   }
-  /**
-   * Protobuf type {@code Success}
-   *
-   * <pre>
-   * Response object defining success of the previous request
-   * </pre>
-   */
   public static final class Success extends
       com.google.protobuf.GeneratedMessage
       implements SuccessOrBuilder {
     // Use Success.newBuilder() to construct.
-    private Success(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Success(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Success(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private Success(boolean noInit) {}
+    
     private static final Success defaultInstance;
     public static Success getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public Success getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Success(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              message_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_Success_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Success_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_Success_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.Success.class, TrezorMessage.Success.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Success_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<Success> PARSER =
-        new com.google.protobuf.AbstractParser<Success>() {
-      public Success parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Success(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Success> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // optional string message = 1;
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private java.lang.Object message_;
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     *	May contain human readable description of the action or request-specific payload
-     * </pre>
-     */
     public boolean hasMessage() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     *	May contain human readable description of the action or request-specific payload
-     * </pre>
-     */
-    public java.lang.String getMessage() {
+    public String getMessage() {
       java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           message_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     *	May contain human readable description of the action or request-specific payload
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
+    private com.google.protobuf.ByteString getMessageBytes() {
       java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         message_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     private void initFields() {
       message_ = "";
     }
@@ -5826,11 +3857,11 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -5839,12 +3870,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -5854,109 +3885,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.Success parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Success parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Success parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Success parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Success parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Success parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Success parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Success parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Success parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Success parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.Success prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code Success}
-     *
-     * <pre>
-     * Response object defining success of the previous request
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.SuccessOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SuccessOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_Success_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Success_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_Success_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.Success.class, TrezorMessage.Success.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Success_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.Success.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -5967,37 +4002,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         message_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_Success_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success.getDescriptor();
       }
-
-      public TrezorMessage.Success getDefaultInstanceForType() {
-        return TrezorMessage.Success.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success.getDefaultInstance();
       }
-
-      public TrezorMessage.Success build() {
-        TrezorMessage.Success result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.Success buildPartial() {
-        TrezorMessage.Success result = new TrezorMessage.Success(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6008,109 +4053,79 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.Success) {
-          return mergeFrom((TrezorMessage.Success)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.Success other) {
-        if (other == TrezorMessage.Success.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success.getDefaultInstance()) return this;
         if (other.hasMessage()) {
-          bitField0_ |= 0x00000001;
-          message_ = other.message_;
-          onChanged();
+          setMessage(other.getMessage());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.Success parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.Success) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              message_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // optional string message = 1;
       private java.lang.Object message_ = "";
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       *	May contain human readable description of the action or request-specific payload
-       * </pre>
-       */
       public boolean hasMessage() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       *	May contain human readable description of the action or request-specific payload
-       * </pre>
-       */
-      public java.lang.String getMessage() {
+      public String getMessage() {
         java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       *	May contain human readable description of the action or request-specific payload
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       *	May contain human readable description of the action or request-specific payload
-       * </pre>
-       */
-      public Builder setMessage(
-          java.lang.String value) {
+      public Builder setMessage(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -6119,148 +4134,374 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       *	May contain human readable description of the action or request-specific payload
-       * </pre>
-       */
       public Builder clearMessage() {
         bitField0_ = (bitField0_ & ~0x00000001);
         message_ = getDefaultInstance().getMessage();
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       *	May contain human readable description of the action or request-specific payload
-       * </pre>
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      void setMessage(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
         message_ = value;
         onChanged();
-        return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:Success)
     }
-
+    
     static {
       defaultInstance = new Success(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:Success)
   }
-
+  
   public interface FailureOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional int32 code = 1;
-    /**
-     * <code>optional int32 code = 1;</code>
-     *
-     * <pre>
-     * May contain computer-readable definition of the error state
-     * </pre>
-     */
     boolean hasCode();
-    /**
-     * <code>optional int32 code = 1;</code>
-     *
-     * <pre>
-     * May contain computer-readable definition of the error state
-     * </pre>
-     */
     int getCode();
-
+    
     // optional string message = 2;
-    /**
-     * <code>optional string message = 2;</code>
-     *
-     * <pre>
-     * May contain human-readable message of the error state
-     * </pre>
-     */
     boolean hasMessage();
-    /**
-     * <code>optional string message = 2;</code>
-     *
-     * <pre>
-     * May contain human-readable message of the error state
-     * </pre>
-     */
-    java.lang.String getMessage();
-    /**
-     * <code>optional string message = 2;</code>
-     *
-     * <pre>
-     * May contain human-readable message of the error state
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getMessageBytes();
+    String getMessage();
   }
-  /**
-   * Protobuf type {@code Failure}
-   *
-   * <pre>
-   * Response object defining failure of the previous request
-   * </pre>
-   */
   public static final class Failure extends
       com.google.protobuf.GeneratedMessage
       implements FailureOrBuilder {
     // Use Failure.newBuilder() to construct.
-    private Failure(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Failure(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Failure(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private Failure(boolean noInit) {}
+    
     private static final Failure defaultInstance;
     public static Failure getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public Failure getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Failure_descriptor;
     }
-    private Failure(
-        com.google.protobuf.CodedInputStream input,
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Failure_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // optional int32 code = 1;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    public boolean hasCode() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public int getCode() {
+      return code_;
+    }
+    
+    // optional string message = 2;
+    public static final int MESSAGE_FIELD_NUMBER = 2;
+    private java.lang.Object message_;
+    public boolean hasMessage() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          message_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    private void initFields() {
+      code_ = 0;
+      message_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, code_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getMessageBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getMessageBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseFrom(
+        com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.FailureOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Failure_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Failure_fieldAccessorTable;
+      }
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        message_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure.getDescriptor();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure.getDefaultInstance();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.code_ = code_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.message_ = message_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure.getDefaultInstance()) return this;
+        if (other.hasCode()) {
+          setCode(other.getCode());
+        }
+        if (other.hasMessage()) {
+          setMessage(other.getMessage());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
-              done = true;
-              break;
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
             default: {
               if (!parseUnknownField(input, unknownFields,
                                      extensionRegistry, tag)) {
-                done = true;
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
               }
               break;
             }
@@ -6276,481 +4517,47 @@ public final class TrezorMessage {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
       }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return TrezorMessage.internal_static_Failure_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_Failure_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.Failure.class, TrezorMessage.Failure.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<Failure> PARSER =
-        new com.google.protobuf.AbstractParser<Failure>() {
-      public Failure parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Failure(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Failure> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // optional int32 code = 1;
-    public static final int CODE_FIELD_NUMBER = 1;
-    private int code_;
-    /**
-     * <code>optional int32 code = 1;</code>
-     *
-     * <pre>
-     * May contain computer-readable definition of the error state
-     * </pre>
-     */
-    public boolean hasCode() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional int32 code = 1;</code>
-     *
-     * <pre>
-     * May contain computer-readable definition of the error state
-     * </pre>
-     */
-    public int getCode() {
-      return code_;
-    }
-
-    // optional string message = 2;
-    public static final int MESSAGE_FIELD_NUMBER = 2;
-    private java.lang.Object message_;
-    /**
-     * <code>optional string message = 2;</code>
-     *
-     * <pre>
-     * May contain human-readable message of the error state
-     * </pre>
-     */
-    public boolean hasMessage() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional string message = 2;</code>
-     *
-     * <pre>
-     * May contain human-readable message of the error state
-     * </pre>
-     */
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          message_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string message = 2;</code>
-     *
-     * <pre>
-     * May contain human-readable message of the error state
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private void initFields() {
-      code_ = 0;
-      message_ = "";
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, code_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getMessageBytes());
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, code_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getMessageBytes());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static TrezorMessage.Failure parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.Failure parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.Failure parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.Failure parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.Failure parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.Failure parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.Failure parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static TrezorMessage.Failure parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.Failure parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.Failure parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.Failure prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code Failure}
-     *
-     * <pre>
-     * Response object defining failure of the previous request
-     * </pre>
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.FailureOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return TrezorMessage.internal_static_Failure_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_Failure_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.Failure.class, TrezorMessage.Failure.Builder.class);
-      }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.Failure.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        code_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        message_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return TrezorMessage.internal_static_Failure_descriptor;
-      }
-
-      public TrezorMessage.Failure getDefaultInstanceForType() {
-        return TrezorMessage.Failure.getDefaultInstance();
-      }
-
-      public TrezorMessage.Failure build() {
-        TrezorMessage.Failure result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public TrezorMessage.Failure buildPartial() {
-        TrezorMessage.Failure result = new TrezorMessage.Failure(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.code_ = code_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.message_ = message_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.Failure) {
-          return mergeFrom((TrezorMessage.Failure)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(TrezorMessage.Failure other) {
-        if (other == TrezorMessage.Failure.getDefaultInstance()) return this;
-        if (other.hasCode()) {
-          setCode(other.getCode());
-        }
-        if (other.hasMessage()) {
-          bitField0_ |= 0x00000002;
-          message_ = other.message_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        TrezorMessage.Failure parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.Failure) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
+      
       private int bitField0_;
-
+      
       // optional int32 code = 1;
       private int code_ ;
-      /**
-       * <code>optional int32 code = 1;</code>
-       *
-       * <pre>
-       * May contain computer-readable definition of the error state
-       * </pre>
-       */
       public boolean hasCode() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional int32 code = 1;</code>
-       *
-       * <pre>
-       * May contain computer-readable definition of the error state
-       * </pre>
-       */
       public int getCode() {
         return code_;
       }
-      /**
-       * <code>optional int32 code = 1;</code>
-       *
-       * <pre>
-       * May contain computer-readable definition of the error state
-       * </pre>
-       */
       public Builder setCode(int value) {
         bitField0_ |= 0x00000001;
         code_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional int32 code = 1;</code>
-       *
-       * <pre>
-       * May contain computer-readable definition of the error state
-       * </pre>
-       */
       public Builder clearCode() {
         bitField0_ = (bitField0_ & ~0x00000001);
         code_ = 0;
         onChanged();
         return this;
       }
-
+      
       // optional string message = 2;
       private java.lang.Object message_ = "";
-      /**
-       * <code>optional string message = 2;</code>
-       *
-       * <pre>
-       * May contain human-readable message of the error state
-       * </pre>
-       */
       public boolean hasMessage() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /**
-       * <code>optional string message = 2;</code>
-       *
-       * <pre>
-       * May contain human-readable message of the error state
-       * </pre>
-       */
-      public java.lang.String getMessage() {
+      public String getMessage() {
         java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>optional string message = 2;</code>
-       *
-       * <pre>
-       * May contain human-readable message of the error state
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string message = 2;</code>
-       *
-       * <pre>
-       * May contain human-readable message of the error state
-       * </pre>
-       */
-      public Builder setMessage(
-          java.lang.String value) {
+      public Builder setMessage(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -6759,278 +4566,194 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 2;</code>
-       *
-       * <pre>
-       * May contain human-readable message of the error state
-       * </pre>
-       */
       public Builder clearMessage() {
         bitField0_ = (bitField0_ & ~0x00000002);
         message_ = getDefaultInstance().getMessage();
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 2;</code>
-       *
-       * <pre>
-       * May contain human-readable message of the error state
-       * </pre>
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      void setMessage(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
         message_ = value;
         onChanged();
-        return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:Failure)
     }
-
+    
     static {
       defaultInstance = new Failure(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:Failure)
   }
-
+  
   public interface GetUUIDOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
-  /**
-   * Protobuf type {@code GetUUID}
-   *
-   * <pre>
-   * Ask device for unique identifier.
-   *
-   * Response: UUID
-   * </pre>
-   */
   public static final class GetUUID extends
       com.google.protobuf.GeneratedMessage
       implements GetUUIDOrBuilder {
     // Use GetUUID.newBuilder() to construct.
-    private GetUUID(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private GetUUID(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private GetUUID(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private GetUUID(boolean noInit) {}
+    
     private static final GetUUID defaultInstance;
     public static GetUUID getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public GetUUID getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private GetUUID(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_GetUUID_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetUUID_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_GetUUID_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.GetUUID.class, TrezorMessage.GetUUID.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetUUID_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<GetUUID> PARSER =
-        new com.google.protobuf.AbstractParser<GetUUID>() {
-      public GetUUID parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetUUID(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<GetUUID> getParserForType() {
-      return PARSER;
-    }
-
+    
     private void initFields() {
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.GetUUID parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.GetUUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetUUID parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.GetUUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetUUID parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.GetUUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetUUID parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.GetUUID parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.GetUUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.GetUUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.GetUUID prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code GetUUID}
-     *
-     * <pre>
-     * Ask device for unique identifier.
-     *
-     * Response: UUID
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.GetUUIDOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUIDOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_GetUUID_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetUUID_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_GetUUID_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.GetUUID.class, TrezorMessage.GetUUID.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetUUID_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.GetUUID.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -7041,217 +4764,153 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_GetUUID_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID.getDescriptor();
       }
-
-      public TrezorMessage.GetUUID getDefaultInstanceForType() {
-        return TrezorMessage.GetUUID.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID.getDefaultInstance();
       }
-
-      public TrezorMessage.GetUUID build() {
-        TrezorMessage.GetUUID result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.GetUUID buildPartial() {
-        TrezorMessage.GetUUID result = new TrezorMessage.GetUUID(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID(this);
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.GetUUID) {
-          return mergeFrom((TrezorMessage.GetUUID)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.GetUUID other) {
-        if (other == TrezorMessage.GetUUID.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.GetUUID parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.GetUUID) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
           }
         }
-        return this;
       }
-
+      
+      
       // @@protoc_insertion_point(builder_scope:GetUUID)
     }
-
+    
     static {
       defaultInstance = new GetUUID(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:GetUUID)
   }
-
+  
   public interface UUIDOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required bytes UUID = 1;
-    /**
-     * <code>required bytes UUID = 1;</code>
-     */
     boolean hasUUID();
-    /**
-     * <code>required bytes UUID = 1;</code>
-     */
     com.google.protobuf.ByteString getUUID();
   }
-  /**
-   * Protobuf type {@code UUID}
-   *
-   * <pre>
-   * Identifier of the device. This identifier must be composed from CPU serial number
-   * or other persistent source and must be the same for consecutive requests.
-   * </pre>
-   */
   public static final class UUID extends
       com.google.protobuf.GeneratedMessage
       implements UUIDOrBuilder {
     // Use UUID.newBuilder() to construct.
-    private UUID(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private UUID(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private UUID(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private UUID(boolean noInit) {}
+    
     private static final UUID defaultInstance;
     public static UUID getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public UUID getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private UUID(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              uUID_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_UUID_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_UUID_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_UUID_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.UUID.class, TrezorMessage.UUID.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_UUID_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<UUID> PARSER =
-        new com.google.protobuf.AbstractParser<UUID>() {
-      public UUID parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UUID(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<UUID> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required bytes UUID = 1;
     public static final int UUID_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString uUID_;
-    /**
-     * <code>required bytes UUID = 1;</code>
-     */
     public boolean hasUUID() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required bytes UUID = 1;</code>
-     */
     public com.google.protobuf.ByteString getUUID() {
       return uUID_;
     }
-
+    
     private void initFields() {
       uUID_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -7259,7 +4918,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasUUID()) {
         memoizedIsInitialized = 0;
         return false;
@@ -7267,7 +4926,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -7276,12 +4935,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -7291,110 +4950,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.UUID parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.UUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.UUID parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.UUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.UUID parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.UUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.UUID parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.UUID parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.UUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.UUID parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.UUID prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code UUID}
-     *
-     * <pre>
-     * Identifier of the device. This identifier must be composed from CPU serial number
-     * or other persistent source and must be the same for consecutive requests.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.UUIDOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUIDOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_UUID_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_UUID_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_UUID_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.UUID.class, TrezorMessage.UUID.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_UUID_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.UUID.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -7405,37 +5067,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         uUID_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_UUID_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID.getDescriptor();
       }
-
-      public TrezorMessage.UUID getDefaultInstanceForType() {
-        return TrezorMessage.UUID.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID.getDefaultInstance();
       }
-
-      public TrezorMessage.UUID build() {
-        TrezorMessage.UUID result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.UUID buildPartial() {
-        TrezorMessage.UUID result = new TrezorMessage.UUID(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7446,25 +5118,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.UUID) {
-          return mergeFrom((TrezorMessage.UUID)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.UUID other) {
-        if (other == TrezorMessage.UUID.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID.getDefaultInstance()) return this;
         if (other.hasUUID()) {
           setUUID(other.getUUID());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasUUID()) {
           
@@ -7472,43 +5144,49 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.UUID parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.UUID) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              uUID_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required bytes UUID = 1;
       private com.google.protobuf.ByteString uUID_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>required bytes UUID = 1;</code>
-       */
       public boolean hasUUID() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required bytes UUID = 1;</code>
-       */
       public com.google.protobuf.ByteString getUUID() {
         return uUID_;
       }
-      /**
-       * <code>required bytes UUID = 1;</code>
-       */
       public Builder setUUID(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -7518,259 +5196,189 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required bytes UUID = 1;</code>
-       */
       public Builder clearUUID() {
         bitField0_ = (bitField0_ & ~0x00000001);
         uUID_ = getDefaultInstance().getUUID();
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:UUID)
     }
-
+    
     static {
       defaultInstance = new UUID(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:UUID)
   }
-
+  
   public interface ButtonRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
-  /**
-   * Protobuf type {@code ButtonRequest}
-   *
-   * <pre>
-   * Message can be sent by the *device* as a resopnse to any request.
-   * Device is waiting for HW button press. No action is required from computer
-   * Computer should respond with ButtonAck message or ButtonCancel to cancel
-   * the original request.
-   * </pre>
-   */
   public static final class ButtonRequest extends
       com.google.protobuf.GeneratedMessage
       implements ButtonRequestOrBuilder {
     // Use ButtonRequest.newBuilder() to construct.
-    private ButtonRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ButtonRequest(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ButtonRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private ButtonRequest(boolean noInit) {}
+    
     private static final ButtonRequest defaultInstance;
     public static ButtonRequest getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public ButtonRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ButtonRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_ButtonRequest_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonRequest_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_ButtonRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.ButtonRequest.class, TrezorMessage.ButtonRequest.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonRequest_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<ButtonRequest> PARSER =
-        new com.google.protobuf.AbstractParser<ButtonRequest>() {
-      public ButtonRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ButtonRequest(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ButtonRequest> getParserForType() {
-      return PARSER;
-    }
-
+    
     private void initFields() {
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.ButtonRequest parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.ButtonRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ButtonRequest parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.ButtonRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ButtonRequest parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.ButtonRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ButtonRequest parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.ButtonRequest parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.ButtonRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.ButtonRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.ButtonRequest prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ButtonRequest}
-     *
-     * <pre>
-     * Message can be sent by the *device* as a resopnse to any request.
-     * Device is waiting for HW button press. No action is required from computer
-     * Computer should respond with ButtonAck message or ButtonCancel to cancel
-     * the original request.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.ButtonRequestOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_ButtonRequest_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonRequest_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_ButtonRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.ButtonRequest.class, TrezorMessage.ButtonRequest.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonRequest_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.ButtonRequest.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -7781,313 +5389,272 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_ButtonRequest_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest.getDescriptor();
       }
-
-      public TrezorMessage.ButtonRequest getDefaultInstanceForType() {
-        return TrezorMessage.ButtonRequest.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest.getDefaultInstance();
       }
-
-      public TrezorMessage.ButtonRequest build() {
-        TrezorMessage.ButtonRequest result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.ButtonRequest buildPartial() {
-        TrezorMessage.ButtonRequest result = new TrezorMessage.ButtonRequest(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest(this);
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.ButtonRequest) {
-          return mergeFrom((TrezorMessage.ButtonRequest)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.ButtonRequest other) {
-        if (other == TrezorMessage.ButtonRequest.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.ButtonRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.ButtonRequest) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
           }
         }
-        return this;
       }
-
+      
+      
       // @@protoc_insertion_point(builder_scope:ButtonRequest)
     }
-
+    
     static {
       defaultInstance = new ButtonRequest(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:ButtonRequest)
   }
-
+  
   public interface ButtonAckOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
-  /**
-   * Protobuf type {@code ButtonAck}
-   *
-   * <pre>
-   * Computer agrees to wait for HW button press.
-   * </pre>
-   */
   public static final class ButtonAck extends
       com.google.protobuf.GeneratedMessage
       implements ButtonAckOrBuilder {
     // Use ButtonAck.newBuilder() to construct.
-    private ButtonAck(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ButtonAck(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ButtonAck(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private ButtonAck(boolean noInit) {}
+    
     private static final ButtonAck defaultInstance;
     public static ButtonAck getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public ButtonAck getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ButtonAck(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_ButtonAck_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonAck_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_ButtonAck_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.ButtonAck.class, TrezorMessage.ButtonAck.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonAck_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<ButtonAck> PARSER =
-        new com.google.protobuf.AbstractParser<ButtonAck>() {
-      public ButtonAck parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ButtonAck(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ButtonAck> getParserForType() {
-      return PARSER;
-    }
-
+    
     private void initFields() {
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.ButtonAck parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.ButtonAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ButtonAck parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.ButtonAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ButtonAck parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.ButtonAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ButtonAck parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.ButtonAck parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.ButtonAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.ButtonAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.ButtonAck prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ButtonAck}
-     *
-     * <pre>
-     * Computer agrees to wait for HW button press.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.ButtonAckOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAckOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_ButtonAck_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonAck_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_ButtonAck_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.ButtonAck.class, TrezorMessage.ButtonAck.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonAck_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.ButtonAck.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -8098,313 +5665,272 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_ButtonAck_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck.getDescriptor();
       }
-
-      public TrezorMessage.ButtonAck getDefaultInstanceForType() {
-        return TrezorMessage.ButtonAck.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck.getDefaultInstance();
       }
-
-      public TrezorMessage.ButtonAck build() {
-        TrezorMessage.ButtonAck result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.ButtonAck buildPartial() {
-        TrezorMessage.ButtonAck result = new TrezorMessage.ButtonAck(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck(this);
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.ButtonAck) {
-          return mergeFrom((TrezorMessage.ButtonAck)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.ButtonAck other) {
-        if (other == TrezorMessage.ButtonAck.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.ButtonAck parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.ButtonAck) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
           }
         }
-        return this;
       }
-
+      
+      
       // @@protoc_insertion_point(builder_scope:ButtonAck)
     }
-
+    
     static {
       defaultInstance = new ButtonAck(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:ButtonAck)
   }
-
+  
   public interface ButtonCancelOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
-  /**
-   * Protobuf type {@code ButtonCancel}
-   *
-   * <pre>
-   * Computer want to cancel current action (don't wait to HW button press)
-   * </pre>
-   */
   public static final class ButtonCancel extends
       com.google.protobuf.GeneratedMessage
       implements ButtonCancelOrBuilder {
     // Use ButtonCancel.newBuilder() to construct.
-    private ButtonCancel(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ButtonCancel(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ButtonCancel(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private ButtonCancel(boolean noInit) {}
+    
     private static final ButtonCancel defaultInstance;
     public static ButtonCancel getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public ButtonCancel getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ButtonCancel(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_ButtonCancel_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonCancel_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_ButtonCancel_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.ButtonCancel.class, TrezorMessage.ButtonCancel.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonCancel_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<ButtonCancel> PARSER =
-        new com.google.protobuf.AbstractParser<ButtonCancel>() {
-      public ButtonCancel parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ButtonCancel(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ButtonCancel> getParserForType() {
-      return PARSER;
-    }
-
+    
     private void initFields() {
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.ButtonCancel parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.ButtonCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ButtonCancel parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.ButtonCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ButtonCancel parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.ButtonCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ButtonCancel parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.ButtonCancel parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.ButtonCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.ButtonCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.ButtonCancel prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ButtonCancel}
-     *
-     * <pre>
-     * Computer want to cancel current action (don't wait to HW button press)
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.ButtonCancelOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancelOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_ButtonCancel_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonCancel_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_ButtonCancel_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.ButtonCancel.class, TrezorMessage.ButtonCancel.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ButtonCancel_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.ButtonCancel.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -8415,275 +5941,175 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_ButtonCancel_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel.getDescriptor();
       }
-
-      public TrezorMessage.ButtonCancel getDefaultInstanceForType() {
-        return TrezorMessage.ButtonCancel.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel.getDefaultInstance();
       }
-
-      public TrezorMessage.ButtonCancel build() {
-        TrezorMessage.ButtonCancel result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.ButtonCancel buildPartial() {
-        TrezorMessage.ButtonCancel result = new TrezorMessage.ButtonCancel(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel(this);
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.ButtonCancel) {
-          return mergeFrom((TrezorMessage.ButtonCancel)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.ButtonCancel other) {
-        if (other == TrezorMessage.ButtonCancel.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.ButtonCancel parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.ButtonCancel) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
           }
         }
-        return this;
       }
-
+      
+      
       // @@protoc_insertion_point(builder_scope:ButtonCancel)
     }
-
+    
     static {
       defaultInstance = new ButtonCancel(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:ButtonCancel)
   }
-
+  
   public interface OtpRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional string message = 1;
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
     boolean hasMessage();
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
-    java.lang.String getMessage();
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getMessageBytes();
+    String getMessage();
   }
-  /**
-   * Protobuf type {@code OtpRequest}
-   *
-   * <pre>
-   * Message can be sent by the *device* as a response to any request.
-   * Message asks computer to send back OtpAck with the password printed on the device's display.
-   *
-   * Response: OtpAck, OtpCancel
-   * </pre>
-   */
   public static final class OtpRequest extends
       com.google.protobuf.GeneratedMessage
       implements OtpRequestOrBuilder {
     // Use OtpRequest.newBuilder() to construct.
-    private OtpRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private OtpRequest(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private OtpRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private OtpRequest(boolean noInit) {}
+    
     private static final OtpRequest defaultInstance;
     public static OtpRequest getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public OtpRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private OtpRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              message_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_OtpRequest_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpRequest_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_OtpRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.OtpRequest.class, TrezorMessage.OtpRequest.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpRequest_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<OtpRequest> PARSER =
-        new com.google.protobuf.AbstractParser<OtpRequest>() {
-      public OtpRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OtpRequest(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<OtpRequest> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // optional string message = 1;
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private java.lang.Object message_;
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
     public boolean hasMessage() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
-    public java.lang.String getMessage() {
+    public String getMessage() {
       java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           message_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
+    private com.google.protobuf.ByteString getMessageBytes() {
       java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         message_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     private void initFields() {
       message_ = "";
     }
@@ -8691,11 +6117,11 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -8704,12 +6130,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8719,112 +6145,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.OtpRequest parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.OtpRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.OtpRequest parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.OtpRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.OtpRequest parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.OtpRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.OtpRequest parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.OtpRequest parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.OtpRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.OtpRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.OtpRequest prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code OtpRequest}
-     *
-     * <pre>
-     * Message can be sent by the *device* as a response to any request.
-     * Message asks computer to send back OtpAck with the password printed on the device's display.
-     *
-     * Response: OtpAck, OtpCancel
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.OtpRequestOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_OtpRequest_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpRequest_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_OtpRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.OtpRequest.class, TrezorMessage.OtpRequest.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpRequest_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.OtpRequest.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -8835,37 +6262,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         message_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_OtpRequest_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest.getDescriptor();
       }
-
-      public TrezorMessage.OtpRequest getDefaultInstanceForType() {
-        return TrezorMessage.OtpRequest.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest.getDefaultInstance();
       }
-
-      public TrezorMessage.OtpRequest build() {
-        TrezorMessage.OtpRequest result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.OtpRequest buildPartial() {
-        TrezorMessage.OtpRequest result = new TrezorMessage.OtpRequest(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8876,109 +6313,79 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.OtpRequest) {
-          return mergeFrom((TrezorMessage.OtpRequest)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.OtpRequest other) {
-        if (other == TrezorMessage.OtpRequest.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest.getDefaultInstance()) return this;
         if (other.hasMessage()) {
-          bitField0_ |= 0x00000001;
-          message_ = other.message_;
-          onChanged();
+          setMessage(other.getMessage());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.OtpRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.OtpRequest) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              message_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // optional string message = 1;
       private java.lang.Object message_ = "";
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
       public boolean hasMessage() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
-      public java.lang.String getMessage() {
+      public String getMessage() {
         java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
-      public Builder setMessage(
-          java.lang.String value) {
+      public Builder setMessage(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -8987,233 +6394,97 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
       public Builder clearMessage() {
         bitField0_ = (bitField0_ & ~0x00000001);
         message_ = getDefaultInstance().getMessage();
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      void setMessage(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
         message_ = value;
         onChanged();
-        return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:OtpRequest)
     }
-
+    
     static {
       defaultInstance = new OtpRequest(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:OtpRequest)
   }
-
+  
   public interface OtpAckOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required string otp = 1;
-    /**
-     * <code>required string otp = 1;</code>
-     *
-     * <pre>
-     * User must be asked for the otp, which is displayed on the device's display
-     * </pre>
-     */
     boolean hasOtp();
-    /**
-     * <code>required string otp = 1;</code>
-     *
-     * <pre>
-     * User must be asked for the otp, which is displayed on the device's display
-     * </pre>
-     */
-    java.lang.String getOtp();
-    /**
-     * <code>required string otp = 1;</code>
-     *
-     * <pre>
-     * User must be asked for the otp, which is displayed on the device's display
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getOtpBytes();
+    String getOtp();
   }
-  /**
-   * Protobuf type {@code OtpAck}
-   *
-   * <pre>
-   * Message is sent by the computer as a response to OtpRequest previously sent by the device.
-   * </pre>
-   */
   public static final class OtpAck extends
       com.google.protobuf.GeneratedMessage
       implements OtpAckOrBuilder {
     // Use OtpAck.newBuilder() to construct.
-    private OtpAck(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private OtpAck(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private OtpAck(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private OtpAck(boolean noInit) {}
+    
     private static final OtpAck defaultInstance;
     public static OtpAck getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public OtpAck getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private OtpAck(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              otp_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_OtpAck_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpAck_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_OtpAck_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.OtpAck.class, TrezorMessage.OtpAck.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpAck_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<OtpAck> PARSER =
-        new com.google.protobuf.AbstractParser<OtpAck>() {
-      public OtpAck parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OtpAck(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<OtpAck> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required string otp = 1;
     public static final int OTP_FIELD_NUMBER = 1;
     private java.lang.Object otp_;
-    /**
-     * <code>required string otp = 1;</code>
-     *
-     * <pre>
-     * User must be asked for the otp, which is displayed on the device's display
-     * </pre>
-     */
     public boolean hasOtp() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required string otp = 1;</code>
-     *
-     * <pre>
-     * User must be asked for the otp, which is displayed on the device's display
-     * </pre>
-     */
-    public java.lang.String getOtp() {
+    public String getOtp() {
       java.lang.Object ref = otp_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           otp_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>required string otp = 1;</code>
-     *
-     * <pre>
-     * User must be asked for the otp, which is displayed on the device's display
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getOtpBytes() {
+    private com.google.protobuf.ByteString getOtpBytes() {
       java.lang.Object ref = otp_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         otp_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     private void initFields() {
       otp_ = "";
     }
@@ -9221,7 +6492,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasOtp()) {
         memoizedIsInitialized = 0;
         return false;
@@ -9229,7 +6500,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -9238,12 +6509,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -9253,109 +6524,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.OtpAck parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.OtpAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.OtpAck parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.OtpAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.OtpAck parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.OtpAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.OtpAck parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.OtpAck parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.OtpAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.OtpAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.OtpAck prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code OtpAck}
-     *
-     * <pre>
-     * Message is sent by the computer as a response to OtpRequest previously sent by the device.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.OtpAckOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAckOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_OtpAck_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpAck_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_OtpAck_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.OtpAck.class, TrezorMessage.OtpAck.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpAck_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.OtpAck.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -9366,37 +6641,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         otp_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_OtpAck_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.getDescriptor();
       }
-
-      public TrezorMessage.OtpAck getDefaultInstanceForType() {
-        return TrezorMessage.OtpAck.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.getDefaultInstance();
       }
-
-      public TrezorMessage.OtpAck build() {
-        TrezorMessage.OtpAck result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.OtpAck buildPartial() {
-        TrezorMessage.OtpAck result = new TrezorMessage.OtpAck(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9407,27 +6692,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.OtpAck) {
-          return mergeFrom((TrezorMessage.OtpAck)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.OtpAck other) {
-        if (other == TrezorMessage.OtpAck.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.getDefaultInstance()) return this;
         if (other.hasOtp()) {
-          bitField0_ |= 0x00000001;
-          otp_ = other.otp_;
-          onChanged();
+          setOtp(other.getOtp());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasOtp()) {
           
@@ -9435,85 +6718,57 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.OtpAck parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.OtpAck) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              otp_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required string otp = 1;
       private java.lang.Object otp_ = "";
-      /**
-       * <code>required string otp = 1;</code>
-       *
-       * <pre>
-       * User must be asked for the otp, which is displayed on the device's display
-       * </pre>
-       */
       public boolean hasOtp() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required string otp = 1;</code>
-       *
-       * <pre>
-       * User must be asked for the otp, which is displayed on the device's display
-       * </pre>
-       */
-      public java.lang.String getOtp() {
+      public String getOtp() {
         java.lang.Object ref = otp_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           otp_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>required string otp = 1;</code>
-       *
-       * <pre>
-       * User must be asked for the otp, which is displayed on the device's display
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getOtpBytes() {
-        java.lang.Object ref = otp_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          otp_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string otp = 1;</code>
-       *
-       * <pre>
-       * User must be asked for the otp, which is displayed on the device's display
-       * </pre>
-       */
-      public Builder setOtp(
-          java.lang.String value) {
+      public Builder setOtp(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -9522,276 +6777,194 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required string otp = 1;</code>
-       *
-       * <pre>
-       * User must be asked for the otp, which is displayed on the device's display
-       * </pre>
-       */
       public Builder clearOtp() {
         bitField0_ = (bitField0_ & ~0x00000001);
         otp_ = getDefaultInstance().getOtp();
         onChanged();
         return this;
       }
-      /**
-       * <code>required string otp = 1;</code>
-       *
-       * <pre>
-       * User must be asked for the otp, which is displayed on the device's display
-       * </pre>
-       */
-      public Builder setOtpBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      void setOtp(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
         otp_ = value;
         onChanged();
-        return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:OtpAck)
     }
-
+    
     static {
       defaultInstance = new OtpAck(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:OtpAck)
   }
-
+  
   public interface OtpCancelOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
-  /**
-   * Protobuf type {@code OtpCancel}
-   *
-   * <pre>
-   * Message is sent as a response to OtpRequest by the computer, asking the device to cancel
-   * pending action and reset to the default state.
-   * </pre>
-   */
   public static final class OtpCancel extends
       com.google.protobuf.GeneratedMessage
       implements OtpCancelOrBuilder {
     // Use OtpCancel.newBuilder() to construct.
-    private OtpCancel(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private OtpCancel(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private OtpCancel(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private OtpCancel(boolean noInit) {}
+    
     private static final OtpCancel defaultInstance;
     public static OtpCancel getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public OtpCancel getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private OtpCancel(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_OtpCancel_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpCancel_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_OtpCancel_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.OtpCancel.class, TrezorMessage.OtpCancel.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpCancel_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<OtpCancel> PARSER =
-        new com.google.protobuf.AbstractParser<OtpCancel>() {
-      public OtpCancel parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OtpCancel(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<OtpCancel> getParserForType() {
-      return PARSER;
-    }
-
+    
     private void initFields() {
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.OtpCancel parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.OtpCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.OtpCancel parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.OtpCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.OtpCancel parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.OtpCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.OtpCancel parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.OtpCancel parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.OtpCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.OtpCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.OtpCancel prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code OtpCancel}
-     *
-     * <pre>
-     * Message is sent as a response to OtpRequest by the computer, asking the device to cancel
-     * pending action and reset to the default state.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.OtpCancelOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancelOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_OtpCancel_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpCancel_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_OtpCancel_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.OtpCancel.class, TrezorMessage.OtpCancel.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_OtpCancel_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.OtpCancel.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -9802,275 +6975,175 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_OtpCancel_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel.getDescriptor();
       }
-
-      public TrezorMessage.OtpCancel getDefaultInstanceForType() {
-        return TrezorMessage.OtpCancel.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel.getDefaultInstance();
       }
-
-      public TrezorMessage.OtpCancel build() {
-        TrezorMessage.OtpCancel result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.OtpCancel buildPartial() {
-        TrezorMessage.OtpCancel result = new TrezorMessage.OtpCancel(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel(this);
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.OtpCancel) {
-          return mergeFrom((TrezorMessage.OtpCancel)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.OtpCancel other) {
-        if (other == TrezorMessage.OtpCancel.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.OtpCancel parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.OtpCancel) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
           }
         }
-        return this;
       }
-
+      
+      
       // @@protoc_insertion_point(builder_scope:OtpCancel)
     }
-
+    
     static {
       defaultInstance = new OtpCancel(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:OtpCancel)
   }
-
+  
   public interface PinRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional string message = 1;
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
     boolean hasMessage();
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
-    java.lang.String getMessage();
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getMessageBytes();
+    String getMessage();
   }
-  /**
-   * Protobuf type {@code PinRequest}
-   *
-   * <pre>
-   * Message can be sent by the *device* as a response to any request.
-   * Message asks computer to send back PinAck with the password associated with the device.
-   *
-   * Response: PinAck, PinCancel
-   * </pre>
-   */
   public static final class PinRequest extends
       com.google.protobuf.GeneratedMessage
       implements PinRequestOrBuilder {
     // Use PinRequest.newBuilder() to construct.
-    private PinRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private PinRequest(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private PinRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private PinRequest(boolean noInit) {}
+    
     private static final PinRequest defaultInstance;
     public static PinRequest getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public PinRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private PinRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              message_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_PinRequest_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinRequest_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_PinRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.PinRequest.class, TrezorMessage.PinRequest.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinRequest_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<PinRequest> PARSER =
-        new com.google.protobuf.AbstractParser<PinRequest>() {
-      public PinRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PinRequest(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PinRequest> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // optional string message = 1;
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private java.lang.Object message_;
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
     public boolean hasMessage() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
-    public java.lang.String getMessage() {
+    public String getMessage() {
       java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           message_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>optional string message = 1;</code>
-     *
-     * <pre>
-     * Human readable message
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
+    private com.google.protobuf.ByteString getMessageBytes() {
       java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         message_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     private void initFields() {
       message_ = "";
     }
@@ -10078,11 +7151,11 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -10091,12 +7164,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -10106,112 +7179,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.PinRequest parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.PinRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.PinRequest parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.PinRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.PinRequest parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.PinRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.PinRequest parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.PinRequest parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.PinRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.PinRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.PinRequest prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code PinRequest}
-     *
-     * <pre>
-     * Message can be sent by the *device* as a response to any request.
-     * Message asks computer to send back PinAck with the password associated with the device.
-     *
-     * Response: PinAck, PinCancel
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.PinRequestOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_PinRequest_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinRequest_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_PinRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.PinRequest.class, TrezorMessage.PinRequest.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinRequest_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.PinRequest.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -10222,37 +7296,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         message_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_PinRequest_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest.getDescriptor();
       }
-
-      public TrezorMessage.PinRequest getDefaultInstanceForType() {
-        return TrezorMessage.PinRequest.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest.getDefaultInstance();
       }
-
-      public TrezorMessage.PinRequest build() {
-        TrezorMessage.PinRequest result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.PinRequest buildPartial() {
-        TrezorMessage.PinRequest result = new TrezorMessage.PinRequest(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10263,109 +7347,79 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.PinRequest) {
-          return mergeFrom((TrezorMessage.PinRequest)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.PinRequest other) {
-        if (other == TrezorMessage.PinRequest.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest.getDefaultInstance()) return this;
         if (other.hasMessage()) {
-          bitField0_ |= 0x00000001;
-          message_ = other.message_;
-          onChanged();
+          setMessage(other.getMessage());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.PinRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.PinRequest) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              message_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // optional string message = 1;
       private java.lang.Object message_ = "";
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
       public boolean hasMessage() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
-      public java.lang.String getMessage() {
+      public String getMessage() {
         java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
-      public Builder setMessage(
-          java.lang.String value) {
+      public Builder setMessage(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -10374,233 +7428,97 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
       public Builder clearMessage() {
         bitField0_ = (bitField0_ & ~0x00000001);
         message_ = getDefaultInstance().getMessage();
         onChanged();
         return this;
       }
-      /**
-       * <code>optional string message = 1;</code>
-       *
-       * <pre>
-       * Human readable message
-       * </pre>
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      void setMessage(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
         message_ = value;
         onChanged();
-        return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:PinRequest)
     }
-
+    
     static {
       defaultInstance = new PinRequest(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:PinRequest)
   }
-
+  
   public interface PinAckOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required string pin = 1;
-    /**
-     * <code>required string pin = 1;</code>
-     *
-     * <pre>
-     * User must write down the password for accessing the device.
-     * </pre>
-     */
     boolean hasPin();
-    /**
-     * <code>required string pin = 1;</code>
-     *
-     * <pre>
-     * User must write down the password for accessing the device.
-     * </pre>
-     */
-    java.lang.String getPin();
-    /**
-     * <code>required string pin = 1;</code>
-     *
-     * <pre>
-     * User must write down the password for accessing the device.
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getPinBytes();
+    String getPin();
   }
-  /**
-   * Protobuf type {@code PinAck}
-   *
-   * <pre>
-   * Message is sent by the computer as a response to PinRequest previously sent by the device.
-   * </pre>
-   */
   public static final class PinAck extends
       com.google.protobuf.GeneratedMessage
       implements PinAckOrBuilder {
     // Use PinAck.newBuilder() to construct.
-    private PinAck(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private PinAck(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private PinAck(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private PinAck(boolean noInit) {}
+    
     private static final PinAck defaultInstance;
     public static PinAck getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public PinAck getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private PinAck(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              pin_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_PinAck_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinAck_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_PinAck_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.PinAck.class, TrezorMessage.PinAck.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinAck_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<PinAck> PARSER =
-        new com.google.protobuf.AbstractParser<PinAck>() {
-      public PinAck parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PinAck(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PinAck> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required string pin = 1;
     public static final int PIN_FIELD_NUMBER = 1;
     private java.lang.Object pin_;
-    /**
-     * <code>required string pin = 1;</code>
-     *
-     * <pre>
-     * User must write down the password for accessing the device.
-     * </pre>
-     */
     public boolean hasPin() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required string pin = 1;</code>
-     *
-     * <pre>
-     * User must write down the password for accessing the device.
-     * </pre>
-     */
-    public java.lang.String getPin() {
+    public String getPin() {
       java.lang.Object ref = pin_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           pin_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>required string pin = 1;</code>
-     *
-     * <pre>
-     * User must write down the password for accessing the device.
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getPinBytes() {
+    private com.google.protobuf.ByteString getPinBytes() {
       java.lang.Object ref = pin_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         pin_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     private void initFields() {
       pin_ = "";
     }
@@ -10608,7 +7526,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasPin()) {
         memoizedIsInitialized = 0;
         return false;
@@ -10616,7 +7534,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -10625,12 +7543,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -10640,109 +7558,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.PinAck parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.PinAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.PinAck parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.PinAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.PinAck parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.PinAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.PinAck parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.PinAck parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.PinAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.PinAck parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.PinAck prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code PinAck}
-     *
-     * <pre>
-     * Message is sent by the computer as a response to PinRequest previously sent by the device.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.PinAckOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAckOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_PinAck_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinAck_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_PinAck_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.PinAck.class, TrezorMessage.PinAck.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinAck_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.PinAck.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -10753,37 +7675,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         pin_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_PinAck_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.getDescriptor();
       }
-
-      public TrezorMessage.PinAck getDefaultInstanceForType() {
-        return TrezorMessage.PinAck.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.getDefaultInstance();
       }
-
-      public TrezorMessage.PinAck build() {
-        TrezorMessage.PinAck result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.PinAck buildPartial() {
-        TrezorMessage.PinAck result = new TrezorMessage.PinAck(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10794,27 +7726,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.PinAck) {
-          return mergeFrom((TrezorMessage.PinAck)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.PinAck other) {
-        if (other == TrezorMessage.PinAck.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.getDefaultInstance()) return this;
         if (other.hasPin()) {
-          bitField0_ |= 0x00000001;
-          pin_ = other.pin_;
-          onChanged();
+          setPin(other.getPin());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasPin()) {
           
@@ -10822,85 +7752,57 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.PinAck parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.PinAck) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              pin_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required string pin = 1;
       private java.lang.Object pin_ = "";
-      /**
-       * <code>required string pin = 1;</code>
-       *
-       * <pre>
-       * User must write down the password for accessing the device.
-       * </pre>
-       */
       public boolean hasPin() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required string pin = 1;</code>
-       *
-       * <pre>
-       * User must write down the password for accessing the device.
-       * </pre>
-       */
-      public java.lang.String getPin() {
+      public String getPin() {
         java.lang.Object ref = pin_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           pin_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>required string pin = 1;</code>
-       *
-       * <pre>
-       * User must write down the password for accessing the device.
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getPinBytes() {
-        java.lang.Object ref = pin_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          pin_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string pin = 1;</code>
-       *
-       * <pre>
-       * User must write down the password for accessing the device.
-       * </pre>
-       */
-      public Builder setPin(
-          java.lang.String value) {
+      public Builder setPin(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -10909,276 +7811,194 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required string pin = 1;</code>
-       *
-       * <pre>
-       * User must write down the password for accessing the device.
-       * </pre>
-       */
       public Builder clearPin() {
         bitField0_ = (bitField0_ & ~0x00000001);
         pin_ = getDefaultInstance().getPin();
         onChanged();
         return this;
       }
-      /**
-       * <code>required string pin = 1;</code>
-       *
-       * <pre>
-       * User must write down the password for accessing the device.
-       * </pre>
-       */
-      public Builder setPinBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      void setPin(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
         pin_ = value;
         onChanged();
-        return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:PinAck)
     }
-
+    
     static {
       defaultInstance = new PinAck(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:PinAck)
   }
-
+  
   public interface PinCancelOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
-  /**
-   * Protobuf type {@code PinCancel}
-   *
-   * <pre>
-   * Message is sent as a response to PinRequest by the computer, asking the device to cancel
-   * pending action and reset to the default state.
-   * </pre>
-   */
   public static final class PinCancel extends
       com.google.protobuf.GeneratedMessage
       implements PinCancelOrBuilder {
     // Use PinCancel.newBuilder() to construct.
-    private PinCancel(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private PinCancel(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private PinCancel(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private PinCancel(boolean noInit) {}
+    
     private static final PinCancel defaultInstance;
     public static PinCancel getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public PinCancel getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private PinCancel(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_PinCancel_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinCancel_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_PinCancel_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.PinCancel.class, TrezorMessage.PinCancel.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinCancel_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<PinCancel> PARSER =
-        new com.google.protobuf.AbstractParser<PinCancel>() {
-      public PinCancel parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PinCancel(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PinCancel> getParserForType() {
-      return PARSER;
-    }
-
+    
     private void initFields() {
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.PinCancel parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.PinCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.PinCancel parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.PinCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.PinCancel parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.PinCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.PinCancel parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.PinCancel parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.PinCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.PinCancel parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.PinCancel prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code PinCancel}
-     *
-     * <pre>
-     * Message is sent as a response to PinRequest by the computer, asking the device to cancel
-     * pending action and reset to the default state.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.PinCancelOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancelOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_PinCancel_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinCancel_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_PinCancel_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.PinCancel.class, TrezorMessage.PinCancel.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_PinCancel_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.PinCancel.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -11189,235 +8009,153 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_PinCancel_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel.getDescriptor();
       }
-
-      public TrezorMessage.PinCancel getDefaultInstanceForType() {
-        return TrezorMessage.PinCancel.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel.getDefaultInstance();
       }
-
-      public TrezorMessage.PinCancel build() {
-        TrezorMessage.PinCancel result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.PinCancel buildPartial() {
-        TrezorMessage.PinCancel result = new TrezorMessage.PinCancel(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel(this);
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.PinCancel) {
-          return mergeFrom((TrezorMessage.PinCancel)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.PinCancel other) {
-        if (other == TrezorMessage.PinCancel.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.PinCancel parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.PinCancel) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
           }
         }
-        return this;
       }
-
+      
+      
       // @@protoc_insertion_point(builder_scope:PinCancel)
     }
-
+    
     static {
       defaultInstance = new PinCancel(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:PinCancel)
   }
-
+  
   public interface GetEntropyOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required uint32 size = 1;
-    /**
-     * <code>required uint32 size = 1;</code>
-     *
-     * <pre>
-     * Size of randomly generated buffer
-     * </pre>
-     */
     boolean hasSize();
-    /**
-     * <code>required uint32 size = 1;</code>
-     *
-     * <pre>
-     * Size of randomly generated buffer
-     * </pre>
-     */
     int getSize();
   }
-  /**
-   * Protobuf type {@code GetEntropy}
-   *
-   * <pre>
-   * Request a sample of random data generated by hardware RNG. May be used
-   * for tests of internal RNG.
-   *
-   * Response: OtpRequest, PinRequest, Entropy, Failure
-   * </pre>
-   */
   public static final class GetEntropy extends
       com.google.protobuf.GeneratedMessage
       implements GetEntropyOrBuilder {
     // Use GetEntropy.newBuilder() to construct.
-    private GetEntropy(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private GetEntropy(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private GetEntropy(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private GetEntropy(boolean noInit) {}
+    
     private static final GetEntropy defaultInstance;
     public static GetEntropy getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public GetEntropy getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private GetEntropy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              size_ = input.readUInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_GetEntropy_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetEntropy_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_GetEntropy_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.GetEntropy.class, TrezorMessage.GetEntropy.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetEntropy_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<GetEntropy> PARSER =
-        new com.google.protobuf.AbstractParser<GetEntropy>() {
-      public GetEntropy parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetEntropy(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<GetEntropy> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required uint32 size = 1;
     public static final int SIZE_FIELD_NUMBER = 1;
     private int size_;
-    /**
-     * <code>required uint32 size = 1;</code>
-     *
-     * <pre>
-     * Size of randomly generated buffer
-     * </pre>
-     */
     public boolean hasSize() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required uint32 size = 1;</code>
-     *
-     * <pre>
-     * Size of randomly generated buffer
-     * </pre>
-     */
     public int getSize() {
       return size_;
     }
-
+    
     private void initFields() {
       size_ = 0;
     }
@@ -11425,7 +8163,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasSize()) {
         memoizedIsInitialized = 0;
         return false;
@@ -11433,7 +8171,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -11442,12 +8180,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -11457,112 +8195,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.GetEntropy parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.GetEntropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetEntropy parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.GetEntropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetEntropy parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.GetEntropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetEntropy parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.GetEntropy parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.GetEntropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.GetEntropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.GetEntropy prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code GetEntropy}
-     *
-     * <pre>
-     * Request a sample of random data generated by hardware RNG. May be used
-     * for tests of internal RNG.
-     *
-     * Response: OtpRequest, PinRequest, Entropy, Failure
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.GetEntropyOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_GetEntropy_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetEntropy_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_GetEntropy_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.GetEntropy.class, TrezorMessage.GetEntropy.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetEntropy_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.GetEntropy.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -11573,37 +8312,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         size_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_GetEntropy_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy.getDescriptor();
       }
-
-      public TrezorMessage.GetEntropy getDefaultInstanceForType() {
-        return TrezorMessage.GetEntropy.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy.getDefaultInstance();
       }
-
-      public TrezorMessage.GetEntropy build() {
-        TrezorMessage.GetEntropy result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.GetEntropy buildPartial() {
-        TrezorMessage.GetEntropy result = new TrezorMessage.GetEntropy(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11614,25 +8363,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.GetEntropy) {
-          return mergeFrom((TrezorMessage.GetEntropy)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.GetEntropy other) {
-        if (other == TrezorMessage.GetEntropy.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy.getDefaultInstance()) return this;
         if (other.hasSize()) {
           setSize(other.getSize());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasSize()) {
           
@@ -11640,231 +8389,119 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.GetEntropy parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.GetEntropy) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              size_ = input.readUInt32();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required uint32 size = 1;
       private int size_ ;
-      /**
-       * <code>required uint32 size = 1;</code>
-       *
-       * <pre>
-       * Size of randomly generated buffer
-       * </pre>
-       */
       public boolean hasSize() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required uint32 size = 1;</code>
-       *
-       * <pre>
-       * Size of randomly generated buffer
-       * </pre>
-       */
       public int getSize() {
         return size_;
       }
-      /**
-       * <code>required uint32 size = 1;</code>
-       *
-       * <pre>
-       * Size of randomly generated buffer
-       * </pre>
-       */
       public Builder setSize(int value) {
         bitField0_ |= 0x00000001;
         size_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required uint32 size = 1;</code>
-       *
-       * <pre>
-       * Size of randomly generated buffer
-       * </pre>
-       */
       public Builder clearSize() {
         bitField0_ = (bitField0_ & ~0x00000001);
         size_ = 0;
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:GetEntropy)
     }
-
+    
     static {
       defaultInstance = new GetEntropy(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:GetEntropy)
   }
-
+  
   public interface EntropyOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required bytes entropy = 1;
-    /**
-     * <code>required bytes entropy = 1;</code>
-     *
-     * <pre>
-     * Stream of generated bytes
-     * </pre>
-     */
     boolean hasEntropy();
-    /**
-     * <code>required bytes entropy = 1;</code>
-     *
-     * <pre>
-     * Stream of generated bytes
-     * </pre>
-     */
     com.google.protobuf.ByteString getEntropy();
   }
-  /**
-   * Protobuf type {@code Entropy}
-   *
-   * <pre>
-   * Response to GetEntropy request contains random data generated by internal HRNG.
-   * </pre>
-   */
   public static final class Entropy extends
       com.google.protobuf.GeneratedMessage
       implements EntropyOrBuilder {
     // Use Entropy.newBuilder() to construct.
-    private Entropy(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Entropy(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Entropy(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private Entropy(boolean noInit) {}
+    
     private static final Entropy defaultInstance;
     public static Entropy getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public Entropy getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Entropy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              entropy_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_Entropy_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Entropy_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_Entropy_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.Entropy.class, TrezorMessage.Entropy.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Entropy_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<Entropy> PARSER =
-        new com.google.protobuf.AbstractParser<Entropy>() {
-      public Entropy parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Entropy(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Entropy> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required bytes entropy = 1;
     public static final int ENTROPY_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString entropy_;
-    /**
-     * <code>required bytes entropy = 1;</code>
-     *
-     * <pre>
-     * Stream of generated bytes
-     * </pre>
-     */
     public boolean hasEntropy() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required bytes entropy = 1;</code>
-     *
-     * <pre>
-     * Stream of generated bytes
-     * </pre>
-     */
     public com.google.protobuf.ByteString getEntropy() {
       return entropy_;
     }
-
+    
     private void initFields() {
       entropy_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -11872,7 +8509,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasEntropy()) {
         memoizedIsInitialized = 0;
         return false;
@@ -11880,7 +8517,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -11889,12 +8526,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -11904,109 +8541,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.Entropy parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Entropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Entropy parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Entropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Entropy parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Entropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Entropy parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Entropy parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Entropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Entropy parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.Entropy prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code Entropy}
-     *
-     * <pre>
-     * Response to GetEntropy request contains random data generated by internal HRNG.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.EntropyOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.EntropyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_Entropy_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Entropy_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_Entropy_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.Entropy.class, TrezorMessage.Entropy.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Entropy_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.Entropy.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -12017,37 +8658,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         entropy_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_Entropy_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy.getDescriptor();
       }
-
-      public TrezorMessage.Entropy getDefaultInstanceForType() {
-        return TrezorMessage.Entropy.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy.getDefaultInstance();
       }
-
-      public TrezorMessage.Entropy build() {
-        TrezorMessage.Entropy result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.Entropy buildPartial() {
-        TrezorMessage.Entropy result = new TrezorMessage.Entropy(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12058,25 +8709,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.Entropy) {
-          return mergeFrom((TrezorMessage.Entropy)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.Entropy other) {
-        if (other == TrezorMessage.Entropy.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy.getDefaultInstance()) return this;
         if (other.hasEntropy()) {
           setEntropy(other.getEntropy());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasEntropy()) {
           
@@ -12084,55 +8735,49 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.Entropy parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.Entropy) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              entropy_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required bytes entropy = 1;
       private com.google.protobuf.ByteString entropy_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>required bytes entropy = 1;</code>
-       *
-       * <pre>
-       * Stream of generated bytes
-       * </pre>
-       */
       public boolean hasEntropy() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required bytes entropy = 1;</code>
-       *
-       * <pre>
-       * Stream of generated bytes
-       * </pre>
-       */
       public com.google.protobuf.ByteString getEntropy() {
         return entropy_;
       }
-      /**
-       * <code>required bytes entropy = 1;</code>
-       *
-       * <pre>
-       * Stream of generated bytes
-       * </pre>
-       */
       public Builder setEntropy(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -12142,180 +8787,70 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required bytes entropy = 1;</code>
-       *
-       * <pre>
-       * Stream of generated bytes
-       * </pre>
-       */
       public Builder clearEntropy() {
         bitField0_ = (bitField0_ & ~0x00000001);
         entropy_ = getDefaultInstance().getEntropy();
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:Entropy)
     }
-
+    
     static {
       defaultInstance = new Entropy(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:Entropy)
   }
-
+  
   public interface SetMaxFeeKbOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required uint64 maxfee_kb = 1;
-    /**
-     * <code>required uint64 maxfee_kb = 1;</code>
-     *
-     * <pre>
-     * Maximum allowed transaction fee in satoshis per kB
-     * </pre>
-     */
     boolean hasMaxfeeKb();
-    /**
-     * <code>required uint64 maxfee_kb = 1;</code>
-     *
-     * <pre>
-     * Maximum allowed transaction fee in satoshis per kB
-     * </pre>
-     */
     long getMaxfeeKb();
   }
-  /**
-   * Protobuf type {@code SetMaxFeeKb}
-   *
-   * <pre>
-   * Set maximum allowed fee per kB of transaction. This is used by internal sanity checking
-   * in SignTx method. Transaction won't be signed if requested transaction fees are above
-   * current value.
-   *
-   * Response: Success, OtpRequest, PinRequest, Failure
-   * </pre>
-   */
   public static final class SetMaxFeeKb extends
       com.google.protobuf.GeneratedMessage
       implements SetMaxFeeKbOrBuilder {
     // Use SetMaxFeeKb.newBuilder() to construct.
-    private SetMaxFeeKb(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private SetMaxFeeKb(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private SetMaxFeeKb(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private SetMaxFeeKb(boolean noInit) {}
+    
     private static final SetMaxFeeKb defaultInstance;
     public static SetMaxFeeKb getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public SetMaxFeeKb getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private SetMaxFeeKb(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              maxfeeKb_ = input.readUInt64();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_SetMaxFeeKb_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_SetMaxFeeKb_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_SetMaxFeeKb_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.SetMaxFeeKb.class, TrezorMessage.SetMaxFeeKb.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_SetMaxFeeKb_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<SetMaxFeeKb> PARSER =
-        new com.google.protobuf.AbstractParser<SetMaxFeeKb>() {
-      public SetMaxFeeKb parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SetMaxFeeKb(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SetMaxFeeKb> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required uint64 maxfee_kb = 1;
     public static final int MAXFEE_KB_FIELD_NUMBER = 1;
     private long maxfeeKb_;
-    /**
-     * <code>required uint64 maxfee_kb = 1;</code>
-     *
-     * <pre>
-     * Maximum allowed transaction fee in satoshis per kB
-     * </pre>
-     */
     public boolean hasMaxfeeKb() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required uint64 maxfee_kb = 1;</code>
-     *
-     * <pre>
-     * Maximum allowed transaction fee in satoshis per kB
-     * </pre>
-     */
     public long getMaxfeeKb() {
       return maxfeeKb_;
     }
-
+    
     private void initFields() {
       maxfeeKb_ = 0L;
     }
@@ -12323,7 +8858,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasMaxfeeKb()) {
         memoizedIsInitialized = 0;
         return false;
@@ -12331,7 +8866,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -12340,12 +8875,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -12355,113 +8890,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.SetMaxFeeKb parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.SetMaxFeeKb parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.SetMaxFeeKb parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.SetMaxFeeKb parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.SetMaxFeeKb parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.SetMaxFeeKb parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.SetMaxFeeKb parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.SetMaxFeeKb parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.SetMaxFeeKb parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.SetMaxFeeKb parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.SetMaxFeeKb prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code SetMaxFeeKb}
-     *
-     * <pre>
-     * Set maximum allowed fee per kB of transaction. This is used by internal sanity checking
-     * in SignTx method. Transaction won't be signed if requested transaction fees are above
-     * current value.
-     *
-     * Response: Success, OtpRequest, PinRequest, Failure
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.SetMaxFeeKbOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKbOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_SetMaxFeeKb_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_SetMaxFeeKb_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_SetMaxFeeKb_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.SetMaxFeeKb.class, TrezorMessage.SetMaxFeeKb.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_SetMaxFeeKb_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.SetMaxFeeKb.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -12472,37 +9007,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         maxfeeKb_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_SetMaxFeeKb_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb.getDescriptor();
       }
-
-      public TrezorMessage.SetMaxFeeKb getDefaultInstanceForType() {
-        return TrezorMessage.SetMaxFeeKb.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb.getDefaultInstance();
       }
-
-      public TrezorMessage.SetMaxFeeKb build() {
-        TrezorMessage.SetMaxFeeKb result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.SetMaxFeeKb buildPartial() {
-        TrezorMessage.SetMaxFeeKb result = new TrezorMessage.SetMaxFeeKb(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12513,25 +9058,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.SetMaxFeeKb) {
-          return mergeFrom((TrezorMessage.SetMaxFeeKb)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.SetMaxFeeKb other) {
-        if (other == TrezorMessage.SetMaxFeeKb.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb.getDefaultInstance()) return this;
         if (other.hasMaxfeeKb()) {
           setMaxfeeKb(other.getMaxfeeKb());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasMaxfeeKb()) {
           
@@ -12539,320 +9084,238 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.SetMaxFeeKb parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.SetMaxFeeKb) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              maxfeeKb_ = input.readUInt64();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required uint64 maxfee_kb = 1;
       private long maxfeeKb_ ;
-      /**
-       * <code>required uint64 maxfee_kb = 1;</code>
-       *
-       * <pre>
-       * Maximum allowed transaction fee in satoshis per kB
-       * </pre>
-       */
       public boolean hasMaxfeeKb() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required uint64 maxfee_kb = 1;</code>
-       *
-       * <pre>
-       * Maximum allowed transaction fee in satoshis per kB
-       * </pre>
-       */
       public long getMaxfeeKb() {
         return maxfeeKb_;
       }
-      /**
-       * <code>required uint64 maxfee_kb = 1;</code>
-       *
-       * <pre>
-       * Maximum allowed transaction fee in satoshis per kB
-       * </pre>
-       */
       public Builder setMaxfeeKb(long value) {
         bitField0_ |= 0x00000001;
         maxfeeKb_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required uint64 maxfee_kb = 1;</code>
-       *
-       * <pre>
-       * Maximum allowed transaction fee in satoshis per kB
-       * </pre>
-       */
       public Builder clearMaxfeeKb() {
         bitField0_ = (bitField0_ & ~0x00000001);
         maxfeeKb_ = 0L;
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:SetMaxFeeKb)
     }
-
+    
     static {
       defaultInstance = new SetMaxFeeKb(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:SetMaxFeeKb)
   }
-
+  
   public interface GetMasterPublicKeyOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
-  /**
-   * Protobuf type {@code GetMasterPublicKey}
-   *
-   * <pre>
-   * Ask device for it's current master public key. This may be used for generating
-   * public keys on the computer independently to the device. API doesn't provide
-   * any other way how to get bitcoin addresses from the device.
-   *
-   * Response: MasterPublicKey, Failure
-   * </pre>
-   */
   public static final class GetMasterPublicKey extends
       com.google.protobuf.GeneratedMessage
       implements GetMasterPublicKeyOrBuilder {
     // Use GetMasterPublicKey.newBuilder() to construct.
-    private GetMasterPublicKey(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private GetMasterPublicKey(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private GetMasterPublicKey(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private GetMasterPublicKey(boolean noInit) {}
+    
     private static final GetMasterPublicKey defaultInstance;
     public static GetMasterPublicKey getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public GetMasterPublicKey getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private GetMasterPublicKey(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_GetMasterPublicKey_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetMasterPublicKey_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_GetMasterPublicKey_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.GetMasterPublicKey.class, TrezorMessage.GetMasterPublicKey.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetMasterPublicKey_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<GetMasterPublicKey> PARSER =
-        new com.google.protobuf.AbstractParser<GetMasterPublicKey>() {
-      public GetMasterPublicKey parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetMasterPublicKey(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<GetMasterPublicKey> getParserForType() {
-      return PARSER;
-    }
-
+    
     private void initFields() {
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.GetMasterPublicKey parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.GetMasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetMasterPublicKey parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.GetMasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetMasterPublicKey parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.GetMasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetMasterPublicKey parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.GetMasterPublicKey parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.GetMasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.GetMasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.GetMasterPublicKey prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code GetMasterPublicKey}
-     *
-     * <pre>
-     * Ask device for it's current master public key. This may be used for generating
-     * public keys on the computer independently to the device. API doesn't provide
-     * any other way how to get bitcoin addresses from the device.
-     *
-     * Response: MasterPublicKey, Failure
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.GetMasterPublicKeyOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKeyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_GetMasterPublicKey_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetMasterPublicKey_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_GetMasterPublicKey_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.GetMasterPublicKey.class, TrezorMessage.GetMasterPublicKey.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetMasterPublicKey_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.GetMasterPublicKey.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -12863,232 +9326,153 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_GetMasterPublicKey_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey.getDescriptor();
       }
-
-      public TrezorMessage.GetMasterPublicKey getDefaultInstanceForType() {
-        return TrezorMessage.GetMasterPublicKey.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey.getDefaultInstance();
       }
-
-      public TrezorMessage.GetMasterPublicKey build() {
-        TrezorMessage.GetMasterPublicKey result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.GetMasterPublicKey buildPartial() {
-        TrezorMessage.GetMasterPublicKey result = new TrezorMessage.GetMasterPublicKey(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey(this);
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.GetMasterPublicKey) {
-          return mergeFrom((TrezorMessage.GetMasterPublicKey)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.GetMasterPublicKey other) {
-        if (other == TrezorMessage.GetMasterPublicKey.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.GetMasterPublicKey parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.GetMasterPublicKey) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
           }
         }
-        return this;
       }
-
+      
+      
       // @@protoc_insertion_point(builder_scope:GetMasterPublicKey)
     }
-
+    
     static {
       defaultInstance = new GetMasterPublicKey(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:GetMasterPublicKey)
   }
-
+  
   public interface MasterPublicKeyOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required bytes key = 1;
-    /**
-     * <code>required bytes key = 1;</code>
-     *
-     * <pre>
-     * master public key of requested algorithm in binary format
-     * </pre>
-     */
     boolean hasKey();
-    /**
-     * <code>required bytes key = 1;</code>
-     *
-     * <pre>
-     * master public key of requested algorithm in binary format
-     * </pre>
-     */
     com.google.protobuf.ByteString getKey();
   }
-  /**
-   * Protobuf type {@code MasterPublicKey}
-   *
-   * <pre>
-   * Contains master public key derived from device's seed.
-   * </pre>
-   */
   public static final class MasterPublicKey extends
       com.google.protobuf.GeneratedMessage
       implements MasterPublicKeyOrBuilder {
     // Use MasterPublicKey.newBuilder() to construct.
-    private MasterPublicKey(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private MasterPublicKey(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private MasterPublicKey(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private MasterPublicKey(boolean noInit) {}
+    
     private static final MasterPublicKey defaultInstance;
     public static MasterPublicKey getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public MasterPublicKey getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private MasterPublicKey(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              key_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_MasterPublicKey_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_MasterPublicKey_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_MasterPublicKey_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.MasterPublicKey.class, TrezorMessage.MasterPublicKey.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_MasterPublicKey_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<MasterPublicKey> PARSER =
-        new com.google.protobuf.AbstractParser<MasterPublicKey>() {
-      public MasterPublicKey parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MasterPublicKey(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MasterPublicKey> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required bytes key = 1;
     public static final int KEY_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString key_;
-    /**
-     * <code>required bytes key = 1;</code>
-     *
-     * <pre>
-     * master public key of requested algorithm in binary format
-     * </pre>
-     */
     public boolean hasKey() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required bytes key = 1;</code>
-     *
-     * <pre>
-     * master public key of requested algorithm in binary format
-     * </pre>
-     */
     public com.google.protobuf.ByteString getKey() {
       return key_;
     }
-
+    
     private void initFields() {
       key_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -13096,7 +9480,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasKey()) {
         memoizedIsInitialized = 0;
         return false;
@@ -13104,7 +9488,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -13113,12 +9497,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -13128,109 +9512,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.MasterPublicKey parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.MasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.MasterPublicKey parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.MasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.MasterPublicKey parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.MasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.MasterPublicKey parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.MasterPublicKey parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.MasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.MasterPublicKey parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.MasterPublicKey prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code MasterPublicKey}
-     *
-     * <pre>
-     * Contains master public key derived from device's seed.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.MasterPublicKeyOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKeyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_MasterPublicKey_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_MasterPublicKey_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_MasterPublicKey_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.MasterPublicKey.class, TrezorMessage.MasterPublicKey.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_MasterPublicKey_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.MasterPublicKey.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -13241,37 +9629,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         key_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_MasterPublicKey_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey.getDescriptor();
       }
-
-      public TrezorMessage.MasterPublicKey getDefaultInstanceForType() {
-        return TrezorMessage.MasterPublicKey.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey.getDefaultInstance();
       }
-
-      public TrezorMessage.MasterPublicKey build() {
-        TrezorMessage.MasterPublicKey result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.MasterPublicKey buildPartial() {
-        TrezorMessage.MasterPublicKey result = new TrezorMessage.MasterPublicKey(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -13282,25 +9680,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.MasterPublicKey) {
-          return mergeFrom((TrezorMessage.MasterPublicKey)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.MasterPublicKey other) {
-        if (other == TrezorMessage.MasterPublicKey.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey.getDefaultInstance()) return this;
         if (other.hasKey()) {
           setKey(other.getKey());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasKey()) {
           
@@ -13308,55 +9706,49 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.MasterPublicKey parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.MasterPublicKey) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              key_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required bytes key = 1;
       private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>required bytes key = 1;</code>
-       *
-       * <pre>
-       * master public key of requested algorithm in binary format
-       * </pre>
-       */
       public boolean hasKey() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required bytes key = 1;</code>
-       *
-       * <pre>
-       * master public key of requested algorithm in binary format
-       * </pre>
-       */
       public com.google.protobuf.ByteString getKey() {
         return key_;
       }
-      /**
-       * <code>required bytes key = 1;</code>
-       *
-       * <pre>
-       * master public key of requested algorithm in binary format
-       * </pre>
-       */
       public Builder setKey(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -13366,221 +9758,86 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required bytes key = 1;</code>
-       *
-       * <pre>
-       * master public key of requested algorithm in binary format
-       * </pre>
-       */
       public Builder clearKey() {
         bitField0_ = (bitField0_ & ~0x00000001);
         key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:MasterPublicKey)
     }
-
+    
     static {
       defaultInstance = new MasterPublicKey(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:MasterPublicKey)
   }
-
+  
   public interface GetAddressOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // repeated uint32 address_n = 1;
-    /**
-     * <code>repeated uint32 address_n = 1;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     java.util.List<java.lang.Integer> getAddressNList();
-    /**
-     * <code>repeated uint32 address_n = 1;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     int getAddressNCount();
-    /**
-     * <code>repeated uint32 address_n = 1;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     int getAddressN(int index);
   }
-  /**
-   * Protobuf type {@code GetAddress}
-   */
   public static final class GetAddress extends
       com.google.protobuf.GeneratedMessage
       implements GetAddressOrBuilder {
     // Use GetAddress.newBuilder() to construct.
-    private GetAddress(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private GetAddress(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private GetAddress(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private GetAddress(boolean noInit) {}
+    
     private static final GetAddress defaultInstance;
     public static GetAddress getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public GetAddress getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private GetAddress(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                addressN_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              addressN_.add(input.readUInt32());
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
-                addressN_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                addressN_.add(input.readUInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          addressN_ = java.util.Collections.unmodifiableList(addressN_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_GetAddress_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetAddress_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_GetAddress_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.GetAddress.class, TrezorMessage.GetAddress.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetAddress_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<GetAddress> PARSER =
-        new com.google.protobuf.AbstractParser<GetAddress>() {
-      public GetAddress parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetAddress(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<GetAddress> getParserForType() {
-      return PARSER;
-    }
-
+    
     // repeated uint32 address_n = 1;
     public static final int ADDRESS_N_FIELD_NUMBER = 1;
     private java.util.List<java.lang.Integer> addressN_;
-    /**
-     * <code>repeated uint32 address_n = 1;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     public java.util.List<java.lang.Integer>
         getAddressNList() {
       return addressN_;
     }
-    /**
-     * <code>repeated uint32 address_n = 1;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     public int getAddressNCount() {
       return addressN_.size();
     }
-    /**
-     * <code>repeated uint32 address_n = 1;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     public int getAddressN(int index) {
       return addressN_.get(index);
     }
-
+    
     private void initFields() {
-      addressN_ = java.util.Collections.emptyList();
+      addressN_ = java.util.Collections.emptyList();;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -13589,12 +9846,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       {
         int dataSize = 0;
@@ -13609,105 +9866,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.GetAddress parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.GetAddress parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetAddress parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.GetAddress parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetAddress parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.GetAddress parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.GetAddress parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.GetAddress parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.GetAddress parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.GetAddress parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.GetAddress prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code GetAddress}
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.GetAddressOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddressOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_GetAddress_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetAddress_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_GetAddress_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.GetAddress.class, TrezorMessage.GetAddress.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_GetAddress_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.GetAddress.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -13718,37 +9983,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
-        addressN_ = java.util.Collections.emptyList();
+        addressN_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_GetAddress_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress.getDescriptor();
       }
-
-      public TrezorMessage.GetAddress getDefaultInstanceForType() {
-        return TrezorMessage.GetAddress.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress.getDefaultInstance();
       }
-
-      public TrezorMessage.GetAddress build() {
-        TrezorMessage.GetAddress result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.GetAddress buildPartial() {
-        TrezorMessage.GetAddress result = new TrezorMessage.GetAddress(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           addressN_ = java.util.Collections.unmodifiableList(addressN_);
@@ -13758,18 +10033,18 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.GetAddress) {
-          return mergeFrom((TrezorMessage.GetAddress)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.GetAddress other) {
-        if (other == TrezorMessage.GetAddress.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress.getDefaultInstance()) return this;
         if (!other.addressN_.isEmpty()) {
           if (addressN_.isEmpty()) {
             addressN_ = other.addressN_;
@@ -13783,76 +10058,72 @@ public final class TrezorMessage {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.GetAddress parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.GetAddress) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 8: {
+              ensureAddressNIsMutable();
+              addressN_.add(input.readUInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              while (input.getBytesUntilLimit() > 0) {
+                addAddressN(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // repeated uint32 address_n = 1;
-      private java.util.List<java.lang.Integer> addressN_ = java.util.Collections.emptyList();
+      private java.util.List<java.lang.Integer> addressN_ = java.util.Collections.emptyList();;
       private void ensureAddressNIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
           addressN_ = new java.util.ArrayList<java.lang.Integer>(addressN_);
           bitField0_ |= 0x00000001;
          }
       }
-      /**
-       * <code>repeated uint32 address_n = 1;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public java.util.List<java.lang.Integer>
           getAddressNList() {
         return java.util.Collections.unmodifiableList(addressN_);
       }
-      /**
-       * <code>repeated uint32 address_n = 1;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public int getAddressNCount() {
         return addressN_.size();
       }
-      /**
-       * <code>repeated uint32 address_n = 1;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public int getAddressN(int index) {
         return addressN_.get(index);
       }
-      /**
-       * <code>repeated uint32 address_n = 1;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public Builder setAddressN(
           int index, int value) {
         ensureAddressNIsMutable();
@@ -13860,26 +10131,12 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated uint32 address_n = 1;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public Builder addAddressN(int value) {
         ensureAddressNIsMutable();
         addressN_.add(value);
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated uint32 address_n = 1;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public Builder addAllAddressN(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureAddressNIsMutable();
@@ -13887,212 +10144,92 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated uint32 address_n = 1;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public Builder clearAddressN() {
-        addressN_ = java.util.Collections.emptyList();
+        addressN_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:GetAddress)
     }
-
+    
     static {
       defaultInstance = new GetAddress(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:GetAddress)
   }
-
+  
   public interface AddressOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required string address = 1;
-    /**
-     * <code>required string address = 1;</code>
-     *
-     * <pre>
-     * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-     * </pre>
-     */
     boolean hasAddress();
-    /**
-     * <code>required string address = 1;</code>
-     *
-     * <pre>
-     * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-     * </pre>
-     */
-    java.lang.String getAddress();
-    /**
-     * <code>required string address = 1;</code>
-     *
-     * <pre>
-     * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getAddressBytes();
+    String getAddress();
   }
-  /**
-   * Protobuf type {@code Address}
-   */
   public static final class Address extends
       com.google.protobuf.GeneratedMessage
       implements AddressOrBuilder {
     // Use Address.newBuilder() to construct.
-    private Address(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Address(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Address(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private Address(boolean noInit) {}
+    
     private static final Address defaultInstance;
     public static Address getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public Address getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Address(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              address_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_Address_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Address_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_Address_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.Address.class, TrezorMessage.Address.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Address_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<Address> PARSER =
-        new com.google.protobuf.AbstractParser<Address>() {
-      public Address parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Address(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Address> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required string address = 1;
     public static final int ADDRESS_FIELD_NUMBER = 1;
     private java.lang.Object address_;
-    /**
-     * <code>required string address = 1;</code>
-     *
-     * <pre>
-     * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-     * </pre>
-     */
     public boolean hasAddress() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required string address = 1;</code>
-     *
-     * <pre>
-     * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-     * </pre>
-     */
-    public java.lang.String getAddress() {
+    public String getAddress() {
       java.lang.Object ref = address_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           address_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>required string address = 1;</code>
-     *
-     * <pre>
-     * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getAddressBytes() {
+    private com.google.protobuf.ByteString getAddressBytes() {
       java.lang.Object ref = address_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         address_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     private void initFields() {
       address_ = "";
     }
@@ -14100,7 +10237,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasAddress()) {
         memoizedIsInitialized = 0;
         return false;
@@ -14108,7 +10245,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -14117,12 +10254,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -14132,105 +10269,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.Address parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Address parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Address parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.Address parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Address parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Address parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.Address parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Address parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.Address parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.Address parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.Address prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code Address}
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.AddressOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.AddressOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_Address_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Address_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_Address_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.Address.class, TrezorMessage.Address.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Address_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.Address.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -14241,37 +10386,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         address_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_Address_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address.getDescriptor();
       }
-
-      public TrezorMessage.Address getDefaultInstanceForType() {
-        return TrezorMessage.Address.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address.getDefaultInstance();
       }
-
-      public TrezorMessage.Address build() {
-        TrezorMessage.Address result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.Address buildPartial() {
-        TrezorMessage.Address result = new TrezorMessage.Address(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -14282,27 +10437,25 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.Address) {
-          return mergeFrom((TrezorMessage.Address)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.Address other) {
-        if (other == TrezorMessage.Address.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address.getDefaultInstance()) return this;
         if (other.hasAddress()) {
-          bitField0_ |= 0x00000001;
-          address_ = other.address_;
-          onChanged();
+          setAddress(other.getAddress());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasAddress()) {
           
@@ -14310,85 +10463,57 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.Address parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.Address) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              address_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required string address = 1;
       private java.lang.Object address_ = "";
-      /**
-       * <code>required string address = 1;</code>
-       *
-       * <pre>
-       * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-       * </pre>
-       */
       public boolean hasAddress() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required string address = 1;</code>
-       *
-       * <pre>
-       * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-       * </pre>
-       */
-      public java.lang.String getAddress() {
+      public String getAddress() {
         java.lang.Object ref = address_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           address_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>required string address = 1;</code>
-       *
-       * <pre>
-       * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getAddressBytes() {
-        java.lang.Object ref = address_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          address_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string address = 1;</code>
-       *
-       * <pre>
-       * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-       * </pre>
-       */
-      public Builder setAddress(
-          java.lang.String value) {
+      public Builder setAddress(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -14397,210 +10522,481 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required string address = 1;</code>
-       *
-       * <pre>
-       * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-       * </pre>
-       */
       public Builder clearAddress() {
         bitField0_ = (bitField0_ & ~0x00000001);
         address_ = getDefaultInstance().getAddress();
         onChanged();
         return this;
       }
-      /**
-       * <code>required string address = 1;</code>
-       *
-       * <pre>
-       * Bitcoin address in base58 encoding corresponding to GetAddress(n) call
-       * </pre>
-       */
-      public Builder setAddressBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      void setAddress(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
         address_ = value;
         onChanged();
-        return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:Address)
     }
-
+    
     static {
       defaultInstance = new Address(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:Address)
   }
-
+  
   public interface LoadDeviceOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional .Algorithm algo = 1 [default = BIP32];
-    /**
-     * <code>optional .Algorithm algo = 1 [default = BIP32];</code>
-     *
-     * <pre>
-     * Choose address generation algorithm
-     * </pre>
-     */
     boolean hasAlgo();
-    /**
-     * <code>optional .Algorithm algo = 1 [default = BIP32];</code>
-     *
-     * <pre>
-     * Choose address generation algorithm
-     * </pre>
-     */
-    TrezorMessage.Algorithm getAlgo();
-
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgo();
+    
     // required string seed = 2;
-    /**
-     * <code>required string seed = 2;</code>
-     *
-     * <pre>
-     * Seed encoded as a mnemonic (12 english words)
-     * </pre>
-     */
     boolean hasSeed();
-    /**
-     * <code>required string seed = 2;</code>
-     *
-     * <pre>
-     * Seed encoded as a mnemonic (12 english words)
-     * </pre>
-     */
-    java.lang.String getSeed();
-    /**
-     * <code>required string seed = 2;</code>
-     *
-     * <pre>
-     * Seed encoded as a mnemonic (12 english words)
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getSeedBytes();
-
+    String getSeed();
+    
     // optional bool otp = 3 [default = true];
-    /**
-     * <code>optional bool otp = 3 [default = true];</code>
-     *
-     * <pre>
-     * Enable OTP for important actions?
-     * </pre>
-     */
     boolean hasOtp();
-    /**
-     * <code>optional bool otp = 3 [default = true];</code>
-     *
-     * <pre>
-     * Enable OTP for important actions?
-     * </pre>
-     */
     boolean getOtp();
-
+    
     // optional bytes pin = 4;
-    /**
-     * <code>optional bytes pin = 4;</code>
-     *
-     * <pre>
-     * Set PIN protection for important actions
-     * </pre>
-     */
     boolean hasPin();
-    /**
-     * <code>optional bytes pin = 4;</code>
-     *
-     * <pre>
-     * Set PIN protection for important actions
-     * </pre>
-     */
     com.google.protobuf.ByteString getPin();
-
+    
     // optional bool spv = 5 [default = true];
-    /**
-     * <code>optional bool spv = 5 [default = true];</code>
-     *
-     * <pre>
-     * Enable SPV verification for transaction inputs (if available on device)
-     * </pre>
-     */
     boolean hasSpv();
-    /**
-     * <code>optional bool spv = 5 [default = true];</code>
-     *
-     * <pre>
-     * Enable SPV verification for transaction inputs (if available on device)
-     * </pre>
-     */
     boolean getSpv();
   }
-  /**
-   * Protobuf type {@code LoadDevice}
-   *
-   * <pre>
-   * Load seed and related internal settings from computer to the device. Existing seed is overwritten.
-   *
-   * Response: Success, OtpRequest, PinRequest, Failure
-   * </pre>
-   */
   public static final class LoadDevice extends
       com.google.protobuf.GeneratedMessage
       implements LoadDeviceOrBuilder {
     // Use LoadDevice.newBuilder() to construct.
-    private LoadDevice(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private LoadDevice(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private LoadDevice(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private LoadDevice(boolean noInit) {}
+    
     private static final LoadDevice defaultInstance;
     public static LoadDevice getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public LoadDevice getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_LoadDevice_descriptor;
     }
-    private LoadDevice(
-        com.google.protobuf.CodedInputStream input,
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_LoadDevice_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // optional .Algorithm algo = 1 [default = BIP32];
+    public static final int ALGO_FIELD_NUMBER = 1;
+    private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm algo_;
+    public boolean hasAlgo() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgo() {
+      return algo_;
+    }
+    
+    // required string seed = 2;
+    public static final int SEED_FIELD_NUMBER = 2;
+    private java.lang.Object seed_;
+    public boolean hasSeed() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getSeed() {
+      java.lang.Object ref = seed_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          seed_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getSeedBytes() {
+      java.lang.Object ref = seed_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        seed_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional bool otp = 3 [default = true];
+    public static final int OTP_FIELD_NUMBER = 3;
+    private boolean otp_;
+    public boolean hasOtp() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public boolean getOtp() {
+      return otp_;
+    }
+    
+    // optional bytes pin = 4;
+    public static final int PIN_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString pin_;
+    public boolean hasPin() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    public com.google.protobuf.ByteString getPin() {
+      return pin_;
+    }
+    
+    // optional bool spv = 5 [default = true];
+    public static final int SPV_FIELD_NUMBER = 5;
+    private boolean spv_;
+    public boolean hasSpv() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    public boolean getSpv() {
+      return spv_;
+    }
+    
+    private void initFields() {
+      algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
+      seed_ = "";
+      otp_ = true;
+      pin_ = com.google.protobuf.ByteString.EMPTY;
+      spv_ = true;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      if (!hasSeed()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(1, algo_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getSeedBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, otp_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, pin_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBool(5, spv_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, algo_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getSeedBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, otp_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, pin_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, spv_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseFrom(
+        com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDeviceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_LoadDevice_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_LoadDevice_fieldAccessorTable;
+      }
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        seed_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        otp_ = true;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        pin_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        spv_ = true;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice.getDescriptor();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice.getDefaultInstance();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.algo_ = algo_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.seed_ = seed_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.otp_ = otp_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.pin_ = pin_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.spv_ = spv_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice.getDefaultInstance()) return this;
+        if (other.hasAlgo()) {
+          setAlgo(other.getAlgo());
+        }
+        if (other.hasSeed()) {
+          setSeed(other.getSeed());
+        }
+        if (other.hasOtp()) {
+          setOtp(other.getOtp());
+        }
+        if (other.hasPin()) {
+          setPin(other.getPin());
+        }
+        if (other.hasSpv()) {
+          setSpv(other.getSpv());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        if (!hasSeed()) {
+          
+          return false;
+        }
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
-              done = true;
-              break;
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
             default: {
               if (!parseUnknownField(input, unknownFields,
                                      extensionRegistry, tag)) {
-                done = true;
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
               }
               break;
             }
             case 8: {
               int rawValue = input.readEnum();
-              TrezorMessage.Algorithm value = TrezorMessage.Algorithm.valueOf(rawValue);
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -14631,536 +11027,19 @@ public final class TrezorMessage {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
       }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return TrezorMessage.internal_static_LoadDevice_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_LoadDevice_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.LoadDevice.class, TrezorMessage.LoadDevice.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<LoadDevice> PARSER =
-        new com.google.protobuf.AbstractParser<LoadDevice>() {
-      public LoadDevice parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoadDevice(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<LoadDevice> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // optional .Algorithm algo = 1 [default = BIP32];
-    public static final int ALGO_FIELD_NUMBER = 1;
-    private TrezorMessage.Algorithm algo_;
-    /**
-     * <code>optional .Algorithm algo = 1 [default = BIP32];</code>
-     *
-     * <pre>
-     * Choose address generation algorithm
-     * </pre>
-     */
-    public boolean hasAlgo() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional .Algorithm algo = 1 [default = BIP32];</code>
-     *
-     * <pre>
-     * Choose address generation algorithm
-     * </pre>
-     */
-    public TrezorMessage.Algorithm getAlgo() {
-      return algo_;
-    }
-
-    // required string seed = 2;
-    public static final int SEED_FIELD_NUMBER = 2;
-    private java.lang.Object seed_;
-    /**
-     * <code>required string seed = 2;</code>
-     *
-     * <pre>
-     * Seed encoded as a mnemonic (12 english words)
-     * </pre>
-     */
-    public boolean hasSeed() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required string seed = 2;</code>
-     *
-     * <pre>
-     * Seed encoded as a mnemonic (12 english words)
-     * </pre>
-     */
-    public java.lang.String getSeed() {
-      java.lang.Object ref = seed_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          seed_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string seed = 2;</code>
-     *
-     * <pre>
-     * Seed encoded as a mnemonic (12 english words)
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getSeedBytes() {
-      java.lang.Object ref = seed_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        seed_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // optional bool otp = 3 [default = true];
-    public static final int OTP_FIELD_NUMBER = 3;
-    private boolean otp_;
-    /**
-     * <code>optional bool otp = 3 [default = true];</code>
-     *
-     * <pre>
-     * Enable OTP for important actions?
-     * </pre>
-     */
-    public boolean hasOtp() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional bool otp = 3 [default = true];</code>
-     *
-     * <pre>
-     * Enable OTP for important actions?
-     * </pre>
-     */
-    public boolean getOtp() {
-      return otp_;
-    }
-
-    // optional bytes pin = 4;
-    public static final int PIN_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString pin_;
-    /**
-     * <code>optional bytes pin = 4;</code>
-     *
-     * <pre>
-     * Set PIN protection for important actions
-     * </pre>
-     */
-    public boolean hasPin() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>optional bytes pin = 4;</code>
-     *
-     * <pre>
-     * Set PIN protection for important actions
-     * </pre>
-     */
-    public com.google.protobuf.ByteString getPin() {
-      return pin_;
-    }
-
-    // optional bool spv = 5 [default = true];
-    public static final int SPV_FIELD_NUMBER = 5;
-    private boolean spv_;
-    /**
-     * <code>optional bool spv = 5 [default = true];</code>
-     *
-     * <pre>
-     * Enable SPV verification for transaction inputs (if available on device)
-     * </pre>
-     */
-    public boolean hasSpv() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>optional bool spv = 5 [default = true];</code>
-     *
-     * <pre>
-     * Enable SPV verification for transaction inputs (if available on device)
-     * </pre>
-     */
-    public boolean getSpv() {
-      return spv_;
-    }
-
-    private void initFields() {
-      algo_ = TrezorMessage.Algorithm.BIP32;
-      seed_ = "";
-      otp_ = true;
-      pin_ = com.google.protobuf.ByteString.EMPTY;
-      spv_ = true;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      if (!hasSeed()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, algo_.getNumber());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getSeedBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBool(3, otp_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, pin_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBool(5, spv_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, algo_.getNumber());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getSeedBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, otp_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, pin_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, spv_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static TrezorMessage.LoadDevice parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.LoadDevice parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.LoadDevice parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.LoadDevice parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.LoadDevice parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.LoadDevice parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.LoadDevice parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static TrezorMessage.LoadDevice parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.LoadDevice parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.LoadDevice parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.LoadDevice prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code LoadDevice}
-     *
-     * <pre>
-     * Load seed and related internal settings from computer to the device. Existing seed is overwritten.
-     *
-     * Response: Success, OtpRequest, PinRequest, Failure
-     * </pre>
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.LoadDeviceOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return TrezorMessage.internal_static_LoadDevice_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_LoadDevice_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.LoadDevice.class, TrezorMessage.LoadDevice.Builder.class);
-      }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.LoadDevice.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        algo_ = TrezorMessage.Algorithm.BIP32;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        seed_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        otp_ = true;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        pin_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        spv_ = true;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return TrezorMessage.internal_static_LoadDevice_descriptor;
-      }
-
-      public TrezorMessage.LoadDevice getDefaultInstanceForType() {
-        return TrezorMessage.LoadDevice.getDefaultInstance();
-      }
-
-      public TrezorMessage.LoadDevice build() {
-        TrezorMessage.LoadDevice result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public TrezorMessage.LoadDevice buildPartial() {
-        TrezorMessage.LoadDevice result = new TrezorMessage.LoadDevice(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.algo_ = algo_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.seed_ = seed_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.otp_ = otp_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.pin_ = pin_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.spv_ = spv_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.LoadDevice) {
-          return mergeFrom((TrezorMessage.LoadDevice)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(TrezorMessage.LoadDevice other) {
-        if (other == TrezorMessage.LoadDevice.getDefaultInstance()) return this;
-        if (other.hasAlgo()) {
-          setAlgo(other.getAlgo());
-        }
-        if (other.hasSeed()) {
-          bitField0_ |= 0x00000002;
-          seed_ = other.seed_;
-          onChanged();
-        }
-        if (other.hasOtp()) {
-          setOtp(other.getOtp());
-        }
-        if (other.hasPin()) {
-          setPin(other.getPin());
-        }
-        if (other.hasSpv()) {
-          setSpv(other.getSpv());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasSeed()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        TrezorMessage.LoadDevice parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.LoadDevice) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
+      
       private int bitField0_;
-
+      
       // optional .Algorithm algo = 1 [default = BIP32];
-      private TrezorMessage.Algorithm algo_ = TrezorMessage.Algorithm.BIP32;
-      /**
-       * <code>optional .Algorithm algo = 1 [default = BIP32];</code>
-       *
-       * <pre>
-       * Choose address generation algorithm
-       * </pre>
-       */
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
       public boolean hasAlgo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional .Algorithm algo = 1 [default = BIP32];</code>
-       *
-       * <pre>
-       * Choose address generation algorithm
-       * </pre>
-       */
-      public TrezorMessage.Algorithm getAlgo() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgo() {
         return algo_;
       }
-      /**
-       * <code>optional .Algorithm algo = 1 [default = BIP32];</code>
-       *
-       * <pre>
-       * Choose address generation algorithm
-       * </pre>
-       */
-      public Builder setAlgo(TrezorMessage.Algorithm value) {
+      public Builder setAlgo(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -15169,79 +11048,29 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .Algorithm algo = 1 [default = BIP32];</code>
-       *
-       * <pre>
-       * Choose address generation algorithm
-       * </pre>
-       */
       public Builder clearAlgo() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        algo_ = TrezorMessage.Algorithm.BIP32;
+        algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
         onChanged();
         return this;
       }
-
+      
       // required string seed = 2;
       private java.lang.Object seed_ = "";
-      /**
-       * <code>required string seed = 2;</code>
-       *
-       * <pre>
-       * Seed encoded as a mnemonic (12 english words)
-       * </pre>
-       */
       public boolean hasSeed() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /**
-       * <code>required string seed = 2;</code>
-       *
-       * <pre>
-       * Seed encoded as a mnemonic (12 english words)
-       * </pre>
-       */
-      public java.lang.String getSeed() {
+      public String getSeed() {
         java.lang.Object ref = seed_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           seed_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>required string seed = 2;</code>
-       *
-       * <pre>
-       * Seed encoded as a mnemonic (12 english words)
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getSeedBytes() {
-        java.lang.Object ref = seed_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          seed_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string seed = 2;</code>
-       *
-       * <pre>
-       * Seed encoded as a mnemonic (12 english words)
-       * </pre>
-       */
-      public Builder setSeed(
-          java.lang.String value) {
+      public Builder setSeed(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -15250,115 +11079,47 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required string seed = 2;</code>
-       *
-       * <pre>
-       * Seed encoded as a mnemonic (12 english words)
-       * </pre>
-       */
       public Builder clearSeed() {
         bitField0_ = (bitField0_ & ~0x00000002);
         seed_ = getDefaultInstance().getSeed();
         onChanged();
         return this;
       }
-      /**
-       * <code>required string seed = 2;</code>
-       *
-       * <pre>
-       * Seed encoded as a mnemonic (12 english words)
-       * </pre>
-       */
-      public Builder setSeedBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      void setSeed(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
         seed_ = value;
         onChanged();
-        return this;
       }
-
+      
       // optional bool otp = 3 [default = true];
       private boolean otp_ = true;
-      /**
-       * <code>optional bool otp = 3 [default = true];</code>
-       *
-       * <pre>
-       * Enable OTP for important actions?
-       * </pre>
-       */
       public boolean hasOtp() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      /**
-       * <code>optional bool otp = 3 [default = true];</code>
-       *
-       * <pre>
-       * Enable OTP for important actions?
-       * </pre>
-       */
       public boolean getOtp() {
         return otp_;
       }
-      /**
-       * <code>optional bool otp = 3 [default = true];</code>
-       *
-       * <pre>
-       * Enable OTP for important actions?
-       * </pre>
-       */
       public Builder setOtp(boolean value) {
         bitField0_ |= 0x00000004;
         otp_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool otp = 3 [default = true];</code>
-       *
-       * <pre>
-       * Enable OTP for important actions?
-       * </pre>
-       */
       public Builder clearOtp() {
         bitField0_ = (bitField0_ & ~0x00000004);
         otp_ = true;
         onChanged();
         return this;
       }
-
+      
       // optional bytes pin = 4;
       private com.google.protobuf.ByteString pin_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes pin = 4;</code>
-       *
-       * <pre>
-       * Set PIN protection for important actions
-       * </pre>
-       */
       public boolean hasPin() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      /**
-       * <code>optional bytes pin = 4;</code>
-       *
-       * <pre>
-       * Set PIN protection for important actions
-       * </pre>
-       */
       public com.google.protobuf.ByteString getPin() {
         return pin_;
       }
-      /**
-       * <code>optional bytes pin = 4;</code>
-       *
-       * <pre>
-       * Set PIN protection for important actions
-       * </pre>
-       */
       public Builder setPin(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -15368,228 +11129,91 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bytes pin = 4;</code>
-       *
-       * <pre>
-       * Set PIN protection for important actions
-       * </pre>
-       */
       public Builder clearPin() {
         bitField0_ = (bitField0_ & ~0x00000008);
         pin_ = getDefaultInstance().getPin();
         onChanged();
         return this;
       }
-
+      
       // optional bool spv = 5 [default = true];
       private boolean spv_ = true;
-      /**
-       * <code>optional bool spv = 5 [default = true];</code>
-       *
-       * <pre>
-       * Enable SPV verification for transaction inputs (if available on device)
-       * </pre>
-       */
       public boolean hasSpv() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
-      /**
-       * <code>optional bool spv = 5 [default = true];</code>
-       *
-       * <pre>
-       * Enable SPV verification for transaction inputs (if available on device)
-       * </pre>
-       */
       public boolean getSpv() {
         return spv_;
       }
-      /**
-       * <code>optional bool spv = 5 [default = true];</code>
-       *
-       * <pre>
-       * Enable SPV verification for transaction inputs (if available on device)
-       * </pre>
-       */
       public Builder setSpv(boolean value) {
         bitField0_ |= 0x00000010;
         spv_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool spv = 5 [default = true];</code>
-       *
-       * <pre>
-       * Enable SPV verification for transaction inputs (if available on device)
-       * </pre>
-       */
       public Builder clearSpv() {
         bitField0_ = (bitField0_ & ~0x00000010);
         spv_ = true;
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:LoadDevice)
     }
-
+    
     static {
       defaultInstance = new LoadDevice(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:LoadDevice)
   }
-
+  
   public interface ResetDeviceOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional bytes random = 7;
-    /**
-     * <code>optional bytes random = 7;</code>
-     *
-     * <pre>
-     * Provide additional entropy for seed generation function.
-     * </pre>
-     */
     boolean hasRandom();
-    /**
-     * <code>optional bytes random = 7;</code>
-     *
-     * <pre>
-     * Provide additional entropy for seed generation function.
-     * </pre>
-     */
     com.google.protobuf.ByteString getRandom();
   }
-  /**
-   * Protobuf type {@code ResetDevice}
-   *
-   * <pre>
-   * Request device to do full-reset, to generate new seed
-   * and ask user for new settings (OTP, PIN, SPV).
-   *
-   * Response: Success, OtpRequest, PinRequest, Failure
-   * </pre>
-   */
   public static final class ResetDevice extends
       com.google.protobuf.GeneratedMessage
       implements ResetDeviceOrBuilder {
     // Use ResetDevice.newBuilder() to construct.
-    private ResetDevice(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ResetDevice(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ResetDevice(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private ResetDevice(boolean noInit) {}
+    
     private static final ResetDevice defaultInstance;
     public static ResetDevice getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public ResetDevice getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private ResetDevice(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 58: {
-              bitField0_ |= 0x00000001;
-              random_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_ResetDevice_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ResetDevice_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_ResetDevice_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.ResetDevice.class, TrezorMessage.ResetDevice.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ResetDevice_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<ResetDevice> PARSER =
-        new com.google.protobuf.AbstractParser<ResetDevice>() {
-      public ResetDevice parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResetDevice(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ResetDevice> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // optional bytes random = 7;
     public static final int RANDOM_FIELD_NUMBER = 7;
     private com.google.protobuf.ByteString random_;
-    /**
-     * <code>optional bytes random = 7;</code>
-     *
-     * <pre>
-     * Provide additional entropy for seed generation function.
-     * </pre>
-     */
     public boolean hasRandom() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional bytes random = 7;</code>
-     *
-     * <pre>
-     * Provide additional entropy for seed generation function.
-     * </pre>
-     */
     public com.google.protobuf.ByteString getRandom() {
       return random_;
     }
-
+    
     private void initFields() {
       random_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -15597,11 +11221,11 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -15610,12 +11234,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -15625,112 +11249,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.ResetDevice parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.ResetDevice parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ResetDevice parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.ResetDevice parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ResetDevice parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.ResetDevice parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.ResetDevice parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.ResetDevice parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.ResetDevice parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.ResetDevice parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.ResetDevice prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ResetDevice}
-     *
-     * <pre>
-     * Request device to do full-reset, to generate new seed
-     * and ask user for new settings (OTP, PIN, SPV).
-     *
-     * Response: Success, OtpRequest, PinRequest, Failure
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.ResetDeviceOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDeviceOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_ResetDevice_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ResetDevice_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_ResetDevice_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.ResetDevice.class, TrezorMessage.ResetDevice.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_ResetDevice_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.ResetDevice.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -15741,37 +11366,47 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         random_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_ResetDevice_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice.getDescriptor();
       }
-
-      public TrezorMessage.ResetDevice getDefaultInstanceForType() {
-        return TrezorMessage.ResetDevice.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice.getDefaultInstance();
       }
-
-      public TrezorMessage.ResetDevice build() {
-        TrezorMessage.ResetDevice result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.ResetDevice buildPartial() {
-        TrezorMessage.ResetDevice result = new TrezorMessage.ResetDevice(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -15782,77 +11417,71 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.ResetDevice) {
-          return mergeFrom((TrezorMessage.ResetDevice)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.ResetDevice other) {
-        if (other == TrezorMessage.ResetDevice.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice.getDefaultInstance()) return this;
         if (other.hasRandom()) {
           setRandom(other.getRandom());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.ResetDevice parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.ResetDevice) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 58: {
+              bitField0_ |= 0x00000001;
+              random_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // optional bytes random = 7;
       private com.google.protobuf.ByteString random_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes random = 7;</code>
-       *
-       * <pre>
-       * Provide additional entropy for seed generation function.
-       * </pre>
-       */
       public boolean hasRandom() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional bytes random = 7;</code>
-       *
-       * <pre>
-       * Provide additional entropy for seed generation function.
-       * </pre>
-       */
       public com.google.protobuf.ByteString getRandom() {
         return random_;
       }
-      /**
-       * <code>optional bytes random = 7;</code>
-       *
-       * <pre>
-       * Provide additional entropy for seed generation function.
-       * </pre>
-       */
       public Builder setRandom(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -15862,142 +11491,394 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bytes random = 7;</code>
-       *
-       * <pre>
-       * Provide additional entropy for seed generation function.
-       * </pre>
-       */
       public Builder clearRandom() {
         bitField0_ = (bitField0_ & ~0x00000001);
         random_ = getDefaultInstance().getRandom();
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:ResetDevice)
     }
-
+    
     static {
       defaultInstance = new ResetDevice(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:ResetDevice)
   }
-
+  
   public interface SignTxOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required uint32 outputs_count = 3;
-    /**
-     * <code>required uint32 outputs_count = 3;</code>
-     *
-     * <pre>
-     * Count of outputs of the transaction
-     * </pre>
-     */
     boolean hasOutputsCount();
-    /**
-     * <code>required uint32 outputs_count = 3;</code>
-     *
-     * <pre>
-     * Count of outputs of the transaction
-     * </pre>
-     */
     int getOutputsCount();
-
+    
     // required uint32 inputs_count = 5;
-    /**
-     * <code>required uint32 inputs_count = 5;</code>
-     *
-     * <pre>
-     * Count of inputs of the transaction
-     * </pre>
-     */
     boolean hasInputsCount();
-    /**
-     * <code>required uint32 inputs_count = 5;</code>
-     *
-     * <pre>
-     * Count of inputs of the transaction
-     * </pre>
-     */
     int getInputsCount();
-
+    
     // optional bytes random = 6;
-    /**
-     * <code>optional bytes random = 6;</code>
-     *
-     * <pre>
-     * Provide additional entropy for signing function.
-     * </pre>
-     */
     boolean hasRandom();
-    /**
-     * <code>optional bytes random = 6;</code>
-     *
-     * <pre>
-     * Provide additional entropy for signing function.
-     * </pre>
-     */
     com.google.protobuf.ByteString getRandom();
   }
-  /**
-   * Protobuf type {@code SignTx}
-   *
-   * <pre>
-   * Request the device to sign the transaction
-   *
-   * Response: TxRequest, OtpRequest, PinRequest, Failure
-   * </pre>
-   */
   public static final class SignTx extends
       com.google.protobuf.GeneratedMessage
       implements SignTxOrBuilder {
     // Use SignTx.newBuilder() to construct.
-    private SignTx(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private SignTx(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private SignTx(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private SignTx(boolean noInit) {}
+    
     private static final SignTx defaultInstance;
     public static SignTx getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public SignTx getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_SignTx_descriptor;
     }
-    private SignTx(
-        com.google.protobuf.CodedInputStream input,
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_SignTx_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // required uint32 outputs_count = 3;
+    public static final int OUTPUTS_COUNT_FIELD_NUMBER = 3;
+    private int outputsCount_;
+    public boolean hasOutputsCount() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public int getOutputsCount() {
+      return outputsCount_;
+    }
+    
+    // required uint32 inputs_count = 5;
+    public static final int INPUTS_COUNT_FIELD_NUMBER = 5;
+    private int inputsCount_;
+    public boolean hasInputsCount() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public int getInputsCount() {
+      return inputsCount_;
+    }
+    
+    // optional bytes random = 6;
+    public static final int RANDOM_FIELD_NUMBER = 6;
+    private com.google.protobuf.ByteString random_;
+    public boolean hasRandom() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public com.google.protobuf.ByteString getRandom() {
+      return random_;
+    }
+    
+    private void initFields() {
+      outputsCount_ = 0;
+      inputsCount_ = 0;
+      random_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      if (!hasOutputsCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasInputsCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(3, outputsCount_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeUInt32(5, inputsCount_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(6, random_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, outputsCount_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, inputsCount_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, random_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseFrom(
+        com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTxOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_SignTx_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_SignTx_fieldAccessorTable;
+      }
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        outputsCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        inputsCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        random_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx.getDescriptor();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx.getDefaultInstance();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.outputsCount_ = outputsCount_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.inputsCount_ = inputsCount_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.random_ = random_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx.getDefaultInstance()) return this;
+        if (other.hasOutputsCount()) {
+          setOutputsCount(other.getOutputsCount());
+        }
+        if (other.hasInputsCount()) {
+          setInputsCount(other.getInputsCount());
+        }
+        if (other.hasRandom()) {
+          setRandom(other.getRandom());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        if (!hasOutputsCount()) {
+          
+          return false;
+        }
+        if (!hasInputsCount()) {
+          
+          return false;
+        }
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
-              done = true;
-              break;
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
             default: {
               if (!parseUnknownField(input, unknownFields,
                                      extensionRegistry, tag)) {
-                done = true;
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
               }
               break;
             }
@@ -16018,526 +11899,60 @@ public final class TrezorMessage {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
       }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return TrezorMessage.internal_static_SignTx_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_SignTx_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.SignTx.class, TrezorMessage.SignTx.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<SignTx> PARSER =
-        new com.google.protobuf.AbstractParser<SignTx>() {
-      public SignTx parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SignTx(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SignTx> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // required uint32 outputs_count = 3;
-    public static final int OUTPUTS_COUNT_FIELD_NUMBER = 3;
-    private int outputsCount_;
-    /**
-     * <code>required uint32 outputs_count = 3;</code>
-     *
-     * <pre>
-     * Count of outputs of the transaction
-     * </pre>
-     */
-    public boolean hasOutputsCount() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required uint32 outputs_count = 3;</code>
-     *
-     * <pre>
-     * Count of outputs of the transaction
-     * </pre>
-     */
-    public int getOutputsCount() {
-      return outputsCount_;
-    }
-
-    // required uint32 inputs_count = 5;
-    public static final int INPUTS_COUNT_FIELD_NUMBER = 5;
-    private int inputsCount_;
-    /**
-     * <code>required uint32 inputs_count = 5;</code>
-     *
-     * <pre>
-     * Count of inputs of the transaction
-     * </pre>
-     */
-    public boolean hasInputsCount() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required uint32 inputs_count = 5;</code>
-     *
-     * <pre>
-     * Count of inputs of the transaction
-     * </pre>
-     */
-    public int getInputsCount() {
-      return inputsCount_;
-    }
-
-    // optional bytes random = 6;
-    public static final int RANDOM_FIELD_NUMBER = 6;
-    private com.google.protobuf.ByteString random_;
-    /**
-     * <code>optional bytes random = 6;</code>
-     *
-     * <pre>
-     * Provide additional entropy for signing function.
-     * </pre>
-     */
-    public boolean hasRandom() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional bytes random = 6;</code>
-     *
-     * <pre>
-     * Provide additional entropy for signing function.
-     * </pre>
-     */
-    public com.google.protobuf.ByteString getRandom() {
-      return random_;
-    }
-
-    private void initFields() {
-      outputsCount_ = 0;
-      inputsCount_ = 0;
-      random_ = com.google.protobuf.ByteString.EMPTY;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      if (!hasOutputsCount()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasInputsCount()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeUInt32(3, outputsCount_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeUInt32(5, inputsCount_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(6, random_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, outputsCount_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, inputsCount_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, random_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static TrezorMessage.SignTx parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.SignTx parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.SignTx parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.SignTx parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.SignTx parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.SignTx parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.SignTx parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static TrezorMessage.SignTx parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.SignTx parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.SignTx parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.SignTx prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code SignTx}
-     *
-     * <pre>
-     * Request the device to sign the transaction
-     *
-     * Response: TxRequest, OtpRequest, PinRequest, Failure
-     * </pre>
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.SignTxOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return TrezorMessage.internal_static_SignTx_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_SignTx_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.SignTx.class, TrezorMessage.SignTx.Builder.class);
-      }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.SignTx.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        outputsCount_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        inputsCount_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        random_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return TrezorMessage.internal_static_SignTx_descriptor;
-      }
-
-      public TrezorMessage.SignTx getDefaultInstanceForType() {
-        return TrezorMessage.SignTx.getDefaultInstance();
-      }
-
-      public TrezorMessage.SignTx build() {
-        TrezorMessage.SignTx result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public TrezorMessage.SignTx buildPartial() {
-        TrezorMessage.SignTx result = new TrezorMessage.SignTx(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.outputsCount_ = outputsCount_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.inputsCount_ = inputsCount_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.random_ = random_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.SignTx) {
-          return mergeFrom((TrezorMessage.SignTx)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(TrezorMessage.SignTx other) {
-        if (other == TrezorMessage.SignTx.getDefaultInstance()) return this;
-        if (other.hasOutputsCount()) {
-          setOutputsCount(other.getOutputsCount());
-        }
-        if (other.hasInputsCount()) {
-          setInputsCount(other.getInputsCount());
-        }
-        if (other.hasRandom()) {
-          setRandom(other.getRandom());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasOutputsCount()) {
-          
-          return false;
-        }
-        if (!hasInputsCount()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        TrezorMessage.SignTx parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.SignTx) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
+      
       private int bitField0_;
-
+      
       // required uint32 outputs_count = 3;
       private int outputsCount_ ;
-      /**
-       * <code>required uint32 outputs_count = 3;</code>
-       *
-       * <pre>
-       * Count of outputs of the transaction
-       * </pre>
-       */
       public boolean hasOutputsCount() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required uint32 outputs_count = 3;</code>
-       *
-       * <pre>
-       * Count of outputs of the transaction
-       * </pre>
-       */
       public int getOutputsCount() {
         return outputsCount_;
       }
-      /**
-       * <code>required uint32 outputs_count = 3;</code>
-       *
-       * <pre>
-       * Count of outputs of the transaction
-       * </pre>
-       */
       public Builder setOutputsCount(int value) {
         bitField0_ |= 0x00000001;
         outputsCount_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required uint32 outputs_count = 3;</code>
-       *
-       * <pre>
-       * Count of outputs of the transaction
-       * </pre>
-       */
       public Builder clearOutputsCount() {
         bitField0_ = (bitField0_ & ~0x00000001);
         outputsCount_ = 0;
         onChanged();
         return this;
       }
-
+      
       // required uint32 inputs_count = 5;
       private int inputsCount_ ;
-      /**
-       * <code>required uint32 inputs_count = 5;</code>
-       *
-       * <pre>
-       * Count of inputs of the transaction
-       * </pre>
-       */
       public boolean hasInputsCount() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /**
-       * <code>required uint32 inputs_count = 5;</code>
-       *
-       * <pre>
-       * Count of inputs of the transaction
-       * </pre>
-       */
       public int getInputsCount() {
         return inputsCount_;
       }
-      /**
-       * <code>required uint32 inputs_count = 5;</code>
-       *
-       * <pre>
-       * Count of inputs of the transaction
-       * </pre>
-       */
       public Builder setInputsCount(int value) {
         bitField0_ |= 0x00000002;
         inputsCount_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required uint32 inputs_count = 5;</code>
-       *
-       * <pre>
-       * Count of inputs of the transaction
-       * </pre>
-       */
       public Builder clearInputsCount() {
         bitField0_ = (bitField0_ & ~0x00000002);
         inputsCount_ = 0;
         onChanged();
         return this;
       }
-
+      
       // optional bytes random = 6;
       private com.google.protobuf.ByteString random_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes random = 6;</code>
-       *
-       * <pre>
-       * Provide additional entropy for signing function.
-       * </pre>
-       */
       public boolean hasRandom() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      /**
-       * <code>optional bytes random = 6;</code>
-       *
-       * <pre>
-       * Provide additional entropy for signing function.
-       * </pre>
-       */
       public com.google.protobuf.ByteString getRandom() {
         return random_;
       }
-      /**
-       * <code>optional bytes random = 6;</code>
-       *
-       * <pre>
-       * Provide additional entropy for signing function.
-       * </pre>
-       */
       public Builder setRandom(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -16547,376 +11962,129 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bytes random = 6;</code>
-       *
-       * <pre>
-       * Provide additional entropy for signing function.
-       * </pre>
-       */
       public Builder clearRandom() {
         bitField0_ = (bitField0_ & ~0x00000004);
         random_ = getDefaultInstance().getRandom();
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:SignTx)
     }
-
+    
     static {
       defaultInstance = new SignTx(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:SignTx)
   }
-
+  
   public interface TxRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // optional int32 request_index = 1;
-    /**
-     * <code>optional int32 request_index = 1;</code>
-     *
-     * <pre>
-     * If &gt;=0, device expects TxInput/TxOutput message from the computer
-     * </pre>
-     */
     boolean hasRequestIndex();
-    /**
-     * <code>optional int32 request_index = 1;</code>
-     *
-     * <pre>
-     * If &gt;=0, device expects TxInput/TxOutput message from the computer
-     * </pre>
-     */
     int getRequestIndex();
-
+    
     // optional .RequestType request_type = 2;
-    /**
-     * <code>optional .RequestType request_type = 2;</code>
-     *
-     * <pre>
-     * Ask for TxInput or TxOutput?
-     * </pre>
-     */
     boolean hasRequestType();
-    /**
-     * <code>optional .RequestType request_type = 2;</code>
-     *
-     * <pre>
-     * Ask for TxInput or TxOutput?
-     * </pre>
-     */
-    TrezorMessage.RequestType getRequestType();
-
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType getRequestType();
+    
     // optional int32 signed_index = 3;
-    /**
-     * <code>optional int32 signed_index = 3;</code>
-     *
-     * <pre>
-     * If &gt;=0, 'signature' contains signed input of this input
-     * </pre>
-     */
     boolean hasSignedIndex();
-    /**
-     * <code>optional int32 signed_index = 3;</code>
-     *
-     * <pre>
-     * If &gt;=0, 'signature' contains signed input of this input
-     * </pre>
-     */
     int getSignedIndex();
-
+    
     // optional bytes signature = 4;
-    /**
-     * <code>optional bytes signature = 4;</code>
-     *
-     * <pre>
-     * If signed_index&gt;=0, represent signature of the signed_index input
-     * </pre>
-     */
     boolean hasSignature();
-    /**
-     * <code>optional bytes signature = 4;</code>
-     *
-     * <pre>
-     * If signed_index&gt;=0, represent signature of the signed_index input
-     * </pre>
-     */
     com.google.protobuf.ByteString getSignature();
-
+    
     // optional bytes serialized_tx = 5;
-    /**
-     * <code>optional bytes serialized_tx = 5;</code>
-     *
-     * <pre>
-     * Part of serialized and signed transaction
-     * </pre>
-     */
     boolean hasSerializedTx();
-    /**
-     * <code>optional bytes serialized_tx = 5;</code>
-     *
-     * <pre>
-     * Part of serialized and signed transaction
-     * </pre>
-     */
     com.google.protobuf.ByteString getSerializedTx();
   }
-  /**
-   * Protobuf type {@code TxRequest}
-   *
-   * <pre>
-   * Sent by the device as a response for SignTx. Device asks for information for signing transaction.
-   * If request_index is set, device asks for TxInput/TxOutput message (depends on request_type)
-   * with details of index's input.
-   * If signed_index is set, 'signature' contains signed input of signed_index's input.
-   * </pre>
-   */
   public static final class TxRequest extends
       com.google.protobuf.GeneratedMessage
       implements TxRequestOrBuilder {
     // Use TxRequest.newBuilder() to construct.
-    private TxRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private TxRequest(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private TxRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private TxRequest(boolean noInit) {}
+    
     private static final TxRequest defaultInstance;
     public static TxRequest getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public TxRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TxRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              requestIndex_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              TrezorMessage.RequestType value = TrezorMessage.RequestType.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(2, rawValue);
-              } else {
-                bitField0_ |= 0x00000002;
-                requestType_ = value;
-              }
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              signedIndex_ = input.readInt32();
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000008;
-              signature_ = input.readBytes();
-              break;
-            }
-            case 42: {
-              bitField0_ |= 0x00000010;
-              serializedTx_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_TxRequest_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxRequest_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_TxRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.TxRequest.class, TrezorMessage.TxRequest.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxRequest_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<TxRequest> PARSER =
-        new com.google.protobuf.AbstractParser<TxRequest>() {
-      public TxRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TxRequest(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TxRequest> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // optional int32 request_index = 1;
     public static final int REQUEST_INDEX_FIELD_NUMBER = 1;
     private int requestIndex_;
-    /**
-     * <code>optional int32 request_index = 1;</code>
-     *
-     * <pre>
-     * If &gt;=0, device expects TxInput/TxOutput message from the computer
-     * </pre>
-     */
     public boolean hasRequestIndex() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>optional int32 request_index = 1;</code>
-     *
-     * <pre>
-     * If &gt;=0, device expects TxInput/TxOutput message from the computer
-     * </pre>
-     */
     public int getRequestIndex() {
       return requestIndex_;
     }
-
+    
     // optional .RequestType request_type = 2;
     public static final int REQUEST_TYPE_FIELD_NUMBER = 2;
-    private TrezorMessage.RequestType requestType_;
-    /**
-     * <code>optional .RequestType request_type = 2;</code>
-     *
-     * <pre>
-     * Ask for TxInput or TxOutput?
-     * </pre>
-     */
+    private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType requestType_;
     public boolean hasRequestType() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    /**
-     * <code>optional .RequestType request_type = 2;</code>
-     *
-     * <pre>
-     * Ask for TxInput or TxOutput?
-     * </pre>
-     */
-    public TrezorMessage.RequestType getRequestType() {
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType getRequestType() {
       return requestType_;
     }
-
+    
     // optional int32 signed_index = 3;
     public static final int SIGNED_INDEX_FIELD_NUMBER = 3;
     private int signedIndex_;
-    /**
-     * <code>optional int32 signed_index = 3;</code>
-     *
-     * <pre>
-     * If &gt;=0, 'signature' contains signed input of this input
-     * </pre>
-     */
     public boolean hasSignedIndex() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    /**
-     * <code>optional int32 signed_index = 3;</code>
-     *
-     * <pre>
-     * If &gt;=0, 'signature' contains signed input of this input
-     * </pre>
-     */
     public int getSignedIndex() {
       return signedIndex_;
     }
-
+    
     // optional bytes signature = 4;
     public static final int SIGNATURE_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString signature_;
-    /**
-     * <code>optional bytes signature = 4;</code>
-     *
-     * <pre>
-     * If signed_index&gt;=0, represent signature of the signed_index input
-     * </pre>
-     */
     public boolean hasSignature() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    /**
-     * <code>optional bytes signature = 4;</code>
-     *
-     * <pre>
-     * If signed_index&gt;=0, represent signature of the signed_index input
-     * </pre>
-     */
     public com.google.protobuf.ByteString getSignature() {
       return signature_;
     }
-
+    
     // optional bytes serialized_tx = 5;
     public static final int SERIALIZED_TX_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString serializedTx_;
-    /**
-     * <code>optional bytes serialized_tx = 5;</code>
-     *
-     * <pre>
-     * Part of serialized and signed transaction
-     * </pre>
-     */
     public boolean hasSerializedTx() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
-    /**
-     * <code>optional bytes serialized_tx = 5;</code>
-     *
-     * <pre>
-     * Part of serialized and signed transaction
-     * </pre>
-     */
     public com.google.protobuf.ByteString getSerializedTx() {
       return serializedTx_;
     }
-
+    
     private void initFields() {
       requestIndex_ = 0;
-      requestType_ = TrezorMessage.RequestType.TXINPUT;
+      requestType_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType.TXINPUT;
       signedIndex_ = 0;
       signature_ = com.google.protobuf.ByteString.EMPTY;
       serializedTx_ = com.google.protobuf.ByteString.EMPTY;
@@ -16925,11 +12093,11 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -16950,12 +12118,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -16981,112 +12149,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.TxRequest parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.TxRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.TxRequest parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.TxRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.TxRequest parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.TxRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.TxRequest parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.TxRequest parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.TxRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.TxRequest parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.TxRequest prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code TxRequest}
-     *
-     * <pre>
-     * Sent by the device as a response for SignTx. Device asks for information for signing transaction.
-     * If request_index is set, device asks for TxInput/TxOutput message (depends on request_type)
-     * with details of index's input.
-     * If signed_index is set, 'signature' contains signed input of signed_index's input.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.TxRequestOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_TxRequest_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxRequest_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_TxRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.TxRequest.class, TrezorMessage.TxRequest.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxRequest_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.TxRequest.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -17097,12 +12266,12 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         requestIndex_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        requestType_ = TrezorMessage.RequestType.TXINPUT;
+        requestType_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType.TXINPUT;
         bitField0_ = (bitField0_ & ~0x00000002);
         signedIndex_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -17112,30 +12281,40 @@ public final class TrezorMessage {
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_TxRequest_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest.getDescriptor();
       }
-
-      public TrezorMessage.TxRequest getDefaultInstanceForType() {
-        return TrezorMessage.TxRequest.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest.getDefaultInstance();
       }
-
-      public TrezorMessage.TxRequest build() {
-        TrezorMessage.TxRequest result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.TxRequest buildPartial() {
-        TrezorMessage.TxRequest result = new TrezorMessage.TxRequest(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -17162,18 +12341,18 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.TxRequest) {
-          return mergeFrom((TrezorMessage.TxRequest)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.TxRequest other) {
-        if (other == TrezorMessage.TxRequest.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest.getDefaultInstance()) return this;
         if (other.hasRequestIndex()) {
           setRequestIndex(other.getRequestIndex());
         }
@@ -17192,109 +12371,101 @@ public final class TrezorMessage {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.TxRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.TxRequest) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              requestIndex_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType value = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000002;
+                requestType_ = value;
+              }
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              signedIndex_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              signature_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
+              serializedTx_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // optional int32 request_index = 1;
       private int requestIndex_ ;
-      /**
-       * <code>optional int32 request_index = 1;</code>
-       *
-       * <pre>
-       * If &gt;=0, device expects TxInput/TxOutput message from the computer
-       * </pre>
-       */
       public boolean hasRequestIndex() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>optional int32 request_index = 1;</code>
-       *
-       * <pre>
-       * If &gt;=0, device expects TxInput/TxOutput message from the computer
-       * </pre>
-       */
       public int getRequestIndex() {
         return requestIndex_;
       }
-      /**
-       * <code>optional int32 request_index = 1;</code>
-       *
-       * <pre>
-       * If &gt;=0, device expects TxInput/TxOutput message from the computer
-       * </pre>
-       */
       public Builder setRequestIndex(int value) {
         bitField0_ |= 0x00000001;
         requestIndex_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional int32 request_index = 1;</code>
-       *
-       * <pre>
-       * If &gt;=0, device expects TxInput/TxOutput message from the computer
-       * </pre>
-       */
       public Builder clearRequestIndex() {
         bitField0_ = (bitField0_ & ~0x00000001);
         requestIndex_ = 0;
         onChanged();
         return this;
       }
-
+      
       // optional .RequestType request_type = 2;
-      private TrezorMessage.RequestType requestType_ = TrezorMessage.RequestType.TXINPUT;
-      /**
-       * <code>optional .RequestType request_type = 2;</code>
-       *
-       * <pre>
-       * Ask for TxInput or TxOutput?
-       * </pre>
-       */
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType requestType_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType.TXINPUT;
       public boolean hasRequestType() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /**
-       * <code>optional .RequestType request_type = 2;</code>
-       *
-       * <pre>
-       * Ask for TxInput or TxOutput?
-       * </pre>
-       */
-      public TrezorMessage.RequestType getRequestType() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType getRequestType() {
         return requestType_;
       }
-      /**
-       * <code>optional .RequestType request_type = 2;</code>
-       *
-       * <pre>
-       * Ask for TxInput or TxOutput?
-       * </pre>
-       */
-      public Builder setRequestType(TrezorMessage.RequestType value) {
+      public Builder setRequestType(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -17303,98 +12474,42 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .RequestType request_type = 2;</code>
-       *
-       * <pre>
-       * Ask for TxInput or TxOutput?
-       * </pre>
-       */
       public Builder clearRequestType() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        requestType_ = TrezorMessage.RequestType.TXINPUT;
+        requestType_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.RequestType.TXINPUT;
         onChanged();
         return this;
       }
-
+      
       // optional int32 signed_index = 3;
       private int signedIndex_ ;
-      /**
-       * <code>optional int32 signed_index = 3;</code>
-       *
-       * <pre>
-       * If &gt;=0, 'signature' contains signed input of this input
-       * </pre>
-       */
       public boolean hasSignedIndex() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      /**
-       * <code>optional int32 signed_index = 3;</code>
-       *
-       * <pre>
-       * If &gt;=0, 'signature' contains signed input of this input
-       * </pre>
-       */
       public int getSignedIndex() {
         return signedIndex_;
       }
-      /**
-       * <code>optional int32 signed_index = 3;</code>
-       *
-       * <pre>
-       * If &gt;=0, 'signature' contains signed input of this input
-       * </pre>
-       */
       public Builder setSignedIndex(int value) {
         bitField0_ |= 0x00000004;
         signedIndex_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional int32 signed_index = 3;</code>
-       *
-       * <pre>
-       * If &gt;=0, 'signature' contains signed input of this input
-       * </pre>
-       */
       public Builder clearSignedIndex() {
         bitField0_ = (bitField0_ & ~0x00000004);
         signedIndex_ = 0;
         onChanged();
         return this;
       }
-
+      
       // optional bytes signature = 4;
       private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes signature = 4;</code>
-       *
-       * <pre>
-       * If signed_index&gt;=0, represent signature of the signed_index input
-       * </pre>
-       */
       public boolean hasSignature() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      /**
-       * <code>optional bytes signature = 4;</code>
-       *
-       * <pre>
-       * If signed_index&gt;=0, represent signature of the signed_index input
-       * </pre>
-       */
       public com.google.protobuf.ByteString getSignature() {
         return signature_;
       }
-      /**
-       * <code>optional bytes signature = 4;</code>
-       *
-       * <pre>
-       * If signed_index&gt;=0, represent signature of the signed_index input
-       * </pre>
-       */
       public Builder setSignature(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -17404,49 +12519,21 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bytes signature = 4;</code>
-       *
-       * <pre>
-       * If signed_index&gt;=0, represent signature of the signed_index input
-       * </pre>
-       */
       public Builder clearSignature() {
         bitField0_ = (bitField0_ & ~0x00000008);
         signature_ = getDefaultInstance().getSignature();
         onChanged();
         return this;
       }
-
+      
       // optional bytes serialized_tx = 5;
       private com.google.protobuf.ByteString serializedTx_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes serialized_tx = 5;</code>
-       *
-       * <pre>
-       * Part of serialized and signed transaction
-       * </pre>
-       */
       public boolean hasSerializedTx() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
-      /**
-       * <code>optional bytes serialized_tx = 5;</code>
-       *
-       * <pre>
-       * Part of serialized and signed transaction
-       * </pre>
-       */
       public com.google.protobuf.ByteString getSerializedTx() {
         return serializedTx_;
       }
-      /**
-       * <code>optional bytes serialized_tx = 5;</code>
-       *
-       * <pre>
-       * Part of serialized and signed transaction
-       * </pre>
-       */
       public Builder setSerializedTx(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -17456,454 +12543,148 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bytes serialized_tx = 5;</code>
-       *
-       * <pre>
-       * Part of serialized and signed transaction
-       * </pre>
-       */
       public Builder clearSerializedTx() {
         bitField0_ = (bitField0_ & ~0x00000010);
         serializedTx_ = getDefaultInstance().getSerializedTx();
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:TxRequest)
     }
-
+    
     static {
       defaultInstance = new TxRequest(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:TxRequest)
   }
-
+  
   public interface TxInputOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required uint32 index = 1;
-    /**
-     * <code>required uint32 index = 1;</code>
-     *
-     * <pre>
-     * Position of input in proposed transaction
-     * </pre>
-     */
     boolean hasIndex();
-    /**
-     * <code>required uint32 index = 1;</code>
-     *
-     * <pre>
-     * Position of input in proposed transaction
-     * </pre>
-     */
     int getIndex();
-
+    
     // repeated uint32 address_n = 2;
-    /**
-     * <code>repeated uint32 address_n = 2;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     java.util.List<java.lang.Integer> getAddressNList();
-    /**
-     * <code>repeated uint32 address_n = 2;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     int getAddressNCount();
-    /**
-     * <code>repeated uint32 address_n = 2;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     int getAddressN(int index);
-
+    
     // required uint64 amount = 3;
-    /**
-     * <code>required uint64 amount = 3;</code>
-     *
-     * <pre>
-     * Amount to spend in satoshis. The rest will be used for transaction fees
-     * </pre>
-     */
     boolean hasAmount();
-    /**
-     * <code>required uint64 amount = 3;</code>
-     *
-     * <pre>
-     * Amount to spend in satoshis. The rest will be used for transaction fees
-     * </pre>
-     */
     long getAmount();
-
+    
     // required bytes prev_hash = 4;
-    /**
-     * <code>required bytes prev_hash = 4;</code>
-     *
-     * <pre>
-     * Hash of previous transaction output to spend by this input
-     * </pre>
-     */
     boolean hasPrevHash();
-    /**
-     * <code>required bytes prev_hash = 4;</code>
-     *
-     * <pre>
-     * Hash of previous transaction output to spend by this input
-     * </pre>
-     */
     com.google.protobuf.ByteString getPrevHash();
-
+    
     // required uint32 prev_index = 5;
-    /**
-     * <code>required uint32 prev_index = 5;</code>
-     *
-     * <pre>
-     * Index of previous output to spend
-     * </pre>
-     */
     boolean hasPrevIndex();
-    /**
-     * <code>required uint32 prev_index = 5;</code>
-     *
-     * <pre>
-     * Index of previous output to spend
-     * </pre>
-     */
     int getPrevIndex();
-
+    
     // optional bytes script_sig = 6;
-    /**
-     * <code>optional bytes script_sig = 6;</code>
-     *
-     * <pre>
-     * Script signature
-     * </pre>
-     */
     boolean hasScriptSig();
-    /**
-     * <code>optional bytes script_sig = 6;</code>
-     *
-     * <pre>
-     * Script signature
-     * </pre>
-     */
     com.google.protobuf.ByteString getScriptSig();
   }
-  /**
-   * Protobuf type {@code TxInput}
-   *
-   * <pre>
-   * Transaction onput for SignTx workflow. It is response to TxRequest message sent by device.
-   *
-   * Response: TxRequest, Failure
-   * </pre>
-   */
   public static final class TxInput extends
       com.google.protobuf.GeneratedMessage
       implements TxInputOrBuilder {
     // Use TxInput.newBuilder() to construct.
-    private TxInput(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private TxInput(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private TxInput(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private TxInput(boolean noInit) {}
+    
     private static final TxInput defaultInstance;
     public static TxInput getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public TxInput getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TxInput(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              index_ = input.readUInt32();
-              break;
-            }
-            case 16: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                addressN_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              addressN_.add(input.readUInt32());
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
-                addressN_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                addressN_.add(input.readUInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000002;
-              amount_ = input.readUInt64();
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000004;
-              prevHash_ = input.readBytes();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000008;
-              prevIndex_ = input.readUInt32();
-              break;
-            }
-            case 50: {
-              bitField0_ |= 0x00000010;
-              scriptSig_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          addressN_ = java.util.Collections.unmodifiableList(addressN_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_TxInput_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxInput_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_TxInput_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.TxInput.class, TrezorMessage.TxInput.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxInput_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<TxInput> PARSER =
-        new com.google.protobuf.AbstractParser<TxInput>() {
-      public TxInput parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TxInput(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TxInput> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required uint32 index = 1;
     public static final int INDEX_FIELD_NUMBER = 1;
     private int index_;
-    /**
-     * <code>required uint32 index = 1;</code>
-     *
-     * <pre>
-     * Position of input in proposed transaction
-     * </pre>
-     */
     public boolean hasIndex() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required uint32 index = 1;</code>
-     *
-     * <pre>
-     * Position of input in proposed transaction
-     * </pre>
-     */
     public int getIndex() {
       return index_;
     }
-
+    
     // repeated uint32 address_n = 2;
     public static final int ADDRESS_N_FIELD_NUMBER = 2;
     private java.util.List<java.lang.Integer> addressN_;
-    /**
-     * <code>repeated uint32 address_n = 2;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     public java.util.List<java.lang.Integer>
         getAddressNList() {
       return addressN_;
     }
-    /**
-     * <code>repeated uint32 address_n = 2;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     public int getAddressNCount() {
       return addressN_.size();
     }
-    /**
-     * <code>repeated uint32 address_n = 2;</code>
-     *
-     * <pre>
-     * Parameter for address generation algorithm to derive the address from the master public key
-     * </pre>
-     */
     public int getAddressN(int index) {
       return addressN_.get(index);
     }
-
+    
     // required uint64 amount = 3;
     public static final int AMOUNT_FIELD_NUMBER = 3;
     private long amount_;
-    /**
-     * <code>required uint64 amount = 3;</code>
-     *
-     * <pre>
-     * Amount to spend in satoshis. The rest will be used for transaction fees
-     * </pre>
-     */
     public boolean hasAmount() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    /**
-     * <code>required uint64 amount = 3;</code>
-     *
-     * <pre>
-     * Amount to spend in satoshis. The rest will be used for transaction fees
-     * </pre>
-     */
     public long getAmount() {
       return amount_;
     }
-
+    
     // required bytes prev_hash = 4;
     public static final int PREV_HASH_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString prevHash_;
-    /**
-     * <code>required bytes prev_hash = 4;</code>
-     *
-     * <pre>
-     * Hash of previous transaction output to spend by this input
-     * </pre>
-     */
     public boolean hasPrevHash() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    /**
-     * <code>required bytes prev_hash = 4;</code>
-     *
-     * <pre>
-     * Hash of previous transaction output to spend by this input
-     * </pre>
-     */
     public com.google.protobuf.ByteString getPrevHash() {
       return prevHash_;
     }
-
+    
     // required uint32 prev_index = 5;
     public static final int PREV_INDEX_FIELD_NUMBER = 5;
     private int prevIndex_;
-    /**
-     * <code>required uint32 prev_index = 5;</code>
-     *
-     * <pre>
-     * Index of previous output to spend
-     * </pre>
-     */
     public boolean hasPrevIndex() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    /**
-     * <code>required uint32 prev_index = 5;</code>
-     *
-     * <pre>
-     * Index of previous output to spend
-     * </pre>
-     */
     public int getPrevIndex() {
       return prevIndex_;
     }
-
+    
     // optional bytes script_sig = 6;
     public static final int SCRIPT_SIG_FIELD_NUMBER = 6;
     private com.google.protobuf.ByteString scriptSig_;
-    /**
-     * <code>optional bytes script_sig = 6;</code>
-     *
-     * <pre>
-     * Script signature
-     * </pre>
-     */
     public boolean hasScriptSig() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
-    /**
-     * <code>optional bytes script_sig = 6;</code>
-     *
-     * <pre>
-     * Script signature
-     * </pre>
-     */
     public com.google.protobuf.ByteString getScriptSig() {
       return scriptSig_;
     }
-
+    
     private void initFields() {
       index_ = 0;
-      addressN_ = java.util.Collections.emptyList();
+      addressN_ = java.util.Collections.emptyList();;
       amount_ = 0L;
       prevHash_ = com.google.protobuf.ByteString.EMPTY;
       prevIndex_ = 0;
@@ -17913,7 +12694,7 @@ public final class TrezorMessage {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasIndex()) {
         memoizedIsInitialized = 0;
         return false;
@@ -17933,7 +12714,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -17957,12 +12738,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -17997,111 +12778,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.TxInput parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.TxInput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.TxInput parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.TxInput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.TxInput parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.TxInput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.TxInput parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.TxInput parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.TxInput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.TxInput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.TxInput prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code TxInput}
-     *
-     * <pre>
-     * Transaction onput for SignTx workflow. It is response to TxRequest message sent by device.
-     *
-     * Response: TxRequest, Failure
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.TxInputOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInputOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_TxInput_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxInput_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_TxInput_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.TxInput.class, TrezorMessage.TxInput.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxInput_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.TxInput.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -18112,12 +12895,12 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         index_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        addressN_ = java.util.Collections.emptyList();
+        addressN_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000002);
         amount_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -18129,30 +12912,40 @@ public final class TrezorMessage {
         bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_TxInput_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput.getDescriptor();
       }
-
-      public TrezorMessage.TxInput getDefaultInstanceForType() {
-        return TrezorMessage.TxInput.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput.getDefaultInstance();
       }
-
-      public TrezorMessage.TxInput build() {
-        TrezorMessage.TxInput result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.TxInput buildPartial() {
-        TrezorMessage.TxInput result = new TrezorMessage.TxInput(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -18184,18 +12977,18 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.TxInput) {
-          return mergeFrom((TrezorMessage.TxInput)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.TxInput other) {
-        if (other == TrezorMessage.TxInput.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput.getDefaultInstance()) return this;
         if (other.hasIndex()) {
           setIndex(other.getIndex());
         }
@@ -18224,7 +13017,7 @@ public final class TrezorMessage {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasIndex()) {
           
@@ -18244,121 +13037,114 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.TxInput parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.TxInput) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              index_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              ensureAddressNIsMutable();
+              addressN_.add(input.readUInt32());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              while (input.getBytesUntilLimit() > 0) {
+                addAddressN(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              amount_ = input.readUInt64();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              prevHash_ = input.readBytes();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              prevIndex_ = input.readUInt32();
+              break;
+            }
+            case 50: {
+              bitField0_ |= 0x00000020;
+              scriptSig_ = input.readBytes();
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required uint32 index = 1;
       private int index_ ;
-      /**
-       * <code>required uint32 index = 1;</code>
-       *
-       * <pre>
-       * Position of input in proposed transaction
-       * </pre>
-       */
       public boolean hasIndex() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required uint32 index = 1;</code>
-       *
-       * <pre>
-       * Position of input in proposed transaction
-       * </pre>
-       */
       public int getIndex() {
         return index_;
       }
-      /**
-       * <code>required uint32 index = 1;</code>
-       *
-       * <pre>
-       * Position of input in proposed transaction
-       * </pre>
-       */
       public Builder setIndex(int value) {
         bitField0_ |= 0x00000001;
         index_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required uint32 index = 1;</code>
-       *
-       * <pre>
-       * Position of input in proposed transaction
-       * </pre>
-       */
       public Builder clearIndex() {
         bitField0_ = (bitField0_ & ~0x00000001);
         index_ = 0;
         onChanged();
         return this;
       }
-
+      
       // repeated uint32 address_n = 2;
-      private java.util.List<java.lang.Integer> addressN_ = java.util.Collections.emptyList();
+      private java.util.List<java.lang.Integer> addressN_ = java.util.Collections.emptyList();;
       private void ensureAddressNIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           addressN_ = new java.util.ArrayList<java.lang.Integer>(addressN_);
           bitField0_ |= 0x00000002;
          }
       }
-      /**
-       * <code>repeated uint32 address_n = 2;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public java.util.List<java.lang.Integer>
           getAddressNList() {
         return java.util.Collections.unmodifiableList(addressN_);
       }
-      /**
-       * <code>repeated uint32 address_n = 2;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public int getAddressNCount() {
         return addressN_.size();
       }
-      /**
-       * <code>repeated uint32 address_n = 2;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public int getAddressN(int index) {
         return addressN_.get(index);
       }
-      /**
-       * <code>repeated uint32 address_n = 2;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public Builder setAddressN(
           int index, int value) {
         ensureAddressNIsMutable();
@@ -18366,26 +13152,12 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated uint32 address_n = 2;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public Builder addAddressN(int value) {
         ensureAddressNIsMutable();
         addressN_.add(value);
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated uint32 address_n = 2;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public Builder addAllAddressN(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureAddressNIsMutable();
@@ -18393,98 +13165,42 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated uint32 address_n = 2;</code>
-       *
-       * <pre>
-       * Parameter for address generation algorithm to derive the address from the master public key
-       * </pre>
-       */
       public Builder clearAddressN() {
-        addressN_ = java.util.Collections.emptyList();
+        addressN_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
-
+      
       // required uint64 amount = 3;
       private long amount_ ;
-      /**
-       * <code>required uint64 amount = 3;</code>
-       *
-       * <pre>
-       * Amount to spend in satoshis. The rest will be used for transaction fees
-       * </pre>
-       */
       public boolean hasAmount() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      /**
-       * <code>required uint64 amount = 3;</code>
-       *
-       * <pre>
-       * Amount to spend in satoshis. The rest will be used for transaction fees
-       * </pre>
-       */
       public long getAmount() {
         return amount_;
       }
-      /**
-       * <code>required uint64 amount = 3;</code>
-       *
-       * <pre>
-       * Amount to spend in satoshis. The rest will be used for transaction fees
-       * </pre>
-       */
       public Builder setAmount(long value) {
         bitField0_ |= 0x00000004;
         amount_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required uint64 amount = 3;</code>
-       *
-       * <pre>
-       * Amount to spend in satoshis. The rest will be used for transaction fees
-       * </pre>
-       */
       public Builder clearAmount() {
         bitField0_ = (bitField0_ & ~0x00000004);
         amount_ = 0L;
         onChanged();
         return this;
       }
-
+      
       // required bytes prev_hash = 4;
       private com.google.protobuf.ByteString prevHash_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>required bytes prev_hash = 4;</code>
-       *
-       * <pre>
-       * Hash of previous transaction output to spend by this input
-       * </pre>
-       */
       public boolean hasPrevHash() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      /**
-       * <code>required bytes prev_hash = 4;</code>
-       *
-       * <pre>
-       * Hash of previous transaction output to spend by this input
-       * </pre>
-       */
       public com.google.protobuf.ByteString getPrevHash() {
         return prevHash_;
       }
-      /**
-       * <code>required bytes prev_hash = 4;</code>
-       *
-       * <pre>
-       * Hash of previous transaction output to spend by this input
-       * </pre>
-       */
       public Builder setPrevHash(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -18494,98 +13210,42 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required bytes prev_hash = 4;</code>
-       *
-       * <pre>
-       * Hash of previous transaction output to spend by this input
-       * </pre>
-       */
       public Builder clearPrevHash() {
         bitField0_ = (bitField0_ & ~0x00000008);
         prevHash_ = getDefaultInstance().getPrevHash();
         onChanged();
         return this;
       }
-
+      
       // required uint32 prev_index = 5;
       private int prevIndex_ ;
-      /**
-       * <code>required uint32 prev_index = 5;</code>
-       *
-       * <pre>
-       * Index of previous output to spend
-       * </pre>
-       */
       public boolean hasPrevIndex() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
-      /**
-       * <code>required uint32 prev_index = 5;</code>
-       *
-       * <pre>
-       * Index of previous output to spend
-       * </pre>
-       */
       public int getPrevIndex() {
         return prevIndex_;
       }
-      /**
-       * <code>required uint32 prev_index = 5;</code>
-       *
-       * <pre>
-       * Index of previous output to spend
-       * </pre>
-       */
       public Builder setPrevIndex(int value) {
         bitField0_ |= 0x00000010;
         prevIndex_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required uint32 prev_index = 5;</code>
-       *
-       * <pre>
-       * Index of previous output to spend
-       * </pre>
-       */
       public Builder clearPrevIndex() {
         bitField0_ = (bitField0_ & ~0x00000010);
         prevIndex_ = 0;
         onChanged();
         return this;
       }
-
+      
       // optional bytes script_sig = 6;
       private com.google.protobuf.ByteString scriptSig_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes script_sig = 6;</code>
-       *
-       * <pre>
-       * Script signature
-       * </pre>
-       */
       public boolean hasScriptSig() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
-      /**
-       * <code>optional bytes script_sig = 6;</code>
-       *
-       * <pre>
-       * Script signature
-       * </pre>
-       */
       public com.google.protobuf.ByteString getScriptSig() {
         return scriptSig_;
       }
-      /**
-       * <code>optional bytes script_sig = 6;</code>
-       *
-       * <pre>
-       * Script signature
-       * </pre>
-       */
       public Builder setScriptSig(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -18595,533 +13255,185 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bytes script_sig = 6;</code>
-       *
-       * <pre>
-       * Script signature
-       * </pre>
-       */
       public Builder clearScriptSig() {
         bitField0_ = (bitField0_ & ~0x00000020);
         scriptSig_ = getDefaultInstance().getScriptSig();
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:TxInput)
     }
-
+    
     static {
       defaultInstance = new TxInput(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:TxInput)
   }
-
+  
   public interface TxOutputOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required uint32 index = 1;
-    /**
-     * <code>required uint32 index = 1;</code>
-     *
-     * <pre>
-     * Position of output in proposed transaction
-     * </pre>
-     */
     boolean hasIndex();
-    /**
-     * <code>required uint32 index = 1;</code>
-     *
-     * <pre>
-     * Position of output in proposed transaction
-     * </pre>
-     */
     int getIndex();
-
+    
     // required string address = 2;
-    /**
-     * <code>required string address = 2;</code>
-     *
-     * <pre>
-     * Target bitcoin address in base58 encoding
-     * </pre>
-     */
     boolean hasAddress();
-    /**
-     * <code>required string address = 2;</code>
-     *
-     * <pre>
-     * Target bitcoin address in base58 encoding
-     * </pre>
-     */
-    java.lang.String getAddress();
-    /**
-     * <code>required string address = 2;</code>
-     *
-     * <pre>
-     * Target bitcoin address in base58 encoding
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getAddressBytes();
-
+    String getAddress();
+    
     // repeated uint32 address_n = 3;
-    /**
-     * <code>repeated uint32 address_n = 3;</code>
-     *
-     * <pre>
-     * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-     * </pre>
-     */
     java.util.List<java.lang.Integer> getAddressNList();
-    /**
-     * <code>repeated uint32 address_n = 3;</code>
-     *
-     * <pre>
-     * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-     * </pre>
-     */
     int getAddressNCount();
-    /**
-     * <code>repeated uint32 address_n = 3;</code>
-     *
-     * <pre>
-     * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-     * </pre>
-     */
     int getAddressN(int index);
-
+    
     // required uint64 amount = 4;
-    /**
-     * <code>required uint64 amount = 4;</code>
-     *
-     * <pre>
-     * Amount to send in satoshis
-     * </pre>
-     */
     boolean hasAmount();
-    /**
-     * <code>required uint64 amount = 4;</code>
-     *
-     * <pre>
-     * Amount to send in satoshis
-     * </pre>
-     */
     long getAmount();
-
+    
     // required .ScriptType script_type = 5;
-    /**
-     * <code>required .ScriptType script_type = 5;</code>
-     *
-     * <pre>
-     * Select output script type
-     * </pre>
-     */
     boolean hasScriptType();
-    /**
-     * <code>required .ScriptType script_type = 5;</code>
-     *
-     * <pre>
-     * Select output script type
-     * </pre>
-     */
-    TrezorMessage.ScriptType getScriptType();
-
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType getScriptType();
+    
     // repeated bytes script_args = 6;
-    /**
-     * <code>repeated bytes script_args = 6;</code>
-     *
-     * <pre>
-     * Provide additional parameters for the script (its script-depended)
-     * </pre>
-     */
     java.util.List<com.google.protobuf.ByteString> getScriptArgsList();
-    /**
-     * <code>repeated bytes script_args = 6;</code>
-     *
-     * <pre>
-     * Provide additional parameters for the script (its script-depended)
-     * </pre>
-     */
     int getScriptArgsCount();
-    /**
-     * <code>repeated bytes script_args = 6;</code>
-     *
-     * <pre>
-     * Provide additional parameters for the script (its script-depended)
-     * </pre>
-     */
     com.google.protobuf.ByteString getScriptArgs(int index);
   }
-  /**
-   * Protobuf type {@code TxOutput}
-   *
-   * <pre>
-   * Transaction output for SignTx workflow. It is response to TxRequest message sent by the device.
-   * </pre>
-   */
   public static final class TxOutput extends
       com.google.protobuf.GeneratedMessage
       implements TxOutputOrBuilder {
     // Use TxOutput.newBuilder() to construct.
-    private TxOutput(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private TxOutput(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private TxOutput(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private TxOutput(boolean noInit) {}
+    
     private static final TxOutput defaultInstance;
     public static TxOutput getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public TxOutput getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TxOutput(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              index_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              address_ = input.readBytes();
-              break;
-            }
-            case 24: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                addressN_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              addressN_.add(input.readUInt32());
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-                addressN_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                addressN_.add(input.readUInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000004;
-              amount_ = input.readUInt64();
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-              TrezorMessage.ScriptType value = TrezorMessage.ScriptType.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(5, rawValue);
-              } else {
-                bitField0_ |= 0x00000008;
-                scriptType_ = value;
-              }
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                scriptArgs_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              scriptArgs_.add(input.readBytes());
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          addressN_ = java.util.Collections.unmodifiableList(addressN_);
-        }
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-          scriptArgs_ = java.util.Collections.unmodifiableList(scriptArgs_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
+    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TrezorMessage.internal_static_TxOutput_descriptor;
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxOutput_descriptor;
     }
-
+    
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_TxOutput_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.TxOutput.class, TrezorMessage.TxOutput.Builder.class);
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxOutput_fieldAccessorTable;
     }
-
-    public static com.google.protobuf.Parser<TxOutput> PARSER =
-        new com.google.protobuf.AbstractParser<TxOutput>() {
-      public TxOutput parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TxOutput(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TxOutput> getParserForType() {
-      return PARSER;
-    }
-
+    
     private int bitField0_;
     // required uint32 index = 1;
     public static final int INDEX_FIELD_NUMBER = 1;
     private int index_;
-    /**
-     * <code>required uint32 index = 1;</code>
-     *
-     * <pre>
-     * Position of output in proposed transaction
-     * </pre>
-     */
     public boolean hasIndex() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /**
-     * <code>required uint32 index = 1;</code>
-     *
-     * <pre>
-     * Position of output in proposed transaction
-     * </pre>
-     */
     public int getIndex() {
       return index_;
     }
-
+    
     // required string address = 2;
     public static final int ADDRESS_FIELD_NUMBER = 2;
     private java.lang.Object address_;
-    /**
-     * <code>required string address = 2;</code>
-     *
-     * <pre>
-     * Target bitcoin address in base58 encoding
-     * </pre>
-     */
     public boolean hasAddress() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    /**
-     * <code>required string address = 2;</code>
-     *
-     * <pre>
-     * Target bitcoin address in base58 encoding
-     * </pre>
-     */
-    public java.lang.String getAddress() {
+    public String getAddress() {
       java.lang.Object ref = address_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
           address_ = s;
         }
         return s;
       }
     }
-    /**
-     * <code>required string address = 2;</code>
-     *
-     * <pre>
-     * Target bitcoin address in base58 encoding
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getAddressBytes() {
+    private com.google.protobuf.ByteString getAddressBytes() {
       java.lang.Object ref = address_;
-      if (ref instanceof java.lang.String) {
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
         address_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-
+    
     // repeated uint32 address_n = 3;
     public static final int ADDRESS_N_FIELD_NUMBER = 3;
     private java.util.List<java.lang.Integer> addressN_;
-    /**
-     * <code>repeated uint32 address_n = 3;</code>
-     *
-     * <pre>
-     * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-     * </pre>
-     */
     public java.util.List<java.lang.Integer>
         getAddressNList() {
       return addressN_;
     }
-    /**
-     * <code>repeated uint32 address_n = 3;</code>
-     *
-     * <pre>
-     * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-     * </pre>
-     */
     public int getAddressNCount() {
       return addressN_.size();
     }
-    /**
-     * <code>repeated uint32 address_n = 3;</code>
-     *
-     * <pre>
-     * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-     * </pre>
-     */
     public int getAddressN(int index) {
       return addressN_.get(index);
     }
-
+    
     // required uint64 amount = 4;
     public static final int AMOUNT_FIELD_NUMBER = 4;
     private long amount_;
-    /**
-     * <code>required uint64 amount = 4;</code>
-     *
-     * <pre>
-     * Amount to send in satoshis
-     * </pre>
-     */
     public boolean hasAmount() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    /**
-     * <code>required uint64 amount = 4;</code>
-     *
-     * <pre>
-     * Amount to send in satoshis
-     * </pre>
-     */
     public long getAmount() {
       return amount_;
     }
-
+    
     // required .ScriptType script_type = 5;
     public static final int SCRIPT_TYPE_FIELD_NUMBER = 5;
-    private TrezorMessage.ScriptType scriptType_;
-    /**
-     * <code>required .ScriptType script_type = 5;</code>
-     *
-     * <pre>
-     * Select output script type
-     * </pre>
-     */
+    private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType scriptType_;
     public boolean hasScriptType() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    /**
-     * <code>required .ScriptType script_type = 5;</code>
-     *
-     * <pre>
-     * Select output script type
-     * </pre>
-     */
-    public TrezorMessage.ScriptType getScriptType() {
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType getScriptType() {
       return scriptType_;
     }
-
+    
     // repeated bytes script_args = 6;
     public static final int SCRIPT_ARGS_FIELD_NUMBER = 6;
     private java.util.List<com.google.protobuf.ByteString> scriptArgs_;
-    /**
-     * <code>repeated bytes script_args = 6;</code>
-     *
-     * <pre>
-     * Provide additional parameters for the script (its script-depended)
-     * </pre>
-     */
     public java.util.List<com.google.protobuf.ByteString>
         getScriptArgsList() {
       return scriptArgs_;
     }
-    /**
-     * <code>repeated bytes script_args = 6;</code>
-     *
-     * <pre>
-     * Provide additional parameters for the script (its script-depended)
-     * </pre>
-     */
     public int getScriptArgsCount() {
       return scriptArgs_.size();
     }
-    /**
-     * <code>repeated bytes script_args = 6;</code>
-     *
-     * <pre>
-     * Provide additional parameters for the script (its script-depended)
-     * </pre>
-     */
     public com.google.protobuf.ByteString getScriptArgs(int index) {
       return scriptArgs_.get(index);
     }
-
+    
     private void initFields() {
       index_ = 0;
       address_ = "";
-      addressN_ = java.util.Collections.emptyList();
+      addressN_ = java.util.Collections.emptyList();;
       amount_ = 0L;
-      scriptType_ = TrezorMessage.ScriptType.PAYTOADDRESS;
-      scriptArgs_ = java.util.Collections.emptyList();
+      scriptType_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType.PAYTOADDRESS;
+      scriptArgs_ = java.util.Collections.emptyList();;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-
+      
       if (!hasIndex()) {
         memoizedIsInitialized = 0;
         return false;
@@ -19141,7 +13453,7 @@ public final class TrezorMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-
+    
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -19165,12 +13477,12 @@ public final class TrezorMessage {
       }
       getUnknownFields().writeTo(output);
     }
-
+    
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-
+    
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -19210,109 +13522,113 @@ public final class TrezorMessage {
       memoizedSerializedSize = size;
       return size;
     }
-
+    
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-
-    public static TrezorMessage.TxOutput parseFrom(
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.TxOutput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.TxOutput parseFrom(byte[] data)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static TrezorMessage.TxOutput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.TxOutput parseFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.TxOutput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-    public static TrezorMessage.TxOutput parseDelimitedFrom(java.io.InputStream input)
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.TxOutput parseDelimitedFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
     }
-    public static TrezorMessage.TxOutput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static TrezorMessage.TxOutput parseFrom(
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
     }
-
+    
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.TxOutput prototype) {
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-
+    
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code TxOutput}
-     *
-     * <pre>
-     * Transaction output for SignTx workflow. It is response to TxRequest message sent by the device.
-     * </pre>
-     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.TxOutputOrBuilder {
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutputOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TrezorMessage.internal_static_TxOutput_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxOutput_descriptor;
       }
-
+      
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_TxOutput_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.TxOutput.class, TrezorMessage.TxOutput.Builder.class);
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_TxOutput_fieldAccessorTable;
       }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.TxOutput.newBuilder()
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      
+      private Builder(BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -19323,47 +13639,57 @@ public final class TrezorMessage {
       private static Builder create() {
         return new Builder();
       }
-
+      
       public Builder clear() {
         super.clear();
         index_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         address_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        addressN_ = java.util.Collections.emptyList();
+        addressN_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000004);
         amount_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
-        scriptType_ = TrezorMessage.ScriptType.PAYTOADDRESS;
+        scriptType_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType.PAYTOADDRESS;
         bitField0_ = (bitField0_ & ~0x00000010);
-        scriptArgs_ = java.util.Collections.emptyList();
+        scriptArgs_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
-
+      
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-
+      
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TrezorMessage.internal_static_TxOutput_descriptor;
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput.getDescriptor();
       }
-
-      public TrezorMessage.TxOutput getDefaultInstanceForType() {
-        return TrezorMessage.TxOutput.getDefaultInstance();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput.getDefaultInstance();
       }
-
-      public TrezorMessage.TxOutput build() {
-        TrezorMessage.TxOutput result = buildPartial();
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
-
-      public TrezorMessage.TxOutput buildPartial() {
-        TrezorMessage.TxOutput result = new TrezorMessage.TxOutput(this);
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -19396,25 +13722,23 @@ public final class TrezorMessage {
         onBuilt();
         return result;
       }
-
+      
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.TxOutput) {
-          return mergeFrom((TrezorMessage.TxOutput)other);
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
-
-      public Builder mergeFrom(TrezorMessage.TxOutput other) {
-        if (other == TrezorMessage.TxOutput.getDefaultInstance()) return this;
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput.getDefaultInstance()) return this;
         if (other.hasIndex()) {
           setIndex(other.getIndex());
         }
         if (other.hasAddress()) {
-          bitField0_ |= 0x00000002;
-          address_ = other.address_;
-          onChanged();
+          setAddress(other.getAddress());
         }
         if (!other.addressN_.isEmpty()) {
           if (addressN_.isEmpty()) {
@@ -19445,7 +13769,7 @@ public final class TrezorMessage {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-
+      
       public final boolean isInitialized() {
         if (!hasIndex()) {
           
@@ -19465,134 +13789,118 @@ public final class TrezorMessage {
         }
         return true;
       }
-
+      
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TrezorMessage.TxOutput parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.TxOutput) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              index_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              address_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              ensureAddressNIsMutable();
+              addressN_.add(input.readUInt32());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              while (input.getBytesUntilLimit() > 0) {
+                addAddressN(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              amount_ = input.readUInt64();
+              break;
+            }
+            case 40: {
+              int rawValue = input.readEnum();
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType value = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(5, rawValue);
+              } else {
+                bitField0_ |= 0x00000010;
+                scriptType_ = value;
+              }
+              break;
+            }
+            case 50: {
+              ensureScriptArgsIsMutable();
+              scriptArgs_.add(input.readBytes());
+              break;
+            }
           }
         }
-        return this;
       }
+      
       private int bitField0_;
-
+      
       // required uint32 index = 1;
       private int index_ ;
-      /**
-       * <code>required uint32 index = 1;</code>
-       *
-       * <pre>
-       * Position of output in proposed transaction
-       * </pre>
-       */
       public boolean hasIndex() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required uint32 index = 1;</code>
-       *
-       * <pre>
-       * Position of output in proposed transaction
-       * </pre>
-       */
       public int getIndex() {
         return index_;
       }
-      /**
-       * <code>required uint32 index = 1;</code>
-       *
-       * <pre>
-       * Position of output in proposed transaction
-       * </pre>
-       */
       public Builder setIndex(int value) {
         bitField0_ |= 0x00000001;
         index_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required uint32 index = 1;</code>
-       *
-       * <pre>
-       * Position of output in proposed transaction
-       * </pre>
-       */
       public Builder clearIndex() {
         bitField0_ = (bitField0_ & ~0x00000001);
         index_ = 0;
         onChanged();
         return this;
       }
-
+      
       // required string address = 2;
       private java.lang.Object address_ = "";
-      /**
-       * <code>required string address = 2;</code>
-       *
-       * <pre>
-       * Target bitcoin address in base58 encoding
-       * </pre>
-       */
       public boolean hasAddress() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /**
-       * <code>required string address = 2;</code>
-       *
-       * <pre>
-       * Target bitcoin address in base58 encoding
-       * </pre>
-       */
-      public java.lang.String getAddress() {
+      public String getAddress() {
         java.lang.Object ref = address_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           address_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
-      /**
-       * <code>required string address = 2;</code>
-       *
-       * <pre>
-       * Target bitcoin address in base58 encoding
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getAddressBytes() {
-        java.lang.Object ref = address_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          address_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string address = 2;</code>
-       *
-       * <pre>
-       * Target bitcoin address in base58 encoding
-       * </pre>
-       */
-      public Builder setAddress(
-          java.lang.String value) {
+      public Builder setAddress(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -19601,83 +13909,36 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required string address = 2;</code>
-       *
-       * <pre>
-       * Target bitcoin address in base58 encoding
-       * </pre>
-       */
       public Builder clearAddress() {
         bitField0_ = (bitField0_ & ~0x00000002);
         address_ = getDefaultInstance().getAddress();
         onChanged();
         return this;
       }
-      /**
-       * <code>required string address = 2;</code>
-       *
-       * <pre>
-       * Target bitcoin address in base58 encoding
-       * </pre>
-       */
-      public Builder setAddressBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      void setAddress(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
         address_ = value;
         onChanged();
-        return this;
       }
-
+      
       // repeated uint32 address_n = 3;
-      private java.util.List<java.lang.Integer> addressN_ = java.util.Collections.emptyList();
+      private java.util.List<java.lang.Integer> addressN_ = java.util.Collections.emptyList();;
       private void ensureAddressNIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           addressN_ = new java.util.ArrayList<java.lang.Integer>(addressN_);
           bitField0_ |= 0x00000004;
          }
       }
-      /**
-       * <code>repeated uint32 address_n = 3;</code>
-       *
-       * <pre>
-       * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-       * </pre>
-       */
       public java.util.List<java.lang.Integer>
           getAddressNList() {
         return java.util.Collections.unmodifiableList(addressN_);
       }
-      /**
-       * <code>repeated uint32 address_n = 3;</code>
-       *
-       * <pre>
-       * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-       * </pre>
-       */
       public int getAddressNCount() {
         return addressN_.size();
       }
-      /**
-       * <code>repeated uint32 address_n = 3;</code>
-       *
-       * <pre>
-       * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-       * </pre>
-       */
       public int getAddressN(int index) {
         return addressN_.get(index);
       }
-      /**
-       * <code>repeated uint32 address_n = 3;</code>
-       *
-       * <pre>
-       * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-       * </pre>
-       */
       public Builder setAddressN(
           int index, int value) {
         ensureAddressNIsMutable();
@@ -19685,26 +13946,12 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated uint32 address_n = 3;</code>
-       *
-       * <pre>
-       * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-       * </pre>
-       */
       public Builder addAddressN(int value) {
         ensureAddressNIsMutable();
         addressN_.add(value);
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated uint32 address_n = 3;</code>
-       *
-       * <pre>
-       * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-       * </pre>
-       */
       public Builder addAllAddressN(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureAddressNIsMutable();
@@ -19712,99 +13959,43 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated uint32 address_n = 3;</code>
-       *
-       * <pre>
-       * Has higher priority than "address". If the output is to myself, specify parameter for address generation algorithm.
-       * </pre>
-       */
       public Builder clearAddressN() {
-        addressN_ = java.util.Collections.emptyList();
+        addressN_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
-
+      
       // required uint64 amount = 4;
       private long amount_ ;
-      /**
-       * <code>required uint64 amount = 4;</code>
-       *
-       * <pre>
-       * Amount to send in satoshis
-       * </pre>
-       */
       public boolean hasAmount() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      /**
-       * <code>required uint64 amount = 4;</code>
-       *
-       * <pre>
-       * Amount to send in satoshis
-       * </pre>
-       */
       public long getAmount() {
         return amount_;
       }
-      /**
-       * <code>required uint64 amount = 4;</code>
-       *
-       * <pre>
-       * Amount to send in satoshis
-       * </pre>
-       */
       public Builder setAmount(long value) {
         bitField0_ |= 0x00000008;
         amount_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>required uint64 amount = 4;</code>
-       *
-       * <pre>
-       * Amount to send in satoshis
-       * </pre>
-       */
       public Builder clearAmount() {
         bitField0_ = (bitField0_ & ~0x00000008);
         amount_ = 0L;
         onChanged();
         return this;
       }
-
+      
       // required .ScriptType script_type = 5;
-      private TrezorMessage.ScriptType scriptType_ = TrezorMessage.ScriptType.PAYTOADDRESS;
-      /**
-       * <code>required .ScriptType script_type = 5;</code>
-       *
-       * <pre>
-       * Select output script type
-       * </pre>
-       */
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType scriptType_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType.PAYTOADDRESS;
       public boolean hasScriptType() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
-      /**
-       * <code>required .ScriptType script_type = 5;</code>
-       *
-       * <pre>
-       * Select output script type
-       * </pre>
-       */
-      public TrezorMessage.ScriptType getScriptType() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType getScriptType() {
         return scriptType_;
       }
-      /**
-       * <code>required .ScriptType script_type = 5;</code>
-       *
-       * <pre>
-       * Select output script type
-       * </pre>
-       */
-      public Builder setScriptType(TrezorMessage.ScriptType value) {
+      public Builder setScriptType(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -19813,66 +14004,31 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required .ScriptType script_type = 5;</code>
-       *
-       * <pre>
-       * Select output script type
-       * </pre>
-       */
       public Builder clearScriptType() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        scriptType_ = TrezorMessage.ScriptType.PAYTOADDRESS;
+        scriptType_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ScriptType.PAYTOADDRESS;
         onChanged();
         return this;
       }
-
+      
       // repeated bytes script_args = 6;
-      private java.util.List<com.google.protobuf.ByteString> scriptArgs_ = java.util.Collections.emptyList();
+      private java.util.List<com.google.protobuf.ByteString> scriptArgs_ = java.util.Collections.emptyList();;
       private void ensureScriptArgsIsMutable() {
         if (!((bitField0_ & 0x00000020) == 0x00000020)) {
           scriptArgs_ = new java.util.ArrayList<com.google.protobuf.ByteString>(scriptArgs_);
           bitField0_ |= 0x00000020;
          }
       }
-      /**
-       * <code>repeated bytes script_args = 6;</code>
-       *
-       * <pre>
-       * Provide additional parameters for the script (its script-depended)
-       * </pre>
-       */
       public java.util.List<com.google.protobuf.ByteString>
           getScriptArgsList() {
         return java.util.Collections.unmodifiableList(scriptArgs_);
       }
-      /**
-       * <code>repeated bytes script_args = 6;</code>
-       *
-       * <pre>
-       * Provide additional parameters for the script (its script-depended)
-       * </pre>
-       */
       public int getScriptArgsCount() {
         return scriptArgs_.size();
       }
-      /**
-       * <code>repeated bytes script_args = 6;</code>
-       *
-       * <pre>
-       * Provide additional parameters for the script (its script-depended)
-       * </pre>
-       */
       public com.google.protobuf.ByteString getScriptArgs(int index) {
         return scriptArgs_.get(index);
       }
-      /**
-       * <code>repeated bytes script_args = 6;</code>
-       *
-       * <pre>
-       * Provide additional parameters for the script (its script-depended)
-       * </pre>
-       */
       public Builder setScriptArgs(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -19883,13 +14039,6 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated bytes script_args = 6;</code>
-       *
-       * <pre>
-       * Provide additional parameters for the script (its script-depended)
-       * </pre>
-       */
       public Builder addScriptArgs(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -19899,13 +14048,6 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated bytes script_args = 6;</code>
-       *
-       * <pre>
-       * Provide additional parameters for the script (its script-depended)
-       * </pre>
-       */
       public Builder addAllScriptArgs(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureScriptArgsIsMutable();
@@ -19913,138 +14055,462 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>repeated bytes script_args = 6;</code>
-       *
-       * <pre>
-       * Provide additional parameters for the script (its script-depended)
-       * </pre>
-       */
       public Builder clearScriptArgs() {
-        scriptArgs_ = java.util.Collections.emptyList();
+        scriptArgs_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:TxOutput)
     }
-
+    
     static {
       defaultInstance = new TxOutput(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:TxOutput)
   }
-
+  
   public interface WalletOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
+    
     // required .Algorithm algo = 1;
-    /**
-     * <code>required .Algorithm algo = 1;</code>
-     */
     boolean hasAlgo();
-    /**
-     * <code>required .Algorithm algo = 1;</code>
-     */
-    TrezorMessage.Algorithm getAlgo();
-
+    uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgo();
+    
     // required bytes secexp = 2;
-    /**
-     * <code>required bytes secexp = 2;</code>
-     */
     boolean hasSecexp();
-    /**
-     * <code>required bytes secexp = 2;</code>
-     */
     com.google.protobuf.ByteString getSecexp();
-
+    
     // optional bool has_otp = 3;
-    /**
-     * <code>optional bool has_otp = 3;</code>
-     */
     boolean hasHasOtp();
-    /**
-     * <code>optional bool has_otp = 3;</code>
-     */
     boolean getHasOtp();
-
+    
     // optional bool has_spv = 4;
-    /**
-     * <code>optional bool has_spv = 4;</code>
-     */
     boolean hasHasSpv();
-    /**
-     * <code>optional bool has_spv = 4;</code>
-     */
     boolean getHasSpv();
-
+    
     // optional bytes pin = 5;
-    /**
-     * <code>optional bytes pin = 5;</code>
-     */
     boolean hasPin();
-    /**
-     * <code>optional bytes pin = 5;</code>
-     */
     com.google.protobuf.ByteString getPin();
   }
-  /**
-   * Protobuf type {@code Wallet}
-   */
   public static final class Wallet extends
       com.google.protobuf.GeneratedMessage
       implements WalletOrBuilder {
     // Use Wallet.newBuilder() to construct.
-    private Wallet(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Wallet(Builder builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Wallet(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
+    private Wallet(boolean noInit) {}
+    
     private static final Wallet defaultInstance;
     public static Wallet getDefaultInstance() {
       return defaultInstance;
     }
-
+    
     public Wallet getDefaultInstanceForType() {
       return defaultInstance;
     }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Wallet_descriptor;
     }
-    private Wallet(
-        com.google.protobuf.CodedInputStream input,
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Wallet_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // required .Algorithm algo = 1;
+    public static final int ALGO_FIELD_NUMBER = 1;
+    private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm algo_;
+    public boolean hasAlgo() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgo() {
+      return algo_;
+    }
+    
+    // required bytes secexp = 2;
+    public static final int SECEXP_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString secexp_;
+    public boolean hasSecexp() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public com.google.protobuf.ByteString getSecexp() {
+      return secexp_;
+    }
+    
+    // optional bool has_otp = 3;
+    public static final int HAS_OTP_FIELD_NUMBER = 3;
+    private boolean hasOtp_;
+    public boolean hasHasOtp() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public boolean getHasOtp() {
+      return hasOtp_;
+    }
+    
+    // optional bool has_spv = 4;
+    public static final int HAS_SPV_FIELD_NUMBER = 4;
+    private boolean hasSpv_;
+    public boolean hasHasSpv() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    public boolean getHasSpv() {
+      return hasSpv_;
+    }
+    
+    // optional bytes pin = 5;
+    public static final int PIN_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString pin_;
+    public boolean hasPin() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    public com.google.protobuf.ByteString getPin() {
+      return pin_;
+    }
+    
+    private void initFields() {
+      algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
+      secexp_ = com.google.protobuf.ByteString.EMPTY;
+      hasOtp_ = false;
+      hasSpv_ = false;
+      pin_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      if (!hasAlgo()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSecexp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(1, algo_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, secexp_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, hasOtp_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBool(4, hasSpv_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, pin_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, algo_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, secexp_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, hasOtp_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, hasSpv_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, pin_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseFrom(
+        com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements uk.co.bsol.trezorj.core.protobuf.TrezorMessage.WalletOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Wallet_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.internal_static_Wallet_fieldAccessorTable;
+      }
+      
+      // Construct using uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        secexp_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        hasOtp_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        hasSpv_ = false;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        pin_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet.getDescriptor();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet getDefaultInstanceForType() {
+        return uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet.getDefaultInstance();
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet build() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet buildPartial() {
+        uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet result = new uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.algo_ = algo_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.secexp_ = secexp_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.hasOtp_ = hasOtp_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.hasSpv_ = hasSpv_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.pin_ = pin_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet) {
+          return mergeFrom((uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet other) {
+        if (other == uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet.getDefaultInstance()) return this;
+        if (other.hasAlgo()) {
+          setAlgo(other.getAlgo());
+        }
+        if (other.hasSecexp()) {
+          setSecexp(other.getSecexp());
+        }
+        if (other.hasHasOtp()) {
+          setHasOtp(other.getHasOtp());
+        }
+        if (other.hasHasSpv()) {
+          setHasSpv(other.getHasSpv());
+        }
+        if (other.hasPin()) {
+          setPin(other.getPin());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        if (!hasAlgo()) {
+          
+          return false;
+        }
+        if (!hasSecexp()) {
+          
+          return false;
+        }
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
-              done = true;
-              break;
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
             default: {
               if (!parseUnknownField(input, unknownFields,
                                      extensionRegistry, tag)) {
-                done = true;
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
               }
               break;
             }
             case 8: {
               int rawValue = input.readEnum();
-              TrezorMessage.Algorithm value = TrezorMessage.Algorithm.valueOf(rawValue);
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -20075,453 +14541,19 @@ public final class TrezorMessage {
             }
           }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
       }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return TrezorMessage.internal_static_Wallet_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return TrezorMessage.internal_static_Wallet_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              TrezorMessage.Wallet.class, TrezorMessage.Wallet.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<Wallet> PARSER =
-        new com.google.protobuf.AbstractParser<Wallet>() {
-      public Wallet parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Wallet(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Wallet> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // required .Algorithm algo = 1;
-    public static final int ALGO_FIELD_NUMBER = 1;
-    private TrezorMessage.Algorithm algo_;
-    /**
-     * <code>required .Algorithm algo = 1;</code>
-     */
-    public boolean hasAlgo() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required .Algorithm algo = 1;</code>
-     */
-    public TrezorMessage.Algorithm getAlgo() {
-      return algo_;
-    }
-
-    // required bytes secexp = 2;
-    public static final int SECEXP_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString secexp_;
-    /**
-     * <code>required bytes secexp = 2;</code>
-     */
-    public boolean hasSecexp() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required bytes secexp = 2;</code>
-     */
-    public com.google.protobuf.ByteString getSecexp() {
-      return secexp_;
-    }
-
-    // optional bool has_otp = 3;
-    public static final int HAS_OTP_FIELD_NUMBER = 3;
-    private boolean hasOtp_;
-    /**
-     * <code>optional bool has_otp = 3;</code>
-     */
-    public boolean hasHasOtp() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional bool has_otp = 3;</code>
-     */
-    public boolean getHasOtp() {
-      return hasOtp_;
-    }
-
-    // optional bool has_spv = 4;
-    public static final int HAS_SPV_FIELD_NUMBER = 4;
-    private boolean hasSpv_;
-    /**
-     * <code>optional bool has_spv = 4;</code>
-     */
-    public boolean hasHasSpv() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>optional bool has_spv = 4;</code>
-     */
-    public boolean getHasSpv() {
-      return hasSpv_;
-    }
-
-    // optional bytes pin = 5;
-    public static final int PIN_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString pin_;
-    /**
-     * <code>optional bytes pin = 5;</code>
-     */
-    public boolean hasPin() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>optional bytes pin = 5;</code>
-     */
-    public com.google.protobuf.ByteString getPin() {
-      return pin_;
-    }
-
-    private void initFields() {
-      algo_ = TrezorMessage.Algorithm.BIP32;
-      secexp_ = com.google.protobuf.ByteString.EMPTY;
-      hasOtp_ = false;
-      hasSpv_ = false;
-      pin_ = com.google.protobuf.ByteString.EMPTY;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      if (!hasAlgo()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasSecexp()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, algo_.getNumber());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, secexp_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBool(3, hasOtp_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBool(4, hasSpv_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, pin_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, algo_.getNumber());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, secexp_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, hasOtp_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, hasSpv_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, pin_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static TrezorMessage.Wallet parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.Wallet parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.Wallet parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static TrezorMessage.Wallet parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static TrezorMessage.Wallet parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.Wallet parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.Wallet parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static TrezorMessage.Wallet parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static TrezorMessage.Wallet parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static TrezorMessage.Wallet parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(TrezorMessage.Wallet prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code Wallet}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements TrezorMessage.WalletOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return TrezorMessage.internal_static_Wallet_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return TrezorMessage.internal_static_Wallet_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                TrezorMessage.Wallet.class, TrezorMessage.Wallet.Builder.class);
-      }
-
-      // Construct using uk.co.bsol.trezorj.core.protobuf.Message.Wallet.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        algo_ = TrezorMessage.Algorithm.BIP32;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        secexp_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        hasOtp_ = false;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        hasSpv_ = false;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        pin_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return TrezorMessage.internal_static_Wallet_descriptor;
-      }
-
-      public TrezorMessage.Wallet getDefaultInstanceForType() {
-        return TrezorMessage.Wallet.getDefaultInstance();
-      }
-
-      public TrezorMessage.Wallet build() {
-        TrezorMessage.Wallet result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public TrezorMessage.Wallet buildPartial() {
-        TrezorMessage.Wallet result = new TrezorMessage.Wallet(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.algo_ = algo_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.secexp_ = secexp_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.hasOtp_ = hasOtp_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.hasSpv_ = hasSpv_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.pin_ = pin_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TrezorMessage.Wallet) {
-          return mergeFrom((TrezorMessage.Wallet)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(TrezorMessage.Wallet other) {
-        if (other == TrezorMessage.Wallet.getDefaultInstance()) return this;
-        if (other.hasAlgo()) {
-          setAlgo(other.getAlgo());
-        }
-        if (other.hasSecexp()) {
-          setSecexp(other.getSecexp());
-        }
-        if (other.hasHasOtp()) {
-          setHasOtp(other.getHasOtp());
-        }
-        if (other.hasHasSpv()) {
-          setHasSpv(other.getHasSpv());
-        }
-        if (other.hasPin()) {
-          setPin(other.getPin());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasAlgo()) {
-          
-          return false;
-        }
-        if (!hasSecexp()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        TrezorMessage.Wallet parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TrezorMessage.Wallet) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
+      
       private int bitField0_;
-
+      
       // required .Algorithm algo = 1;
-      private TrezorMessage.Algorithm algo_ = TrezorMessage.Algorithm.BIP32;
-      /**
-       * <code>required .Algorithm algo = 1;</code>
-       */
+      private uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
       public boolean hasAlgo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /**
-       * <code>required .Algorithm algo = 1;</code>
-       */
-      public TrezorMessage.Algorithm getAlgo() {
+      public uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm getAlgo() {
         return algo_;
       }
-      /**
-       * <code>required .Algorithm algo = 1;</code>
-       */
-      public Builder setAlgo(TrezorMessage.Algorithm value) {
+      public Builder setAlgo(uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -20530,33 +14562,21 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required .Algorithm algo = 1;</code>
-       */
       public Builder clearAlgo() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        algo_ = TrezorMessage.Algorithm.BIP32;
+        algo_ = uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Algorithm.BIP32;
         onChanged();
         return this;
       }
-
+      
       // required bytes secexp = 2;
       private com.google.protobuf.ByteString secexp_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>required bytes secexp = 2;</code>
-       */
       public boolean hasSecexp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /**
-       * <code>required bytes secexp = 2;</code>
-       */
       public com.google.protobuf.ByteString getSecexp() {
         return secexp_;
       }
-      /**
-       * <code>required bytes secexp = 2;</code>
-       */
       public Builder setSecexp(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -20566,99 +14586,63 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>required bytes secexp = 2;</code>
-       */
       public Builder clearSecexp() {
         bitField0_ = (bitField0_ & ~0x00000002);
         secexp_ = getDefaultInstance().getSecexp();
         onChanged();
         return this;
       }
-
+      
       // optional bool has_otp = 3;
       private boolean hasOtp_ ;
-      /**
-       * <code>optional bool has_otp = 3;</code>
-       */
       public boolean hasHasOtp() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      /**
-       * <code>optional bool has_otp = 3;</code>
-       */
       public boolean getHasOtp() {
         return hasOtp_;
       }
-      /**
-       * <code>optional bool has_otp = 3;</code>
-       */
       public Builder setHasOtp(boolean value) {
         bitField0_ |= 0x00000004;
         hasOtp_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool has_otp = 3;</code>
-       */
       public Builder clearHasOtp() {
         bitField0_ = (bitField0_ & ~0x00000004);
         hasOtp_ = false;
         onChanged();
         return this;
       }
-
+      
       // optional bool has_spv = 4;
       private boolean hasSpv_ ;
-      /**
-       * <code>optional bool has_spv = 4;</code>
-       */
       public boolean hasHasSpv() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      /**
-       * <code>optional bool has_spv = 4;</code>
-       */
       public boolean getHasSpv() {
         return hasSpv_;
       }
-      /**
-       * <code>optional bool has_spv = 4;</code>
-       */
       public Builder setHasSpv(boolean value) {
         bitField0_ |= 0x00000008;
         hasSpv_ = value;
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bool has_spv = 4;</code>
-       */
       public Builder clearHasSpv() {
         bitField0_ = (bitField0_ & ~0x00000008);
         hasSpv_ = false;
         onChanged();
         return this;
       }
-
+      
       // optional bytes pin = 5;
       private com.google.protobuf.ByteString pin_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes pin = 5;</code>
-       */
       public boolean hasPin() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
-      /**
-       * <code>optional bytes pin = 5;</code>
-       */
       public com.google.protobuf.ByteString getPin() {
         return pin_;
       }
-      /**
-       * <code>optional bytes pin = 5;</code>
-       */
       public Builder setPin(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -20668,27 +14652,24 @@ public final class TrezorMessage {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional bytes pin = 5;</code>
-       */
       public Builder clearPin() {
         bitField0_ = (bitField0_ & ~0x00000010);
         pin_ = getDefaultInstance().getPin();
         onChanged();
         return this;
       }
-
+      
       // @@protoc_insertion_point(builder_scope:Wallet)
     }
-
+    
     static {
       defaultInstance = new Wallet(true);
       defaultInstance.initFields();
     }
-
+    
     // @@protoc_insertion_point(class_scope:Wallet)
   }
-
+  
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_Initialize_descriptor;
   private static
@@ -20859,7 +14840,7 @@ public final class TrezorMessage {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Wallet_fieldAccessorTable;
-
+  
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -20914,8 +14895,8 @@ public final class TrezorMessage {
       "rithm\022\t\n\005BIP32\020\000\022\014\n\010ELECTRUM\020\001*3\n\nScript" +
       "Type\022\020\n\014PAYTOADDRESS\020\000\022\023\n\017PAYTOSCRIPTHAS" +
       "H\020\001*(\n\013RequestType\022\013\n\007TXINPUT\020\000\022\014\n\010TXOUT" +
-      "PUT\020\001B+\n uk.co.bsol.trezorj.core.protobu" +
-      "fB\007Message"
+      "PUT\020\001B1\n uk.co.bsol.trezorj.core.protobu" +
+      "fB\rTrezorMessage"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -20927,205 +14908,273 @@ public final class TrezorMessage {
           internal_static_Initialize_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Initialize_descriptor,
-              new java.lang.String[] { "SessionId", });
+              new java.lang.String[] { "SessionId", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Initialize.Builder.class);
           internal_static_Features_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_Features_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Features_descriptor,
-              new java.lang.String[] { "SessionId", "Vendor", "MajorVersion", "MinorVersion", "HasOtp", "HasSpv", "Pin", "Algo", "AlgoAvailable", "MaxfeeKb", });
+              new java.lang.String[] { "SessionId", "Vendor", "MajorVersion", "MinorVersion", "HasOtp", "HasSpv", "Pin", "Algo", "AlgoAvailable", "MaxfeeKb", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Features.Builder.class);
           internal_static_Ping_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_Ping_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Ping_descriptor,
-              new java.lang.String[] { "Message", });
+              new java.lang.String[] { "Message", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Ping.Builder.class);
           internal_static_DebugLinkDecision_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_DebugLinkDecision_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DebugLinkDecision_descriptor,
-              new java.lang.String[] { "YesNo", });
+              new java.lang.String[] { "YesNo", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkDecision.Builder.class);
           internal_static_DebugLinkGetState_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_DebugLinkGetState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DebugLinkGetState_descriptor,
-              new java.lang.String[] { "Layout", "Otp", "Pin", "Seed", });
+              new java.lang.String[] { "Layout", "Otp", "Pin", "Seed", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkGetState.Builder.class);
           internal_static_DebugLinkState_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_DebugLinkState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DebugLinkState_descriptor,
-              new java.lang.String[] { "Layout", "Otp", "Pin", "Seed", });
+              new java.lang.String[] { "Layout", "Otp", "Pin", "Seed", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkState.Builder.class);
           internal_static_DebugLinkStop_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_DebugLinkStop_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DebugLinkStop_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.DebugLinkStop.Builder.class);
           internal_static_Success_descriptor =
             getDescriptor().getMessageTypes().get(7);
           internal_static_Success_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Success_descriptor,
-              new java.lang.String[] { "Message", });
+              new java.lang.String[] { "Message", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Success.Builder.class);
           internal_static_Failure_descriptor =
             getDescriptor().getMessageTypes().get(8);
           internal_static_Failure_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Failure_descriptor,
-              new java.lang.String[] { "Code", "Message", });
+              new java.lang.String[] { "Code", "Message", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Failure.Builder.class);
           internal_static_GetUUID_descriptor =
             getDescriptor().getMessageTypes().get(9);
           internal_static_GetUUID_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_GetUUID_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetUUID.Builder.class);
           internal_static_UUID_descriptor =
             getDescriptor().getMessageTypes().get(10);
           internal_static_UUID_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_UUID_descriptor,
-              new java.lang.String[] { "UUID", });
+              new java.lang.String[] { "UUID", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.UUID.Builder.class);
           internal_static_ButtonRequest_descriptor =
             getDescriptor().getMessageTypes().get(11);
           internal_static_ButtonRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ButtonRequest_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonRequest.Builder.class);
           internal_static_ButtonAck_descriptor =
             getDescriptor().getMessageTypes().get(12);
           internal_static_ButtonAck_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ButtonAck_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonAck.Builder.class);
           internal_static_ButtonCancel_descriptor =
             getDescriptor().getMessageTypes().get(13);
           internal_static_ButtonCancel_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ButtonCancel_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ButtonCancel.Builder.class);
           internal_static_OtpRequest_descriptor =
             getDescriptor().getMessageTypes().get(14);
           internal_static_OtpRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_OtpRequest_descriptor,
-              new java.lang.String[] { "Message", });
+              new java.lang.String[] { "Message", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpRequest.Builder.class);
           internal_static_OtpAck_descriptor =
             getDescriptor().getMessageTypes().get(15);
           internal_static_OtpAck_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_OtpAck_descriptor,
-              new java.lang.String[] { "Otp", });
+              new java.lang.String[] { "Otp", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpAck.Builder.class);
           internal_static_OtpCancel_descriptor =
             getDescriptor().getMessageTypes().get(16);
           internal_static_OtpCancel_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_OtpCancel_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.OtpCancel.Builder.class);
           internal_static_PinRequest_descriptor =
             getDescriptor().getMessageTypes().get(17);
           internal_static_PinRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_PinRequest_descriptor,
-              new java.lang.String[] { "Message", });
+              new java.lang.String[] { "Message", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinRequest.Builder.class);
           internal_static_PinAck_descriptor =
             getDescriptor().getMessageTypes().get(18);
           internal_static_PinAck_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_PinAck_descriptor,
-              new java.lang.String[] { "Pin", });
+              new java.lang.String[] { "Pin", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinAck.Builder.class);
           internal_static_PinCancel_descriptor =
             getDescriptor().getMessageTypes().get(19);
           internal_static_PinCancel_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_PinCancel_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.PinCancel.Builder.class);
           internal_static_GetEntropy_descriptor =
             getDescriptor().getMessageTypes().get(20);
           internal_static_GetEntropy_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_GetEntropy_descriptor,
-              new java.lang.String[] { "Size", });
+              new java.lang.String[] { "Size", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetEntropy.Builder.class);
           internal_static_Entropy_descriptor =
             getDescriptor().getMessageTypes().get(21);
           internal_static_Entropy_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Entropy_descriptor,
-              new java.lang.String[] { "Entropy", });
+              new java.lang.String[] { "Entropy", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Entropy.Builder.class);
           internal_static_SetMaxFeeKb_descriptor =
             getDescriptor().getMessageTypes().get(22);
           internal_static_SetMaxFeeKb_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_SetMaxFeeKb_descriptor,
-              new java.lang.String[] { "MaxfeeKb", });
+              new java.lang.String[] { "MaxfeeKb", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SetMaxFeeKb.Builder.class);
           internal_static_GetMasterPublicKey_descriptor =
             getDescriptor().getMessageTypes().get(23);
           internal_static_GetMasterPublicKey_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_GetMasterPublicKey_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetMasterPublicKey.Builder.class);
           internal_static_MasterPublicKey_descriptor =
             getDescriptor().getMessageTypes().get(24);
           internal_static_MasterPublicKey_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_MasterPublicKey_descriptor,
-              new java.lang.String[] { "Key", });
+              new java.lang.String[] { "Key", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.MasterPublicKey.Builder.class);
           internal_static_GetAddress_descriptor =
             getDescriptor().getMessageTypes().get(25);
           internal_static_GetAddress_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_GetAddress_descriptor,
-              new java.lang.String[] { "AddressN", });
+              new java.lang.String[] { "AddressN", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.GetAddress.Builder.class);
           internal_static_Address_descriptor =
             getDescriptor().getMessageTypes().get(26);
           internal_static_Address_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Address_descriptor,
-              new java.lang.String[] { "Address", });
+              new java.lang.String[] { "Address", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Address.Builder.class);
           internal_static_LoadDevice_descriptor =
             getDescriptor().getMessageTypes().get(27);
           internal_static_LoadDevice_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_LoadDevice_descriptor,
-              new java.lang.String[] { "Algo", "Seed", "Otp", "Pin", "Spv", });
+              new java.lang.String[] { "Algo", "Seed", "Otp", "Pin", "Spv", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.LoadDevice.Builder.class);
           internal_static_ResetDevice_descriptor =
             getDescriptor().getMessageTypes().get(28);
           internal_static_ResetDevice_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ResetDevice_descriptor,
-              new java.lang.String[] { "Random", });
+              new java.lang.String[] { "Random", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.ResetDevice.Builder.class);
           internal_static_SignTx_descriptor =
             getDescriptor().getMessageTypes().get(29);
           internal_static_SignTx_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_SignTx_descriptor,
-              new java.lang.String[] { "OutputsCount", "InputsCount", "Random", });
+              new java.lang.String[] { "OutputsCount", "InputsCount", "Random", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.SignTx.Builder.class);
           internal_static_TxRequest_descriptor =
             getDescriptor().getMessageTypes().get(30);
           internal_static_TxRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_TxRequest_descriptor,
-              new java.lang.String[] { "RequestIndex", "RequestType", "SignedIndex", "Signature", "SerializedTx", });
+              new java.lang.String[] { "RequestIndex", "RequestType", "SignedIndex", "Signature", "SerializedTx", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxRequest.Builder.class);
           internal_static_TxInput_descriptor =
             getDescriptor().getMessageTypes().get(31);
           internal_static_TxInput_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_TxInput_descriptor,
-              new java.lang.String[] { "Index", "AddressN", "Amount", "PrevHash", "PrevIndex", "ScriptSig", });
+              new java.lang.String[] { "Index", "AddressN", "Amount", "PrevHash", "PrevIndex", "ScriptSig", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxInput.Builder.class);
           internal_static_TxOutput_descriptor =
             getDescriptor().getMessageTypes().get(32);
           internal_static_TxOutput_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_TxOutput_descriptor,
-              new java.lang.String[] { "Index", "Address", "AddressN", "Amount", "ScriptType", "ScriptArgs", });
+              new java.lang.String[] { "Index", "Address", "AddressN", "Amount", "ScriptType", "ScriptArgs", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.TxOutput.Builder.class);
           internal_static_Wallet_descriptor =
             getDescriptor().getMessageTypes().get(33);
           internal_static_Wallet_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Wallet_descriptor,
-              new java.lang.String[] { "Algo", "Secexp", "HasOtp", "HasSpv", "Pin", });
+              new java.lang.String[] { "Algo", "Secexp", "HasOtp", "HasSpv", "Pin", },
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet.class,
+              uk.co.bsol.trezorj.core.protobuf.TrezorMessage.Wallet.Builder.class);
           return null;
         }
       };
@@ -21134,6 +15183,6 @@ public final class TrezorMessage {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
   }
-
+  
   // @@protoc_insertion_point(outer_class_scope)
 }

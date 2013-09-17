@@ -38,7 +38,7 @@
                       </fileset>
                     </path>
                     <pathconvert pathsep=" " property="proto.files" refid="proto.path"/>
-                    <exec executable="/usr/local/bin/protoc" failonerror="true">
+                    <exec executable="protoc" failonerror="true">
                       <arg value="-I=${project.basedir}/src/main/protobuf"/>
                       <arg value="--java_out=${project.basedir}/src/main/java"/>
                       <arg line="${proto.files}"/>
