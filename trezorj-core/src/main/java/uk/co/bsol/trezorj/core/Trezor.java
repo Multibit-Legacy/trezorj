@@ -1,6 +1,6 @@
 package uk.co.bsol.trezorj.core;
 
-import com.google.protobuf.AbstractMessage;
+import com.google.protobuf.Message;
 
 import java.io.IOException;
 
@@ -33,7 +33,7 @@ public interface Trezor {
    *
    * @throws IOException If something goes wrong
    */
-  void sendMessage(AbstractMessage message) throws IOException;
+  void sendMessage(Message message) throws IOException;
 
   /**
    * <p>Add a Trezor listener - duplicates will be rejected</p>

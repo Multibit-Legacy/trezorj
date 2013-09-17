@@ -6,7 +6,7 @@ import com.codeminders.hidapi.HIDDeviceInfo;
 import com.codeminders.hidapi.HIDManager;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
-import com.google.protobuf.AbstractMessage;
+import com.google.protobuf.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
@@ -170,7 +170,7 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
   }
 
   @Override
-  public void sendMessage(AbstractMessage message) throws IOException {
+  public void sendMessage(Message message) throws IOException {
 
     Preconditions.checkNotNull(message, "Message must be present");
     Preconditions.checkNotNull(device, "Device is not connected");

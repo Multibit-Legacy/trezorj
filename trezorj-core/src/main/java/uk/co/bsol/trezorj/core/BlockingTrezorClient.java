@@ -7,8 +7,8 @@ import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.primitives.Longs;
-import com.google.protobuf.AbstractMessage;
 import com.google.protobuf.ByteString;
+import com.google.protobuf.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.events.TrezorEvents;
@@ -531,93 +531,94 @@ public class BlockingTrezorClient implements TrezorListener {
     while (!finished) {
 
       // Check the response is a transaction request
-      if (MessageType.TX_REQUEST.equals(event.protocolMessageType().get())) {
+      if (TrezorEventType.PROTOCOL_MESSAGE.equals(event.eventType())) {
+        if (MessageType.TX_REQUEST.equals(event.protocolMessageType().get())) {
 
-        // Examine the response (it may contain signature information in response to a TxOutput etc)
-        TrezorMessage.TxRequest txRequest = (TrezorMessage.TxRequest) event.protocolMessage().get();
+          // Examine the response (it may contain signature information in response to a TxOutput etc)
+          TrezorMessage.TxRequest txRequest = (TrezorMessage.TxRequest) event.protocolMessage().get();
 
-        // Check for a serialized transaction
-        if (txRequest.getSerializedTx() != null) {
-          try {
-            trezorSerializedTx.write(txRequest.getSerializedTx().toByteArray());
-          } catch (IOException e) {
-            throw new IllegalStateException(
-              "Could not read serialized transaction at request index " + txRequest
-                .getRequestIndex(), e);
+          // Check for a serialized transaction
+          if (txRequest.getSerializedTx() != null) {
+            try {
+              trezorSerializedTx.write(txRequest.getSerializedTx().toByteArray());
+            } catch (IOException e) {
+              throw new IllegalStateException(
+                "Could not read serialized transaction at request index " + txRequest
+                  .getRequestIndex(), e);
+            }
           }
-        }
 
-        // Check for a signature
-        if (txRequest.getSignedIndex() >= 0 && txRequest.getSignature() != null) {
-          try {
-            ByteArrayOutputStream signature = new ByteArrayOutputStream();
-            signature.write(txRequest.getSignature().toByteArray());
-            trezorSignatures.add(txRequest.getSignedIndex(), signature);
-          } catch (IOException e) {
-            throw new IllegalStateException(
-              "Could not read signature for signed index " + txRequest.getSignedIndex(),
-              e);
+          // Check for a signature
+          if (txRequest.getSignedIndex() >= 0 && txRequest.getSignature() != null) {
+            try {
+              ByteArrayOutputStream signature = new ByteArrayOutputStream();
+              signature.write(txRequest.getSignature().toByteArray());
+              trezorSignatures.add(txRequest.getSignedIndex(), signature);
+            } catch (IOException e) {
+              throw new IllegalStateException(
+                "Could not read signature for signed index " + txRequest.getSignedIndex(),
+                e);
+            }
           }
-        }
 
-        // Check for completion
-        if (txRequest.getRequestIndex() >= 0) {
+          // Check for completion
+          if (txRequest.getRequestIndex() >= 0) {
 
-          // Require txInput/txOutput from transaction
-          switch (txRequest.getRequestType()) {
-            case TXINPUT:
-              // Provide the requested input
-              TrezorMessage.TxInput txInput = TrezorMessageUtils.newTxInput(tx, txRequest.getRequestIndex());
+            // Require txInput/txOutput from transaction
+            switch (txRequest.getRequestType()) {
+              case TXINPUT:
+                // Provide the requested input
+                TrezorMessage.TxInput txInput = TrezorMessageUtils.newTxInput(tx, txRequest.getRequestIndex());
 
-              // Allow plenty of time for the signing operation
-              event = sendBlockingMessage(txInput, 30, TimeUnit.SECONDS);
+                // Allow plenty of time for the signing operation
+                event = sendBlockingMessage(txInput, 30, TimeUnit.SECONDS);
 
-              if (event.eventType().equals(TrezorEventType.PROTOCOL_MESSAGE)) {
+                if (event.eventType().equals(TrezorEventType.PROTOCOL_MESSAGE)) {
 
-                // Check for a TxRequest which can be processed as part of the overall loop
-                // in order to extract signature information etc
-                if (MessageType.TX_REQUEST.equals(event.protocolMessageType().get())) {
-                  continue;
+                  // Check for a TxRequest which can be processed as part of the overall loop
+                  // in order to extract signature information etc
+                  if (MessageType.TX_REQUEST.equals(event.protocolMessageType().get())) {
+                    continue;
+                  }
+
                 }
 
-              }
+                log.warn("Transaction signing failed on input index {} with event type '{}'", inputIndex, event.eventType().name());
 
-              log.warn("Transaction signing failed on input index {} with event type '{}'", inputIndex, event.eventType().name());
+                return Optional.absent();
 
-              return Optional.absent();
+              case TXOUTPUT:
+                // Provide the requested output
+                TrezorMessage.TxOutput txOutput = TrezorMessageUtils.newTxOutput(tx, txRequest.getRequestIndex());
 
-            case TXOUTPUT:
-              // Provide the requested output
-              TrezorMessage.TxOutput txOutput = TrezorMessageUtils.newTxOutput(tx, txRequest.getRequestIndex());
+                // Allow plenty of time for the signing operation
+                event = sendBlockingMessage(txOutput, 30, TimeUnit.SECONDS);
 
-              // Allow plenty of time for the signing operation
-              event = sendBlockingMessage(txOutput, 30, TimeUnit.SECONDS);
+                if (event.eventType().equals(TrezorEventType.PROTOCOL_MESSAGE)) {
 
-              if (event.eventType().equals(TrezorEventType.PROTOCOL_MESSAGE)) {
-
-                // Check for a TxRequest which can be processed as part of the overall loop
-                // in order to extract signature information etc
-                if (MessageType.TX_REQUEST.equals(event.protocolMessageType().get())) {
-                  continue;
+                  // Check for a TxRequest which can be processed as part of the overall loop
+                  // in order to extract signature information etc
+                  if (MessageType.TX_REQUEST.equals(event.protocolMessageType().get())) {
+                    continue;
+                  }
                 }
-              }
 
-              log.warn("Transaction signing failed on output index {} with event type '{}'", outputIndex, event.eventType().name());
+                log.warn("Transaction signing failed on output index {} with event type '{}'", outputIndex, event.eventType().name());
 
-              return Optional.absent();
+                return Optional.absent();
 
-            default:
-              throw new IllegalStateException("Unknown request type " + txRequest.getRequestType().name());
+              default:
+                throw new IllegalStateException("Unknown request type " + txRequest.getRequestType().name());
+            }
+          } else {
+
+            log.info("Completed transaction signing");
+
+            // This should be the end of building the transaction
+            finished = true;
+
           }
-        } else {
-
-          log.info("Completed transaction signing");
-
-          // This should be the end of building the transaction
-          finished = true;
-
         }
-
       }
     }
 
@@ -693,7 +694,7 @@ public class BlockingTrezorClient implements TrezorListener {
    *
    * @throws IllegalStateException If anything goes wrong
    */
-  private TrezorEvent sendDefaultBlockingMessage(AbstractMessage trezorMessage) {
+  private TrezorEvent sendDefaultBlockingMessage(Message trezorMessage) {
     return sendBlockingMessage(trezorMessage, 1, TimeUnit.SECONDS);
   }
 
@@ -707,7 +708,7 @@ public class BlockingTrezorClient implements TrezorListener {
    * @throws IllegalStateException If anything goes wrong
    * @
    */
-  private TrezorEvent sendBlockingMessage(AbstractMessage trezorMessage, int duration, TimeUnit timeUnit) {
+  private TrezorEvent sendBlockingMessage(Message trezorMessage, int duration, TimeUnit timeUnit) {
 
     Preconditions.checkState(isSessionIdValid, "An old session ID must be discarded. Create a new instance.");
 

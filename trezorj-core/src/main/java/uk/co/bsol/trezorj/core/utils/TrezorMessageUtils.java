@@ -7,7 +7,14 @@ import com.google.bitcoin.core.TransactionOutput;
 import com.google.bitcoin.params.MainNetParams;
 import com.google.common.base.Preconditions;
 import com.google.protobuf.ByteString;
+import com.google.protobuf.Message;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.co.bsol.trezorj.core.protobuf.MessageType;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
 
 /**
  * <p>Utility class to provide the following to applications:</p>
@@ -20,10 +27,51 @@ import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
  */
 public final class TrezorMessageUtils {
 
+  private static final Logger log = LoggerFactory.getLogger(TrezorMessageUtils.class);
+
   /**
    * Utilities should not have public constructors
    */
   private TrezorMessageUtils() {
+  }
+
+  /**
+   * <p>Write a Trezor protocol buffer message to a DataOutputStream</p>
+   *
+   *
+   * @param message The protocol buffer message to read
+   * @param out     The data output stream (must be open)
+   *
+   * @throws java.io.IOException If something goes wrong
+   */
+  public static void writeMessage(Message message, DataOutputStream out) throws IOException {
+
+    // Require the header code
+    short headerCode = MessageType.getHeaderCode(message);
+
+    // Provide some debugging
+    MessageType messageType = MessageType.getMessageTypeByHeaderCode(headerCode);
+    log.debug("> {}", messageType.name());
+
+    // Write magic alignment string (avoiding immediate flush)
+    out.writeBytes("##");
+
+    // Write header following Python's ">HL" syntax
+    // > = Big endian, std size and alignment
+    // H = Unsigned short (2 bytes) for header code
+    // L = Unsigned long (4 bytes) for message length
+
+    // Message type
+    out.writeShort(headerCode);
+
+    // Message length
+    out.writeInt(message.getSerializedSize());
+
+    // Write the detail portion as a protocol buffer message
+    message.writeTo(out);
+
+    // Flush to ensure bytes are available immediately
+    out.flush();
   }
 
   /**

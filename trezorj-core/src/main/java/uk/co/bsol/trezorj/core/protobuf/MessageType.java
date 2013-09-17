@@ -1,6 +1,5 @@
 package uk.co.bsol.trezorj.core.protobuf;
 
-import com.google.protobuf.AbstractMessage;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 
@@ -72,16 +71,16 @@ public enum MessageType {
   // End of enum
   ;
 
-  private final AbstractMessage abstractMessage;
+  private final Message message;
   private final short headerCode;
 
   /**
-   * @param abstractMessage The protocol buffer message class
+   * @param message The protocol buffer message class
    * @param headerCode      The header code
    */
-  MessageType(AbstractMessage abstractMessage, short headerCode) {
+  MessageType(Message message, short headerCode) {
 
-    this.abstractMessage = abstractMessage;
+    this.message = message;
     this.headerCode = headerCode;
 
   }
@@ -89,8 +88,8 @@ public enum MessageType {
   /**
    * @return The default instance of the protocol buffer message (for internal use)
    */
-  private AbstractMessage getDefaultInstance() {
-    return abstractMessage;
+  private Message getDefaultInstance() {
+    return message;
   }
 
   /**
@@ -127,7 +126,7 @@ public enum MessageType {
    *
    * @throws IllegalArgumentException If the message is not valid
    */
-  public static short getHeaderCode(AbstractMessage trezorMessage) {
+  public static short getHeaderCode(Message trezorMessage) {
 
     for (MessageType messageType : MessageType.values()) {
 

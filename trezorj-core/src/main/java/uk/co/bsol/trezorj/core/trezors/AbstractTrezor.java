@@ -3,7 +3,6 @@ package uk.co.bsol.trezorj.core.trezors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Queues;
 import com.google.common.collect.Sets;
-import com.google.protobuf.AbstractMessage;
 import com.google.protobuf.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -152,7 +151,7 @@ public abstract class AbstractTrezor implements Trezor {
    * @param out     The data output stream (must be open)
    * @throws IOException If something goes wrong
    */
-  protected void writeMessage(AbstractMessage message, DataOutputStream out) throws IOException {
+  protected void writeMessage(Message message, DataOutputStream out) throws IOException {
 
     // Require the header code
     short headerCode = MessageType.getHeaderCode(message);

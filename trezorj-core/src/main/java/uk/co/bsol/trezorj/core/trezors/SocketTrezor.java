@@ -1,10 +1,11 @@
 package uk.co.bsol.trezorj.core.trezors;
 
 import com.google.common.base.Preconditions;
-import com.google.protobuf.AbstractMessage;
+import com.google.protobuf.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
+import uk.co.bsol.trezorj.core.utils.TrezorMessageUtils;
 
 import java.io.*;
 import java.net.Socket;
@@ -69,7 +70,7 @@ public class SocketTrezor extends AbstractTrezor implements Trezor {
   @Override
   public synchronized void internalClose() {
 
-    Preconditions.checkNotNull(socket, "Socket is not connected");
+    Preconditions.checkNotNull(socket, "Socket is not connected. Use connect() first.");
 
     // Attempt to close the socket (also closes the in/out streams)
     try {
@@ -81,13 +82,13 @@ public class SocketTrezor extends AbstractTrezor implements Trezor {
   }
 
   @Override
-  public void sendMessage(AbstractMessage message) throws IOException {
+  public void sendMessage(Message message) throws IOException {
 
     Preconditions.checkNotNull(message, "Message must be present");
-    Preconditions.checkNotNull(out, "Socket has not been connected.");
+    Preconditions.checkNotNull(out, "Socket has not been connected. Use connect() first.");
 
     // Apply the message to
-    writeMessage(message, out);
+    TrezorMessageUtils.writeMessage(message, out);
 
   }
 
