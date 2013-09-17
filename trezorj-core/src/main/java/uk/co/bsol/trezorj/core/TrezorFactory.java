@@ -27,7 +27,7 @@ public class TrezorFactory {
   }
 
   /**
-   * <p>Create a new isntance of a USB-based Trezor device (standard)</p>
+   * <p>Create a new instance of a USB-based Trezor device (standard)</p>
    * @param vendorIdOptional The vendor ID (default is 0x10c4)
    * @param productIdOptional The product ID (default is 0xea80)
    * @param serialNumberOptional The device serial number (default is to accept any)
