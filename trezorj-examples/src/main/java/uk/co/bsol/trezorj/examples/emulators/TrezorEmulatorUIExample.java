@@ -2,8 +2,6 @@ package uk.co.bsol.trezorj.examples.emulators;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.bsol.trezorj.core.BlockingTrezorClient;
-import uk.co.bsol.trezorj.core.TrezorEvent;
 import uk.co.bsol.trezorj.core.emulators.TrezorEmulator;
 import uk.co.bsol.trezorj.core.emulators.TrezorEmulatorUI;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
@@ -74,7 +72,6 @@ public class TrezorEmulatorUIExample {
 
     // Start the emulator - the canned conversation then starts.
     TrezorEmulatorUI.startEmulator();
-
 
     // Allow time for the emulator to start
     Thread.sleep(100);

@@ -1,5 +1,7 @@
 package uk.co.bsol.trezorj.core.emulators;
 
+import com.google.common.base.Optional;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.protobuf.Message;
 import org.slf4j.Logger;
@@ -26,14 +28,15 @@ public class TrezorEmulator {
 
   private static final Logger log = LoggerFactory.getLogger(TrezorEmulator.class);
 
-  private List<EmulatorMessage> messages = Lists.newArrayList();
+  private final List<EmulatorMessage> messages = Lists.newArrayList();
 
-  private boolean isBuilt = false;
-
-  private static DataOutputStream transmitDataStream;
+  private final Optional<DataOutputStream> outputStreamOptional;
 
   // Not used yet as input stream is not listened to
-  private static DataInputStream receiveDataStream;
+  private final Optional<DataInputStream> inputStreamOptional;
+
+  // True if the emulator has been fully configured
+  private boolean isBuilt = false;
 
   /**
    * <p>Utility method to provide a common sequence</p>
@@ -43,7 +46,7 @@ public class TrezorEmulator {
    */
   public static TrezorEmulator newDefaultTrezorEmulator() {
 
-    TrezorEmulator emulator = new TrezorEmulator();
+    TrezorEmulator emulator = new TrezorEmulator(Optional.<DataOutputStream>absent(), Optional.<DataInputStream>absent());
     addSuccessMessage(emulator, 1, TimeUnit.SECONDS);
 
     return emulator;
@@ -53,40 +56,45 @@ public class TrezorEmulator {
   /**
    * <p>Utility method to provide a common sequence</p>
    * This emulator sends and receives over streams
+   *
    * @param transmitStream The stream the emulator will transmit replies to
-   * @param receiveStream The stream the emulator will receive data on
-   * @return A default Trezor emulator with simple timed responses    */
-    public static TrezorEmulator newStreamingTrezorEmulator(OutputStream transmitStream, InputStream receiveStream) {
+   * @param receiveStream  The stream the emulator will receive data on
+   *
+   * @return A default Trezor emulator with simple timed responses
+   */
+  public static TrezorEmulator newStreamingTrezorEmulator(OutputStream transmitStream, InputStream receiveStream) {
 
-        TrezorEmulator.transmitDataStream = new DataOutputStream(transmitStream);
+    Preconditions.checkNotNull(transmitStream,"'transmitStream' must be present");
+    // TODO Re-instate this check
+    // Preconditions.checkNotNull(receiveStream,"'receiveStream' must be present");
 
-        // The receive stream is currently not used (effectively /dev/null).
-        // Replies are canned so the input data is not listened to.
-        TrezorEmulator.receiveDataStream = new DataInputStream(receiveStream);
+    TrezorEmulator emulator = new TrezorEmulator(
+      Optional.of(new DataOutputStream(transmitStream)),
+      Optional.<DataInputStream>absent()
+      );
+    addSuccessMessage(emulator, 1, TimeUnit.SECONDS);
 
-        TrezorEmulator emulator = new TrezorEmulator();
-        addSuccessMessage(emulator, 1, TimeUnit.SECONDS);
+    return emulator;
 
-        return emulator;
-
-    }
+  }
 
   public static void addSuccessMessage(TrezorEmulator trezorEmulator, int duration, TimeUnit timeUnit) {
     trezorEmulator.addMessage(new EmulatorMessage(
       TrezorMessage.Success
-                        .newBuilder()
-                        .setMessage("")
-                        .build(),
-                duration,
-                timeUnit
+        .newBuilder()
+        .setMessage("")
+        .build(),
+      duration,
+      timeUnit
     ));
   }
 
   /**
    * Use the utility constructors
    */
-  private TrezorEmulator() {
-
+  private TrezorEmulator(Optional<DataOutputStream> outputStreamOptional, Optional<DataInputStream> inputStreamOptional) {
+    this.outputStreamOptional = outputStreamOptional;
+    this.inputStreamOptional = inputStreamOptional;
   }
 
 
@@ -122,49 +130,51 @@ public class TrezorEmulator {
       @Override
       public Boolean call() {
 
-      try {
+        try {
 
-        if (transmitDataStream == null) {
-          ServerSocket serverSocket = new ServerSocket(3000);
+          final DataOutputStream out;
 
-          log.debug("Accepting connections on a socket");
+          if (!outputStreamOptional.isPresent()) {
+            ServerSocket serverSocket = new ServerSocket(3000);
 
-          // Block until a connection is attempted
-          Socket socket = serverSocket.accept();
+            log.debug("Accepting connections on a socket");
 
-          log.debug("Connected. Starting message sequence.");
+            // Block until a connection is attempted
+            Socket socket = serverSocket.accept();
 
-          transmitDataStream = new DataOutputStream(socket.getOutputStream());
-        } else {
-          log.debug("Transmitting over a data stream");
+            log.debug("Connected. Starting message sequence.");
+
+            out = new DataOutputStream(socket.getOutputStream());
+          } else {
+            log.debug("Transmitting over a data stream");
+            out = outputStreamOptional.get();
+          }
+
+          // Send some data (a Trezor SUCCESS response)
+          for (EmulatorMessage message : messages) {
+
+            long millis = message.getTimeUnit().toMillis(message.getDuration());
+
+            log.debug("Sleeping {} millis", millis);
+
+            // Wait for the required period of time
+            Thread.sleep(millis);
+
+            log.debug("Emulating '{}'", message.getTrezorMessage());
+
+            TrezorMessageUtils.writeMessage(message.getTrezorMessage(), out);
+
+          }
+
+          // A connection has been made
+          return true;
+        } catch (IOException e) {
+          log.error(e.getMessage(), e);
+          return true;
+        } catch (InterruptedException e) {
+          log.error(e.getMessage(), e);
+          return true;
         }
-
-
-        // Send some data (a Trezor SUCCESS response)
-        for (EmulatorMessage message : messages) {
-
-          long millis = message.getTimeUnit().toMillis(message.getDuration());
-
-          log.debug("Sleeping {} millis",millis);
-
-          // Wait for the required period of time
-          Thread.sleep(millis);
-
-          log.debug("Emulating '{}'", message.getTrezorMessage());
-
-          TrezorMessageUtils.writeMessage(message.getTrezorMessage(), transmitDataStream);
-
-        }
-
-        // A connection has been made
-        return true;
-      } catch (IOException e) {
-        log.error(e.getMessage(), e);
-        return true;
-      } catch (InterruptedException e) {
-        log.error(e.getMessage(), e);
-        return true;
-      }
       }
     });
 

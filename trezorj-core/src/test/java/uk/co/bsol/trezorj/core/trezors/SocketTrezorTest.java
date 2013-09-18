@@ -1,5 +1,6 @@
 package uk.co.bsol.trezorj.core.trezors;
 
+import com.google.protobuf.Message;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +8,10 @@ import uk.co.bsol.trezorj.core.TrezorEvent;
 import uk.co.bsol.trezorj.core.TrezorFactory;
 import uk.co.bsol.trezorj.core.TrezorListener;
 import uk.co.bsol.trezorj.core.protobuf.MessageType;
+import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
+import uk.co.bsol.trezorj.core.utils.TrezorMessageUtils;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -21,13 +25,6 @@ public class SocketTrezorTest {
 
     @Test
   public void testConnect() throws Exception {
-
-    // Check if the socket tests are required to be run
-    String runSocketsText = System.getProperty("runSocketTests");
-    if (!Boolean.TRUE.toString().equalsIgnoreCase(runSocketsText)) {
-      log.debug("Not running testConnect as not enabled. To enable pass '-DrunSocketTests=true' to maven");
-      return;
-    }
 
     // Arrange
     ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -58,7 +55,9 @@ public class SocketTrezorTest {
           Socket socket = serverSocket.accept();
 
           // Send some data (a Trezor SUCCESS response)
-          socket.getOutputStream().write(new byte[]{33, 33, 0, 2, 0, 0, 0, 0});
+          Message message = TrezorMessage.Success.newBuilder().setMessage("").build();
+          DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+          TrezorMessageUtils.writeMessage(message, out);
 
           // A connection has been made
           return true;
