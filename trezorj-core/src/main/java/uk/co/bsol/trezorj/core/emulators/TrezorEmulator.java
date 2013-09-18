@@ -7,8 +7,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 import uk.co.bsol.trezorj.core.utils.TrezorMessageUtils;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
@@ -31,26 +30,54 @@ public class TrezorEmulator {
 
   private boolean isBuilt = false;
 
+  private static DataOutputStream transmitDataStream;
+  private static DataInputStream receiveDataStream;
+
   /**
    * <p>Utility method to provide a common sequence</p>
+   * This emulator transmits over a socket - port 3000
    *
    * @return A default Trezor emulator with simple timed responses
    */
   public static TrezorEmulator newDefaultTrezorEmulator() {
 
     TrezorEmulator emulator = new TrezorEmulator();
-
-    emulator.addMessage(new EmulatorMessage(
-      TrezorMessage.Success
-        .newBuilder()
-        .setMessage("")
-        .build(),
-      1,
-      TimeUnit.SECONDS
-    ));
+    addSuccessMessage(emulator);
 
     return emulator;
 
+  }
+
+  /**
+   * <p>Utility method to provide a common sequence</p>
+   * This emulator sends and receives over streams
+   * @param transmitStream The stream the emulator will transmit replies to
+   * @param receiveStream The stream the emulator will receive data on
+   * @return A default Trezor emulator with simple timed responses    */
+    public static TrezorEmulator newStreamingTrezorEmulator(OutputStream transmitStream, InputStream receiveStream) {
+
+        TrezorEmulator.transmitDataStream = new DataOutputStream(transmitStream);
+
+        // The receive stream is currently not used (effectively /dev/null).
+        // Replies are canned so the input data is not listened to.
+        TrezorEmulator.receiveDataStream = new DataInputStream(receiveStream);
+
+        TrezorEmulator emulator = new TrezorEmulator();
+        addSuccessMessage(emulator);
+
+        return emulator;
+
+    }
+
+  private static void addSuccessMessage(TrezorEmulator trezorEmulator) {
+    trezorEmulator.addMessage(new EmulatorMessage(
+      TrezorMessage.Success
+                        .newBuilder()
+                        .setMessage("")
+                        .build(),
+                1,
+                TimeUnit.SECONDS
+    ));
   }
 
   /**
@@ -95,16 +122,20 @@ public class TrezorEmulator {
 
       try {
 
-        ServerSocket serverSocket = new ServerSocket(3000);
+        if (transmitDataStream == null) {
+          ServerSocket serverSocket = new ServerSocket(3000);
 
-        log.debug("Accepting connections");
+          log.debug("Accepting connections on a socket");
 
-        // Block until a connection is attempted
-        Socket socket = serverSocket.accept();
+          // Block until a connection is attempted
+          Socket socket = serverSocket.accept();
 
-        log.debug("Connected. Starting message sequence.");
+          log.debug("Connected. Starting message sequence.");
 
-        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+          transmitDataStream = new DataOutputStream(socket.getOutputStream());
+        } else {
+          log.debug("Transmitting over a data stream");
+        }
 
 
         // Send some data (a Trezor SUCCESS response)
@@ -119,7 +150,7 @@ public class TrezorEmulator {
 
           log.debug("Emulating '{}'", message.getTrezorMessage());
 
-          TrezorMessageUtils.writeMessage(message.getTrezorMessage(), out);
+          TrezorMessageUtils.writeMessage(message.getTrezorMessage(), transmitDataStream);
 
         }
 
@@ -176,5 +207,7 @@ public class TrezorEmulator {
     }
   }
 
-
+  public static DataOutputStream getTransmitDataStream() {
+      return transmitDataStream;
+  }
 }

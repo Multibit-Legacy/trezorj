@@ -36,7 +36,7 @@ public final class TrezorMessageUtils {
   }
 
   /**
-   * <p>Write a Trezor protocol buffer message to a DataOutputStream</p>
+   * <p>Write a Trezor protocol buffer message to an OutputStream</p>
    *
    *
    * @param message The protocol buffer message to read
