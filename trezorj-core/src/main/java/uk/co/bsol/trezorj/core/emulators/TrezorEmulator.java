@@ -31,6 +31,8 @@ public class TrezorEmulator {
   private boolean isBuilt = false;
 
   private static DataOutputStream transmitDataStream;
+
+  // Not used yet as input stream is not listened to
   private static DataInputStream receiveDataStream;
 
   /**
@@ -42,7 +44,7 @@ public class TrezorEmulator {
   public static TrezorEmulator newDefaultTrezorEmulator() {
 
     TrezorEmulator emulator = new TrezorEmulator();
-    addSuccessMessage(emulator);
+    addSuccessMessage(emulator, 1, TimeUnit.SECONDS);
 
     return emulator;
 
@@ -63,20 +65,20 @@ public class TrezorEmulator {
         TrezorEmulator.receiveDataStream = new DataInputStream(receiveStream);
 
         TrezorEmulator emulator = new TrezorEmulator();
-        addSuccessMessage(emulator);
+        addSuccessMessage(emulator, 1, TimeUnit.SECONDS);
 
         return emulator;
 
     }
 
-  private static void addSuccessMessage(TrezorEmulator trezorEmulator) {
+  public static void addSuccessMessage(TrezorEmulator trezorEmulator, int duration, TimeUnit timeUnit) {
     trezorEmulator.addMessage(new EmulatorMessage(
       TrezorMessage.Success
                         .newBuilder()
                         .setMessage("")
                         .build(),
-                1,
-                TimeUnit.SECONDS
+                duration,
+                timeUnit
     ));
   }
 
@@ -205,9 +207,5 @@ public class TrezorEmulator {
     private TimeUnit getTimeUnit() {
       return timeUnit;
     }
-  }
-
-  public static DataOutputStream getTransmitDataStream() {
-      return transmitDataStream;
   }
 }

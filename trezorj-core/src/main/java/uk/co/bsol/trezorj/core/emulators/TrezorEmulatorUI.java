@@ -33,6 +33,8 @@ public class TrezorEmulatorUI extends JFrame {
     private JPanel bottomPanel;
     private JPanel buttonRowPanel;
 
+    private static TrezorEmulator trezorEmulator;
+
     /**
      * Create a Trezor emulator user interface, not hooked up to a TrezorEmulator object.
      */
@@ -47,54 +49,60 @@ public class TrezorEmulatorUI extends JFrame {
         pack();
 
         if (hookupEmulator) {
-            try {
-                // Create a TrezorEmulator and daisy chain the input and output streams
-                OutputStream textAreaOutputStream = new TextAreaOutputStream(outputTextArea);
-                TrezorEmulator trezorEmulator = TrezorEmulator.newStreamingTrezorEmulator(textAreaOutputStream, null);
-                trezorEmulator.start();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-            //
-            // OutputStream emulatorOutputStream = new TextAreaOutputStream(outputTextArea); // This is replies from the TrezorEmulator
+          // Create a TrezorEmulator and hooks the TrezorEmulator's output stream
+          OutputStream textAreaOutputStream = new TextAreaOutputStream(outputTextArea);
+          trezorEmulator = TrezorEmulator.newStreamingTrezorEmulator(textAreaOutputStream, null);
         }
         setVisible(true);
+    }
+
+    /**
+     * Start the emulator (you should add any callback messages before you start it because it is
+     * immutable after starting).
+     */
+    public static void startEmulator() {
+      try {
+        trezorEmulator.start();
+      } catch (InterruptedException e) {
+          e.printStackTrace();
+      } catch (ExecutionException e) {
+          e.printStackTrace();
+      }
     }
 
 
     public static void main(String[] args) {
         TrezorEmulatorUI trezorEmulatorUI = new TrezorEmulatorUI(true);
+        startEmulator();
     }
 
     public void init() {
         // Top Panel: Output, Input, Display.
         topPanel = new JPanel(new BorderLayout());
 
-        outputTextArea = new JTextArea(OUTPUT_TEXT_ROWS, OUTPUT_TEXT_COLUMNS);
-        outputTextArea.setEditable(false);
-        outputTextArea.setVisible(true);
-        outputScrollPane = new JScrollPane(outputTextArea);
-        outputScrollPane.setBorder(BorderFactory.createTitledBorder("Received text"));
-        outputScrollPane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
-            public void adjustmentValueChanged(AdjustmentEvent e) {
-                e.getAdjustable().setValue(e.getAdjustable().getMaximum());
-            }
-        });
-        topPanel.add(outputScrollPane, BorderLayout.NORTH);
-
         inputTextArea = new JTextArea(INPUT_TEXT_ROWS, INPUT_TEXT_COLUMNS);
         inputTextArea.setEditable(false);
         inputTextArea.setVisible(true);
         inputScrollPane = new JScrollPane(inputTextArea);
-        inputScrollPane.setBorder(BorderFactory.createTitledBorder("Transmitted text"));
+        inputScrollPane.setBorder(BorderFactory.createTitledBorder("Received text"));
         inputScrollPane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
             public void adjustmentValueChanged(AdjustmentEvent e) {
                 e.getAdjustable().setValue(e.getAdjustable().getMaximum());
             }
         });
-        topPanel.add(inputScrollPane, BorderLayout.CENTER);
+        topPanel.add(inputScrollPane, BorderLayout.NORTH);
+
+        outputTextArea = new JTextArea(OUTPUT_TEXT_ROWS, OUTPUT_TEXT_COLUMNS);
+        outputTextArea.setEditable(false);
+        outputTextArea.setVisible(true);
+        outputScrollPane = new JScrollPane(outputTextArea);
+        outputScrollPane.setBorder(BorderFactory.createTitledBorder("Transmitted text"));
+        outputScrollPane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
+            public void adjustmentValueChanged(AdjustmentEvent e) {
+                e.getAdjustable().setValue(e.getAdjustable().getMaximum());
+            }
+        });
+        topPanel.add(outputScrollPane, BorderLayout.CENTER);
 
         displayTextArea = new JTextArea(DISPLAY_TEXT_ROWS, DISPLAY_TEXT_COLUMNS);
         displayTextArea.setVisible(true);
@@ -135,5 +143,9 @@ public class TrezorEmulatorUI extends JFrame {
         });
         bottomButtonRowPanel.add(clearTransmitButton);
         centerPanel.add(buttonRowPanel, BorderLayout.SOUTH);
+    }
+
+    public static TrezorEmulator getTrezorEmulator() {
+        return trezorEmulator;
     }
 }

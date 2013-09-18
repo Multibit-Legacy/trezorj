@@ -48,8 +48,6 @@ public class TimedEmulatorSocketExample {
 
     System.exit(0);
 
-
-
   }
 
 }

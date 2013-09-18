@@ -1,6 +1,8 @@
 package uk.co.bsol.trezorj.core.trezors;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.TrezorEvent;
 import uk.co.bsol.trezorj.core.TrezorFactory;
 import uk.co.bsol.trezorj.core.TrezorListener;
@@ -15,9 +17,17 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.fail;
 
 public class SocketTrezorTest {
+    private static final Logger log = LoggerFactory.getLogger(SocketTrezorTest.class);
 
-  @Test
+    @Test
   public void testConnect() throws Exception {
+
+    // Check if the socket tests are required to be run
+    String runSocketsText = System.getProperty("runSocketTests");
+    if (!Boolean.TRUE.toString().equalsIgnoreCase(runSocketsText)) {
+      log.debug("Not running testConnect as not enabled. To enable pass '-DrunSocketTests=true' to maven");
+      return;
+    }
 
     // Arrange
     ExecutorService executorService = Executors.newSingleThreadExecutor();
