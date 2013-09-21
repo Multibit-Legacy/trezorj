@@ -38,11 +38,10 @@ public final class TrezorMessageUtils {
   /**
    * <p>Write a Trezor protocol buffer message to an OutputStream</p>
    *
-   *
    * @param message The protocol buffer message to read
    * @param out     The data output stream (must be open)
    *
-   * @throws java.io.IOException If something goes wrong
+   * @throws IOException If the device disconnects during IO
    */
   public static void writeMessage(Message message, DataOutputStream out) throws IOException {
 
@@ -72,6 +71,7 @@ public final class TrezorMessageUtils {
 
     // Flush to ensure bytes are available immediately
     out.flush();
+
   }
 
   /**

@@ -60,6 +60,8 @@ public class BlockingTrezorClient implements TrezorListener {
   private static final int MIN_ENTROPY = 256;
 
   private final Trezor trezor;
+  private boolean isTrezorValid = false;
+
   private BlockingQueue<TrezorEvent> trezorEventQueue;
   private ExecutorService trezorEventExecutorService = Executors.newSingleThreadExecutor();
   private boolean isSessionIdValid = true;
@@ -167,6 +169,7 @@ public class BlockingTrezorClient implements TrezorListener {
    */
   public void connect() {
     trezor.connect();
+    isTrezorValid = true;
   }
 
   /**
@@ -174,6 +177,7 @@ public class BlockingTrezorClient implements TrezorListener {
    */
   public void close() {
     isSessionIdValid = false;
+    isTrezorValid = false;
     trezor.close();
     trezorEventExecutorService.shutdownNow();
   }
@@ -706,52 +710,78 @@ public class BlockingTrezorClient implements TrezorListener {
    * @return The Trezor event
    *
    * @throws IllegalStateException If anything goes wrong
-   * @
    */
   private TrezorEvent sendBlockingMessage(Message trezorMessage, int duration, TimeUnit timeUnit) {
 
+    Preconditions.checkState(isTrezorValid, "Trezor device is not valid. Try connecting or start a new session after a disconnect.");
     Preconditions.checkState(isSessionIdValid, "An old session ID must be discarded. Create a new instance.");
 
     try {
+
+      // Check for any new events
+      TrezorEvent event = getTrezorEventQueue().poll(10, TimeUnit.MILLISECONDS);
+      if (event != null) {
+        // Spontaneous event has arrived
+        handleTrezorEvent(event);
+      }
+
+      if (!isTrezorValid) {
+        throw new IllegalStateException("Trezor is not valid");
+      }
+
       trezor.sendMessage(trezorMessage);
 
       // Block until response arrives for the specified duration
-      TrezorEvent event = getTrezorEventQueue().poll(duration, timeUnit);
-
-      if (event == null) {
-
-        // Build a generic failure message
+      event = getTrezorEventQueue().poll(duration, timeUnit);
+      if (event != null) {
+        handleTrezorEvent(event);
+      } else {
+        // Timeout so unexpected EOF
         return TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_EOF);
       }
 
-      // Decode into a message type for use with a switch
-      Optional<MessageType> messageType = event.protocolMessageType();
-      if (event.protocolMessage().isPresent()) {
-
-        // Protocol message
-
-        log.debug("Received event: {}", event.protocolMessage().get().getClass().getName());
-        log.debug("{}", event.protocolMessage().get().toString());
-        log.debug("Message type: {}", messageType.get().name());
-
-        if (MessageType.FAILURE.equals(messageType.get())) {
-          log.error("Failure: {}", ((TrezorMessage.Failure) event.protocolMessage().get()).getMessage());
-        }
-
-        if (MessageType.BUTTON_REQUEST.equals(messageType.get())) {
-          sendBlockingMessage(TrezorMessage.ButtonAck.getDefaultInstance(), 10, TimeUnit.SECONDS);
-        }
-
+      if (!isTrezorValid) {
+        throw new IllegalStateException("Trezor is not valid");
       }
 
       return event;
 
-    } catch (IOException e) {
-      throw new IllegalStateException(e);
     } catch (InterruptedException e) {
       throw new IllegalStateException(e);
     }
 
+  }
+
+  private void handleTrezorEvent(TrezorEvent event) {
+
+    // Decode into a message type for use with a switch
+    Optional<MessageType> messageType = event.protocolMessageType();
+    if (event.protocolMessage().isPresent()) {
+
+      // Protocol message
+
+      log.debug("Received event: {}", event.protocolMessage().get().getClass().getName());
+      log.debug("{}", event.protocolMessage().get().toString());
+      log.debug("Message type: {}", messageType.get().name());
+
+      if (MessageType.FAILURE.equals(messageType.get())) {
+        log.error("Failure: {}", ((TrezorMessage.Failure) event.protocolMessage().get()).getMessage());
+      }
+
+      if (MessageType.BUTTON_REQUEST.equals(messageType.get())) {
+        sendBlockingMessage(TrezorMessage.ButtonAck.getDefaultInstance(), 10, TimeUnit.SECONDS);
+      }
+
+    } else {
+      if (
+        TrezorEventType.DEVICE_DISCONNECTED.equals(event.eventType()) ||
+          TrezorEventType.DEVICE_FAILURE.equals(event.eventType())) {
+
+        // Stop further processing
+        close();
+
+      }
+    }
   }
 
   /**

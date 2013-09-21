@@ -15,7 +15,6 @@ import uk.co.bsol.trezorj.core.protobuf.MessageType;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.Set;
@@ -40,7 +39,8 @@ public abstract class AbstractTrezor implements Trezor {
 
   protected final Set<TrezorListener> listeners = Sets.newLinkedHashSet();
 
-  private final ExecutorService trezorEventExecutorService = Executors.newSingleThreadExecutor();
+  // Provide a few threads for monitoring for specialised cases
+  protected final ExecutorService trezorMonitorService = Executors.newFixedThreadPool(5);
 
   @Override
   public synchronized void addListener(TrezorListener trezorListener) {
@@ -66,7 +66,8 @@ public abstract class AbstractTrezor implements Trezor {
    */
   protected void monitorDataInputStream(final DataInputStream in) {
 
-    trezorEventExecutorService.submit(new Runnable() {
+    // Monitor the data input stream
+    trezorMonitorService.submit(new Runnable() {
       @Override
       public void run() {
 
@@ -75,35 +76,48 @@ public abstract class AbstractTrezor implements Trezor {
             // Read a message (blocking)
             final TrezorEvent trezorEvent = readMessage(in);
 
-            log.debug("Firing event: {} ", trezorEvent.eventType().name());
-            for (TrezorListener listener : listeners) {
-              listener.getTrezorEventQueue().put(trezorEvent);
+            emitTrezorEvent(trezorEvent);
+
+            if (TrezorEventType.DEVICE_DISCONNECTED.equals(trezorEvent.eventType())) {
+              // A shutdown is imminent so best to sleep to void multiple messages
+              Thread.sleep(2000);
+            } else {
+              // Provide a small break
+              Thread.sleep(100);
             }
 
-            Thread.sleep(100);
-
-          } catch (EOFException e) {
-            // Do nothing
           } catch (InterruptedException e) {
             break;
-          } catch (IOException e) {
-            log.error(e.getMessage(), e);
-            throw new IllegalStateException(e);
           }
         }
 
       }
     });
+
+  }
+
+  /**
+   * <p>Broadcast a Trezor event to all the listeners</p>
+   *
+   * @param trezorEvent The event to fire
+   *
+   * @throws InterruptedException If interrupted
+   */
+  protected synchronized void emitTrezorEvent(TrezorEvent trezorEvent) throws InterruptedException {
+    log.debug("Firing event: {} ", trezorEvent.eventType().name());
+    for (TrezorListener listener : listeners) {
+      listener.getTrezorEventQueue().put(trezorEvent);
+    }
   }
 
   /**
    * <p>Blocking method to read from the data input stream</p>
    *
    * @param in The data input stream (must be open)
+   *
    * @return The expected protocol buffer message for the detail
-   * @throws IOException If something goes wrong
    */
-  private synchronized TrezorEvent readMessage(DataInputStream in) throws IOException {
+  private synchronized TrezorEvent readMessage(DataInputStream in) {
 
     // Very broad try-catch because a lot of things can go wrong here and need to be reported
     try {
@@ -138,54 +152,26 @@ public abstract class AbstractTrezor implements Trezor {
       return TrezorEvents.newProtocolEvent(messageType, message);
 
     } catch (EOFException e) {
+      // Device has reached an unexpected EOF
+      log.warn("Unexpected EOF from device");
       return TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_EOF);
+    } catch (IOException e) {
+      // Device has likely disconnected during I/O
+      log.warn("Unexpected disconnect from device.");
+      return TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_DISCONNECTED);
     } catch (Throwable e) {
-      log.error(e.getMessage(),e);
+      // System error
+      log.error("Unexpected error during read.", e);
       return TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_FAILURE);
     }
 
-  }
-
-  /**
-   * @param message The protocol buffer message to read
-   * @param out     The data output stream (must be open)
-   * @throws IOException If something goes wrong
-   */
-  protected void writeMessage(Message message, DataOutputStream out) throws IOException {
-
-    // Require the header code
-    short headerCode = MessageType.getHeaderCode(message);
-
-    // Provide some debugging
-    MessageType messageType = MessageType.getMessageTypeByHeaderCode(headerCode);
-    log.debug("> {}", messageType.name());
-
-    // Write magic alignment string (avoiding immediate flush)
-    out.writeBytes("##");
-
-    // Write header following Python's ">HL" syntax
-    // > = Big endian, std size and alignment
-    // H = Unsigned short (2 bytes) for header code
-    // L = Unsigned long (4 bytes) for message length
-
-    // Message type
-    out.writeShort(headerCode);
-
-    // Message length
-    out.writeInt(message.getSerializedSize());
-
-    // Write the detail portion as a protocol buffer message
-    message.writeTo(out);
-
-    // Flush to ensure bytes are available immediately
-    out.flush();
   }
 
   @Override
   public synchronized void close() {
 
     internalClose();
-    trezorEventExecutorService.shutdownNow();
+    trezorMonitorService.shutdownNow();
 
   }
 

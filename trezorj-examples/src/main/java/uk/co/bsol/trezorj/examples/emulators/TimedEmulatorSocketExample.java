@@ -6,6 +6,8 @@ import uk.co.bsol.trezorj.core.BlockingTrezorClient;
 import uk.co.bsol.trezorj.core.TrezorEvent;
 import uk.co.bsol.trezorj.core.emulators.TrezorEmulator;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * <p>Demonstrates that Java HID API is working on a desktop</p>
  * <p>Just execute {@link TimedEmulatorSocketExample#main(String[])}</p>
@@ -42,9 +44,11 @@ public class TimedEmulatorSocketExample {
       );
     client.connect();
 
-    TrezorEvent event = client.ping();
+    TrezorEvent event1 =  client.getTrezorEventQueue().poll(1, TimeUnit.SECONDS);
+    log.info("Received: {} ", event1.eventType());
 
-    log.info("Received: {} {} ", event.eventType(), event.protocolMessageType().get());
+    TrezorEvent event2 = client.ping();
+    log.info("Received: {} {} ", event2.eventType(), event2.protocolMessageType().get());
 
     System.exit(0);
 

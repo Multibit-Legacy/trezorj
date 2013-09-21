@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.TrezorEvent;
+import uk.co.bsol.trezorj.core.TrezorEventType;
 import uk.co.bsol.trezorj.core.TrezorFactory;
 import uk.co.bsol.trezorj.core.TrezorListener;
 import uk.co.bsol.trezorj.core.protobuf.MessageType;
@@ -79,11 +80,17 @@ public class SocketTrezorTest {
       Boolean result = futureResult.get(1, TimeUnit.SECONDS);
       assertThat(result).isTrue();
 
-      // Verify that the data was read in correctly
+      // Verify that the device connected
       TrezorEvent event1 = listener.getTrezorEventQueue().poll(1, TimeUnit.SECONDS);
       assertThat(event1).isNotNull();
-      assertThat(event1.protocolMessageType().isPresent()).isTrue();
-      assertThat(event1.protocolMessageType().get()).isEqualTo(MessageType.SUCCESS);
+      assertThat(event1.protocolMessageType().isPresent()).isFalse();
+      assertThat(event1.eventType()).isEqualTo(TrezorEventType.DEVICE_CONNECTED);
+
+      // Verify that the data was read in correctly
+      TrezorEvent event2 = listener.getTrezorEventQueue().poll(1, TimeUnit.SECONDS);
+      assertThat(event2).isNotNull();
+      assertThat(event2.protocolMessageType().isPresent()).isTrue();
+      assertThat(event2.protocolMessageType().get()).isEqualTo(MessageType.SUCCESS);
 
       testObject.close();
 

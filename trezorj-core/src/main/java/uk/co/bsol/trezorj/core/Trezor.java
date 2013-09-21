@@ -2,8 +2,6 @@ package uk.co.bsol.trezorj.core;
 
 import com.google.protobuf.Message;
 
-import java.io.IOException;
-
 /**
  * <p>Interface to provide the following to applications:</p>
  * <ul>
@@ -28,12 +26,11 @@ public interface Trezor {
   /**
    * <p>Send a message to the device using the generated protocol buffer classes</p>
    * <p>Any response will be provided through the listener interface (Callback mode)</p>
+   * <p>If this call fails the device will be closed and a DISCONNECT message will be emitted</p>
    *
    * @param message A generated protocol buffer message (e.g. Message.Initialize)
-   *
-   * @throws IOException If something goes wrong
    */
-  void sendMessage(Message message) throws IOException;
+  void sendMessage(Message message);
 
   /**
    * <p>Add a Trezor listener - duplicates will be rejected</p>

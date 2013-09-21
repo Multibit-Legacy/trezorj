@@ -10,10 +10,14 @@ import com.google.protobuf.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
+import uk.co.bsol.trezorj.core.TrezorEventType;
+import uk.co.bsol.trezorj.core.events.TrezorEvents;
 import uk.co.bsol.trezorj.core.usb.CP211xBridge;
+import uk.co.bsol.trezorj.core.utils.TrezorMessageUtils;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.IOException;
 
 /**
@@ -38,7 +42,7 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
 
   private DataOutputStream out = null;
 
-  private HIDDevice device = null;
+  private Optional<HIDDevice> deviceOptional = Optional.absent();
 
   /**
    * <p>Create a new instance of a USB-based Trezor device (standard)</p>
@@ -66,7 +70,7 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
   @Override
   public synchronized void connect() {
 
-    Preconditions.checkState(device == null, "Device is already connected");
+    Preconditions.checkState(isDeviceConnected(), "Device is already connected");
 
     try {
 
@@ -74,7 +78,8 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
       final Optional<HIDDeviceInfo> hidDeviceInfoOptional = locateTrezor();
 
       if (!hidDeviceInfoOptional.isPresent()) {
-        throw new IllegalArgumentException("No matching Trezor device is connected.");
+        emitTrezorEvent(TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_DISCONNECTED));
+        return;
       }
       HIDDeviceInfo hidDeviceInfo = hidDeviceInfoOptional.get();
 
@@ -83,13 +88,15 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
 
       // Attempt to open a serial connection to the USB device
       // Open the device
-      device = hidManager.openById(
+      deviceOptional = Optional.fromNullable(hidManager.openById(
         hidDeviceInfo.getVendor_id(),
         hidDeviceInfo.getProduct_id(),
         hidDeviceInfo.getSerial_number()
-      );
+      ));
 
-      Preconditions.checkNotNull(device,"Unable to open device");
+      Preconditions.checkState(deviceOptional.isPresent(), "Unable to open device");
+
+      HIDDevice device = deviceOptional.get();
 
       log.debug("Selected: {}, {}, {}",
         device.getManufacturerString(),
@@ -110,29 +117,87 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
       // Monitor the input stream
       monitorDataInputStream(in);
 
+      // Must have connected to be here
+      emitTrezorEvent(TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_CONNECTED));
 
     } catch (IOException e) {
       throw new IllegalArgumentException(e);
+    } catch (InterruptedException e) {
+      throw new IllegalStateException(e);
     }
+  }
+
+  /**
+   * @return True if device is connected (the HID device is present)
+   */
+  private boolean isDeviceConnected() {
+    return deviceOptional != null;
+  }
+
+  @Override
+  protected void monitorDataInputStream(DataInputStream in) {
+
+    // Configure the default behaviour
+    super.monitorDataInputStream(in);
+
+    // Monitor the USB as well
+    trezorMonitorService.submit(new Runnable() {
+      @Override
+      public void run() {
+
+        while (true) {
+          try {
+
+            final Optional<HIDDeviceInfo> hidDeviceInfoOptional = locateTrezor();
+
+            if (!hidDeviceInfoOptional.isPresent()) {
+              // Trigger device shutdown
+              close();
+            }
+
+            Thread.sleep(1000);
+
+          } catch (EOFException e) {
+            // Do nothing
+          } catch (InterruptedException e) {
+            break;
+          } catch (IOException e) {
+            // Device has failed
+            log.error(e.getMessage(), e);
+            try {
+              emitTrezorEvent(TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_FAILURE));
+            } catch (InterruptedException e1) {
+              throw new IllegalStateException(e1);
+            }
+          }
+        }
+
+      }
+    });
+
   }
 
   @Override
   public synchronized void internalClose() {
 
-    Preconditions.checkNotNull(device, "Device is not connected");
+    Preconditions.checkState(isDeviceConnected(), "Device is not connected");
 
-    // Attempt to close the socket (also closes the in/out streams)
+    // Attempt to close the connection (also closes the in/out streams)
     try {
-      device.close();
+      deviceOptional.get().close();
+
       log.info("Disconnected from Trezor");
+
+      // Let everyone know
+      emitTrezorEvent(TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_DISCONNECTED));
     } catch (IOException e) {
       throw new IllegalArgumentException(e);
+    } catch (InterruptedException e) {
+      throw new IllegalStateException(e);
     }
   }
 
   private Optional<HIDDeviceInfo> locateTrezor() throws IOException {
-
-    Preconditions.checkState(device == null, "Device is already connected");
 
     // Get the HID manager
     HIDManager hidManager = HIDManager.getInstance();
@@ -170,13 +235,22 @@ public class UsbTrezor extends AbstractTrezor implements Trezor {
   }
 
   @Override
-  public void sendMessage(Message message) throws IOException {
+  public void sendMessage(Message message) {
 
     Preconditions.checkNotNull(message, "Message must be present");
-    Preconditions.checkNotNull(device, "Device is not connected");
+    Preconditions.checkNotNull(deviceOptional, "Device is not connected");
 
-    // Apply the message to
-    writeMessage(message, out);
+    try {
+      // Apply the message to the data output stream
+      TrezorMessageUtils.writeMessage(message, out);
+    } catch (IOException e) {
+      log.warn("I/O error during write. Closing device.", e);
+      try {
+        emitTrezorEvent(TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_DISCONNECTED));
+      } catch (InterruptedException e1) {
+        throw new IllegalStateException(e1);
+      }
+    }
 
   }
 

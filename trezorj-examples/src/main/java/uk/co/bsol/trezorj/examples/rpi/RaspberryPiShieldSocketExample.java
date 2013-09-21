@@ -7,11 +7,13 @@ import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.BlockingTrezorClient;
+import uk.co.bsol.trezorj.core.TrezorEvent;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 import uk.co.bsol.trezorj.core.utils.FakeTransactions;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>Example of communicating with a Raspberry Pi Shield Trezor over a socket:</p>
@@ -65,6 +67,9 @@ public class RaspberryPiShieldSocketExample {
     // Connect the client
     client.connect();
 
+    TrezorEvent event1 =  client.getTrezorEventQueue().poll(1, TimeUnit.SECONDS);
+    log.info("Received: {} ", event1.eventType());
+
     // Initialize
     client.initialize();
 
@@ -117,6 +122,9 @@ public class RaspberryPiShieldSocketExample {
     client.close();
 
     log.info("Exiting");
+
+    // Shutdown
+    System.exit(0);
 
   }
 

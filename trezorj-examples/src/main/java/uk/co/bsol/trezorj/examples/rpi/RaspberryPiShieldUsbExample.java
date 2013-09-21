@@ -6,11 +6,14 @@ import com.google.bitcoin.core.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.BlockingTrezorClient;
+import uk.co.bsol.trezorj.core.TrezorEvent;
+import uk.co.bsol.trezorj.core.TrezorEventType;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 import uk.co.bsol.trezorj.core.utils.FakeTransactions;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>Example of communicating with a Raspberry Pi Shield Trezor using USB:</p>
@@ -45,6 +48,7 @@ public class RaspberryPiShieldUsbExample {
 
     // All the work is done in the class
     RaspberryPiShieldUsbExample example = new RaspberryPiShieldUsbExample();
+
     example.executeExample();
 
   }
@@ -60,6 +64,14 @@ public class RaspberryPiShieldUsbExample {
 
     // Connect the client
     client.connect();
+
+    TrezorEvent event1 =  client.getTrezorEventQueue().poll(1, TimeUnit.SECONDS);
+    log.info("Received: {} ", event1.eventType());
+
+    if (TrezorEventType.DEVICE_DISCONNECTED.equals(event1.eventType())) {
+      log.error("Device is not connected");
+      System.exit(-1);
+    }
 
     // Initialize
     client.initialize();
@@ -112,6 +124,9 @@ public class RaspberryPiShieldUsbExample {
     client.close();
 
     log.info("Exiting");
+
+    // Shutdown
+    System.exit(0);
 
   }
 

@@ -5,6 +5,8 @@ import com.google.protobuf.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
+import uk.co.bsol.trezorj.core.TrezorEventType;
+import uk.co.bsol.trezorj.core.events.TrezorEvents;
 import uk.co.bsol.trezorj.core.utils.TrezorMessageUtils;
 
 import java.io.*;
@@ -62,8 +64,13 @@ public class SocketTrezor extends AbstractTrezor implements Trezor {
       // Monitor the input stream
       monitorDataInputStream(in);
 
+      // Must have connected to be here
+      emitTrezorEvent(TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_CONNECTED));
+
     } catch (IOException e) {
       throw new IllegalArgumentException(e);
+    } catch (InterruptedException e) {
+      throw new IllegalStateException(e);
     }
   }
 
@@ -76,20 +83,32 @@ public class SocketTrezor extends AbstractTrezor implements Trezor {
     try {
       socket.close();
       log.info("Disconnected from Trezor");
+      // Let everyone know
+      emitTrezorEvent(TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_DISCONNECTED));
     } catch (IOException e) {
       throw new IllegalArgumentException(e);
+    } catch (InterruptedException e) {
+      throw new IllegalStateException(e);
     }
   }
 
   @Override
-  public void sendMessage(Message message) throws IOException {
+  public void sendMessage(Message message) {
 
     Preconditions.checkNotNull(message, "Message must be present");
     Preconditions.checkNotNull(out, "Socket has not been connected. Use connect() first.");
 
-    // Apply the message to
-    TrezorMessageUtils.writeMessage(message, out);
+    try {
+      // Apply the message to the data output stream
+      TrezorMessageUtils.writeMessage(message, out);
+    } catch (IOException e) {
+      log.warn("I/O error during write. Closing socket.", e);
+      try {
+        emitTrezorEvent(TrezorEvents.newSystemEvent(TrezorEventType.DEVICE_DISCONNECTED));
+      } catch (InterruptedException e1) {
+        throw new IllegalStateException(e1);
+      }
+    }
 
   }
-
 }

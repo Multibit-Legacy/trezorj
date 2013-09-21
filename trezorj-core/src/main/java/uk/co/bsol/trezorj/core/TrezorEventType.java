@@ -17,12 +17,12 @@ public enum TrezorEventType {
   PROTOCOL_MESSAGE,
 
   /**
-   * Device encountered an I/O problem
+   * Device encountered an error not associated with I/O (e.g. thread interrupt)
    */
   DEVICE_FAILURE,
 
   /**
-   * Received EOF from device (no data in receive buffer after timeout)
+   * Received EOF from device (no data in receive buffer after timeout when some is expected)
    */
   DEVICE_EOF,
 
