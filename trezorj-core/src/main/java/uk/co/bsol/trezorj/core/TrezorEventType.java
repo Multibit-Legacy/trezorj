@@ -22,6 +22,11 @@ public enum TrezorEventType {
   DEVICE_FAILURE,
 
   /**
+   * Device rejected the contents of a message (e.g. could not sign transaction)
+   */
+  DEVICE_REJECTED,
+
+  /**
    * Received EOF from device (no data in receive buffer after timeout when some is expected)
    */
   DEVICE_EOF,

@@ -13,7 +13,10 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>Trezor emulator to provide the following to applications:</p>
@@ -28,6 +31,9 @@ public class TrezorEmulator {
 
   private static final Logger log = LoggerFactory.getLogger(TrezorEmulator.class);
 
+  public static final String DEFAULT_SOCKET_HOST = "localhost";
+  public static final int DEFAULT_SOCKET_PORT = 3000;
+
   private final List<EmulatorMessage> messages = Lists.newArrayList();
 
   private final Optional<DataOutputStream> outputStreamOptional;
@@ -37,17 +43,21 @@ public class TrezorEmulator {
 
   // True if the emulator has been fully configured
   private boolean isBuilt = false;
+  private ExecutorService executorService;
+  private final ServerSocket serverSocket;
 
   /**
    * <p>Utility method to provide a common sequence</p>
    * This emulator transmits over a socket - port 3000
    *
    * @return A default Trezor emulator with simple timed responses
+   *
+   * @throws IOException If something goes wrong
    */
-  public static TrezorEmulator newDefaultTrezorEmulator() {
+  public static TrezorEmulator newDefaultTrezorEmulator() throws IOException {
 
     TrezorEmulator emulator = new TrezorEmulator(Optional.<DataOutputStream>absent(), Optional.<DataInputStream>absent());
-    addSuccessMessage(emulator, 1, TimeUnit.SECONDS);
+    addSuccessMessage(emulator, 100, TimeUnit.MILLISECONDS);
 
     return emulator;
 
@@ -61,17 +71,19 @@ public class TrezorEmulator {
    * @param receiveStream  The stream the emulator will receive data on
    *
    * @return A default Trezor emulator with simple timed responses
+   *
+   * @throws IOException If something goes wrong
    */
-  public static TrezorEmulator newStreamingTrezorEmulator(OutputStream transmitStream, InputStream receiveStream) {
+  public static TrezorEmulator newStreamingTrezorEmulator(OutputStream transmitStream, InputStream receiveStream) throws IOException {
 
-    Preconditions.checkNotNull(transmitStream,"'transmitStream' must be present");
+    Preconditions.checkNotNull(transmitStream, "'transmitStream' must be present");
     // TODO Re-instate this check
     // Preconditions.checkNotNull(receiveStream,"'receiveStream' must be present");
 
     TrezorEmulator emulator = new TrezorEmulator(
       Optional.of(new DataOutputStream(transmitStream)),
       Optional.<DataInputStream>absent()
-      );
+    );
     addSuccessMessage(emulator, 1, TimeUnit.SECONDS);
 
     return emulator;
@@ -92,9 +104,10 @@ public class TrezorEmulator {
   /**
    * Use the utility constructors
    */
-  private TrezorEmulator(Optional<DataOutputStream> outputStreamOptional, Optional<DataInputStream> inputStreamOptional) {
+  private TrezorEmulator(Optional<DataOutputStream> outputStreamOptional, Optional<DataInputStream> inputStreamOptional) throws IOException {
     this.outputStreamOptional = outputStreamOptional;
     this.inputStreamOptional = inputStreamOptional;
+    this.serverSocket = new ServerSocket(DEFAULT_SOCKET_PORT);
   }
 
 
@@ -116,7 +129,7 @@ public class TrezorEmulator {
   /**
    * <p>Start the emulation process</p>
    */
-  public Future<Boolean> start() throws ExecutionException, InterruptedException {
+  public void start() throws ExecutionException, InterruptedException {
 
     // Prevent further modifications
     isBuilt = true;
@@ -124,20 +137,19 @@ public class TrezorEmulator {
     log.debug("Starting emulator");
 
     // Arrange
-    ExecutorService executorService = Executors.newSingleThreadExecutor();
+    executorService = Executors.newSingleThreadExecutor();
 
-    return executorService.submit(new Callable<Boolean>() {
+    executorService.submit(new Runnable() {
       @Override
-      public Boolean call() {
+      public void run() {
 
         try {
 
           final DataOutputStream out;
 
           if (!outputStreamOptional.isPresent()) {
-            ServerSocket serverSocket = new ServerSocket(3000);
 
-            log.debug("Accepting connections on a socket");
+            log.debug("Accepting connections on socket configured on port {}",serverSocket.getLocalPort());
 
             // Block until a connection is attempted
             Socket socket = serverSocket.accept();
@@ -150,12 +162,12 @@ public class TrezorEmulator {
             out = outputStreamOptional.get();
           }
 
-          // Send some data (a Trezor SUCCESS response)
+          // Work through the emulator messages
           for (EmulatorMessage message : messages) {
 
             long millis = message.getTimeUnit().toMillis(message.getDuration());
 
-            log.debug("Sleeping {} millis", millis);
+            log.debug("Sleeping {}ms", millis);
 
             // Wait for the required period of time
             Thread.sleep(millis);
@@ -166,17 +178,38 @@ public class TrezorEmulator {
 
           }
 
-          // A connection has been made
-          return true;
+          // All messages complete so free up resources
+          stop();
+
         } catch (IOException e) {
           log.error(e.getMessage(), e);
-          return true;
         } catch (InterruptedException e) {
           log.error(e.getMessage(), e);
-          return true;
         }
       }
     });
+
+  }
+
+  /**
+   * Stop the emulator and clean up all threads
+   */
+  public void stop() {
+
+    log.debug("Stopping");
+
+    try {
+      serverSocket.close();
+      executorService.shutdownNow();
+
+      // Prevent collisions during shutdown
+      log.debug("Waiting for shutdown");
+      Thread.sleep(200);
+    } catch (IOException e) {
+      log.error("Emulator socket failed to close", e);
+    } catch (InterruptedException e) {
+      // The synchronization has done its job
+    }
 
   }
 

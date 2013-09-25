@@ -5,9 +5,10 @@ import com.google.bitcoin.core.AddressFormatException;
 import com.google.bitcoin.core.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.bsol.trezorj.core.BlockingTrezorClient;
 import uk.co.bsol.trezorj.core.TrezorEvent;
 import uk.co.bsol.trezorj.core.TrezorEventType;
+import uk.co.bsol.trezorj.core.clients.BlockingTrezorClient;
+import uk.co.bsol.trezorj.core.clients.TrezorClients;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 import uk.co.bsol.trezorj.core.utils.FakeTransactions;
 
@@ -60,7 +61,7 @@ public class RaspberryPiShieldUsbExample {
   public void executeExample() throws IOException, InterruptedException, AddressFormatException {
 
     // Create a USB-based default Trezor client with blocking methods (quite limited)
-    BlockingTrezorClient client = BlockingTrezorClient.newDefaultUsbInstance(BlockingTrezorClient.newSessionId());
+    BlockingTrezorClient client = TrezorClients.newBlockingtUsbInstance(TrezorClients.newSessionId());
 
     // Connect the client
     client.connect();

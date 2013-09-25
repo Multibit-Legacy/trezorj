@@ -2,8 +2,9 @@ package uk.co.bsol.trezorj.examples.emulators;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.bsol.trezorj.core.BlockingTrezorClient;
 import uk.co.bsol.trezorj.core.TrezorEvent;
+import uk.co.bsol.trezorj.core.clients.BlockingTrezorClient;
+import uk.co.bsol.trezorj.core.clients.TrezorClients;
 import uk.co.bsol.trezorj.core.emulators.TrezorEmulator;
 
 import java.util.concurrent.TimeUnit;
@@ -36,11 +37,11 @@ public class TimedEmulatorSocketExample {
     Thread.sleep(100);
 
     // Create the socket trezor
-    BlockingTrezorClient client = BlockingTrezorClient
-      .newSocketInstance(
+    BlockingTrezorClient client = TrezorClients
+      .newBlockingSocketInstance(
         "localhost",
         3000,
-        BlockingTrezorClient.newSessionId()
+        TrezorClients.newSessionId()
       );
     client.connect();
 

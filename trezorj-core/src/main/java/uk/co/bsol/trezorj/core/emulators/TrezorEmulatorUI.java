@@ -1,15 +1,22 @@
 package uk.co.bsol.trezorj.core.emulators;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.ExecutionException;
 
 public class TrezorEmulatorUI extends JFrame {
+
+  private static final Logger log = LoggerFactory.getLogger(TrezorEmulatorUI.class);
+
   private static final long serialVersionUID = 2087100111097214476L;
 
   private final static int OUTPUT_TEXT_ROWS = 8;
@@ -51,7 +58,11 @@ public class TrezorEmulatorUI extends JFrame {
     if (hookupEmulator) {
       // Create a TrezorEmulator and hooks the TrezorEmulator's output stream
       OutputStream textAreaOutputStream = new TextAreaOutputStream(outputTextArea);
-      trezorEmulator = TrezorEmulator.newStreamingTrezorEmulator(textAreaOutputStream, null);
+      try {
+        trezorEmulator = TrezorEmulator.newStreamingTrezorEmulator(textAreaOutputStream, null);
+      } catch (IOException e) {
+        log.error("Emulator failed to start",e);
+      }
     }
     setVisible(true);
   }

@@ -6,8 +6,9 @@ import com.google.bitcoin.core.Transaction;
 import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.bsol.trezorj.core.BlockingTrezorClient;
 import uk.co.bsol.trezorj.core.TrezorEvent;
+import uk.co.bsol.trezorj.core.clients.BlockingTrezorClient;
+import uk.co.bsol.trezorj.core.clients.TrezorClients;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 import uk.co.bsol.trezorj.core.utils.FakeTransactions;
 
@@ -62,7 +63,7 @@ public class RaspberryPiShieldSocketExample {
   public void executeExample(String host, int port) throws IOException, InterruptedException, AddressFormatException {
 
     // Create a socket based Trezor client with blocking methods (quite limited)
-    BlockingTrezorClient client = BlockingTrezorClient.newSocketInstance(host, port, BlockingTrezorClient.newSessionId());
+    BlockingTrezorClient client = TrezorClients.newBlockingSocketInstance(host, port, TrezorClients.newSessionId());
 
     // Connect the client
     client.connect();
