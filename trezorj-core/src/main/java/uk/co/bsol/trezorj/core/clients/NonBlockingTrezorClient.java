@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
 import uk.co.bsol.trezorj.core.TrezorEvent;
 import uk.co.bsol.trezorj.core.TrezorEventType;
-import uk.co.bsol.trezorj.core.TrezorListener;
 import uk.co.bsol.trezorj.core.protobuf.MessageType;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
 import uk.co.bsol.trezorj.core.utils.TrezorMessageUtils;
@@ -55,7 +54,7 @@ import java.util.concurrent.TimeUnit;
  * @since 0.0.1
  *         
  */
-public class NonBlockingTrezorClient implements TrezorListener {
+public class NonBlockingTrezorClient implements TrezorClient {
 
   private static final Logger log = LoggerFactory.getLogger(NonBlockingTrezorClient.class);
   private static final int MIN_ENTROPY = 256;

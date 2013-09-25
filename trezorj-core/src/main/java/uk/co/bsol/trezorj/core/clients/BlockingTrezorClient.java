@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import uk.co.bsol.trezorj.core.Trezor;
 import uk.co.bsol.trezorj.core.TrezorEvent;
 import uk.co.bsol.trezorj.core.TrezorEventType;
-import uk.co.bsol.trezorj.core.TrezorListener;
 import uk.co.bsol.trezorj.core.events.TrezorEvents;
 import uk.co.bsol.trezorj.core.protobuf.MessageType;
 import uk.co.bsol.trezorj.core.protobuf.TrezorMessage;
@@ -56,7 +55,7 @@ import java.util.concurrent.TimeUnit;
  * @since 0.0.1
  *         
  */
-public class BlockingTrezorClient implements TrezorListener {
+public class BlockingTrezorClient implements TrezorClient {
 
   private static final Logger log = LoggerFactory.getLogger(BlockingTrezorClient.class);
   private static final int MIN_ENTROPY = 256;
@@ -82,17 +81,13 @@ public class BlockingTrezorClient implements TrezorListener {
     this.sessionId = sessionId;
   }
 
-  /**
-   * <p>Connect to the Trezor device. No initialization takes place.</p>
-   */
+  @Override
   public void connect() {
     trezor.connect();
     isTrezorValid = true;
   }
 
-  /**
-   * <p>Close the connection to the Trezor device. This client instance can no longer be used.</p>
-   */
+  @Override
   public void close() {
     isSessionIdValid = false;
     isTrezorValid = false;
