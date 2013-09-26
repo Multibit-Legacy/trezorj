@@ -41,14 +41,25 @@ You only need the Trezorj Core module in your project. It will pull in any else 
 </dependency>
 ```
 
+### Trying it out in an IDE
+
+If you intend to do a lot of work involving the underlying Java code you'll need an IDE. We recommend [Intellij](https://www.jetbrains.com/idea/download/)
+([best](http://programmers.stackexchange.com/a/24231/7167)) or [Eclipse](https://www.eclipse.org/downloads/). Both are available as free downloads.
+
+Once you have imported the code as a Maven project (by referencing `pom.xml`) you can simply plug in your Trezor device via the USB
+and execute `RaspberryPiShieldUsbExample.main()`. This will run up a very simple blocking client that will work through some basic 
+Trezor commands waiting for a response for each one.
+
 ### API example
+
+To add Trezor support for your own project, you need to use a `Trezor` implementation and provide your own `TrezorListener`. 
 
 The `trezorj-examples` module covers this in more detail, but a quick example would be:
 
 ```java
 
 // Create a socket Trezor
-trezor = TrezorFactory.INSTANCE.newSocketTrezor("http://example.org", 3000);
+Trezor trezor = TrezorFactory.INSTANCE.newSocketTrezor("http://example.org", 3000);
 
 // Add this as the listener (sets the event queue)
 trezor.addListener(this);
@@ -86,3 +97,7 @@ trezor.sendMessage(TrezorMessage.Ping.getDefaultInstance());
 // The event queue will respond with a SUCCESS message
 
 ```
+
+There is a default `BlockingTrezorClient` which wraps a `Trezor` implementation (socket or USB) into something 
+that may be a little easier to work with when just testing out the API.
+
