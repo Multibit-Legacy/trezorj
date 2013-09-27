@@ -58,46 +58,29 @@ The `trezorj-examples` module covers this in more detail, but a quick example wo
 
 ```java
 
-// Create a socket Trezor
-Trezor trezor = TrezorFactory.INSTANCE.newSocketTrezor("http://example.org", 3000);
+// Create a USB-based default Trezor client
+NonBlockingTrezorClient client = TrezorClients.newNonBlockingtUsbInstance(TrezorClients.newSessionId());
 
-// Add this as the listener (sets the event queue)
-trezor.addListener(this);
+// Connect the client
+client.connect();
 
-// Set up an executor service to monitor Trezor events
-trezorEventExecutorService.submit(new Runnable() {
-  @Override
-  public void run() {
+// Examine the event queue
+TrezorEvent event1 =  client.getTrezorEventQueue().poll(1, TimeUnit.SECONDS);
+log.info("Received: {} ", event1.eventType());
 
-    BlockingQueue<TrezorEvent> queue = getTrezorEventQueue();
+// Check that the device is connected
+if (TrezorEventType.DEVICE_DISCONNECTED.equals(event1.eventType())) {
+  log.error("Device is not connected");
+  System.exit(-1);
+}
 
-    while (true) {
-      try {
-        TrezorEvent event = queue.take();
+// Initialize
+client.initialize();
 
-        // Hand over to the event state machine
-        processEvent(event);
-
-      } catch (InterruptedException e) {
-        break;
-      } catch (IOException e) {
-        break;
-      }
-    }
-
-  }
-});
-
-// Connect
-trezor.connect();
-
-// Send a message
-trezor.sendMessage(TrezorMessage.Ping.getDefaultInstance());
-
-// The event queue will respond with a SUCCESS message
+// And so on...
 
 ```
 
-There is a default `BlockingTrezorClient` which wraps a `Trezor` implementation (socket or USB) into something 
+There is a `BlockingTrezorClient` which wraps a `Trezor` implementation (socket or USB) into something
 that may be a little easier to work with when just testing out the API.
 
