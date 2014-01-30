@@ -1,4 +1,8 @@
-Status: [![Build Status](https://travis-ci.org/bitcoin-solutions/trezorj.png?branch=master)](https://travis-ci.org/bitcoin-solutions/trezorj)
+# Trezorj has been depracted in favour of the MultiBit Hardware project
+
+The [MultiBit Hardware](https://github.com/bitcoin-solutions/mbhd-hardware) contains all of the earlier Trezorj project.
+
+----
 
 ### Trezorj
 
